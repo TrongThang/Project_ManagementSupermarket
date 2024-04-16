@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Syncfusion.Blazor.Buttons.25.1.38\build\Syncfusion.Blazor.Buttons.props" Condition="Exists('..\packages\Syncfusion.Blazor.Buttons.25.1.38\build\Syncfusion.Blazor.Buttons.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FA33D500-FBAB-4768-866C-45F29BB18CD0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ManagementSupermarket</RootNamespace>
+    <AssemblyName>ManagementSupermarket</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FontAwesome.Sharp, Version=6.3.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.6.3.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChangePassword.Designer.cs">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInfomation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInfomation.Designer.cs">
+      <DependentUpon>frmInfomation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\frmCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\frmCustomer.Designer.cs">
+      <DependentUpon>frmCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\frmHomeOfEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee\frmHomeOfEmployee.Designer.cs">
+      <DependentUpon>frmHomeOfEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\frmHomeOfManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\frmHomeOfManager.Designer.cs">
+      <DependentUpon>frmHomeOfManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\frmManagementEmployees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\frmManagementEmployees.Designer.cs">
+      <DependentUpon>frmManagementEmployees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\frmManagementProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\frmManagementProducts.Designer.cs">
+      <DependentUpon>frmManagementProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\frmOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\frmOrder.Designer.cs">
+      <DependentUpon>frmOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\frmSuppiler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\frmSuppiler.Designer.cs">
+      <DependentUpon>frmSuppiler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\frmWarehouse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\frmWarehouse.Designer.cs">
+      <DependentUpon>frmWarehouse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInfomation.resx">
+      <DependentUpon>frmInfomation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\frmCustomer.resx">
+      <DependentUpon>frmCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\frmHomeOfEmployee.resx">
+      <DependentUpon>frmHomeOfEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\frmHomeOfManager.resx">
+      <DependentUpon>frmHomeOfManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\frmManagementEmployees.resx">
+      <DependentUpon>frmManagementEmployees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\frmManagementProducts.resx">
+      <DependentUpon>frmManagementProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\frmOrder.resx">
+      <DependentUpon>frmOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\frmSuppiler.resx">
+      <DependentUpon>frmSuppiler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\frmWarehouse.resx">
+      <DependentUpon>frmWarehouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Image\Background\bgDangNhap.png" />
+    <Content Include="Image\Background\bgHome.png" />
+    <Content Include="Image\Background\bgMain.png" />
+    <Content Include="Image\Background\bgMain2.png" />
+    <Content Include="Image\Icon\iconPencil.png" />
+    <Content Include="Image\Icon\iconPlus.png" />
+    <Content Include="Image\Icon\iconReload.png" />
+    <Content Include="Image\Icon\iconSearch.png" />
+    <Content Include="Image\Icon\iconStudent.png" />
+    <Content Include="Image\Icon\pngtree-vector-trash-icon-png-image_865284.jpg" />
+    <Content Include="Image\Logo Project C#\avartaNam.png" />
+    <Content Include="Image\Logo Project C#\avatarNu.png" />
+    <Content Include="Image\Logo Project C#\banhang.png" />
+    <Content Include="Image\Logo Project C#\bieudo.png" />
+    <Content Include="Image\Logo Project C#\dangnhap.png" />
+    <Content Include="Image\Logo Project C#\dangxuat.png" />
+    <Content Include="Image\Logo Project C#\nhanvien.png" />
+    <Content Include="Image\Logo Project C#\nhaphang.png" />
+    <Content Include="Image\Logo Project C#\nhapkho.png" />
+    <Content Include="Image\Logo Project C#\timkiem.png" />
+    <Content Include="Image\Logo Project C#\undraw_visual_data_re_mxxo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{6f5dc8d2-c22f-414b-97d1-f5ca3b71b3e1}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Syncfusion.Blazor.Buttons.25.1.38\build\Syncfusion.Blazor.Buttons.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Syncfusion.Blazor.Buttons.25.1.38\build\Syncfusion.Blazor.Buttons.props'))" />
+  </Target>
+</Project>

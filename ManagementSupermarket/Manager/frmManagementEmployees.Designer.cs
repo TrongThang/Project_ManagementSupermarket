@@ -1,0 +1,542 @@
+﻿namespace ManagementSupermarket
+{
+    partial class frmManagementEmployees
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.grpInfo = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cbb_Role = new System.Windows.Forms.ComboBox();
+            this.btn_Upload = new FontAwesome.Sharp.IconButton();
+            this.pic_Avatar = new FontAwesome.Sharp.IconPictureBox();
+            this.chk_Status = new System.Windows.Forms.CheckBox();
+            this.txt_Address = new System.Windows.Forms.TextBox();
+            this.txt_Phone = new System.Windows.Forms.TextBox();
+            this.txt_CCCD = new System.Windows.Forms.TextBox();
+            this.txt_FullName = new System.Windows.Forms.TextBox();
+            this.txt_Salary = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dtp_CreatedTime = new System.Windows.Forms.DateTimePicker();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txt_Username = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rad_Female = new System.Windows.Forms.RadioButton();
+            this.rad_Male = new System.Windows.Forms.RadioButton();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dgv_ListEmployee = new System.Windows.Forms.DataGridView();
+            this.txt_Search = new System.Windows.Forms.TextBox();
+            this.btn_Search = new FontAwesome.Sharp.IconButton();
+            this.btn_Refresh = new FontAwesome.Sharp.IconButton();
+            this.btn_Delete = new FontAwesome.Sharp.IconButton();
+            this.btn_Alter = new FontAwesome.Sharp.IconButton();
+            this.btn_Add = new FontAwesome.Sharp.IconButton();
+            this.iconDropDownButton1 = new FontAwesome.Sharp.IconDropDownButton();
+            this.cbb_SearchRole = new System.Windows.Forms.ComboBox();
+            this.grpInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Avatar)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ListEmployee)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // grpInfo
+            // 
+            this.grpInfo.BackColor = System.Drawing.Color.Transparent;
+            this.grpInfo.Controls.Add(this.label7);
+            this.grpInfo.Controls.Add(this.cbb_Role);
+            this.grpInfo.Controls.Add(this.btn_Upload);
+            this.grpInfo.Controls.Add(this.pic_Avatar);
+            this.grpInfo.Controls.Add(this.chk_Status);
+            this.grpInfo.Controls.Add(this.txt_Address);
+            this.grpInfo.Controls.Add(this.txt_Phone);
+            this.grpInfo.Controls.Add(this.txt_CCCD);
+            this.grpInfo.Controls.Add(this.txt_FullName);
+            this.grpInfo.Controls.Add(this.txt_Salary);
+            this.grpInfo.Controls.Add(this.groupBox2);
+            this.grpInfo.Controls.Add(this.textBox3);
+            this.grpInfo.Controls.Add(this.txt_Username);
+            this.grpInfo.Controls.Add(this.groupBox1);
+            this.grpInfo.Controls.Add(this.label9);
+            this.grpInfo.Controls.Add(this.label8);
+            this.grpInfo.Controls.Add(this.label1);
+            this.grpInfo.Controls.Add(this.label5);
+            this.grpInfo.Controls.Add(this.label4);
+            this.grpInfo.Controls.Add(this.label3);
+            this.grpInfo.Controls.Add(this.label2);
+            this.grpInfo.ForeColor = System.Drawing.Color.Yellow;
+            this.grpInfo.Location = new System.Drawing.Point(30, 12);
+            this.grpInfo.Name = "grpInfo";
+            this.grpInfo.Size = new System.Drawing.Size(1198, 270);
+            this.grpInfo.TabIndex = 0;
+            this.grpInfo.TabStop = false;
+            this.grpInfo.Text = "Thông tin";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(208, 210);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 25);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Chức Vụ";
+            // 
+            // cbb_Role
+            // 
+            this.cbb_Role.FormattingEnabled = true;
+            this.cbb_Role.Location = new System.Drawing.Point(323, 206);
+            this.cbb_Role.Name = "cbb_Role";
+            this.cbb_Role.Size = new System.Drawing.Size(211, 34);
+            this.cbb_Role.TabIndex = 24;
+            // 
+            // btn_Upload
+            // 
+            this.btn_Upload.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_Upload.IconChar = FontAwesome.Sharp.IconChar.Upload;
+            this.btn_Upload.IconColor = System.Drawing.Color.Gray;
+            this.btn_Upload.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Upload.IconSize = 40;
+            this.btn_Upload.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Upload.Location = new System.Drawing.Point(41, 223);
+            this.btn_Upload.Name = "btn_Upload";
+            this.btn_Upload.Size = new System.Drawing.Size(120, 39);
+            this.btn_Upload.TabIndex = 23;
+            this.btn_Upload.Text = "Upload";
+            this.btn_Upload.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_Upload.UseVisualStyleBackColor = true;
+            // 
+            // pic_Avatar
+            // 
+            this.pic_Avatar.BackColor = System.Drawing.Color.Snow;
+            this.pic_Avatar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pic_Avatar.ForeColor = System.Drawing.Color.Yellow;
+            this.pic_Avatar.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.pic_Avatar.IconColor = System.Drawing.Color.Yellow;
+            this.pic_Avatar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.pic_Avatar.IconSize = 164;
+            this.pic_Avatar.Location = new System.Drawing.Point(20, 52);
+            this.pic_Avatar.Name = "pic_Avatar";
+            this.pic_Avatar.Size = new System.Drawing.Size(169, 164);
+            this.pic_Avatar.TabIndex = 22;
+            this.pic_Avatar.TabStop = false;
+            // 
+            // chk_Status
+            // 
+            this.chk_Status.AutoSize = true;
+            this.chk_Status.ForeColor = System.Drawing.Color.White;
+            this.chk_Status.Location = new System.Drawing.Point(919, 208);
+            this.chk_Status.Name = "chk_Status";
+            this.chk_Status.Size = new System.Drawing.Size(138, 30);
+            this.chk_Status.TabIndex = 21;
+            this.chk_Status.Text = "Hoạt Động";
+            this.chk_Status.UseVisualStyleBackColor = true;
+            // 
+            // txt_Address
+            // 
+            this.txt_Address.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_Address.Location = new System.Drawing.Point(843, 52);
+            this.txt_Address.Name = "txt_Address";
+            this.txt_Address.Size = new System.Drawing.Size(315, 32);
+            this.txt_Address.TabIndex = 20;
+            // 
+            // txt_Phone
+            // 
+            this.txt_Phone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_Phone.Location = new System.Drawing.Point(634, 52);
+            this.txt_Phone.Name = "txt_Phone";
+            this.txt_Phone.Size = new System.Drawing.Size(203, 32);
+            this.txt_Phone.TabIndex = 19;
+            // 
+            // txt_CCCD
+            // 
+            this.txt_CCCD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_CCCD.Location = new System.Drawing.Point(437, 52);
+            this.txt_CCCD.Name = "txt_CCCD";
+            this.txt_CCCD.Size = new System.Drawing.Size(178, 32);
+            this.txt_CCCD.TabIndex = 18;
+            // 
+            // txt_FullName
+            // 
+            this.txt_FullName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_FullName.Location = new System.Drawing.Point(213, 52);
+            this.txt_FullName.Name = "txt_FullName";
+            this.txt_FullName.Size = new System.Drawing.Size(203, 32);
+            this.txt_FullName.TabIndex = 17;
+            // 
+            // txt_Salary
+            // 
+            this.txt_Salary.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_Salary.Location = new System.Drawing.Point(608, 147);
+            this.txt_Salary.Name = "txt_Salary";
+            this.txt_Salary.Size = new System.Drawing.Size(177, 32);
+            this.txt_Salary.TabIndex = 16;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dtp_CreatedTime);
+            this.groupBox2.ForeColor = System.Drawing.Color.Yellow;
+            this.groupBox2.Location = new System.Drawing.Point(990, 112);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(196, 76);
+            this.groupBox2.TabIndex = 11;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Ngày Tạo";
+            // 
+            // dtp_CreatedTime
+            // 
+            this.dtp_CreatedTime.CustomFormat = "dd/MM/yyyy";
+            this.dtp_CreatedTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_CreatedTime.Location = new System.Drawing.Point(6, 32);
+            this.dtp_CreatedTime.Name = "dtp_CreatedTime";
+            this.dtp_CreatedTime.Size = new System.Drawing.Size(181, 32);
+            this.dtp_CreatedTime.TabIndex = 11;
+            // 
+            // textBox3
+            // 
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox3.Location = new System.Drawing.Point(406, 147);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(185, 32);
+            this.textBox3.TabIndex = 15;
+            // 
+            // txt_Username
+            // 
+            this.txt_Username.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_Username.Location = new System.Drawing.Point(213, 147);
+            this.txt_Username.Name = "txt_Username";
+            this.txt_Username.Size = new System.Drawing.Size(177, 32);
+            this.txt_Username.TabIndex = 14;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rad_Female);
+            this.groupBox1.Controls.Add(this.rad_Male);
+            this.groupBox1.ForeColor = System.Drawing.Color.Yellow;
+            this.groupBox1.Location = new System.Drawing.Point(791, 112);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(180, 76);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Giới tính";
+            // 
+            // rad_Female
+            // 
+            this.rad_Female.AutoSize = true;
+            this.rad_Female.ForeColor = System.Drawing.Color.White;
+            this.rad_Female.Location = new System.Drawing.Point(114, 32);
+            this.rad_Female.Name = "rad_Female";
+            this.rad_Female.Size = new System.Drawing.Size(61, 30);
+            this.rad_Female.TabIndex = 1;
+            this.rad_Female.TabStop = true;
+            this.rad_Female.Text = "Nữ";
+            this.rad_Female.UseVisualStyleBackColor = true;
+            // 
+            // rad_Male
+            // 
+            this.rad_Male.AutoSize = true;
+            this.rad_Male.ForeColor = System.Drawing.Color.White;
+            this.rad_Male.Location = new System.Drawing.Point(10, 32);
+            this.rad_Male.Name = "rad_Male";
+            this.rad_Male.Size = new System.Drawing.Size(80, 30);
+            this.rad_Male.TabIndex = 0;
+            this.rad_Male.TabStop = true;
+            this.rad_Male.Text = "Nam";
+            this.rad_Male.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(613, 119);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(67, 25);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Lương";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(629, 24);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 25);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "SĐT";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(838, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 25);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Địa Chỉ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(208, 24);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(144, 25);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Tên Nhân Viên";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(442, 27);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 25);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "CCCD";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(401, 119);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(97, 25);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Mật Khẩu";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(208, 119);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(103, 25);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Tài Khoản";
+            // 
+            // dgv_ListEmployee
+            // 
+            this.dgv_ListEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv_ListEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_ListEmployee.BackgroundColor = System.Drawing.Color.AliceBlue;
+            this.dgv_ListEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_ListEmployee.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dgv_ListEmployee.Location = new System.Drawing.Point(12, 360);
+            this.dgv_ListEmployee.Name = "dgv_ListEmployee";
+            this.dgv_ListEmployee.RowHeadersWidth = 51;
+            this.dgv_ListEmployee.RowTemplate.Height = 24;
+            this.dgv_ListEmployee.Size = new System.Drawing.Size(1230, 373);
+            this.dgv_ListEmployee.TabIndex = 1;
+            // 
+            // txt_Search
+            // 
+            this.txt_Search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_Search.Location = new System.Drawing.Point(958, 320);
+            this.txt_Search.Name = "txt_Search";
+            this.txt_Search.Size = new System.Drawing.Size(212, 32);
+            this.txt_Search.TabIndex = 7;
+            // 
+            // btn_Search
+            // 
+            this.btn_Search.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconSearch;
+            this.btn_Search.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Search.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btn_Search.IconColor = System.Drawing.Color.Black;
+            this.btn_Search.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Search.Location = new System.Drawing.Point(1176, 318);
+            this.btn_Search.Name = "btn_Search";
+            this.btn_Search.Size = new System.Drawing.Size(65, 36);
+            this.btn_Search.TabIndex = 6;
+            this.btn_Search.UseVisualStyleBackColor = true;
+            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
+            // 
+            // btn_Refresh
+            // 
+            this.btn_Refresh.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconReload;
+            this.btn_Refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Refresh.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btn_Refresh.IconColor = System.Drawing.Color.Black;
+            this.btn_Refresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Refresh.Location = new System.Drawing.Point(395, 288);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(79, 64);
+            this.btn_Refresh.TabIndex = 5;
+            this.btn_Refresh.UseVisualStyleBackColor = true;
+            // 
+            // btn_Delete
+            // 
+            this.btn_Delete.BackgroundImage = global::ManagementSupermarket.Properties.Resources.pngtree_vector_trash_icon_png_image_865284;
+            this.btn_Delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Delete.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btn_Delete.IconColor = System.Drawing.Color.Black;
+            this.btn_Delete.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Delete.Location = new System.Drawing.Point(271, 288);
+            this.btn_Delete.Name = "btn_Delete";
+            this.btn_Delete.Size = new System.Drawing.Size(79, 64);
+            this.btn_Delete.TabIndex = 4;
+            this.btn_Delete.UseVisualStyleBackColor = true;
+            // 
+            // btn_Alter
+            // 
+            this.btn_Alter.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconPencil;
+            this.btn_Alter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Alter.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btn_Alter.IconColor = System.Drawing.Color.Black;
+            this.btn_Alter.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Alter.Location = new System.Drawing.Point(158, 288);
+            this.btn_Alter.Name = "btn_Alter";
+            this.btn_Alter.Size = new System.Drawing.Size(79, 64);
+            this.btn_Alter.TabIndex = 3;
+            this.btn_Alter.UseVisualStyleBackColor = true;
+            // 
+            // btn_Add
+            // 
+            this.btn_Add.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconPlus;
+            this.btn_Add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Add.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btn_Add.IconColor = System.Drawing.Color.Black;
+            this.btn_Add.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Add.Location = new System.Drawing.Point(40, 288);
+            this.btn_Add.Name = "btn_Add";
+            this.btn_Add.Size = new System.Drawing.Size(79, 64);
+            this.btn_Add.TabIndex = 2;
+            this.btn_Add.UseVisualStyleBackColor = true;
+            // 
+            // iconDropDownButton1
+            // 
+            this.iconDropDownButton1.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconDropDownButton1.IconColor = System.Drawing.Color.Black;
+            this.iconDropDownButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconDropDownButton1.Name = "iconDropDownButton1";
+            this.iconDropDownButton1.Size = new System.Drawing.Size(23, 23);
+            this.iconDropDownButton1.Text = "iconDropDownButton1";
+            // 
+            // cbb_SearchRole
+            // 
+            this.cbb_SearchRole.FormattingEnabled = true;
+            this.cbb_SearchRole.Items.AddRange(new object[] {
+            "MaNV",
+            "CCCD",
+            "HoTen",
+            "GioiTinh",
+            "DiaChi",
+            "SDT",
+            "NgayTao",
+            "MaChucVu"});
+            this.cbb_SearchRole.Location = new System.Drawing.Point(821, 320);
+            this.cbb_SearchRole.Name = "cbb_SearchRole";
+            this.cbb_SearchRole.Size = new System.Drawing.Size(131, 34);
+            this.cbb_SearchRole.TabIndex = 8;
+            // 
+            // frmManagementEmployees
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackgroundImage = global::ManagementSupermarket.Properties.Resources.bgMain;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1254, 745);
+            this.Controls.Add(this.cbb_SearchRole);
+            this.Controls.Add(this.txt_Search);
+            this.Controls.Add(this.btn_Search);
+            this.Controls.Add(this.btn_Refresh);
+            this.Controls.Add(this.btn_Delete);
+            this.Controls.Add(this.btn_Alter);
+            this.Controls.Add(this.btn_Add);
+            this.Controls.Add(this.dgv_ListEmployee);
+            this.Controls.Add(this.grpInfo);
+            this.DoubleBuffered = true;
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.Black;
+            this.Margin = new System.Windows.Forms.Padding(5);
+            this.Name = "frmManagementEmployees";
+            this.Text = "frmManagementEmployee";
+            this.Load += new System.EventHandler(this.frmManagementEmployee_Load);
+            this.grpInfo.ResumeLayout(false);
+            this.grpInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Avatar)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ListEmployee)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.GroupBox grpInfo;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgv_ListEmployee;
+        private FontAwesome.Sharp.IconButton btn_Add;
+        private FontAwesome.Sharp.IconButton btn_Alter;
+        private FontAwesome.Sharp.IconButton btn_Delete;
+        private FontAwesome.Sharp.IconButton btn_Refresh;
+        private System.Windows.Forms.DateTimePicker dtp_CreatedTime;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rad_Female;
+        private System.Windows.Forms.RadioButton rad_Male;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txt_Username;
+        private System.Windows.Forms.TextBox txt_Phone;
+        private System.Windows.Forms.TextBox txt_CCCD;
+        private System.Windows.Forms.TextBox txt_FullName;
+        private System.Windows.Forms.TextBox txt_Salary;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox txt_Address;
+        private System.Windows.Forms.CheckBox chk_Status;
+        private FontAwesome.Sharp.IconButton btn_Search;
+        private System.Windows.Forms.TextBox txt_Search;
+        private FontAwesome.Sharp.IconDropDownButton iconDropDownButton1;
+        private FontAwesome.Sharp.IconPictureBox pic_Avatar;
+        private FontAwesome.Sharp.IconButton btn_Upload;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cbb_Role;
+        private System.Windows.Forms.ComboBox cbb_SearchRole;
+    }
+}

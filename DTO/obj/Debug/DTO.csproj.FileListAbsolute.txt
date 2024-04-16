@@ -1,0 +1,6 @@
+D:\C#\Project_Subject\ManagementSupermarket\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
+D:\C#\Project_Subject\ManagementSupermarket\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+D:\C#\Project_Subject\ManagementSupermarket\DTO\bin\Debug\DTO.dll
+D:\C#\Project_Subject\ManagementSupermarket\DTO\bin\Debug\DTO.pdb
+D:\C#\Project_Subject\ManagementSupermarket\DTO\obj\Debug\DTO.dll
+D:\C#\Project_Subject\ManagementSupermarket\DTO\obj\Debug\DTO.pdb
