@@ -40,5 +40,14 @@ namespace DTO
             this.dt_CreatedTime = dt_CreatedTime;
             s_Status = status;
         }
+
+        public string S_ID { get => s_ID; set => s_ID = value; }
+        public string S_FullName { get => s_FullName; set => s_FullName = value; }
+        public string S_CCCD { get => s_CCCD; set => s_CCCD = value; }
+        public string S_Phone { get => s_Phone; set => s_Phone = value; }
+        public string S_Gender { get => s_Gender; set => s_Gender = value; }
+        public string S_Address { get => s_Address; set => s_Address = value; }
+        public DateTime Dt_CreatedTime { get => dt_CreatedTime; set => dt_CreatedTime = value; }
+        public byte S_Status { get => s_Status; set => s_Status = value; }
     }
 }

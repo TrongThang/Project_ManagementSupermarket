@@ -12,24 +12,6 @@ namespace DAL
 
     public class DAL_Employee
     {    
-        //public DataTable GetEmployee(string id = null)
-        //{
-        //    DP db = new DP();
-        //    string sql = "sp_getEmployee";
-        //    DataTable tblEmployee = null;
-
-        //    if (id == null)
-        //    {
-        //        tblEmployee = db.queryExecuteAdapter(sql);
-        //    }
-        //    else
-        //    {
-        //        db.addParam("id", id);
-        //        tblEmployee = db.queryExecuteAdapter(sql);
-        //    }
-        //    return tblEmployee;
-        //}
-
         public DataTable GetEmployeeTo(string keySearch, string value = null)
         {
             DP db = new DP();
@@ -45,7 +27,7 @@ namespace DAL
         }
 
 
-        public int InsertEmployee(DTO_Employee employee)
+        public DataTable InsertEmployee(DTO_Employee employee)
         {
             DP db = new DP();
             string sql = "sp_InsertEmployee";
@@ -61,8 +43,8 @@ namespace DAL
             db.addParam("Luong", employee.D_Salary);
             db.addParam("TrangThai", employee.S_Status);
 
-            int numOfRows = db.queryExecute(sql);
-            return numOfRows;
+            DataTable result = db.queryExecuteAdapter(sql);
+            return result;
         }
         public int UpdateEmployee(DTO_Employee employee)
         {
