@@ -12,6 +12,12 @@ namespace ManagementSupermarket
 {
     public partial class frmHomeOfManager : Form
     {
+        private string s_role;
+        public frmHomeOfManager(string role)
+        {
+            s_role = role;
+            InitializeComponent();
+        }
         public frmHomeOfManager()
         {
             InitializeComponent();

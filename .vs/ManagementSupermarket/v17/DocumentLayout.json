@@ -3,20 +3,52 @@
   "WorkspaceRootPath": "D:\\C#\\Project_Subject\\ManagementSupermarket\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|d:\\c#\\project_subject\\managementsupermarket\\managementsupermarket\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|d:\\c#\\project_subject\\managementsupermarket\\managementsupermarket\\manager\\frmhomeofmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\manager\\frmhomeofmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87EC0A35-5259-44B7-B5DA-226BD6100643}|BLL\\BLL.csproj|d:\\c#\\project_subject\\managementsupermarket\\bll\\bll_account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87EC0A35-5259-44B7-B5DA-226BD6100643}|BLL\\BLL.csproj|solutionrelative:bll\\bll_account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F5DC8D2-C22F-414B-97D1-F5CA3B71B3E1}|DAL\\DAL.csproj|d:\\c#\\project_subject\\managementsupermarket\\dal\\dal_account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F5DC8D2-C22F-414B-97D1-F5CA3B71B3E1}|DAL\\DAL.csproj|solutionrelative:dal\\dal_account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F5DC8D2-C22F-414B-97D1-F5CA3B71B3E1}|DAL\\DAL.csproj|D:\\C#\\Project_Subject\\ManagementSupermarket\\dal\\dal_role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F5DC8D2-C22F-414B-97D1-F5CA3B71B3E1}|DAL\\DAL.csproj|solutionrelative:dal\\dal_role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|D:\\C#\\Project_Subject\\ManagementSupermarket\\managementsupermarket\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|D:\\C#\\Project_Subject\\ManagementSupermarket\\managementsupermarket\\manager\\frmmanagementemployees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\manager\\frmmanagementemployees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6F5DC8D2-C22F-414B-97D1-F5CA3B71B3E1}|DAL\\DAL.csproj|d:\\c#\\project_subject\\managementsupermarket\\dal\\dal_employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6F5DC8D2-C22F-414B-97D1-F5CA3B71B3E1}|DAL\\DAL.csproj|solutionrelative:dal\\dal_employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{87EC0A35-5259-44B7-B5DA-226BD6100643}|BLL\\BLL.csproj|D:\\C#\\Project_Subject\\ManagementSupermarket\\bll\\bll_role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87EC0A35-5259-44B7-B5DA-226BD6100643}|BLL\\BLL.csproj|solutionrelative:bll\\bll_role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|D:\\C#\\Project_Subject\\ManagementSupermarket\\managementsupermarket\\manager\\frmmanagementemployees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\manager\\frmmanagementemployees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6F5DC8D2-C22F-414B-97D1-F5CA3B71B3E1}|DAL\\DAL.csproj|D:\\C#\\Project_Subject\\ManagementSupermarket\\dal\\dp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6F5DC8D2-C22F-414B-97D1-F5CA3B71B3E1}|DAL\\DAL.csproj|solutionrelative:dal\\dp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6F5DC8D2-C22F-414B-97D1-F5CA3B71B3E1}|DAL\\DAL.csproj|D:\\C#\\Project_Subject\\ManagementSupermarket\\dal\\dal_employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F5DC8D2-C22F-414B-97D1-F5CA3B71B3E1}|DAL\\DAL.csproj|solutionrelative:dal\\dal_employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F5DC8D2-C22F-414B-97D1-F5CA3B71B3E1}|DAL\\DAL.csproj|D:\\C#\\Project_Subject\\ManagementSupermarket\\dal\\dal_supplier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F5DC8D2-C22F-414B-97D1-F5CA3B71B3E1}|DAL\\DAL.csproj|solutionrelative:dal\\dal_supplier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87EC0A35-5259-44B7-B5DA-226BD6100643}|BLL\\BLL.csproj|D:\\C#\\Project_Subject\\ManagementSupermarket\\bll\\bll_supplier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87EC0A35-5259-44B7-B5DA-226BD6100643}|BLL\\BLL.csproj|solutionrelative:bll\\bll_supplier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,63 +58,175 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "DP.cs",
-              "DocumentMoniker": "D:\\C#\\Project_Subject\\ManagementSupermarket\\DAL\\DP.cs",
-              "RelativeDocumentMoniker": "DAL\\DP.cs",
-              "ToolTip": "D:\\C#\\Project_Subject\\ManagementSupermarket\\DAL\\DP.cs",
-              "RelativeToolTip": "DAL\\DP.cs",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAowEIAAAA/AAAA",
+              "Title": "DAL_Account.cs",
+              "DocumentMoniker": "D:\\C#\\Project_Subject\\ManagementSupermarket\\DAL\\DAL_Account.cs",
+              "RelativeDocumentMoniker": "DAL\\DAL_Account.cs",
+              "ToolTip": "D:\\C#\\Project_Subject\\ManagementSupermarket\\DAL\\DAL_Account.cs",
+              "RelativeToolTip": "DAL\\DAL_Account.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABEAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T17:09:48.377Z",
+              "WhenOpened": "2024-04-17T08:12:33.98Z",
               "IsPinned": true,
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "DAL_Employee.cs",
-              "DocumentMoniker": "D:\\C#\\Project_Subject\\ManagementSupermarket\\DAL\\DAL_Employee.cs",
-              "RelativeDocumentMoniker": "DAL\\DAL_Employee.cs",
-              "ToolTip": "D:\\C#\\Project_Subject\\ManagementSupermarket\\DAL\\DAL_Employee.cs",
-              "RelativeToolTip": "DAL\\DAL_Employee.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAgwCwAAAAIAAAA",
+              "Title": "frmHomeOfManager.cs",
+              "DocumentMoniker": "D:\\C#\\Project_Subject\\ManagementSupermarket\\ManagementSupermarket\\Manager\\frmHomeOfManager.cs",
+              "RelativeDocumentMoniker": "ManagementSupermarket\\Manager\\frmHomeOfManager.cs",
+              "ToolTip": "D:\\C#\\Project_Subject\\ManagementSupermarket\\ManagementSupermarket\\Manager\\frmHomeOfManager.cs",
+              "RelativeToolTip": "ManagementSupermarket\\Manager\\frmHomeOfManager.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAcwBEAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T17:09:47.05Z",
+              "WhenOpened": "2024-04-17T08:46:56.028Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "frmManagementEmployees.cs",
-              "DocumentMoniker": "D:\\C#\\Project_Subject\\ManagementSupermarket\\ManagementSupermarket\\Manager\\frmManagementEmployees.cs",
-              "RelativeDocumentMoniker": "ManagementSupermarket\\Manager\\frmManagementEmployees.cs",
-              "ToolTip": "D:\\C#\\Project_Subject\\ManagementSupermarket\\ManagementSupermarket\\Manager\\frmManagementEmployees.cs",
-              "RelativeToolTip": "ManagementSupermarket\\Manager\\frmManagementEmployees.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABYAAAAtAAAA",
+              "Title": "BLL_Account.cs",
+              "DocumentMoniker": "D:\\C#\\Project_Subject\\ManagementSupermarket\\BLL\\BLL_Account.cs",
+              "RelativeDocumentMoniker": "BLL\\BLL_Account.cs",
+              "ToolTip": "D:\\C#\\Project_Subject\\ManagementSupermarket\\BLL\\BLL_Account.cs",
+              "RelativeToolTip": "BLL\\BLL_Account.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T17:07:31.482Z",
+              "WhenOpened": "2024-04-17T08:20:41.564Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "frmLogin.cs",
+              "DocumentMoniker": "D:\\C#\\Project_Subject\\ManagementSupermarket\\ManagementSupermarket\\frmLogin.cs",
+              "RelativeDocumentMoniker": "ManagementSupermarket\\frmLogin.cs",
+              "ToolTip": "D:\\C#\\Project_Subject\\ManagementSupermarket\\ManagementSupermarket\\frmLogin.cs",
+              "RelativeToolTip": "ManagementSupermarket\\frmLogin.cs",
+              "ViewState": "AQIAACgAAAAAAAAAAAAcwC0AAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-17T02:34:31.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "frmLogin.cs [Design]",
+              "DocumentMoniker": "D:\\C#\\Project_Subject\\ManagementSupermarket\\ManagementSupermarket\\frmLogin.cs",
+              "RelativeDocumentMoniker": "ManagementSupermarket\\frmLogin.cs",
+              "ToolTip": "D:\\C#\\Project_Subject\\ManagementSupermarket\\ManagementSupermarket\\frmLogin.cs [Design]",
+              "RelativeToolTip": "ManagementSupermarket\\frmLogin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-17T02:28:22.422Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "frmManagementEmployees.cs [Design]",
               "DocumentMoniker": "D:\\C#\\Project_Subject\\ManagementSupermarket\\ManagementSupermarket\\Manager\\frmManagementEmployees.cs",
               "RelativeDocumentMoniker": "ManagementSupermarket\\Manager\\frmManagementEmployees.cs",
               "ToolTip": "D:\\C#\\Project_Subject\\ManagementSupermarket\\ManagementSupermarket\\Manager\\frmManagementEmployees.cs [Design]",
               "RelativeToolTip": "ManagementSupermarket\\Manager\\frmManagementEmployees.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T17:07:28.122Z",
+              "WhenOpened": "2024-04-17T02:27:43.008Z",
               "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "frmManagementEmployees.cs",
+              "DocumentMoniker": "D:\\C#\\Project_Subject\\ManagementSupermarket\\ManagementSupermarket\\Manager\\frmManagementEmployees.cs",
+              "RelativeDocumentMoniker": "ManagementSupermarket\\Manager\\frmManagementEmployees.cs",
+              "ToolTip": "D:\\C#\\Project_Subject\\ManagementSupermarket\\ManagementSupermarket\\Manager\\frmManagementEmployees.cs",
+              "RelativeToolTip": "ManagementSupermarket\\Manager\\frmManagementEmployees.cs",
+              "ViewState": "AQIAAFQAAAAAAAAAAADwv2EAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T17:07:31.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BLL_Role.cs",
+              "DocumentMoniker": "D:\\C#\\Project_Subject\\ManagementSupermarket\\BLL\\BLL_Role.cs",
+              "RelativeDocumentMoniker": "BLL\\BLL_Role.cs",
+              "ToolTip": "D:\\C#\\Project_Subject\\ManagementSupermarket\\BLL\\BLL_Role.cs",
+              "RelativeToolTip": "BLL\\BLL_Role.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T16:47:52.16Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DAL_Role.cs",
+              "DocumentMoniker": "D:\\C#\\Project_Subject\\ManagementSupermarket\\DAL\\DAL_Role.cs",
+              "RelativeDocumentMoniker": "DAL\\DAL_Role.cs",
+              "ToolTip": "D:\\C#\\Project_Subject\\ManagementSupermarket\\DAL\\DAL_Role.cs",
+              "RelativeToolTip": "DAL\\DAL_Role.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAIwBgAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T16:47:04.807Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "BLL_Supplier.cs",
+              "DocumentMoniker": "D:\\C#\\Project_Subject\\ManagementSupermarket\\BLL\\BLL_Supplier.cs",
+              "RelativeDocumentMoniker": "BLL\\BLL_Supplier.cs",
+              "ToolTip": "D:\\C#\\Project_Subject\\ManagementSupermarket\\BLL\\BLL_Supplier.cs",
+              "RelativeToolTip": "BLL\\BLL_Supplier.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T16:45:38.423Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "DAL_Supplier.cs",
+              "DocumentMoniker": "D:\\C#\\Project_Subject\\ManagementSupermarket\\DAL\\DAL_Supplier.cs",
+              "RelativeDocumentMoniker": "DAL\\DAL_Supplier.cs",
+              "ToolTip": "D:\\C#\\Project_Subject\\ManagementSupermarket\\DAL\\DAL_Supplier.cs",
+              "RelativeToolTip": "DAL\\DAL_Supplier.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABgAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T16:42:40.932Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DAL_Employee.cs",
+              "DocumentMoniker": "D:\\C#\\Project_Subject\\ManagementSupermarket\\DAL\\DAL_Employee.cs",
+              "RelativeDocumentMoniker": "DAL\\DAL_Employee.cs",
+              "ToolTip": "D:\\C#\\Project_Subject\\ManagementSupermarket\\DAL\\DAL_Employee.cs",
+              "RelativeToolTip": "DAL\\DAL_Employee.cs",
+              "ViewState": "AQIAACcAAAAAAAAAAAArwCwAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T15:16:17.666Z"
             }
           ]
         }

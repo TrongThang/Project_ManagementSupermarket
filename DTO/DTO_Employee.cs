@@ -37,7 +37,7 @@ namespace DTO
             s_Status = 0;
         }
 
-        public DTO_Employee(string iD, string fileNameImage, string CCCD, string fullName, string gender, string address, string phone, DateTime dt_CreatedTime, string role, double d_Salary,byte status)
+        public DTO_Employee(string fullName, string fileNameImage, string CCCD, string gender, string address, string phone, DateTime dt_CreatedTime, string role, double d_Salary,byte status, string iD = null)
         {
             s_ID = iD;
             s_FileNameImage = fileNameImage;

@@ -24,3 +24,5 @@ D:\C#\Project_Subject\ManagementSupermarket\ManagementSupermarket\bin\Debug\DAL.
 D:\C#\Project_Subject\ManagementSupermarket\ManagementSupermarket\bin\Debug\DTO.dll
 D:\C#\Project_Subject\ManagementSupermarket\ManagementSupermarket\bin\Debug\DAL.pdb
 D:\C#\Project_Subject\ManagementSupermarket\ManagementSupermarket\bin\Debug\DTO.pdb
+D:\C#\Project_Subject\ManagementSupermarket\ManagementSupermarket\bin\Debug\BLL.dll
+D:\C#\Project_Subject\ManagementSupermarket\ManagementSupermarket\bin\Debug\BLL.pdb

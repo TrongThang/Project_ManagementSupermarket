@@ -57,6 +57,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Event.cs" />
     <Compile Include="frmChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +188,8 @@
     <Content Include="Image\Background\bgHome.png" />
     <Content Include="Image\Background\bgMain.png" />
     <Content Include="Image\Background\bgMain2.png" />
+    <Content Include="Image\Icon\avatarDefaultFemale.png" />
+    <Content Include="Image\Icon\avatarDefaultMale.png" />
     <Content Include="Image\Icon\iconPencil.png" />
     <Content Include="Image\Icon\iconPlus.png" />
     <Content Include="Image\Icon\iconReload.png" />
@@ -206,9 +209,13 @@
     <Content Include="Image\Logo Project C#\undraw_visual_data_re_mxxo.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{6f5dc8d2-c22f-414b-97d1-f5ca3b71b3e1}</Project>
-      <Name>DAL</Name>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{87ec0a35-5259-44b7-b5da-226bd6100643}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{7c2baec6-d4e6-422c-883e-21f2b9be4109}</Project>
+      <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

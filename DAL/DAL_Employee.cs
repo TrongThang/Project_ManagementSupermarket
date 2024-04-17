@@ -11,25 +11,23 @@ namespace DAL
 {
 
     public class DAL_Employee
-    {    
-        //public DataTable GetEmployee(string id = null)
-        //{
-        //    DP db = new DP();
-        //    string sql = "sp_getEmployee";
-        //    DataTable tblEmployee = null;
-
-        //    if (id == null)
-        //    {
-        //        tblEmployee = db.queryExecuteAdapter(sql);
-        //    }
-        //    else
-        //    {
-        //        db.addParam("id", id);
-        //        tblEmployee = db.queryExecuteAdapter(sql);
-        //    }
-        //    return tblEmployee;
-        //}
-
+    {
+        private DP db = new DP();
+        private Dictionary<string, dynamic> createDict(DTO_Employee employee)
+        {
+            Dictionary<string, dynamic> dict = new Dictionary<string, dynamic>();
+            dict.Add("HinhAnh", employee.S_FileNameImage);
+            dict.Add("CCCD", employee.S_CCCD);
+            dict.Add("HoTen", employee.S_FullName);
+            dict.Add("GioiTinh", employee.S_Gender);
+            dict.Add("DiaChi", employee.S_Address);
+            dict.Add("SDT", employee.S_Phone);
+            dict.Add("NgayTao", employee.Dt_CreatedTime);
+            dict.Add("MaChucVu", employee.S_Role);
+            dict.Add("Luong", employee.D_Salary);
+            dict.Add("TrangThai", employee.S_Status);
+            return dict;
+        }
         public DataTable GetEmployeeTo(string keySearch, string value = null)
         {
             DP db = new DP();
@@ -44,24 +42,14 @@ namespace DAL
             return tblEmployee;
         }
 
-
         public int InsertEmployee(DTO_Employee employee)
         {
-            DP db = new DP();
             string sql = "sp_InsertEmployee";
+            Dictionary<string, dynamic> dict = new Dictionary<string, dynamic>();
+            dict = createDict(employee);
 
-            db.addParam("HinhAnh", employee.S_FileNameImage);
-            db.addParam("CCCD", employee.S_CCCD);
-            db.addParam("HoTen", employee.S_FullName);
-            db.addParam("GioiTinh", employee.S_Gender);
-            db.addParam("DiaChi", employee.S_Address);
-            db.addParam("SDT", employee.S_Phone);
-            db.addParam("NgayTao", employee.Dt_CreatedTime);
-            db.addParam("MaChucVu", employee.S_Role);
-            db.addParam("Luong", employee.D_Salary);
-            db.addParam("TrangThai", employee.S_Status);
-
-            int numOfRows = db.queryExecute(sql);
+            DataTable result = db.queryExecuteAdapter(sql, dict); 
+            int numOfRows = result.Rows.Count;
             return numOfRows;
         }
         public int UpdateEmployee(DTO_Employee employee)
@@ -69,19 +57,11 @@ namespace DAL
             DP db = new DP();
             string sql = "sp_UpdateEmployee";
 
-            db.addParam("id", employee.S_ID);
-            db.addParam("HinhAnh", employee.S_FileNameImage);
-            db.addParam("CCCD", employee.S_CCCD);
-            db.addParam("HoTen", employee.S_FullName);
-            db.addParam("GioiTinh", employee.S_Gender);
-            db.addParam("DiaChi", employee.S_Address);
-            db.addParam("SDT", employee.S_Phone);
-            db.addParam("NgayTao", employee.Dt_CreatedTime);
-            db.addParam("MaChucVu", employee.S_Role);
-            db.addParam("Luong", employee.D_Salary);
-            db.addParam("TrangThai", employee.S_Status);
+            Dictionary<string, dynamic> dict = new Dictionary<string, dynamic>();
+            dict = createDict(employee);
 
-            int numOfRows = db.queryExecute(sql);
+            DataTable result = db.queryExecuteAdapter(sql, dict);
+            int numOfRows = result.Rows.Count;
             return numOfRows;
         }
 
@@ -94,7 +74,9 @@ namespace DAL
             db.addParam("id", employee.S_ID);
 
 
-            int numOfRows = db.queryExecute(sql);
+            DataTable result = db.queryExecuteAdapter(sql);
+
+            int numOfRows = result.Rows.Count;
             return numOfRows;
         }
 
