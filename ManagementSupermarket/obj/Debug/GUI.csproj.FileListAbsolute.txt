@@ -54,3 +54,32 @@ D:\C#\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\GUI.csproj.C
 D:\C#\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\GUI.csproj.Up2Date
 D:\C#\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.exe
 D:\C#\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.pdb
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\bin\Debug\ManagementSupermarket.exe.config
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\bin\Debug\ManagementSupermarket.exe
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\bin\Debug\ManagementSupermarket.pdb
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\bin\Debug\BLL.dll
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\bin\Debug\DTO.dll
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\bin\Debug\FontAwesome.Sharp.dll
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\bin\Debug\DAL.dll
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\bin\Debug\BLL.pdb
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\bin\Debug\DTO.pdb
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\bin\Debug\DAL.pdb
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\GUI.csproj.AssemblyReference.cache
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\GUI.csproj.SuggestedBindingRedirects.cache
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmChangePassword.resources
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmInfomation.resources
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmCustomer.resources
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmHomeOfEmployee.resources
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmHomeOfManager.resources
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmLogin.resources
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmManagementEmployees.resources
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmManagementProducts.resources
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmOrder.resources
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmSuppiler.resources
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.Manager.frmWarehouse.resources
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.Properties.Resources.resources
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\GUI.csproj.GenerateResource.cache
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\GUI.csproj.CoreCompileInputs.cache
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\GUI.csproj.CopyComplete
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.exe
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.pdb

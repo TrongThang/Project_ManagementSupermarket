@@ -64,8 +64,8 @@
             this.lbl_ErrorAddress = new System.Windows.Forms.Label();
             this.lbl_ErrorSalary = new System.Windows.Forms.Label();
             this.grpInfo = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.txt_Id = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ListEmployee)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -367,7 +367,7 @@
             this.pic_Avatar.IconChar = FontAwesome.Sharp.IconChar.None;
             this.pic_Avatar.IconColor = System.Drawing.Color.Yellow;
             this.pic_Avatar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.pic_Avatar.IconSize = 208;
+            this.pic_Avatar.IconSize = 164;
             this.pic_Avatar.Location = new System.Drawing.Point(20, 52);
             this.pic_Avatar.Name = "pic_Avatar";
             this.pic_Avatar.Size = new System.Drawing.Size(169, 164);
@@ -505,17 +505,6 @@
             this.grpInfo.TabStop = false;
             this.grpInfo.Text = "Thông tin";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(207, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(171, 31);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Mã Nhân Viên";
-            // 
             // txt_Id
             // 
             this.txt_Id.BackColor = System.Drawing.SystemColors.ControlDark;
@@ -525,6 +514,17 @@
             this.txt_Id.ReadOnly = true;
             this.txt_Id.Size = new System.Drawing.Size(180, 32);
             this.txt_Id.TabIndex = 17;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(207, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(137, 25);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Mã Nhân Viên";
             // 
             // frmManagementEmployees
             // 
