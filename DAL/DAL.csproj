@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL_Customer.cs" />
     <Compile Include="DAL_Account.cs" />
     <Compile Include="DAL_Employee.cs" />
     <Compile Include="DAL_Role.cs" />
