@@ -73,7 +73,7 @@ namespace ManagementSupermarket
             {
                 return;
             }
-            DTO_Customer customer = new DTO_Customer(fullName,CCCD,phone,gender,address,createdTime,status);
+            DTO_Customer customer = new DTO_Customer(fullName, CCCD, phone, gender, address, createdTime, status);
             int numOfRows = dataCustomer.InsertCustomer(customer);
             if (numOfRows > 0)
             {
@@ -81,7 +81,7 @@ namespace ManagementSupermarket
                 MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-
+                
 
         }
     }

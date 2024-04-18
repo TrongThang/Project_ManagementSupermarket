@@ -14,6 +14,10 @@ namespace DAL
         private Dictionary<string, dynamic> createDict(DTO_Customer customer)
         {
             Dictionary<string, dynamic> dict = new Dictionary<string, dynamic>();
+            if(customer.S_ID != null)
+            {
+                dict.Add("MaKH", customer.S_ID);
+            }
             dict.Add("HoTen", customer.S_FullName);
             dict.Add("CCCD", customer.S_CCCD);
             dict.Add("GioiTinh", customer.S_Gender);
@@ -56,7 +60,6 @@ namespace DAL
             Dictionary<string, dynamic> dict = new Dictionary<string, dynamic>();
             dict = createDict(customer);
            
-
             DataTable result = db.queryExecuteAdapter(sql, dict);
             int numOfRows = result.Rows.Count;
             return numOfRows;

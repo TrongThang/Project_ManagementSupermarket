@@ -47,16 +47,16 @@
             this.txt_FullName = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.grpInfo = new System.Windows.Forms.GroupBox();
+            this.lbl_ErrorAddress = new System.Windows.Forms.Label();
+            this.lbl_ErrorPhone = new System.Windows.Forms.Label();
+            this.lbl_ErrorCCCD = new System.Windows.Forms.Label();
+            this.lbl_ErrorName = new System.Windows.Forms.Label();
             this.btn_Search = new FontAwesome.Sharp.IconButton();
             this.btn_Refresh = new FontAwesome.Sharp.IconButton();
             this.btn_Delete = new FontAwesome.Sharp.IconButton();
             this.btn_Add = new FontAwesome.Sharp.IconButton();
             this.btn_Alter = new FontAwesome.Sharp.IconButton();
             this.cbb_Search = new System.Windows.Forms.ComboBox();
-            this.lbl_ErrorName = new System.Windows.Forms.Label();
-            this.lbl_ErrorCCCD = new System.Windows.Forms.Label();
-            this.lbl_ErrorPhone = new System.Windows.Forms.Label();
-            this.lbl_ErrorAddress = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ListCustomer)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -275,6 +275,46 @@
             this.grpInfo.TabStop = false;
             this.grpInfo.Text = "Thông tin";
             // 
+            // lbl_ErrorAddress
+            // 
+            this.lbl_ErrorAddress.AutoSize = true;
+            this.lbl_ErrorAddress.ForeColor = System.Drawing.Color.Red;
+            this.lbl_ErrorAddress.Location = new System.Drawing.Point(39, 201);
+            this.lbl_ErrorAddress.Name = "lbl_ErrorAddress";
+            this.lbl_ErrorAddress.Size = new System.Drawing.Size(70, 26);
+            this.lbl_ErrorAddress.TabIndex = 25;
+            this.lbl_ErrorAddress.Text = "label9";
+            // 
+            // lbl_ErrorPhone
+            // 
+            this.lbl_ErrorPhone.AutoSize = true;
+            this.lbl_ErrorPhone.ForeColor = System.Drawing.Color.Red;
+            this.lbl_ErrorPhone.Location = new System.Drawing.Point(745, 109);
+            this.lbl_ErrorPhone.Name = "lbl_ErrorPhone";
+            this.lbl_ErrorPhone.Size = new System.Drawing.Size(70, 26);
+            this.lbl_ErrorPhone.TabIndex = 24;
+            this.lbl_ErrorPhone.Text = "label7";
+            // 
+            // lbl_ErrorCCCD
+            // 
+            this.lbl_ErrorCCCD.AutoSize = true;
+            this.lbl_ErrorCCCD.ForeColor = System.Drawing.Color.Red;
+            this.lbl_ErrorCCCD.Location = new System.Drawing.Point(498, 109);
+            this.lbl_ErrorCCCD.Name = "lbl_ErrorCCCD";
+            this.lbl_ErrorCCCD.Size = new System.Drawing.Size(70, 26);
+            this.lbl_ErrorCCCD.TabIndex = 23;
+            this.lbl_ErrorCCCD.Text = "label3";
+            // 
+            // lbl_ErrorName
+            // 
+            this.lbl_ErrorName.AutoSize = true;
+            this.lbl_ErrorName.ForeColor = System.Drawing.Color.Red;
+            this.lbl_ErrorName.Location = new System.Drawing.Point(241, 109);
+            this.lbl_ErrorName.Name = "lbl_ErrorName";
+            this.lbl_ErrorName.Size = new System.Drawing.Size(70, 26);
+            this.lbl_ErrorName.TabIndex = 22;
+            this.lbl_ErrorName.Text = "label1";
+            // 
             // btn_Search
             // 
             this.btn_Search.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconSearch;
@@ -349,51 +389,11 @@
             this.cbb_Search.Size = new System.Drawing.Size(121, 34);
             this.cbb_Search.TabIndex = 16;
             // 
-            // lbl_ErrorName
-            // 
-            this.lbl_ErrorName.AutoSize = true;
-            this.lbl_ErrorName.ForeColor = System.Drawing.Color.Red;
-            this.lbl_ErrorName.Location = new System.Drawing.Point(241, 109);
-            this.lbl_ErrorName.Name = "lbl_ErrorName";
-            this.lbl_ErrorName.Size = new System.Drawing.Size(70, 26);
-            this.lbl_ErrorName.TabIndex = 22;
-            this.lbl_ErrorName.Text = "label1";
-            // 
-            // lbl_ErrorCCCD
-            // 
-            this.lbl_ErrorCCCD.AutoSize = true;
-            this.lbl_ErrorCCCD.ForeColor = System.Drawing.Color.Red;
-            this.lbl_ErrorCCCD.Location = new System.Drawing.Point(498, 109);
-            this.lbl_ErrorCCCD.Name = "lbl_ErrorCCCD";
-            this.lbl_ErrorCCCD.Size = new System.Drawing.Size(70, 26);
-            this.lbl_ErrorCCCD.TabIndex = 23;
-            this.lbl_ErrorCCCD.Text = "label3";
-            // 
-            // lbl_ErrorPhone
-            // 
-            this.lbl_ErrorPhone.AutoSize = true;
-            this.lbl_ErrorPhone.ForeColor = System.Drawing.Color.Red;
-            this.lbl_ErrorPhone.Location = new System.Drawing.Point(745, 109);
-            this.lbl_ErrorPhone.Name = "lbl_ErrorPhone";
-            this.lbl_ErrorPhone.Size = new System.Drawing.Size(70, 26);
-            this.lbl_ErrorPhone.TabIndex = 24;
-            this.lbl_ErrorPhone.Text = "label7";
-            // 
-            // lbl_ErrorAddress
-            // 
-            this.lbl_ErrorAddress.AutoSize = true;
-            this.lbl_ErrorAddress.ForeColor = System.Drawing.Color.Red;
-            this.lbl_ErrorAddress.Location = new System.Drawing.Point(39, 201);
-            this.lbl_ErrorAddress.Name = "lbl_ErrorAddress";
-            this.lbl_ErrorAddress.Size = new System.Drawing.Size(70, 26);
-            this.lbl_ErrorAddress.TabIndex = 25;
-            this.lbl_ErrorAddress.Text = "label9";
-            // 
             // frmCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::ManagementSupermarket.Properties.Resources.bgMain;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
             this.ClientSize = new System.Drawing.Size(1240, 735);
             this.Controls.Add(this.cbb_Search);
             this.Controls.Add(this.txt_Search);
