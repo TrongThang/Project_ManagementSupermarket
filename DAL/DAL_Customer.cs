@@ -1,10 +1,12 @@
-﻿using DTO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DTO;
+
 
 namespace DAL
 {
@@ -64,11 +66,11 @@ namespace DAL
             int numOfRows = result.Rows.Count;
             return numOfRows;
         }
-        public int UpdateStatusCustomer(DTO_Customer customer)
+        public int UpdateStatusCustomer(string id)
         {
             DP db = new DP();
             string sql = "sp_UpdateStatusCustomer";
-            db.addParam("id", customer.S_ID);
+            db.addParam("MaKH", id);
 
             DataTable result = db.queryExecuteAdapter(sql);
             int numOfRows = result.Rows.Count;

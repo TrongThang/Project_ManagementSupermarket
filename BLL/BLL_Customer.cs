@@ -24,9 +24,9 @@ namespace BLL
            return dataCustomer.UpdateCustomer(customer);
         }
         //DELETE EMPLOYEE, BUT ACTUALLY IS UPDATE STATUS FROM 1 TO 0
-        public int UpdateStatusCustomer(DTO_Customer customer)
+        public int UpdateStatusCustomer(string id)
         {
-           return dataCustomer.UpdateStatusCustomer(customer);
+           return dataCustomer.UpdateStatusCustomer(id);
         }
     }
     

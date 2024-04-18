@@ -57,6 +57,7 @@
             this.btn_Add = new FontAwesome.Sharp.IconButton();
             this.btn_Alter = new FontAwesome.Sharp.IconButton();
             this.cbb_Search = new System.Windows.Forms.ComboBox();
+            this.chk_CustomerStatus = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ListCustomer)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -73,15 +74,27 @@
             // 
             // dgv_ListCustomer
             // 
+            this.dgv_ListCustomer.AllowUserToAddRows = false;
+            this.dgv_ListCustomer.AllowUserToDeleteRows = false;
+            this.dgv_ListCustomer.AllowUserToOrderColumns = true;
+            this.dgv_ListCustomer.AllowUserToResizeColumns = false;
+            this.dgv_ListCustomer.AllowUserToResizeRows = false;
             this.dgv_ListCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv_ListCustomer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_ListCustomer.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.dgv_ListCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_ListCustomer.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgv_ListCustomer.Location = new System.Drawing.Point(5, 353);
+            this.dgv_ListCustomer.MultiSelect = false;
             this.dgv_ListCustomer.Name = "dgv_ListCustomer";
+            this.dgv_ListCustomer.ReadOnly = true;
             this.dgv_ListCustomer.RowHeadersWidth = 51;
             this.dgv_ListCustomer.RowTemplate.Height = 24;
+            this.dgv_ListCustomer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_ListCustomer.Size = new System.Drawing.Size(1230, 375);
             this.dgv_ListCustomer.TabIndex = 9;
+            this.dgv_ListCustomer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ListCustomer_CellClick);
             // 
             // label8
             // 
@@ -172,9 +185,11 @@
             // 
             // txt_ID
             // 
+            this.txt_ID.BackColor = System.Drawing.SystemColors.ControlDark;
             this.txt_ID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_ID.Location = new System.Drawing.Point(20, 70);
             this.txt_ID.Name = "txt_ID";
+            this.txt_ID.ReadOnly = true;
             this.txt_ID.Size = new System.Drawing.Size(177, 32);
             this.txt_ID.TabIndex = 13;
             // 
@@ -278,42 +293,50 @@
             // lbl_ErrorAddress
             // 
             this.lbl_ErrorAddress.AutoSize = true;
+            this.lbl_ErrorAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorAddress.ForeColor = System.Drawing.Color.Red;
-            this.lbl_ErrorAddress.Location = new System.Drawing.Point(39, 201);
+            this.lbl_ErrorAddress.Location = new System.Drawing.Point(25, 197);
             this.lbl_ErrorAddress.Name = "lbl_ErrorAddress";
-            this.lbl_ErrorAddress.Size = new System.Drawing.Size(70, 26);
+            this.lbl_ErrorAddress.Size = new System.Drawing.Size(53, 20);
             this.lbl_ErrorAddress.TabIndex = 25;
             this.lbl_ErrorAddress.Text = "label9";
+            this.lbl_ErrorAddress.Visible = false;
             // 
             // lbl_ErrorPhone
             // 
             this.lbl_ErrorPhone.AutoSize = true;
+            this.lbl_ErrorPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorPhone.ForeColor = System.Drawing.Color.Red;
-            this.lbl_ErrorPhone.Location = new System.Drawing.Point(745, 109);
+            this.lbl_ErrorPhone.Location = new System.Drawing.Point(702, 105);
             this.lbl_ErrorPhone.Name = "lbl_ErrorPhone";
-            this.lbl_ErrorPhone.Size = new System.Drawing.Size(70, 26);
+            this.lbl_ErrorPhone.Size = new System.Drawing.Size(53, 20);
             this.lbl_ErrorPhone.TabIndex = 24;
             this.lbl_ErrorPhone.Text = "label7";
+            this.lbl_ErrorPhone.Visible = false;
             // 
             // lbl_ErrorCCCD
             // 
             this.lbl_ErrorCCCD.AutoSize = true;
+            this.lbl_ErrorCCCD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorCCCD.ForeColor = System.Drawing.Color.Red;
-            this.lbl_ErrorCCCD.Location = new System.Drawing.Point(498, 109);
+            this.lbl_ErrorCCCD.Location = new System.Drawing.Point(459, 105);
             this.lbl_ErrorCCCD.Name = "lbl_ErrorCCCD";
-            this.lbl_ErrorCCCD.Size = new System.Drawing.Size(70, 26);
+            this.lbl_ErrorCCCD.Size = new System.Drawing.Size(53, 20);
             this.lbl_ErrorCCCD.TabIndex = 23;
             this.lbl_ErrorCCCD.Text = "label3";
+            this.lbl_ErrorCCCD.Visible = false;
             // 
             // lbl_ErrorName
             // 
             this.lbl_ErrorName.AutoSize = true;
+            this.lbl_ErrorName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorName.ForeColor = System.Drawing.Color.Red;
-            this.lbl_ErrorName.Location = new System.Drawing.Point(241, 109);
+            this.lbl_ErrorName.Location = new System.Drawing.Point(227, 105);
             this.lbl_ErrorName.Name = "lbl_ErrorName";
-            this.lbl_ErrorName.Size = new System.Drawing.Size(70, 26);
+            this.lbl_ErrorName.Size = new System.Drawing.Size(53, 20);
             this.lbl_ErrorName.TabIndex = 22;
             this.lbl_ErrorName.Text = "label1";
+            this.lbl_ErrorName.Visible = false;
             // 
             // btn_Search
             // 
@@ -327,6 +350,7 @@
             this.btn_Search.Size = new System.Drawing.Size(65, 36);
             this.btn_Search.TabIndex = 14;
             this.btn_Search.UseVisualStyleBackColor = true;
+            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
             // 
             // btn_Refresh
             // 
@@ -335,11 +359,12 @@
             this.btn_Refresh.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Refresh.IconColor = System.Drawing.Color.Black;
             this.btn_Refresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Refresh.Location = new System.Drawing.Point(388, 283);
+            this.btn_Refresh.Location = new System.Drawing.Point(378, 283);
             this.btn_Refresh.Name = "btn_Refresh";
             this.btn_Refresh.Size = new System.Drawing.Size(79, 64);
             this.btn_Refresh.TabIndex = 13;
             this.btn_Refresh.UseVisualStyleBackColor = true;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // btn_Delete
             // 
@@ -353,6 +378,7 @@
             this.btn_Delete.Size = new System.Drawing.Size(79, 64);
             this.btn_Delete.TabIndex = 12;
             this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // btn_Add
             // 
@@ -380,6 +406,7 @@
             this.btn_Alter.Size = new System.Drawing.Size(79, 64);
             this.btn_Alter.TabIndex = 11;
             this.btn_Alter.UseVisualStyleBackColor = true;
+            this.btn_Alter.Click += new System.EventHandler(this.btn_Alter_Click);
             // 
             // cbb_Search
             // 
@@ -389,12 +416,28 @@
             this.cbb_Search.Size = new System.Drawing.Size(121, 34);
             this.cbb_Search.TabIndex = 16;
             // 
+            // chk_CustomerStatus
+            // 
+            this.chk_CustomerStatus.AutoSize = true;
+            this.chk_CustomerStatus.Checked = true;
+            this.chk_CustomerStatus.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk_CustomerStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_CustomerStatus.ForeColor = System.Drawing.Color.White;
+            this.chk_CustomerStatus.Location = new System.Drawing.Point(463, 293);
+            this.chk_CustomerStatus.Name = "chk_CustomerStatus";
+            this.chk_CustomerStatus.Size = new System.Drawing.Size(351, 40);
+            this.chk_CustomerStatus.TabIndex = 17;
+            this.chk_CustomerStatus.Text = "Khách Hàng Hoạt Động";
+            this.chk_CustomerStatus.UseVisualStyleBackColor = true;
+            this.chk_CustomerStatus.CheckedChanged += new System.EventHandler(this.chk_CustomerStatus_CheckedChanged);
+            // 
             // frmCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
             this.ClientSize = new System.Drawing.Size(1240, 735);
+            this.Controls.Add(this.chk_CustomerStatus);
             this.Controls.Add(this.cbb_Search);
             this.Controls.Add(this.txt_Search);
             this.Controls.Add(this.btn_Search);
@@ -451,5 +494,6 @@
         private System.Windows.Forms.Label lbl_ErrorPhone;
         private System.Windows.Forms.Label lbl_ErrorCCCD;
         private System.Windows.Forms.Label lbl_ErrorName;
+        private System.Windows.Forms.CheckBox chk_CustomerStatus;
     }
 }
