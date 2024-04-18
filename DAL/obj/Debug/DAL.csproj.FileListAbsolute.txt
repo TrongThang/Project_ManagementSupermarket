@@ -16,3 +16,12 @@ D:\C#\Project_ManagementSupermarket\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.c
 D:\C#\Project_ManagementSupermarket\DAL\obj\Debug\DAL.csproj.Up2Date
 D:\C#\Project_ManagementSupermarket\DAL\obj\Debug\DAL.dll
 D:\C#\Project_ManagementSupermarket\DAL\obj\Debug\DAL.pdb
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\DAL\bin\Debug\DAL.dll
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\DAL\bin\Debug\DAL.pdb
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\DAL\bin\Debug\DTO.dll
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\DAL\bin\Debug\DTO.pdb
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\DAL\obj\Debug\DAL.dll
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\DAL\obj\Debug\DAL.pdb

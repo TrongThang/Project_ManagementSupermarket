@@ -10,6 +10,19 @@ namespace DAL
 {
     public class DAL_Customer
     {
+        private DP db =new DP();
+        private Dictionary<string, dynamic> createDict(DTO_Customer customer)
+        {
+            Dictionary<string, dynamic> dict = new Dictionary<string, dynamic>();
+            dict.Add("HoTen", customer.S_FullName);
+            dict.Add("CCCD", customer.S_CCCD);
+            dict.Add("GioiTinh", customer.S_Gender);
+            dict.Add("DiaChi", customer.S_Address);
+            dict.Add("SDT", customer.S_Phone);
+            dict.Add("NgayDangKy", customer.Dt_CreatedTime);
+            dict.Add("TrangThai", customer.S_Status);
+            return dict;
+        }
         public DataTable GetCustomerTo(String keySearch , string value = null)
         {
             DP db = new DP();
@@ -23,37 +36,29 @@ namespace DAL
             
 
         }
-        public DataTable InsertCustomer(DTO_Customer customer)
+        public int  InsertCustomer(DTO_Customer customer)
         {
-            DP db =new DP();
+            
             string sql = "sp_InsertCustomer";
-
-            db.addParam("HoTen", customer.S_FullName);
-            db.addParam("CCCD", customer.S_CCCD); 
-            db.addParam("GioiTinh", customer.S_Gender);
-            db.addParam("DiaChi", customer.S_Address);
-            db.addParam("SDT", customer.S_Phone);
-            db.addParam("NgayDangKy", customer.Dt_CreatedTime);                    
-            db.addParam("TrangThai", customer.S_Status);
+            Dictionary<string, dynamic> dict = new Dictionary<string, dynamic>();
+            dict = createDict(customer);
             //HoTen, CCCD, SDT, GioiTinh, DiaChi, NgayDangKy, TrangThai
 
-            DataTable result =db.queryExecuteAdapter(sql);
-            return result;
+            DataTable result =db.queryExecuteAdapter(sql,dict);
+            int numOfRows = result.Rows.Count;
+            return numOfRows;
 
         }
         public int UpdateCustomer(DTO_Customer customer)
         {
             DP db = new DP();
             string sql = "sp_UpdateCustomer";
-            db.addParam("id", customer.S_ID);
-            db.addParam("HoTen", customer.S_FullName);
-            db.addParam("CCCD", customer.S_CCCD);
-            db.addParam("GioiTinh", customer.S_Gender);
-            db.addParam("DiaChi", customer.S_Address);
-            db.addParam("SDT", customer.S_Phone);
-            db.addParam("NgayDangKy", customer.Dt_CreatedTime);
-            db.addParam("TrangThai", customer.S_Status);
-            int numOfRows = db.queryExecute(sql);
+            Dictionary<string, dynamic> dict = new Dictionary<string, dynamic>();
+            dict = createDict(customer);
+           
+
+            DataTable result = db.queryExecuteAdapter(sql, dict);
+            int numOfRows = result.Rows.Count;
             return numOfRows;
         }
         public int UpdateStatusCustomer(DTO_Customer customer)
@@ -61,7 +66,9 @@ namespace DAL
             DP db = new DP();
             string sql = "sp_UpdateStatusCustomer";
             db.addParam("id", customer.S_ID);
-            int numOfRows = db.queryExecute(sql);
+
+            DataTable result = db.queryExecuteAdapter(sql);
+            int numOfRows = result.Rows.Count;
             return numOfRows;
         }
     }

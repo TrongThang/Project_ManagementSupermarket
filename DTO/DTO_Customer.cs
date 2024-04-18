@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,7 +31,7 @@ namespace DTO
             s_Status = 0;
         }
 
-        public DTO_Customer(string iD, string fullName, string CCCD, string phone, string gender, string address, DateTime dt_CreatedTime, byte status)
+        public DTO_Customer( string fullName, string CCCD, string phone, string gender, string address, DateTime dt_CreatedTime, byte status, string iD = null)
         {
             s_ID = iD;
             s_FullName = fullName;

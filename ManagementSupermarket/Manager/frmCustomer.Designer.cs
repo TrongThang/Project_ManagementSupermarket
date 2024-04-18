@@ -52,6 +52,11 @@
             this.btn_Delete = new FontAwesome.Sharp.IconButton();
             this.btn_Add = new FontAwesome.Sharp.IconButton();
             this.btn_Alter = new FontAwesome.Sharp.IconButton();
+            this.cbb_Search = new System.Windows.Forms.ComboBox();
+            this.lbl_ErrorName = new System.Windows.Forms.Label();
+            this.lbl_ErrorCCCD = new System.Windows.Forms.Label();
+            this.lbl_ErrorPhone = new System.Windows.Forms.Label();
+            this.lbl_ErrorAddress = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ListCustomer)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -212,6 +217,7 @@
             this.txt_Phone.Name = "txt_Phone";
             this.txt_Phone.Size = new System.Drawing.Size(203, 32);
             this.txt_Phone.TabIndex = 19;
+            this.txt_Phone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PressNumber);
             // 
             // txt_CCCD
             // 
@@ -220,6 +226,7 @@
             this.txt_CCCD.Name = "txt_CCCD";
             this.txt_CCCD.Size = new System.Drawing.Size(203, 32);
             this.txt_CCCD.TabIndex = 18;
+            this.txt_CCCD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PressNumber);
             // 
             // txt_FullName
             // 
@@ -243,6 +250,10 @@
             // grpInfo
             // 
             this.grpInfo.BackColor = System.Drawing.Color.Transparent;
+            this.grpInfo.Controls.Add(this.lbl_ErrorAddress);
+            this.grpInfo.Controls.Add(this.lbl_ErrorPhone);
+            this.grpInfo.Controls.Add(this.lbl_ErrorCCCD);
+            this.grpInfo.Controls.Add(this.lbl_ErrorName);
             this.grpInfo.Controls.Add(this.chk_Status);
             this.grpInfo.Controls.Add(this.txt_Phone);
             this.grpInfo.Controls.Add(this.txt_CCCD);
@@ -315,6 +326,7 @@
             this.btn_Add.Size = new System.Drawing.Size(79, 64);
             this.btn_Add.TabIndex = 10;
             this.btn_Add.UseVisualStyleBackColor = true;
+            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
             // btn_Alter
             // 
@@ -329,12 +341,61 @@
             this.btn_Alter.TabIndex = 11;
             this.btn_Alter.UseVisualStyleBackColor = true;
             // 
+            // cbb_Search
+            // 
+            this.cbb_Search.FormattingEnabled = true;
+            this.cbb_Search.Location = new System.Drawing.Point(819, 313);
+            this.cbb_Search.Name = "cbb_Search";
+            this.cbb_Search.Size = new System.Drawing.Size(121, 34);
+            this.cbb_Search.TabIndex = 16;
+            // 
+            // lbl_ErrorName
+            // 
+            this.lbl_ErrorName.AutoSize = true;
+            this.lbl_ErrorName.ForeColor = System.Drawing.Color.Red;
+            this.lbl_ErrorName.Location = new System.Drawing.Point(241, 109);
+            this.lbl_ErrorName.Name = "lbl_ErrorName";
+            this.lbl_ErrorName.Size = new System.Drawing.Size(70, 26);
+            this.lbl_ErrorName.TabIndex = 22;
+            this.lbl_ErrorName.Text = "label1";
+            // 
+            // lbl_ErrorCCCD
+            // 
+            this.lbl_ErrorCCCD.AutoSize = true;
+            this.lbl_ErrorCCCD.ForeColor = System.Drawing.Color.Red;
+            this.lbl_ErrorCCCD.Location = new System.Drawing.Point(498, 109);
+            this.lbl_ErrorCCCD.Name = "lbl_ErrorCCCD";
+            this.lbl_ErrorCCCD.Size = new System.Drawing.Size(70, 26);
+            this.lbl_ErrorCCCD.TabIndex = 23;
+            this.lbl_ErrorCCCD.Text = "label3";
+            // 
+            // lbl_ErrorPhone
+            // 
+            this.lbl_ErrorPhone.AutoSize = true;
+            this.lbl_ErrorPhone.ForeColor = System.Drawing.Color.Red;
+            this.lbl_ErrorPhone.Location = new System.Drawing.Point(745, 109);
+            this.lbl_ErrorPhone.Name = "lbl_ErrorPhone";
+            this.lbl_ErrorPhone.Size = new System.Drawing.Size(70, 26);
+            this.lbl_ErrorPhone.TabIndex = 24;
+            this.lbl_ErrorPhone.Text = "label7";
+            // 
+            // lbl_ErrorAddress
+            // 
+            this.lbl_ErrorAddress.AutoSize = true;
+            this.lbl_ErrorAddress.ForeColor = System.Drawing.Color.Red;
+            this.lbl_ErrorAddress.Location = new System.Drawing.Point(39, 201);
+            this.lbl_ErrorAddress.Name = "lbl_ErrorAddress";
+            this.lbl_ErrorAddress.Size = new System.Drawing.Size(70, 26);
+            this.lbl_ErrorAddress.TabIndex = 25;
+            this.lbl_ErrorAddress.Text = "label9";
+            // 
             // frmCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ManagementSupermarket.Properties.Resources.bgMain;
             this.ClientSize = new System.Drawing.Size(1240, 735);
+            this.Controls.Add(this.cbb_Search);
             this.Controls.Add(this.txt_Search);
             this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.btn_Refresh);
@@ -347,6 +408,7 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmCustomer";
             this.Text = "frmCustomer";
+            this.Load += new System.EventHandler(this.frmCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ListCustomer)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -384,5 +446,10 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private FontAwesome.Sharp.IconButton btn_Alter;
         private System.Windows.Forms.GroupBox grpInfo;
+        private System.Windows.Forms.ComboBox cbb_Search;
+        private System.Windows.Forms.Label lbl_ErrorAddress;
+        private System.Windows.Forms.Label lbl_ErrorPhone;
+        private System.Windows.Forms.Label lbl_ErrorCCCD;
+        private System.Windows.Forms.Label lbl_ErrorName;
     }
 }
