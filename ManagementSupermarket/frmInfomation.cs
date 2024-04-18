@@ -14,7 +14,7 @@ namespace ManagementSupermarket
 {
     public partial class frmInfomation : Form
     {
-        private string idEmployee = "NV002";
+        private string idEmployee = "NV001";
         private Event eventConfig = new Event();
         BLL_Employee dataEmployee = new BLL_Employee();
 
@@ -45,8 +45,11 @@ namespace ManagementSupermarket
             if(isMale)
             {
                 rad_Male.Checked = true;
+                pic_Avatar.ImageLocation = "\\Image\\Icon\\avatarDefaultFemale.png";
             }else { 
                 rad_Female.Checked = true;
+                pic_Avatar.ImageLocation = "\\Image\\Icon\\avatarDefaultFemale.png";
+
             }
 
             txt_Address.Text = employee["DiaChi"].ToString();
@@ -102,14 +105,13 @@ namespace ManagementSupermarket
 
             double salary = double.Parse(lbl_Salary.Text);
 
-            byte status = (byte)(chk_Active.Checked ? 1 : 0);
 
             if (isEmpty)
             {
                 return;
             }
 
-            DTO_Employee DTO_employee = new DTO_Employee(fullname, CCCD, gender, address, phone, createdTime, roleName, salary, status, id);
+            DTO_Employee DTO_employee = new DTO_Employee(fullname, CCCD, gender, address, phone, createdTime, roleName, salary, 1, id);
 
             int numOfRows = dataEmployee.UpdateEmployee(DTO_employee);
             if (numOfRows > 0)
