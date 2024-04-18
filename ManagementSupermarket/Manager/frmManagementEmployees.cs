@@ -96,6 +96,29 @@ namespace ManagementSupermarket
             LoadData();
         }
 
+        private void dgv_ListEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewCellCollection rowSelected = dgv_ListEmployee.SelectedRows[0].Cells;
+
+            if (rowSelected.Count > 0)
+            {
+                txt_Id.Text = rowSelected["MaNV"].Value.ToString();
+                txt_FullName.Text = rowSelected["HoTen"].Value.ToString();
+                txt_CCCD.Text = rowSelected["CCCD"].Value.ToString();
+                txt_Phone.Text = rowSelected["SDT"].Value.ToString();
+                txt_Address.Text = rowSelected["DiaChi"].Value.ToString();
+                txt_Salary.Text = rowSelected["Luong"].Value.ToString();
+
+                dtp_CreatedTime.Value = (DateTime)rowSelected["NgayTao"].Value;
+
+                cbb_Role.Text = rowSelected["MaChucVu"].Value.ToString();
+                rad_Male.Checked = rowSelected["GioiTinh"].Value.ToString() == "Nam" ? true : false;
+                rad_Female.Checked = !rad_Male.Checked;
+                chk_Status.Checked = (bool)rowSelected["TrangThai"].Value;
+            }
+        }
+
+
         //BUTTON
         private void btn_Add_Click(object sender, EventArgs e)
         {
@@ -132,28 +155,6 @@ namespace ManagementSupermarket
                 MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-        }
-
-        private void dgv_ListEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            DataGridViewCellCollection rowSelected = dgv_ListEmployee.SelectedRows[0].Cells;
-
-            if (rowSelected.Count > 0)
-            {
-                txt_Id.Text = rowSelected["MaNV"].Value.ToString();
-                txt_FullName.Text = rowSelected["HoTen"].Value.ToString();
-                txt_CCCD.Text = rowSelected["CCCD"].Value.ToString();
-                txt_Phone.Text = rowSelected["SDT"].Value.ToString();
-                txt_Address.Text = rowSelected["DiaChi"].Value.ToString();
-                txt_Salary.Text = rowSelected["Luong"].Value.ToString();
-
-                dtp_CreatedTime.Value = (DateTime)rowSelected["NgayTao"].Value;
-
-                cbb_Role.Text = rowSelected["MaChucVu"].Value.ToString();
-                rad_Male.Checked = rowSelected["GioiTinh"].Value.ToString() == "Nam" ? true : false;
-                rad_Female.Checked = !rad_Male.Checked;
-                chk_Status.Checked = (bool)rowSelected["TrangThai"].Value;
-            }
         }
 
         private void btn_Alter_Click(object sender, EventArgs e)

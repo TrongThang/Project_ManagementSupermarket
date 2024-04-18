@@ -15,5 +15,10 @@ namespace BLL
         {
             return dataAccount.IsAccount(username, password);
         }
+
+        public bool UpdatePasswordAccount(string username, string password)
+        {
+           return dataAccount.UpdatePasswordAccount(username, password);
+        }
     }
 }

@@ -40,7 +40,6 @@ D:\C#\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\GUI.csproj.A
 D:\C#\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmChangePassword.resources
 D:\C#\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmInfomation.resources
 D:\C#\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmCustomer.resources
-D:\C#\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmHomeOfEmployee.resources
 D:\C#\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmHomeOfManager.resources
 D:\C#\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmLogin.resources
 D:\C#\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmManagementEmployees.resources

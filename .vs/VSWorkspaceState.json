@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ManagementSupermarket",
+    "\\ManagementSupermarket\\Manager"
   ],
-  "SelectedNode": "\\ManagementSupermarket.sln",
+  "SelectedNode": "\\ManagementSupermarket\\Manager\\frmCustomer.cs",
   "PreviewInSolutionExplorer": false
 }
