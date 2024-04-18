@@ -55,17 +55,16 @@
             this.txt_Address = new System.Windows.Forms.TextBox();
             this.chk_Status = new System.Windows.Forms.CheckBox();
             this.pic_Avatar = new FontAwesome.Sharp.IconPictureBox();
-            this.btn_Upload = new FontAwesome.Sharp.IconButton();
             this.cbb_Role = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.lbl_ErrorName = new System.Windows.Forms.Label();
             this.lbl_ErrorCCCD = new System.Windows.Forms.Label();
             this.lbl_ErrorPhone = new System.Windows.Forms.Label();
             this.lbl_ErrorAddress = new System.Windows.Forms.Label();
-            this.lbl_ErrorSalary = new System.Windows.Forms.Label();
             this.grpInfo = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.txt_Id = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.chk_EmployeeStatus = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ListEmployee)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -75,6 +74,11 @@
             // 
             // dgv_ListEmployee
             // 
+            this.dgv_ListEmployee.AllowUserToAddRows = false;
+            this.dgv_ListEmployee.AllowUserToDeleteRows = false;
+            this.dgv_ListEmployee.AllowUserToOrderColumns = true;
+            this.dgv_ListEmployee.AllowUserToResizeColumns = false;
+            this.dgv_ListEmployee.AllowUserToResizeRows = false;
             this.dgv_ListEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_ListEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -82,11 +86,15 @@
             this.dgv_ListEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_ListEmployee.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgv_ListEmployee.Location = new System.Drawing.Point(12, 360);
+            this.dgv_ListEmployee.MultiSelect = false;
             this.dgv_ListEmployee.Name = "dgv_ListEmployee";
+            this.dgv_ListEmployee.ReadOnly = true;
             this.dgv_ListEmployee.RowHeadersWidth = 51;
             this.dgv_ListEmployee.RowTemplate.Height = 24;
+            this.dgv_ListEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_ListEmployee.Size = new System.Drawing.Size(1230, 373);
             this.dgv_ListEmployee.TabIndex = 1;
+            this.dgv_ListEmployee.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ListEmployee_CellClick);
             // 
             // txt_Search
             // 
@@ -117,11 +125,12 @@
             this.btn_Refresh.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Refresh.IconColor = System.Drawing.Color.Black;
             this.btn_Refresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Refresh.Location = new System.Drawing.Point(395, 288);
+            this.btn_Refresh.Location = new System.Drawing.Point(725, 288);
             this.btn_Refresh.Name = "btn_Refresh";
             this.btn_Refresh.Size = new System.Drawing.Size(79, 64);
             this.btn_Refresh.TabIndex = 5;
             this.btn_Refresh.UseVisualStyleBackColor = true;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // btn_Delete
             // 
@@ -130,11 +139,12 @@
             this.btn_Delete.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Delete.IconColor = System.Drawing.Color.Black;
             this.btn_Delete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Delete.Location = new System.Drawing.Point(271, 288);
+            this.btn_Delete.Location = new System.Drawing.Point(601, 288);
             this.btn_Delete.Name = "btn_Delete";
             this.btn_Delete.Size = new System.Drawing.Size(79, 64);
             this.btn_Delete.TabIndex = 4;
             this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // btn_Alter
             // 
@@ -143,11 +153,12 @@
             this.btn_Alter.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Alter.IconColor = System.Drawing.Color.Black;
             this.btn_Alter.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Alter.Location = new System.Drawing.Point(158, 288);
+            this.btn_Alter.Location = new System.Drawing.Point(488, 288);
             this.btn_Alter.Name = "btn_Alter";
             this.btn_Alter.Size = new System.Drawing.Size(79, 64);
             this.btn_Alter.TabIndex = 3;
             this.btn_Alter.UseVisualStyleBackColor = true;
+            this.btn_Alter.Click += new System.EventHandler(this.btn_Alter_Click);
             // 
             // btn_Add
             // 
@@ -156,7 +167,7 @@
             this.btn_Add.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Add.IconColor = System.Drawing.Color.Black;
             this.btn_Add.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Add.Location = new System.Drawing.Point(40, 288);
+            this.btn_Add.Location = new System.Drawing.Point(370, 288);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(79, 64);
             this.btn_Add.TabIndex = 2;
@@ -349,10 +360,11 @@
             // chk_Status
             // 
             this.chk_Status.AutoSize = true;
+            this.chk_Status.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chk_Status.ForeColor = System.Drawing.Color.White;
-            this.chk_Status.Location = new System.Drawing.Point(922, 228);
+            this.chk_Status.Location = new System.Drawing.Point(979, 220);
             this.chk_Status.Name = "chk_Status";
-            this.chk_Status.Size = new System.Drawing.Size(138, 30);
+            this.chk_Status.Size = new System.Drawing.Size(179, 40);
             this.chk_Status.TabIndex = 21;
             this.chk_Status.Text = "Hoạt Động";
             this.chk_Status.UseVisualStyleBackColor = true;
@@ -367,28 +379,12 @@
             this.pic_Avatar.IconChar = FontAwesome.Sharp.IconChar.None;
             this.pic_Avatar.IconColor = System.Drawing.Color.Yellow;
             this.pic_Avatar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.pic_Avatar.IconSize = 208;
+            this.pic_Avatar.IconSize = 164;
             this.pic_Avatar.Location = new System.Drawing.Point(20, 52);
             this.pic_Avatar.Name = "pic_Avatar";
             this.pic_Avatar.Size = new System.Drawing.Size(169, 164);
             this.pic_Avatar.TabIndex = 22;
             this.pic_Avatar.TabStop = false;
-            // 
-            // btn_Upload
-            // 
-            this.btn_Upload.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_Upload.IconChar = FontAwesome.Sharp.IconChar.Upload;
-            this.btn_Upload.IconColor = System.Drawing.Color.Gray;
-            this.btn_Upload.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Upload.IconSize = 40;
-            this.btn_Upload.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Upload.Location = new System.Drawing.Point(41, 223);
-            this.btn_Upload.Name = "btn_Upload";
-            this.btn_Upload.Size = new System.Drawing.Size(120, 39);
-            this.btn_Upload.TabIndex = 23;
-            this.btn_Upload.Text = "Upload";
-            this.btn_Upload.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Upload.UseVisualStyleBackColor = true;
             // 
             // cbb_Role
             // 
@@ -451,36 +447,22 @@
             this.lbl_ErrorAddress.AutoSize = true;
             this.lbl_ErrorAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorAddress.ForeColor = System.Drawing.Color.Red;
-            this.lbl_ErrorAddress.Location = new System.Drawing.Point(844, 87);
+            this.lbl_ErrorAddress.Location = new System.Drawing.Point(844, 84);
             this.lbl_ErrorAddress.Name = "lbl_ErrorAddress";
             this.lbl_ErrorAddress.Size = new System.Drawing.Size(53, 20);
             this.lbl_ErrorAddress.TabIndex = 26;
             this.lbl_ErrorAddress.Text = "label6";
             this.lbl_ErrorAddress.Visible = false;
             // 
-            // lbl_ErrorSalary
-            // 
-            this.lbl_ErrorSalary.AutoSize = true;
-            this.lbl_ErrorSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ErrorSalary.ForeColor = System.Drawing.Color.Red;
-            this.lbl_ErrorSalary.Location = new System.Drawing.Point(411, 196);
-            this.lbl_ErrorSalary.Name = "lbl_ErrorSalary";
-            this.lbl_ErrorSalary.Size = new System.Drawing.Size(53, 20);
-            this.lbl_ErrorSalary.TabIndex = 26;
-            this.lbl_ErrorSalary.Text = "label6";
-            this.lbl_ErrorSalary.Visible = false;
-            // 
             // grpInfo
             // 
             this.grpInfo.BackColor = System.Drawing.Color.Transparent;
-            this.grpInfo.Controls.Add(this.lbl_ErrorSalary);
             this.grpInfo.Controls.Add(this.lbl_ErrorAddress);
             this.grpInfo.Controls.Add(this.lbl_ErrorPhone);
             this.grpInfo.Controls.Add(this.lbl_ErrorCCCD);
             this.grpInfo.Controls.Add(this.lbl_ErrorName);
             this.grpInfo.Controls.Add(this.label7);
             this.grpInfo.Controls.Add(this.cbb_Role);
-            this.grpInfo.Controls.Add(this.btn_Upload);
             this.grpInfo.Controls.Add(this.pic_Avatar);
             this.grpInfo.Controls.Add(this.chk_Status);
             this.grpInfo.Controls.Add(this.txt_Address);
@@ -505,17 +487,6 @@
             this.grpInfo.TabStop = false;
             this.grpInfo.Text = "Thông tin";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(207, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(171, 31);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Mã Nhân Viên";
-            // 
             // txt_Id
             // 
             this.txt_Id.BackColor = System.Drawing.SystemColors.ControlDark;
@@ -526,14 +497,40 @@
             this.txt_Id.Size = new System.Drawing.Size(180, 32);
             this.txt_Id.TabIndex = 17;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(207, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(137, 25);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Mã Nhân Viên";
+            // 
+            // chk_EmployeeStatus
+            // 
+            this.chk_EmployeeStatus.AutoSize = true;
+            this.chk_EmployeeStatus.Checked = true;
+            this.chk_EmployeeStatus.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk_EmployeeStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_EmployeeStatus.ForeColor = System.Drawing.Color.White;
+            this.chk_EmployeeStatus.Location = new System.Drawing.Point(12, 312);
+            this.chk_EmployeeStatus.Name = "chk_EmployeeStatus";
+            this.chk_EmployeeStatus.Size = new System.Drawing.Size(328, 40);
+            this.chk_EmployeeStatus.TabIndex = 27;
+            this.chk_EmployeeStatus.Text = "Nhân Viên Hoạt Động";
+            this.chk_EmployeeStatus.UseVisualStyleBackColor = true;
+            this.chk_EmployeeStatus.CheckedChanged += new System.EventHandler(this.chk_EmployeeStatus_CheckedChanged);
+            // 
             // frmManagementEmployees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.BackgroundImage = global::ManagementSupermarket.Properties.Resources.bgMain;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1254, 745);
+            this.Controls.Add(this.chk_EmployeeStatus);
             this.Controls.Add(this.cbb_SearchRole);
             this.Controls.Add(this.txt_Search);
             this.Controls.Add(this.btn_Search);
@@ -589,16 +586,15 @@
         private System.Windows.Forms.TextBox txt_Address;
         private System.Windows.Forms.CheckBox chk_Status;
         private FontAwesome.Sharp.IconPictureBox pic_Avatar;
-        private FontAwesome.Sharp.IconButton btn_Upload;
         private System.Windows.Forms.ComboBox cbb_Role;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lbl_ErrorName;
         private System.Windows.Forms.Label lbl_ErrorCCCD;
         private System.Windows.Forms.Label lbl_ErrorPhone;
         private System.Windows.Forms.Label lbl_ErrorAddress;
-        private System.Windows.Forms.Label lbl_ErrorSalary;
         private System.Windows.Forms.GroupBox grpInfo;
         private System.Windows.Forms.TextBox txt_Id;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox chk_EmployeeStatus;
     }
 }

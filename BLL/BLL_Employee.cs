@@ -26,9 +26,9 @@ namespace BLL
         }
 
         //DELETE EMPLOYEE, BUT ACTUALLY IS UPDATE STATUS FROM 1 TO 0
-        public int UpdateStatusEmployee(DTO_Employee employee)
+        public int UpdateStatusEmployee(string id)
         {
-            return dataEmployee.UpdateStatusEmployee(employee);
+            return dataEmployee.UpdateStatusEmployee(id);
         }
     }
 }

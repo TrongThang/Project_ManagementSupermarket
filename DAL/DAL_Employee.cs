@@ -16,14 +16,19 @@ namespace DAL
         private Dictionary<string, dynamic> createDict(DTO_Employee employee)
         {
             Dictionary<string, dynamic> dict = new Dictionary<string, dynamic>();
-            dict.Add("HinhAnh", employee.S_FileNameImage);
+            if(employee.S_ID != null)
+            {
+                dict.Add("MaNV", employee.S_ID);
+            }
             dict.Add("CCCD", employee.S_CCCD);
             dict.Add("HoTen", employee.S_FullName);
             dict.Add("GioiTinh", employee.S_Gender);
             dict.Add("DiaChi", employee.S_Address);
             dict.Add("SDT", employee.S_Phone);
             dict.Add("NgayTao", employee.Dt_CreatedTime);
-            dict.Add("MaChucVu", employee.S_Role);
+
+            DataTable tblRole = (new DAL_Role()).GetRole("TenChucVu", employee.S_Role);
+            dict.Add("MaChucVu", tblRole.Rows[0]["MaChucVu"]);
             dict.Add("Luong", employee.D_Salary);
             dict.Add("TrangThai", employee.S_Status);
             return dict;
@@ -66,12 +71,12 @@ namespace DAL
         }
 
         //DELETE EMPLOYEE, BUT ACTUALLY IS UPDATE STATUS FROM 1 TO 0
-        public int UpdateStatusEmployee(DTO_Employee employee)
+        public int UpdateStatusEmployee(string id)
         {
             DP db = new DP();
             string sql = "sp_UpdateStatusEmployee";
 
-            db.addParam("id", employee.S_ID);
+            db.addParam("MaNV", id);
 
 
             DataTable result = db.queryExecuteAdapter(sql);

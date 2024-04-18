@@ -11,7 +11,6 @@ namespace DTO
     public class DTO_Employee
     {
         private string s_ID;
-        private string s_FileNameImage;
         private string s_CCCD;
         private string s_FullName;
         private string s_Gender;
@@ -25,7 +24,6 @@ namespace DTO
         public DTO_Employee()
         {
             s_ID = null;
-            s_FileNameImage = null;
             s_CCCD = null;
             s_FullName = null;
             s_Gender = null;
@@ -37,10 +35,9 @@ namespace DTO
             s_Status = 0;
         }
 
-        public DTO_Employee(string fullName, string fileNameImage, string CCCD, string gender, string address, string phone, DateTime dt_CreatedTime, string role, double d_Salary,byte status, string iD = null)
+        public DTO_Employee(string fullName, string CCCD, string gender, string address, string phone, DateTime dt_CreatedTime, string role, double d_Salary,byte status, string iD = null)
         {
             s_ID = iD;
-            s_FileNameImage = fileNameImage;
             s_CCCD = CCCD ;
             s_FullName = fullName;
             s_Gender = gender;
@@ -53,7 +50,6 @@ namespace DTO
         }
 
         public string S_ID { get => s_ID; set => s_ID = value; }
-        public string S_FileNameImage { get => s_FileNameImage; set => s_FileNameImage = value; }
         public string S_CCCD { get => s_CCCD; set => s_CCCD = value; }
         public string S_FullName { get => s_FullName; set => s_FullName = value; }
         public string S_Gender { get => s_Gender; set => s_Gender = value; }
