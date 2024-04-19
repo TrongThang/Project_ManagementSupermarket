@@ -42,7 +42,6 @@
             this.lbl_PriceDiscount = new System.Windows.Forms.Label();
             this.lbl_ErrorTimeEnd = new System.Windows.Forms.Label();
             this.cbb_UnitTime = new System.Windows.Forms.ComboBox();
-            this.txt_TimeEnd = new System.Windows.Forms.TextBox();
             this.dgv_Supplier = new System.Windows.Forms.DataGridView();
             this.btn_Delete = new FontAwesome.Sharp.IconButton();
             this.btn_Alter = new FontAwesome.Sharp.IconButton();
@@ -52,7 +51,9 @@
             this.btn_Search = new FontAwesome.Sharp.IconButton();
             this.txt_Search = new System.Windows.Forms.TextBox();
             this.chk_StatusDGV = new System.Windows.Forms.CheckBox();
+            this.num_CountTime = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Supplier)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_CountTime)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_Name
@@ -199,19 +200,10 @@
             "Ngày",
             "Tháng",
             "Năm"});
-            this.cbb_UnitTime.Location = new System.Drawing.Point(238, 471);
+            this.cbb_UnitTime.Location = new System.Drawing.Point(185, 469);
             this.cbb_UnitTime.Name = "cbb_UnitTime";
             this.cbb_UnitTime.Size = new System.Drawing.Size(138, 37);
             this.cbb_UnitTime.TabIndex = 31;
-            // 
-            // txt_TimeEnd
-            // 
-            this.txt_TimeEnd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_TimeEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_TimeEnd.Location = new System.Drawing.Point(28, 473);
-            this.txt_TimeEnd.Name = "txt_TimeEnd";
-            this.txt_TimeEnd.Size = new System.Drawing.Size(195, 32);
-            this.txt_TimeEnd.TabIndex = 30;
             // 
             // dgv_Supplier
             // 
@@ -335,12 +327,21 @@
             this.chk_StatusDGV.Text = "Hoạt Động";
             this.chk_StatusDGV.UseVisualStyleBackColor = true;
             // 
+            // num_CountTime
+            // 
+            this.num_CountTime.Location = new System.Drawing.Point(28, 469);
+            this.num_CountTime.Name = "num_CountTime";
+            this.num_CountTime.Size = new System.Drawing.Size(134, 36);
+            this.num_CountTime.TabIndex = 41;
+            this.num_CountTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // frmDiscount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
             this.ClientSize = new System.Drawing.Size(1238, 650);
+            this.Controls.Add(this.num_CountTime);
             this.Controls.Add(this.chk_StatusDGV);
             this.Controls.Add(this.cbb_Search);
             this.Controls.Add(this.btn_Search);
@@ -351,7 +352,6 @@
             this.Controls.Add(this.btn_Refresh);
             this.Controls.Add(this.dgv_Supplier);
             this.Controls.Add(this.cbb_UnitTime);
-            this.Controls.Add(this.txt_TimeEnd);
             this.Controls.Add(this.dtpTimeStart);
             this.Controls.Add(this.lbl_ErrorTimeEnd);
             this.Controls.Add(this.lbl_PriceDiscount);
@@ -370,6 +370,7 @@
             this.Name = "frmDiscount";
             this.Text = "frmDiscount";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Supplier)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_CountTime)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -391,7 +392,6 @@
         private System.Windows.Forms.Label lbl_PriceDiscount;
         private System.Windows.Forms.Label lbl_ErrorTimeEnd;
         private System.Windows.Forms.ComboBox cbb_UnitTime;
-        private System.Windows.Forms.TextBox txt_TimeEnd;
         private System.Windows.Forms.DataGridView dgv_Supplier;
         private FontAwesome.Sharp.IconButton btn_Delete;
         private FontAwesome.Sharp.IconButton btn_Alter;
@@ -401,5 +401,6 @@
         private FontAwesome.Sharp.IconButton btn_Search;
         private System.Windows.Forms.TextBox txt_Search;
         private System.Windows.Forms.CheckBox chk_StatusDGV;
+        private System.Windows.Forms.NumericUpDown num_CountTime;
     }
 }

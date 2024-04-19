@@ -43,7 +43,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txt_ShelfLife = new System.Windows.Forms.TextBox();
             this.txt_NameProduct = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txt_Price = new System.Windows.Forms.TextBox();
@@ -60,15 +59,18 @@
             this.btn_Add = new FontAwesome.Sharp.IconButton();
             this.txt_Search = new System.Windows.Forms.TextBox();
             this.btn_Search = new FontAwesome.Sharp.IconButton();
+            this.num_ShelfLife = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_Count)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Product)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ListProduct)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_ShelfLife)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.num_ShelfLife);
             this.panel1.Controls.Add(this.cbb_UnitTime);
             this.panel1.Controls.Add(this.cbb_TypeProduct);
             this.panel1.Controls.Add(this.cbb_UnitCaculator);
@@ -83,7 +85,6 @@
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.txt_ShelfLife);
             this.panel1.Controls.Add(this.txt_NameProduct);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.txt_Price);
@@ -102,9 +103,9 @@
             // cbb_UnitTime
             // 
             this.cbb_UnitTime.FormattingEnabled = true;
-            this.cbb_UnitTime.Location = new System.Drawing.Point(230, 492);
+            this.cbb_UnitTime.Location = new System.Drawing.Point(159, 492);
             this.cbb_UnitTime.Name = "cbb_UnitTime";
-            this.cbb_UnitTime.Size = new System.Drawing.Size(138, 34);
+            this.cbb_UnitTime.Size = new System.Drawing.Size(106, 34);
             this.cbb_UnitTime.TabIndex = 23;
             // 
             // cbb_TypeProduct
@@ -235,15 +236,6 @@
             this.label4.Size = new System.Drawing.Size(105, 22);
             this.label4.TabIndex = 16;
             this.label4.Text = "Đơn Vị Tính";
-            // 
-            // txt_ShelfLife
-            // 
-            this.txt_ShelfLife.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_ShelfLife.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ShelfLife.Location = new System.Drawing.Point(20, 494);
-            this.txt_ShelfLife.Name = "txt_ShelfLife";
-            this.txt_ShelfLife.Size = new System.Drawing.Size(195, 32);
-            this.txt_ShelfLife.TabIndex = 17;
             // 
             // txt_NameProduct
             // 
@@ -426,6 +418,14 @@
             this.btn_Search.TabIndex = 10;
             this.btn_Search.UseVisualStyleBackColor = true;
             // 
+            // num_ShelfLife
+            // 
+            this.num_ShelfLife.Location = new System.Drawing.Point(21, 494);
+            this.num_ShelfLife.Name = "num_ShelfLife";
+            this.num_ShelfLife.Size = new System.Drawing.Size(117, 32);
+            this.num_ShelfLife.TabIndex = 24;
+            this.num_ShelfLife.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // frmManagementProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
@@ -453,6 +453,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.num_Count)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Product)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ListProduct)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_ShelfLife)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -487,10 +488,10 @@
         private System.Windows.Forms.ComboBox cbb_Supplier;
         private System.Windows.Forms.NumericUpDown num_Count;
         private System.Windows.Forms.TextBox txt_Discount;
-        private System.Windows.Forms.TextBox txt_ShelfLife;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cbb_UnitTime;
         private System.Windows.Forms.ComboBox cbb_TypeProduct;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.NumericUpDown num_ShelfLife;
     }
 }

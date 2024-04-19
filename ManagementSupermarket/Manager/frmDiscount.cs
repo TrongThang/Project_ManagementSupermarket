@@ -43,27 +43,28 @@ namespace ManagementSupermarket.Manager
             }
             return 30;
         }
-        private int GetDayComboBox(string value, string key)
+        private int CaculatorDayComboBox(int value, string key)
         {
-            int i_value = int.Parse(value);
             int year = dtpTimeStart.Value.Year;
             if (key == "Ngày")
             {
-                return i_value;
+                return value;
             }
             else if (key == "Tháng")
             {
-                return i_value * getDayWithTime(i_value, year);
+                return value * getDayWithTime(value, year);
             }
             else
             {
-                int day =  0;
-                if(year % 4 == 0 || (year % 4 == 0 && year % 100 != 0))
-                    day = 366;
-                else
-                    day = 365;
-
-                return day * i_value;
+                int day = 0;
+                for(int i = 0; i < value; i++)
+                {
+                    if (year % 4 == 0 || (year % 4 == 0 && year % 100 != 0))
+                        day += 366;
+                    else
+                        day += 365;
+                }
+                return day * value;
             }
         }
 
