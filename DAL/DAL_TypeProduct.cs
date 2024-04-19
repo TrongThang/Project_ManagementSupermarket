@@ -25,6 +25,7 @@ namespace DAL
         }
         public DataTable GetTypeProduct(string keySearch, string value = null)
         {
+            DP db = new DP();
             string sql = "sp_getTypeProduct";
 
             DataTable tblTypeProduct = null;
@@ -49,6 +50,7 @@ namespace DAL
 
         public int UpdateTypeProduct(DTO_TypeProduct product)
         {
+            DP db = new DP();
             string sql = "sp_UpdateTypeProduct";
 
             DataTable tblTypeProduct = db.queryExecuteAdapter(sql, createDict(product));
@@ -59,6 +61,7 @@ namespace DAL
 
         public int UpdateStatusTypeProduct(string id)
         {
+            DP db = new DP();
             string sql = "sp_UpdateStatusTypeProduct";
             db.addParam("MaLoaiSP", id);
 

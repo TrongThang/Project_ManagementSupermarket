@@ -18,7 +18,7 @@ namespace DTO
             this.S_nameType = null;
             this.S_desc = null;
         }
-        public DTO_TypeProduct(string id, string nameType, string desc)
+        public DTO_TypeProduct( string nameType, string desc, string id=null)
         {
             this.S_id = id;
             this.S_nameType = nameType;

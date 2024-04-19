@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbl_Phone = new System.Windows.Forms.Label();
-            this.lbl_Name = new System.Windows.Forms.Label();
-            this.txt_Phone = new System.Windows.Forms.TextBox();
+            this.lbl_ErrorDescribe = new System.Windows.Forms.Label();
+            this.lbl_ErrorName = new System.Windows.Forms.Label();
+            this.txt_Desc = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txt_NameSupplier = new System.Windows.Forms.TextBox();
+            this.txt_NameType = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgv_Supplier = new System.Windows.Forms.DataGridView();
+            this.dgv_TypeProduct = new System.Windows.Forms.DataGridView();
             this.btn_Search = new FontAwesome.Sharp.IconButton();
             this.txt_Search = new System.Windows.Forms.TextBox();
             this.btn_Delete = new FontAwesome.Sharp.IconButton();
@@ -43,40 +43,40 @@
             this.btn_Refresh = new FontAwesome.Sharp.IconButton();
             this.txt_ID = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.cbb_Search = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Supplier)).BeginInit();
+            this.cbb_SearchRole = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_TypeProduct)).BeginInit();
             this.SuspendLayout();
             // 
-            // lbl_Phone
+            // lbl_ErrorDescribe
             // 
-            this.lbl_Phone.AutoSize = true;
-            this.lbl_Phone.ForeColor = System.Drawing.Color.Red;
-            this.lbl_Phone.Location = new System.Drawing.Point(12, 479);
-            this.lbl_Phone.Name = "lbl_Phone";
-            this.lbl_Phone.Size = new System.Drawing.Size(81, 29);
-            this.lbl_Phone.TabIndex = 26;
-            this.lbl_Phone.Text = "label4";
-            this.lbl_Phone.Visible = false;
+            this.lbl_ErrorDescribe.AutoSize = true;
+            this.lbl_ErrorDescribe.ForeColor = System.Drawing.Color.Red;
+            this.lbl_ErrorDescribe.Location = new System.Drawing.Point(12, 479);
+            this.lbl_ErrorDescribe.Name = "lbl_ErrorDescribe";
+            this.lbl_ErrorDescribe.Size = new System.Drawing.Size(81, 29);
+            this.lbl_ErrorDescribe.TabIndex = 26;
+            this.lbl_ErrorDescribe.Text = "label4";
+            this.lbl_ErrorDescribe.Visible = false;
             // 
-            // lbl_Name
+            // lbl_ErrorName
             // 
-            this.lbl_Name.AutoSize = true;
-            this.lbl_Name.ForeColor = System.Drawing.Color.Red;
-            this.lbl_Name.Location = new System.Drawing.Point(12, 366);
-            this.lbl_Name.Name = "lbl_Name";
-            this.lbl_Name.Size = new System.Drawing.Size(81, 29);
-            this.lbl_Name.TabIndex = 27;
-            this.lbl_Name.Text = "label4";
-            this.lbl_Name.Visible = false;
+            this.lbl_ErrorName.AutoSize = true;
+            this.lbl_ErrorName.ForeColor = System.Drawing.Color.Red;
+            this.lbl_ErrorName.Location = new System.Drawing.Point(12, 366);
+            this.lbl_ErrorName.Name = "lbl_ErrorName";
+            this.lbl_ErrorName.Size = new System.Drawing.Size(81, 29);
+            this.lbl_ErrorName.TabIndex = 27;
+            this.lbl_ErrorName.Text = "label4";
+            this.lbl_ErrorName.Visible = false;
             // 
-            // txt_Phone
+            // txt_Desc
             // 
-            this.txt_Phone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_Phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Phone.Location = new System.Drawing.Point(12, 440);
-            this.txt_Phone.Name = "txt_Phone";
-            this.txt_Phone.Size = new System.Drawing.Size(248, 36);
-            this.txt_Phone.TabIndex = 25;
+            this.txt_Desc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_Desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Desc.Location = new System.Drawing.Point(12, 440);
+            this.txt_Desc.Name = "txt_Desc";
+            this.txt_Desc.Size = new System.Drawing.Size(248, 36);
+            this.txt_Desc.TabIndex = 25;
             // 
             // label2
             // 
@@ -85,18 +85,18 @@
             this.label2.ForeColor = System.Drawing.Color.Yellow;
             this.label2.Location = new System.Drawing.Point(7, 408);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(173, 29);
+            this.label2.Size = new System.Drawing.Size(265, 29);
             this.label2.TabIndex = 24;
-            this.label2.Text = "Số Điện Thoại";
+            this.label2.Text = "Mô Tả Loại Sản Phẩm";
             // 
-            // txt_NameSupplier
+            // txt_NameType
             // 
-            this.txt_NameSupplier.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_NameSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_NameSupplier.Location = new System.Drawing.Point(12, 327);
-            this.txt_NameSupplier.Name = "txt_NameSupplier";
-            this.txt_NameSupplier.Size = new System.Drawing.Size(347, 36);
-            this.txt_NameSupplier.TabIndex = 23;
+            this.txt_NameType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_NameType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_NameType.Location = new System.Drawing.Point(12, 327);
+            this.txt_NameType.Name = "txt_NameType";
+            this.txt_NameType.Size = new System.Drawing.Size(347, 36);
+            this.txt_NameType.TabIndex = 23;
             // 
             // label1
             // 
@@ -105,28 +105,29 @@
             this.label1.ForeColor = System.Drawing.Color.Yellow;
             this.label1.Location = new System.Drawing.Point(7, 295);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(229, 29);
+            this.label1.Size = new System.Drawing.Size(244, 29);
             this.label1.TabIndex = 22;
-            this.label1.Text = "Tên Nhà Cung Cấp";
+            this.label1.Text = "Tên Loại Sản Phẩm ";
             // 
-            // dgv_Supplier
+            // dgv_TypeProduct
             // 
-            this.dgv_Supplier.AllowUserToAddRows = false;
-            this.dgv_Supplier.AllowUserToDeleteRows = false;
-            this.dgv_Supplier.AllowUserToOrderColumns = true;
-            this.dgv_Supplier.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_Supplier.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dgv_Supplier.BackgroundColor = System.Drawing.Color.Azure;
-            this.dgv_Supplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Supplier.Location = new System.Drawing.Point(426, 131);
-            this.dgv_Supplier.MultiSelect = false;
-            this.dgv_Supplier.Name = "dgv_Supplier";
-            this.dgv_Supplier.ReadOnly = true;
-            this.dgv_Supplier.RowHeadersWidth = 51;
-            this.dgv_Supplier.RowTemplate.Height = 24;
-            this.dgv_Supplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Supplier.Size = new System.Drawing.Size(939, 605);
-            this.dgv_Supplier.TabIndex = 28;
+            this.dgv_TypeProduct.AllowUserToAddRows = false;
+            this.dgv_TypeProduct.AllowUserToDeleteRows = false;
+            this.dgv_TypeProduct.AllowUserToOrderColumns = true;
+            this.dgv_TypeProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_TypeProduct.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dgv_TypeProduct.BackgroundColor = System.Drawing.Color.Azure;
+            this.dgv_TypeProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_TypeProduct.Location = new System.Drawing.Point(426, 131);
+            this.dgv_TypeProduct.MultiSelect = false;
+            this.dgv_TypeProduct.Name = "dgv_TypeProduct";
+            this.dgv_TypeProduct.ReadOnly = true;
+            this.dgv_TypeProduct.RowHeadersWidth = 51;
+            this.dgv_TypeProduct.RowTemplate.Height = 24;
+            this.dgv_TypeProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_TypeProduct.Size = new System.Drawing.Size(939, 605);
+            this.dgv_TypeProduct.TabIndex = 28;
+            this.dgv_TypeProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_TypeProduct_CellClick);
             // 
             // btn_Search
             // 
@@ -141,6 +142,7 @@
             this.btn_Search.Size = new System.Drawing.Size(65, 47);
             this.btn_Search.TabIndex = 33;
             this.btn_Search.UseVisualStyleBackColor = true;
+            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
             // 
             // txt_Search
             // 
@@ -163,6 +165,7 @@
             this.btn_Delete.Size = new System.Drawing.Size(91, 78);
             this.btn_Delete.TabIndex = 31;
             this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // btn_Alter
             // 
@@ -176,6 +179,7 @@
             this.btn_Alter.Size = new System.Drawing.Size(91, 78);
             this.btn_Alter.TabIndex = 30;
             this.btn_Alter.UseVisualStyleBackColor = true;
+            this.btn_Alter.Click += new System.EventHandler(this.btn_Alter_Click);
             // 
             // btn_Add
             // 
@@ -189,6 +193,7 @@
             this.btn_Add.Size = new System.Drawing.Size(91, 78);
             this.btn_Add.TabIndex = 29;
             this.btn_Add.UseVisualStyleBackColor = true;
+            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
             // btn_Refresh
             // 
@@ -202,6 +207,7 @@
             this.btn_Refresh.Size = new System.Drawing.Size(91, 78);
             this.btn_Refresh.TabIndex = 32;
             this.btn_Refresh.UseVisualStyleBackColor = true;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // txt_ID
             // 
@@ -221,23 +227,21 @@
             this.label6.ForeColor = System.Drawing.Color.Yellow;
             this.label6.Location = new System.Drawing.Point(6, 200);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(221, 29);
+            this.label6.Size = new System.Drawing.Size(229, 29);
             this.label6.TabIndex = 35;
-            this.label6.Text = "Mã Nhà Cung Cấp";
+            this.label6.Text = "Mã Loại Sản Phẩm";
             // 
-            // cbb_Search
+            // cbb_SearchRole
             // 
-            this.cbb_Search.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbb_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbb_Search.FormattingEnabled = true;
-            this.cbb_Search.Items.AddRange(new object[] {
-            "MaNCC",
-            "SDT",
-            "DiaChi"});
-            this.cbb_Search.Location = new System.Drawing.Point(918, 81);
-            this.cbb_Search.Name = "cbb_Search";
-            this.cbb_Search.Size = new System.Drawing.Size(131, 46);
-            this.cbb_Search.TabIndex = 37;
+            this.cbb_SearchRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbb_SearchRole.FormattingEnabled = true;
+            this.cbb_SearchRole.Items.AddRange(new object[] {
+            "MaLoaiSP",
+            "TenLoai"});
+            this.cbb_SearchRole.Location = new System.Drawing.Point(903, 80);
+            this.cbb_SearchRole.Name = "cbb_SearchRole";
+            this.cbb_SearchRole.Size = new System.Drawing.Size(131, 37);
+            this.cbb_SearchRole.TabIndex = 37;
             // 
             // frmTypeProduct
             // 
@@ -245,27 +249,28 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
             this.ClientSize = new System.Drawing.Size(1380, 750);
-            this.Controls.Add(this.cbb_Search);
+            this.Controls.Add(this.cbb_SearchRole);
             this.Controls.Add(this.txt_ID);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.dgv_Supplier);
+            this.Controls.Add(this.dgv_TypeProduct);
             this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.txt_Search);
             this.Controls.Add(this.btn_Delete);
             this.Controls.Add(this.btn_Alter);
             this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.btn_Refresh);
-            this.Controls.Add(this.lbl_Phone);
-            this.Controls.Add(this.lbl_Name);
-            this.Controls.Add(this.txt_Phone);
+            this.Controls.Add(this.lbl_ErrorDescribe);
+            this.Controls.Add(this.lbl_ErrorName);
+            this.Controls.Add(this.txt_Desc);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txt_NameSupplier);
+            this.Controls.Add(this.txt_NameType);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "frmTypeProduct";
             this.Text = "frmTypeProduct";
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Supplier)).EndInit();
+            this.Load += new System.EventHandler(this.frmTypeProduct_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_TypeProduct)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,13 +278,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lbl_Phone;
-        private System.Windows.Forms.Label lbl_Name;
-        private System.Windows.Forms.TextBox txt_Phone;
+        private System.Windows.Forms.Label lbl_ErrorDescribe;
+        private System.Windows.Forms.Label lbl_ErrorName;
+        private System.Windows.Forms.TextBox txt_Desc;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txt_NameSupplier;
+        private System.Windows.Forms.TextBox txt_NameType;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgv_Supplier;
+        private System.Windows.Forms.DataGridView dgv_TypeProduct;
         private FontAwesome.Sharp.IconButton btn_Search;
         private System.Windows.Forms.TextBox txt_Search;
         private FontAwesome.Sharp.IconButton btn_Delete;
@@ -288,6 +293,6 @@
         private FontAwesome.Sharp.IconButton btn_Refresh;
         private System.Windows.Forms.TextBox txt_ID;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cbb_Search;
+        private System.Windows.Forms.ComboBox cbb_SearchRole;
     }
 }
