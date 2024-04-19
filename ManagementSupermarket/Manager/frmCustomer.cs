@@ -42,6 +42,7 @@ namespace ManagementSupermarket
         private void frmCustomer_Load(object sender, EventArgs e)
         {
             LoadData();
+            cbb_SearchRole.SelectedIndex = 0;
         }
         private bool IsEmptytTextBox(string fullName, string CCCD, string phone , string address)
         {
@@ -120,7 +121,6 @@ namespace ManagementSupermarket
             }
 
         }
-
         private void dgv_ListCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewCellCollection rowSelected = dgv_ListCustomer.SelectedRows[0].Cells;
@@ -218,8 +218,8 @@ namespace ManagementSupermarket
 
         private void btn_Search_Click(object sender, EventArgs e)
         {
-            string text=string.IsNullOrEmpty(txt_Search.Text) ? null : txt_Search.Text;
-            dgv_ListCustomer.DataSource = dataCustomer.GetCustomerTo(text);
+            string text= string.IsNullOrEmpty(txt_Search.Text) ? null : txt_Search.Text;
+            dgv_ListCustomer.DataSource = dataCustomer.GetCustomerTo(cbb_SearchRole.Text,text);
             dgv_ListCustomer.Refresh();
         }
 
