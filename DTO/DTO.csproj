@@ -44,6 +44,7 @@
     <Compile Include="DTO_Customer.cs" />
     <Compile Include="DTO_Employee.cs" />
     <Compile Include="DTO_InvoiceSelling.cs" />
+    <Compile Include="DTO_InvoiceWarehouse.cs" />
     <Compile Include="DTO_Product.cs" />
     <Compile Include="DTO_Supplier.cs" />
     <Compile Include="DTO_TypeProduct.cs" />

@@ -43,7 +43,6 @@
             this.lbl_ErrorTimeEnd = new System.Windows.Forms.Label();
             this.cbb_UnitTime = new System.Windows.Forms.ComboBox();
             this.dgv_Supplier = new System.Windows.Forms.DataGridView();
-            this.btn_Delete = new FontAwesome.Sharp.IconButton();
             this.btn_Alter = new FontAwesome.Sharp.IconButton();
             this.btn_Add = new FontAwesome.Sharp.IconButton();
             this.btn_Refresh = new FontAwesome.Sharp.IconButton();
@@ -224,19 +223,6 @@
             this.dgv_Supplier.Size = new System.Drawing.Size(825, 560);
             this.dgv_Supplier.TabIndex = 32;
             // 
-            // btn_Delete
-            // 
-            this.btn_Delete.BackgroundImage = global::ManagementSupermarket.Properties.Resources.pngtree_vector_trash_icon_png_image_865284;
-            this.btn_Delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Delete.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btn_Delete.IconColor = System.Drawing.Color.Black;
-            this.btn_Delete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Delete.Location = new System.Drawing.Point(194, 574);
-            this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(79, 64);
-            this.btn_Delete.TabIndex = 35;
-            this.btn_Delete.UseVisualStyleBackColor = true;
-            // 
             // btn_Alter
             // 
             this.btn_Alter.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconPencil;
@@ -244,7 +230,7 @@
             this.btn_Alter.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Alter.IconColor = System.Drawing.Color.Black;
             this.btn_Alter.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Alter.Location = new System.Drawing.Point(109, 574);
+            this.btn_Alter.Location = new System.Drawing.Point(124, 574);
             this.btn_Alter.Name = "btn_Alter";
             this.btn_Alter.Size = new System.Drawing.Size(79, 64);
             this.btn_Alter.TabIndex = 34;
@@ -270,7 +256,7 @@
             this.btn_Refresh.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Refresh.IconColor = System.Drawing.Color.Black;
             this.btn_Refresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Refresh.Location = new System.Drawing.Point(279, 574);
+            this.btn_Refresh.Location = new System.Drawing.Point(227, 574);
             this.btn_Refresh.Name = "btn_Refresh";
             this.btn_Refresh.Size = new System.Drawing.Size(79, 64);
             this.btn_Refresh.TabIndex = 36;
@@ -346,7 +332,6 @@
             this.Controls.Add(this.cbb_Search);
             this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.txt_Search);
-            this.Controls.Add(this.btn_Delete);
             this.Controls.Add(this.btn_Alter);
             this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.btn_Refresh);
@@ -393,7 +378,6 @@
         private System.Windows.Forms.Label lbl_ErrorTimeEnd;
         private System.Windows.Forms.ComboBox cbb_UnitTime;
         private System.Windows.Forms.DataGridView dgv_Supplier;
-        private FontAwesome.Sharp.IconButton btn_Delete;
         private FontAwesome.Sharp.IconButton btn_Alter;
         private FontAwesome.Sharp.IconButton btn_Add;
         private FontAwesome.Sharp.IconButton btn_Refresh;
