@@ -76,6 +76,12 @@
     <Compile Include="Manager\frmCustomer.Designer.cs">
       <DependentUpon>frmCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manager\frmDiscount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\frmDiscount.Designer.cs">
+      <DependentUpon>frmDiscount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manager\frmHomeOfManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,12 @@
     <Compile Include="Manager\frmSuppiler.Designer.cs">
       <DependentUpon>frmSuppiler.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manager\frmTypeProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\frmTypeProduct.Designer.cs">
+      <DependentUpon>frmTypeProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manager\frmWarehouse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\frmCustomer.resx">
       <DependentUpon>frmCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\frmDiscount.resx">
+      <DependentUpon>frmDiscount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\frmHomeOfManager.resx">
       <DependentUpon>frmHomeOfManager.cs</DependentUpon>
@@ -146,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\frmSuppiler.resx">
       <DependentUpon>frmSuppiler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\frmTypeProduct.resx">
+      <DependentUpon>frmTypeProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\frmWarehouse.resx">
       <DependentUpon>frmWarehouse.cs</DependentUpon>
