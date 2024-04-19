@@ -82,3 +82,5 @@ D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSuper
 D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\GUI.csproj.CopyComplete
 D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.exe
 D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.pdb
+D:\C#\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.Manager.frmDiscount.resources
+D:\C#\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.Manager.frmTypeProduct.resources

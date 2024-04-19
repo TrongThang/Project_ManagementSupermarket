@@ -119,9 +119,6 @@ namespace ManagementSupermarket
                 MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-
-
-
         }
 
         private void dgv_ListCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
