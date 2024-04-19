@@ -12,9 +12,17 @@ namespace ManagementSupermarket
 {
     public partial class frmOrder : Form
     {
+        private string idEmployee;
         public frmOrder()
         {
             InitializeComponent();
         }
+        public frmOrder(string idEmployee)
+        {
+            this.idEmployee = idEmployee;
+            InitializeComponent();
+        }
+
+
     }
 }
