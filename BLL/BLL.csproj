@@ -46,6 +46,7 @@
     <Compile Include="BLL_Employee.cs" />
     <Compile Include="BLL_Role.cs" />
     <Compile Include="BLL_Supplier.cs" />
+    <Compile Include="BLL_TypeProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -46,6 +46,7 @@
     <Compile Include="DAL_Employee.cs" />
     <Compile Include="DAL_Role.cs" />
     <Compile Include="DAL_Supplier.cs" />
+    <Compile Include="DAL_TypeProduct.cs" />
     <Compile Include="DP.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -30,8 +30,8 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbb_UnitTime = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.cbb_Unit = new System.Windows.Forms.ComboBox();
+            this.cbb_TypeProduct = new System.Windows.Forms.ComboBox();
+            this.cbb_UnitCaculator = new System.Windows.Forms.ComboBox();
             this.cbb_Supplier = new System.Windows.Forms.ComboBox();
             this.num_Count = new System.Windows.Forms.NumericUpDown();
             this.chk_Status = new System.Windows.Forms.CheckBox();
@@ -70,8 +70,8 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.cbb_UnitTime);
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Controls.Add(this.cbb_Unit);
+            this.panel1.Controls.Add(this.cbb_TypeProduct);
+            this.panel1.Controls.Add(this.cbb_UnitCaculator);
             this.panel1.Controls.Add(this.cbb_Supplier);
             this.panel1.Controls.Add(this.num_Count);
             this.panel1.Controls.Add(this.chk_Status);
@@ -102,34 +102,31 @@
             // cbb_UnitTime
             // 
             this.cbb_UnitTime.FormattingEnabled = true;
-            this.cbb_UnitTime.Items.AddRange(new object[] {
-            "H",
-            "D",
-            "M",
-            "Y"});
             this.cbb_UnitTime.Location = new System.Drawing.Point(230, 492);
             this.cbb_UnitTime.Name = "cbb_UnitTime";
             this.cbb_UnitTime.Size = new System.Drawing.Size(138, 34);
             this.cbb_UnitTime.TabIndex = 23;
             // 
-            // comboBox1
+            // cbb_TypeProduct
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(187, 349);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(180, 34);
-            this.comboBox1.TabIndex = 23;
+            this.cbb_TypeProduct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbb_TypeProduct.FormattingEnabled = true;
+            this.cbb_TypeProduct.Location = new System.Drawing.Point(187, 349);
+            this.cbb_TypeProduct.Name = "cbb_TypeProduct";
+            this.cbb_TypeProduct.Size = new System.Drawing.Size(180, 34);
+            this.cbb_TypeProduct.TabIndex = 23;
             // 
-            // cbb_Unit
+            // cbb_UnitCaculator
             // 
-            this.cbb_Unit.FormattingEnabled = true;
-            this.cbb_Unit.Location = new System.Drawing.Point(21, 349);
-            this.cbb_Unit.Name = "cbb_Unit";
-            this.cbb_Unit.Size = new System.Drawing.Size(158, 34);
-            this.cbb_Unit.TabIndex = 23;
+            this.cbb_UnitCaculator.FormattingEnabled = true;
+            this.cbb_UnitCaculator.Location = new System.Drawing.Point(21, 349);
+            this.cbb_UnitCaculator.Name = "cbb_UnitCaculator";
+            this.cbb_UnitCaculator.Size = new System.Drawing.Size(158, 34);
+            this.cbb_UnitCaculator.TabIndex = 23;
             // 
             // cbb_Supplier
             // 
+            this.cbb_Supplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_Supplier.FormattingEnabled = true;
             this.cbb_Supplier.Location = new System.Drawing.Point(186, 216);
             this.cbb_Supplier.Name = "cbb_Supplier";
@@ -450,6 +447,7 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmManagementProducts";
             this.Text = "Quản Lý Sản Phẩm";
+            this.Load += new System.EventHandler(this.frmManagementProducts_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_Count)).EndInit();
@@ -485,14 +483,14 @@
         private FontAwesome.Sharp.IconButton btn_Add;
         private System.Windows.Forms.TextBox txt_Search;
         private FontAwesome.Sharp.IconButton btn_Search;
-        private System.Windows.Forms.ComboBox cbb_Unit;
+        private System.Windows.Forms.ComboBox cbb_UnitCaculator;
         private System.Windows.Forms.ComboBox cbb_Supplier;
         private System.Windows.Forms.NumericUpDown num_Count;
         private System.Windows.Forms.TextBox txt_Discount;
         private System.Windows.Forms.TextBox txt_ShelfLife;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cbb_UnitTime;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbb_TypeProduct;
         private System.Windows.Forms.Label label10;
     }
 }

@@ -46,6 +46,7 @@
     <Compile Include="DTO_InvoiceSelling.cs" />
     <Compile Include="DTO_Product.cs" />
     <Compile Include="DTO_Supplier.cs" />
+    <Compile Include="DTO_TypeProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
