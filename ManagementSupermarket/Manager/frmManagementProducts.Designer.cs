@@ -338,7 +338,7 @@
             // 
             this.pic_Product.BackColor = System.Drawing.Color.White;
             this.pic_Product.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pic_Product.Location = new System.Drawing.Point(52, 12);
+            this.pic_Product.Location = new System.Drawing.Point(61, 3);
             this.pic_Product.Name = "pic_Product";
             this.pic_Product.Size = new System.Drawing.Size(253, 131);
             this.pic_Product.TabIndex = 0;
@@ -433,7 +433,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Window;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
             this.BackgroundImage = global::ManagementSupermarket.Properties.Resources.bgMain;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1247, 751);

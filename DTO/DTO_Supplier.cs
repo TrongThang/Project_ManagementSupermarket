@@ -13,24 +13,30 @@ namespace DTO
         private string s_FullName;
         private string s_Phone;
         private string s_Address;
-        private byte s_Status;
+        private bool s_Status;
 
         public DTO_Supplier()
         {
-            s_ID = null;
-            s_FullName = null;
-            s_Phone = null;
-            s_Address = null;
-            s_Status = 0;
+            S_ID = null;
+            S_FullName = null;
+            S_Phone = null;
+            S_Address = null;
+            S_Status = false;
         }
 
-        public DTO_Supplier(string iD, string fullName, string phone, string address, byte status)
+        public DTO_Supplier(string fullName, string phone, string address, bool status, string iD = null)
         {
-            s_ID = iD;
-            s_FullName = fullName;
-            s_Phone = phone;
-            s_Address = address;
-            s_Status = status;
+            S_ID = iD;
+            S_FullName = fullName;
+            S_Phone = phone;
+            S_Address = address;
+            S_Status = status;
         }
+
+        public string S_ID { get => s_ID; set => s_ID = value; }
+        public string S_FullName { get => s_FullName; set => s_FullName = value; }
+        public string S_Phone { get => s_Phone; set => s_Phone = value; }
+        public string S_Address { get => s_Address; set => s_Address = value; }
+        public bool S_Status { get => s_Status; set => s_Status = value; }
     }
 }

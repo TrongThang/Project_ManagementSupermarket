@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,5 +16,11 @@ namespace BLL
         {
             return dataSupplier.GetSupplier(keySearch, value);
         }
+        public int InsertSupplier(DTO_Supplier supplier)
+        {
+            return dataSupplier.InsertSupplier(supplier);
+        }
+        public int UpdateSupplier(DTO_Supplier supplier) {  return dataSupplier.UpdateSupplier(supplier); }
+        public int UpdateStatusSupplier(string idSupplier) { return dataSupplier.UpdateStatusSupplier(idSupplier); }
     }
 }

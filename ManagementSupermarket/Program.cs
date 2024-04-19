@@ -17,7 +17,7 @@ namespace ManagementSupermarket
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmChangePassword());
+            Application.Run(new frmSuppiler());
         }
     }
 }
