@@ -56,8 +56,8 @@
             this.btn_Delete = new FontAwesome.Sharp.IconButton();
             this.btn_Add = new FontAwesome.Sharp.IconButton();
             this.btn_Alter = new FontAwesome.Sharp.IconButton();
-            this.cbb_Search = new System.Windows.Forms.ComboBox();
             this.chk_CustomerStatus = new System.Windows.Forms.CheckBox();
+            this.cbb_SearchRole = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ListCustomer)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -229,6 +229,7 @@
             // 
             this.txt_Phone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_Phone.Location = new System.Drawing.Point(706, 70);
+            this.txt_Phone.MaxLength = 10;
             this.txt_Phone.Name = "txt_Phone";
             this.txt_Phone.Size = new System.Drawing.Size(203, 32);
             this.txt_Phone.TabIndex = 19;
@@ -238,6 +239,7 @@
             // 
             this.txt_CCCD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_CCCD.Location = new System.Drawing.Point(481, 70);
+            this.txt_CCCD.MaxLength = 12;
             this.txt_CCCD.Name = "txt_CCCD";
             this.txt_CCCD.Size = new System.Drawing.Size(203, 32);
             this.txt_CCCD.TabIndex = 18;
@@ -319,7 +321,7 @@
             this.lbl_ErrorCCCD.AutoSize = true;
             this.lbl_ErrorCCCD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorCCCD.ForeColor = System.Drawing.Color.Red;
-            this.lbl_ErrorCCCD.Location = new System.Drawing.Point(459, 105);
+            this.lbl_ErrorCCCD.Location = new System.Drawing.Point(477, 105);
             this.lbl_ErrorCCCD.Name = "lbl_ErrorCCCD";
             this.lbl_ErrorCCCD.Size = new System.Drawing.Size(53, 20);
             this.lbl_ErrorCCCD.TabIndex = 23;
@@ -408,14 +410,6 @@
             this.btn_Alter.UseVisualStyleBackColor = true;
             this.btn_Alter.Click += new System.EventHandler(this.btn_Alter_Click);
             // 
-            // cbb_Search
-            // 
-            this.cbb_Search.FormattingEnabled = true;
-            this.cbb_Search.Location = new System.Drawing.Point(819, 313);
-            this.cbb_Search.Name = "cbb_Search";
-            this.cbb_Search.Size = new System.Drawing.Size(121, 34);
-            this.cbb_Search.TabIndex = 16;
-            // 
             // chk_CustomerStatus
             // 
             this.chk_CustomerStatus.AutoSize = true;
@@ -431,14 +425,31 @@
             this.chk_CustomerStatus.UseVisualStyleBackColor = true;
             this.chk_CustomerStatus.CheckedChanged += new System.EventHandler(this.chk_CustomerStatus_CheckedChanged);
             // 
+            // cbb_SearchRole
+            // 
+            this.cbb_SearchRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbb_SearchRole.FormattingEnabled = true;
+            this.cbb_SearchRole.Items.AddRange(new object[] {
+            "MaKH",
+            "CCCD",
+            "HoTen",
+            "GioiTinh",
+            "DiaChi",
+            "SDT",
+            "NgayTao"});
+            this.cbb_SearchRole.Location = new System.Drawing.Point(814, 313);
+            this.cbb_SearchRole.Name = "cbb_SearchRole";
+            this.cbb_SearchRole.Size = new System.Drawing.Size(131, 34);
+            this.cbb_SearchRole.TabIndex = 18;
+            // 
             // frmCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
             this.ClientSize = new System.Drawing.Size(1240, 735);
+            this.Controls.Add(this.cbb_SearchRole);
             this.Controls.Add(this.chk_CustomerStatus);
-            this.Controls.Add(this.cbb_Search);
             this.Controls.Add(this.txt_Search);
             this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.btn_Refresh);
@@ -489,11 +500,11 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private FontAwesome.Sharp.IconButton btn_Alter;
         private System.Windows.Forms.GroupBox grpInfo;
-        private System.Windows.Forms.ComboBox cbb_Search;
         private System.Windows.Forms.Label lbl_ErrorAddress;
         private System.Windows.Forms.Label lbl_ErrorPhone;
         private System.Windows.Forms.Label lbl_ErrorCCCD;
         private System.Windows.Forms.Label lbl_ErrorName;
         private System.Windows.Forms.CheckBox chk_CustomerStatus;
+        private System.Windows.Forms.ComboBox cbb_SearchRole;
     }
 }

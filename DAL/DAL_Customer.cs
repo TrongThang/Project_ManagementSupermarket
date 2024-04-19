@@ -44,7 +44,6 @@ namespace DAL
         }
         public int  InsertCustomer(DTO_Customer customer)
         {
-            
             string sql = "sp_InsertCustomer";
             Dictionary<string, dynamic> dict = new Dictionary<string, dynamic>();
             dict = createDict(customer);

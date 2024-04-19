@@ -67,7 +67,6 @@
             this.dgv_OrderDetail = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.iconButton11 = new FontAwesome.Sharp.IconButton();
-            this.iconButton12 = new FontAwesome.Sharp.IconButton();
             this.iconButton9 = new FontAwesome.Sharp.IconButton();
             this.iconButton10 = new FontAwesome.Sharp.IconButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -91,6 +90,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.iconButton4 = new FontAwesome.Sharp.IconButton();
+            this.iconButton5 = new FontAwesome.Sharp.IconButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.grpInfo.SuspendLayout();
@@ -126,7 +128,6 @@
             this.tabPage1.Controls.Add(this.iconButton1);
             this.tabPage1.Controls.Add(this.lst_ToReceive);
             this.tabPage1.Controls.Add(this.txt_TotalCash);
-            this.tabPage1.Controls.Add(this.btn_DeleteCreate);
             this.tabPage1.Location = new System.Drawing.Point(4, 35);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -166,6 +167,7 @@
             this.grpInfo.Controls.Add(this.groupBox2);
             this.grpInfo.Controls.Add(this.btn_RefreshCreate);
             this.grpInfo.Controls.Add(this.num_CountProductCreate);
+            this.grpInfo.Controls.Add(this.btn_DeleteCreate);
             this.grpInfo.Controls.Add(this.btn_AddCreate);
             this.grpInfo.Controls.Add(this.txt_IntoMoney);
             this.grpInfo.Controls.Add(this.txt_PriceCreate);
@@ -179,7 +181,7 @@
             this.grpInfo.ForeColor = System.Drawing.Color.Yellow;
             this.grpInfo.Location = new System.Drawing.Point(8, 13);
             this.grpInfo.Name = "grpInfo";
-            this.grpInfo.Size = new System.Drawing.Size(324, 654);
+            this.grpInfo.Size = new System.Drawing.Size(423, 654);
             this.grpInfo.TabIndex = 33;
             this.grpInfo.TabStop = false;
             this.grpInfo.Text = "Thông tin";
@@ -240,7 +242,7 @@
             this.btn_RefreshCreate.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_RefreshCreate.IconColor = System.Drawing.Color.Black;
             this.btn_RefreshCreate.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_RefreshCreate.Location = new System.Drawing.Point(233, 583);
+            this.btn_RefreshCreate.Location = new System.Drawing.Point(338, 579);
             this.btn_RefreshCreate.Name = "btn_RefreshCreate";
             this.btn_RefreshCreate.Size = new System.Drawing.Size(79, 64);
             this.btn_RefreshCreate.TabIndex = 38;
@@ -365,11 +367,11 @@
             this.iconButton1.IconColor = System.Drawing.Color.Black;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(688, 595);
+            this.iconButton1.Location = new System.Drawing.Point(761, 588);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(154, 67);
             this.iconButton1.TabIndex = 36;
-            this.iconButton1.Text = "Tổng Tiền";
+            this.iconButton1.Text = "Tính Tiền";
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconButton1.UseVisualStyleBackColor = false;
             // 
@@ -383,9 +385,9 @@
             this.columnHeader5});
             this.lst_ToReceive.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lst_ToReceive.HideSelection = false;
-            this.lst_ToReceive.Location = new System.Drawing.Point(370, 68);
+            this.lst_ToReceive.Location = new System.Drawing.Point(437, 68);
             this.lst_ToReceive.Name = "lst_ToReceive";
-            this.lst_ToReceive.Size = new System.Drawing.Size(826, 500);
+            this.lst_ToReceive.Size = new System.Drawing.Size(759, 500);
             this.lst_ToReceive.TabIndex = 34;
             this.lst_ToReceive.UseCompatibleStateImageBehavior = false;
             this.lst_ToReceive.View = System.Windows.Forms.View.Details;
@@ -419,7 +421,7 @@
             // 
             this.txt_TotalCash.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.txt_TotalCash.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F);
-            this.txt_TotalCash.Location = new System.Drawing.Point(357, 596);
+            this.txt_TotalCash.Location = new System.Drawing.Point(437, 586);
             this.txt_TotalCash.Name = "txt_TotalCash";
             this.txt_TotalCash.ReadOnly = true;
             this.txt_TotalCash.Size = new System.Drawing.Size(308, 68);
@@ -432,7 +434,7 @@
             this.btn_DeleteCreate.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_DeleteCreate.IconColor = System.Drawing.Color.Black;
             this.btn_DeleteCreate.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_DeleteCreate.Location = new System.Drawing.Point(1102, 595);
+            this.btn_DeleteCreate.Location = new System.Drawing.Point(237, 582);
             this.btn_DeleteCreate.Name = "btn_DeleteCreate";
             this.btn_DeleteCreate.Size = new System.Drawing.Size(81, 59);
             this.btn_DeleteCreate.TabIndex = 35;
@@ -441,8 +443,11 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.SteelBlue;
+            this.tabPage2.Controls.Add(this.iconButton2);
             this.tabPage2.Controls.Add(this.txt_SearchDetailOrderToReceive);
             this.tabPage2.Controls.Add(this.btn_SearchDetailOrderToReceive);
+            this.tabPage2.Controls.Add(this.iconButton4);
+            this.tabPage2.Controls.Add(this.iconButton5);
             this.tabPage2.Controls.Add(this.txt_SearchOrderToReceive);
             this.tabPage2.Controls.Add(this.btn_SearchOrderToReceive);
             this.tabPage2.Controls.Add(this.dgv_OrderDetail);
@@ -516,7 +521,6 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.iconButton11);
-            this.groupBox4.Controls.Add(this.iconButton12);
             this.groupBox4.Controls.Add(this.iconButton9);
             this.groupBox4.Controls.Add(this.iconButton10);
             this.groupBox4.Location = new System.Drawing.Point(606, 170);
@@ -535,24 +539,11 @@
             this.iconButton11.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconButton11.IconColor = System.Drawing.Color.Black;
             this.iconButton11.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton11.Location = new System.Drawing.Point(89, 26);
+            this.iconButton11.Location = new System.Drawing.Point(8, 28);
             this.iconButton11.Name = "iconButton11";
             this.iconButton11.Size = new System.Drawing.Size(55, 55);
             this.iconButton11.TabIndex = 13;
             this.iconButton11.UseVisualStyleBackColor = true;
-            // 
-            // iconButton12
-            // 
-            this.iconButton12.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconPlus;
-            this.iconButton12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.iconButton12.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton12.IconColor = System.Drawing.Color.Black;
-            this.iconButton12.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton12.Location = new System.Drawing.Point(14, 26);
-            this.iconButton12.Name = "iconButton12";
-            this.iconButton12.Size = new System.Drawing.Size(55, 55);
-            this.iconButton12.TabIndex = 12;
-            this.iconButton12.UseVisualStyleBackColor = true;
             // 
             // iconButton9
             // 
@@ -561,7 +552,7 @@
             this.iconButton9.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconButton9.IconColor = System.Drawing.Color.Black;
             this.iconButton9.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton9.Location = new System.Drawing.Point(230, 26);
+            this.iconButton9.Location = new System.Drawing.Point(149, 28);
             this.iconButton9.Name = "iconButton9";
             this.iconButton9.Size = new System.Drawing.Size(55, 55);
             this.iconButton9.TabIndex = 15;
@@ -574,7 +565,7 @@
             this.iconButton10.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconButton10.IconColor = System.Drawing.Color.Black;
             this.iconButton10.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton10.Location = new System.Drawing.Point(159, 26);
+            this.iconButton10.Location = new System.Drawing.Point(78, 28);
             this.iconButton10.Name = "iconButton10";
             this.iconButton10.Size = new System.Drawing.Size(55, 55);
             this.iconButton10.TabIndex = 14;
@@ -709,7 +700,7 @@
             this.groupBox3.ForeColor = System.Drawing.Color.Yellow;
             this.groupBox3.Location = new System.Drawing.Point(24, 1);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(567, 256);
+            this.groupBox3.Size = new System.Drawing.Size(567, 240);
             this.groupBox3.TabIndex = 21;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông Tin Hoá Đơn Nhập Kho";
@@ -817,6 +808,45 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "Tên Nhà Cung Cấp";
             // 
+            // iconButton2
+            // 
+            this.iconButton2.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconPencil;
+            this.iconButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton2.IconColor = System.Drawing.Color.Black;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.Location = new System.Drawing.Point(25, 247);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(55, 55);
+            this.iconButton2.TabIndex = 17;
+            this.iconButton2.UseVisualStyleBackColor = true;
+            // 
+            // iconButton4
+            // 
+            this.iconButton4.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconReload;
+            this.iconButton4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton4.IconColor = System.Drawing.Color.Black;
+            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton4.Location = new System.Drawing.Point(166, 247);
+            this.iconButton4.Name = "iconButton4";
+            this.iconButton4.Size = new System.Drawing.Size(55, 55);
+            this.iconButton4.TabIndex = 19;
+            this.iconButton4.UseVisualStyleBackColor = true;
+            // 
+            // iconButton5
+            // 
+            this.iconButton5.BackgroundImage = global::ManagementSupermarket.Properties.Resources.pngtree_vector_trash_icon_png_image_865284;
+            this.iconButton5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton5.IconColor = System.Drawing.Color.Black;
+            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton5.Location = new System.Drawing.Point(95, 247);
+            this.iconButton5.Name = "iconButton5";
+            this.iconButton5.Size = new System.Drawing.Size(55, 55);
+            this.iconButton5.TabIndex = 18;
+            this.iconButton5.UseVisualStyleBackColor = true;
+            // 
             // frmWarehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
@@ -883,7 +913,6 @@
         private System.Windows.Forms.DataGridView dgv_OrderDetail;
         private System.Windows.Forms.GroupBox groupBox4;
         private FontAwesome.Sharp.IconButton iconButton11;
-        private FontAwesome.Sharp.IconButton iconButton12;
         private FontAwesome.Sharp.IconButton iconButton9;
         private FontAwesome.Sharp.IconButton iconButton10;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -914,5 +943,8 @@
         private FontAwesome.Sharp.IconButton btn_SearchDetailOrderToReceive;
         private System.Windows.Forms.TextBox txt_SearchOrderToReceive;
         private FontAwesome.Sharp.IconButton btn_SearchOrderToReceive;
+        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton iconButton4;
+        private FontAwesome.Sharp.IconButton iconButton5;
     }
 }
