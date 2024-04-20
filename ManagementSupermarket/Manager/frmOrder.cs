@@ -83,10 +83,10 @@ namespace ManagementSupermarket
 
         private void cbb_NameProductCreate_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            //string selectedValue = cbb_NameProductCreate.SelectedItem.ToString();
+            string selectedValue = cbb_NameProductCreate.SelectedItem.ToString();
 
             // Thực hiện các hành động cần thiết với giá trị đã chọn
-            //MessageBox.Show(selectedValue);
+            MessageBox.Show(selectedValue);
         }
     }
 }
