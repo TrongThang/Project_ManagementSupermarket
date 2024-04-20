@@ -85,3 +85,4 @@ D:\C#\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSu
 D:\C#\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.Manager.frmTypeProduct.resources
 D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.Manager.frmDiscount.resources
 D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.Manager.frmTypeProduct.resources
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.Manager.frmOrder.resources
