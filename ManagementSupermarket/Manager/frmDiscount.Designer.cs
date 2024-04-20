@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.lbl_Name = new System.Windows.Forms.Label();
-            this.txt_Phone = new System.Windows.Forms.TextBox();
+            this.txt_PriceDiscount = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txt_NameSupplier = new System.Windows.Forms.TextBox();
+            this.txt_NameDiscount = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_ID = new System.Windows.Forms.TextBox();
             this.lbl_ = new System.Windows.Forms.Label();
@@ -42,16 +42,16 @@
             this.lbl_PriceDiscount = new System.Windows.Forms.Label();
             this.lbl_ErrorTimeEnd = new System.Windows.Forms.Label();
             this.cbb_UnitTime = new System.Windows.Forms.ComboBox();
-            this.dgv_Supplier = new System.Windows.Forms.DataGridView();
+            this.dgv_ListDiscount = new System.Windows.Forms.DataGridView();
             this.btn_Alter = new FontAwesome.Sharp.IconButton();
             this.btn_Add = new FontAwesome.Sharp.IconButton();
             this.btn_Refresh = new FontAwesome.Sharp.IconButton();
-            this.cbb_Search = new System.Windows.Forms.ComboBox();
             this.btn_Search = new FontAwesome.Sharp.IconButton();
             this.txt_Search = new System.Windows.Forms.TextBox();
-            this.chk_StatusDGV = new System.Windows.Forms.CheckBox();
+            this.chk_DiscountStatus = new System.Windows.Forms.CheckBox();
             this.num_CountTime = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Supplier)).BeginInit();
+            this.cbb_SearchRole = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ListDiscount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_CountTime)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,14 +66,15 @@
             this.lbl_Name.Text = "label4";
             this.lbl_Name.Visible = false;
             // 
-            // txt_Phone
+            // txt_PriceDiscount
             // 
-            this.txt_Phone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_Phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Phone.Location = new System.Drawing.Point(25, 262);
-            this.txt_Phone.Name = "txt_Phone";
-            this.txt_Phone.Size = new System.Drawing.Size(248, 36);
-            this.txt_Phone.TabIndex = 27;
+            this.txt_PriceDiscount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_PriceDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_PriceDiscount.Location = new System.Drawing.Point(25, 262);
+            this.txt_PriceDiscount.Name = "txt_PriceDiscount";
+            this.txt_PriceDiscount.Size = new System.Drawing.Size(248, 36);
+            this.txt_PriceDiscount.TabIndex = 27;
+            this.txt_PriceDiscount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PressNumber);
             // 
             // label2
             // 
@@ -86,14 +87,14 @@
             this.label2.TabIndex = 26;
             this.label2.Text = "Giá Khuyến Mãi";
             // 
-            // txt_NameSupplier
+            // txt_NameDiscount
             // 
-            this.txt_NameSupplier.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_NameSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_NameSupplier.Location = new System.Drawing.Point(20, 147);
-            this.txt_NameSupplier.Name = "txt_NameSupplier";
-            this.txt_NameSupplier.Size = new System.Drawing.Size(347, 36);
-            this.txt_NameSupplier.TabIndex = 25;
+            this.txt_NameDiscount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_NameDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_NameDiscount.Location = new System.Drawing.Point(20, 147);
+            this.txt_NameDiscount.Name = "txt_NameDiscount";
+            this.txt_NameDiscount.Size = new System.Drawing.Size(347, 36);
+            this.txt_NameDiscount.TabIndex = 25;
             // 
             // label1
             // 
@@ -108,12 +109,11 @@
             // 
             // txt_ID
             // 
-            this.txt_ID.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.txt_ID.BackColor = System.Drawing.Color.White;
             this.txt_ID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ID.Location = new System.Drawing.Point(19, 43);
             this.txt_ID.Name = "txt_ID";
-            this.txt_ID.ReadOnly = true;
             this.txt_ID.Size = new System.Drawing.Size(249, 36);
             this.txt_ID.TabIndex = 23;
             // 
@@ -204,24 +204,25 @@
             this.cbb_UnitTime.Size = new System.Drawing.Size(138, 37);
             this.cbb_UnitTime.TabIndex = 31;
             // 
-            // dgv_Supplier
+            // dgv_ListDiscount
             // 
-            this.dgv_Supplier.AllowUserToAddRows = false;
-            this.dgv_Supplier.AllowUserToDeleteRows = false;
-            this.dgv_Supplier.AllowUserToOrderColumns = true;
-            this.dgv_Supplier.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_Supplier.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dgv_Supplier.BackgroundColor = System.Drawing.Color.Azure;
-            this.dgv_Supplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Supplier.Location = new System.Drawing.Point(401, 78);
-            this.dgv_Supplier.MultiSelect = false;
-            this.dgv_Supplier.Name = "dgv_Supplier";
-            this.dgv_Supplier.ReadOnly = true;
-            this.dgv_Supplier.RowHeadersWidth = 51;
-            this.dgv_Supplier.RowTemplate.Height = 24;
-            this.dgv_Supplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Supplier.Size = new System.Drawing.Size(825, 560);
-            this.dgv_Supplier.TabIndex = 32;
+            this.dgv_ListDiscount.AllowUserToAddRows = false;
+            this.dgv_ListDiscount.AllowUserToDeleteRows = false;
+            this.dgv_ListDiscount.AllowUserToOrderColumns = true;
+            this.dgv_ListDiscount.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_ListDiscount.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dgv_ListDiscount.BackgroundColor = System.Drawing.Color.Azure;
+            this.dgv_ListDiscount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_ListDiscount.Location = new System.Drawing.Point(401, 78);
+            this.dgv_ListDiscount.MultiSelect = false;
+            this.dgv_ListDiscount.Name = "dgv_ListDiscount";
+            this.dgv_ListDiscount.ReadOnly = true;
+            this.dgv_ListDiscount.RowHeadersWidth = 51;
+            this.dgv_ListDiscount.RowTemplate.Height = 24;
+            this.dgv_ListDiscount.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_ListDiscount.Size = new System.Drawing.Size(825, 560);
+            this.dgv_ListDiscount.TabIndex = 32;
+            this.dgv_ListDiscount.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ListDiscount_CellClick);
             // 
             // btn_Alter
             // 
@@ -235,6 +236,7 @@
             this.btn_Alter.Size = new System.Drawing.Size(79, 64);
             this.btn_Alter.TabIndex = 34;
             this.btn_Alter.UseVisualStyleBackColor = true;
+            this.btn_Alter.Click += new System.EventHandler(this.btn_Alter_Click);
             // 
             // btn_Add
             // 
@@ -248,6 +250,7 @@
             this.btn_Add.Size = new System.Drawing.Size(79, 64);
             this.btn_Add.TabIndex = 33;
             this.btn_Add.UseVisualStyleBackColor = true;
+            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
             // btn_Refresh
             // 
@@ -261,20 +264,7 @@
             this.btn_Refresh.Size = new System.Drawing.Size(79, 64);
             this.btn_Refresh.TabIndex = 36;
             this.btn_Refresh.UseVisualStyleBackColor = true;
-            // 
-            // cbb_Search
-            // 
-            this.cbb_Search.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbb_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbb_Search.FormattingEnabled = true;
-            this.cbb_Search.Items.AddRange(new object[] {
-            "MaNCC",
-            "SDT",
-            "DiaChi"});
-            this.cbb_Search.Location = new System.Drawing.Point(783, 26);
-            this.cbb_Search.Name = "cbb_Search";
-            this.cbb_Search.Size = new System.Drawing.Size(131, 46);
-            this.cbb_Search.TabIndex = 39;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // btn_Search
             // 
@@ -289,6 +279,7 @@
             this.btn_Search.Size = new System.Drawing.Size(65, 47);
             this.btn_Search.TabIndex = 37;
             this.btn_Search.UseVisualStyleBackColor = true;
+            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
             // 
             // txt_Search
             // 
@@ -299,19 +290,20 @@
             this.txt_Search.Size = new System.Drawing.Size(238, 45);
             this.txt_Search.TabIndex = 38;
             // 
-            // chk_StatusDGV
+            // chk_DiscountStatus
             // 
-            this.chk_StatusDGV.AutoSize = true;
-            this.chk_StatusDGV.Checked = true;
-            this.chk_StatusDGV.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk_StatusDGV.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_StatusDGV.ForeColor = System.Drawing.Color.White;
-            this.chk_StatusDGV.Location = new System.Drawing.Point(401, 31);
-            this.chk_StatusDGV.Name = "chk_StatusDGV";
-            this.chk_StatusDGV.Size = new System.Drawing.Size(202, 43);
-            this.chk_StatusDGV.TabIndex = 40;
-            this.chk_StatusDGV.Text = "Hoạt Động";
-            this.chk_StatusDGV.UseVisualStyleBackColor = true;
+            this.chk_DiscountStatus.AutoSize = true;
+            this.chk_DiscountStatus.Checked = true;
+            this.chk_DiscountStatus.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk_DiscountStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_DiscountStatus.ForeColor = System.Drawing.Color.White;
+            this.chk_DiscountStatus.Location = new System.Drawing.Point(401, 31);
+            this.chk_DiscountStatus.Name = "chk_DiscountStatus";
+            this.chk_DiscountStatus.Size = new System.Drawing.Size(202, 43);
+            this.chk_DiscountStatus.TabIndex = 40;
+            this.chk_DiscountStatus.Text = "Hoạt Động";
+            this.chk_DiscountStatus.UseVisualStyleBackColor = true;
+            this.chk_DiscountStatus.CheckedChanged += new System.EventHandler(this.chk_DiscountStatus_CheckedChanged);
             // 
             // num_CountTime
             // 
@@ -321,32 +313,44 @@
             this.num_CountTime.TabIndex = 41;
             this.num_CountTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // cbb_SearchRole
+            // 
+            this.cbb_SearchRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbb_SearchRole.FormattingEnabled = true;
+            this.cbb_SearchRole.Items.AddRange(new object[] {
+            "MaKM",
+            "TenKM"});
+            this.cbb_SearchRole.Location = new System.Drawing.Point(779, 27);
+            this.cbb_SearchRole.Name = "cbb_SearchRole";
+            this.cbb_SearchRole.Size = new System.Drawing.Size(131, 37);
+            this.cbb_SearchRole.TabIndex = 42;
+            // 
             // frmDiscount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
             this.ClientSize = new System.Drawing.Size(1238, 650);
+            this.Controls.Add(this.cbb_SearchRole);
             this.Controls.Add(this.num_CountTime);
-            this.Controls.Add(this.chk_StatusDGV);
-            this.Controls.Add(this.cbb_Search);
+            this.Controls.Add(this.chk_DiscountStatus);
             this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.txt_Search);
             this.Controls.Add(this.btn_Alter);
             this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.btn_Refresh);
-            this.Controls.Add(this.dgv_Supplier);
+            this.Controls.Add(this.dgv_ListDiscount);
             this.Controls.Add(this.cbb_UnitTime);
             this.Controls.Add(this.dtpTimeStart);
             this.Controls.Add(this.lbl_ErrorTimeEnd);
             this.Controls.Add(this.lbl_PriceDiscount);
             this.Controls.Add(this.lbl_Id);
             this.Controls.Add(this.lbl_Name);
-            this.Controls.Add(this.txt_Phone);
+            this.Controls.Add(this.txt_PriceDiscount);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txt_NameSupplier);
+            this.Controls.Add(this.txt_NameDiscount);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_ID);
             this.Controls.Add(this.lbl_);
@@ -354,7 +358,8 @@
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "frmDiscount";
             this.Text = "frmDiscount";
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Supplier)).EndInit();
+            this.Load += new System.EventHandler(this.frmDiscount_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ListDiscount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_CountTime)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -364,9 +369,9 @@
         #endregion
 
         private System.Windows.Forms.Label lbl_Name;
-        private System.Windows.Forms.TextBox txt_Phone;
+        private System.Windows.Forms.TextBox txt_PriceDiscount;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txt_NameSupplier;
+        private System.Windows.Forms.TextBox txt_NameDiscount;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_ID;
         private System.Windows.Forms.Label lbl_;
@@ -377,14 +382,14 @@
         private System.Windows.Forms.Label lbl_PriceDiscount;
         private System.Windows.Forms.Label lbl_ErrorTimeEnd;
         private System.Windows.Forms.ComboBox cbb_UnitTime;
-        private System.Windows.Forms.DataGridView dgv_Supplier;
+        private System.Windows.Forms.DataGridView dgv_ListDiscount;
         private FontAwesome.Sharp.IconButton btn_Alter;
         private FontAwesome.Sharp.IconButton btn_Add;
         private FontAwesome.Sharp.IconButton btn_Refresh;
-        private System.Windows.Forms.ComboBox cbb_Search;
         private FontAwesome.Sharp.IconButton btn_Search;
         private System.Windows.Forms.TextBox txt_Search;
-        private System.Windows.Forms.CheckBox chk_StatusDGV;
+        private System.Windows.Forms.CheckBox chk_DiscountStatus;
         private System.Windows.Forms.NumericUpDown num_CountTime;
+        private System.Windows.Forms.ComboBox cbb_SearchRole;
     }
 }
