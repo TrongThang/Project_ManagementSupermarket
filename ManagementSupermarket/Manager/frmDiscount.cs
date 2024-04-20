@@ -26,7 +26,31 @@ namespace ManagementSupermarket.Manager
         }
         private void PressNumber(object sender, KeyPressEventArgs e)
         {
-            eventConfig.PressNumber(sender, e);
+            // Chỉ cho phép nhập các ký tự số, dấu chấm thập phân và phím Backspace
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.') && (e.KeyChar != ','))
+            {
+                e.Handled = true;
+            }
+
+            // Chỉ cho phép một dấu thập phân
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
+            // Chỉ cho phép một dấu phẩy thập phân
+            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
+            {
+                e.Handled = true;
+            }
+
+            // Nếu người dùng nhập dấu phân tách thập phân là dấu chấm, chuyển thành dấu phẩy
+            if (e.KeyChar == '.')
+            {
+                e.KeyChar = ',';
+            }
+
         }
         private void LoadData()
         {
@@ -161,6 +185,9 @@ namespace ManagementSupermarket.Manager
         {
             On_OffLabelError(0);
             string id = txt_ID.Text.Trim();
+
+
+
             string nameDiscount = txt_NameDiscount.Text.Trim();
             double priceDiscount = 0;
             // Kiểm tra nếu giá khuyến mãi được nhập và có thể chuyển đổi thành double
@@ -173,24 +200,35 @@ namespace ManagementSupermarket.Manager
                 }
             }
             DateTime starDay = dtpTimeStart.Value;
-            
+
             int thoiHan = (int)num_CountTime.Value;
             string donViThoiHan = cbb_UnitTime.SelectedItem.ToString();
             DateTime endDay = CalculateEndDate(starDay, thoiHan, donViThoiHan);
 
-            bool isEmpty = IsEmptytTextBox(id,nameDiscount,priceDiscount);
+            bool isEmpty = IsEmptytTextBox(id, nameDiscount, priceDiscount);
 
             if (isEmpty)
             {
                 return;
             }
+            // Gọi phương thức GetDiscount từ đối tượng BLL_Discount để kiểm tra tồn tại mã khuyến mãi
+            DataTable dt = dataDiscount.GetDiscount("MaKM", id);
+
+            // Kiểm tra số hàng trong bảng để xác định mã khuyến mãi có tồn tại hay không
+            if (dt.Rows.Count > 0)
+            {
+                MessageBox.Show("Mã khuyến mãi đã tồn tại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             if (priceDiscount == 0)
             {
                 lbl_PriceDiscount.Visible = true;
             }
+
             DTO_Discount discount = new DTO_Discount(id, nameDiscount, priceDiscount, starDay, endDay);
-            int numOfRows=dataDiscount.InsertDiscount(discount);
-            if(numOfRows>0)
+            int numOfRows = dataDiscount.InsertDiscount(discount);
+            if (numOfRows > 0)
             {
                 string mess = "Thêm khuyến mãi thành công";
                 MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -201,6 +239,7 @@ namespace ManagementSupermarket.Manager
                 string mess = "Thêm khuyến mãi thất bại";
                 MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
         }
 
         private void btn_Alter_Click(object sender, EventArgs e)
@@ -229,7 +268,7 @@ namespace ManagementSupermarket.Manager
             int thoiHan = (int)num_CountTime.Value;
             string donViThoiHan = cbb_UnitTime.SelectedItem.ToString();
             DateTime endDay = CalculateEndDate(starDay, thoiHan, donViThoiHan);
-            bool isEmpty = IsEmptytTextBox(id, nameDiscount,priceDiscount);
+            bool isEmpty = IsEmptytTextBox(id, nameDiscount, priceDiscount);
 
             if (isEmpty)
             {
@@ -248,6 +287,8 @@ namespace ManagementSupermarket.Manager
                 string mess = "Chỉnh sửa thông tin khuyến mãi thất bại";
                 MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+
 
         }
 
@@ -283,9 +324,24 @@ namespace ManagementSupermarket.Manager
                 DateTime endDate = DateTime.Parse(rowSelected["NgayKetThuc"].Value.ToString());
                 TimeSpan duration = endDate - dtpTimeStart.Value;
                 int days = (int)duration.TotalDays;
-                num_CountTime.Value = days > 0 ? days : 0;
-                cbb_UnitTime.SelectedItem = "Ngày";
+
+                if (days > 365)
+                {
+                    cbb_UnitTime.SelectedItem = "Năm";
+                    num_CountTime.Value = days / 365;
+                }
+                else if (days > 30)
+                {
+                    cbb_UnitTime.SelectedItem = "Tháng";
+                    num_CountTime.Value = days / 30;
+                }
+                else
+                {
+                    cbb_UnitTime.SelectedItem = "Ngày";
+                    num_CountTime.Value = days;
+                }
             }
+
         }
 
         private void chk_DiscountStatus_CheckedChanged(object sender, EventArgs e)
