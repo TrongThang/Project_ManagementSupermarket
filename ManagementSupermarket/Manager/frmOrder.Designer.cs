@@ -36,14 +36,14 @@
             this.txt_PhoneCustomerCreate = new System.Windows.Forms.TextBox();
             this.txt_CashCustomerCreate = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txt_TotalCashOrder = new System.Windows.Forms.TextBox();
+            this.txt_TotalCashCreate = new System.Windows.Forms.TextBox();
             this.btn_FinishOrder = new FontAwesome.Sharp.IconButton();
             this.btn_Alter = new FontAwesome.Sharp.IconButton();
             this.btn_Delete = new FontAwesome.Sharp.IconButton();
             this.label7 = new System.Windows.Forms.Label();
             this.lst_OrderCurrency = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.SL = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -94,6 +94,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.lbl_ErrorCashCustomer = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tab_FormCreateInvoice.SuspendLayout();
             this.grpInfo.SuspendLayout();
@@ -121,13 +122,14 @@
             // tab_FormCreateInvoice
             // 
             this.tab_FormCreateInvoice.BackColor = System.Drawing.Color.Teal;
+            this.tab_FormCreateInvoice.Controls.Add(this.lbl_ErrorCashCustomer);
             this.tab_FormCreateInvoice.Controls.Add(this.btn_Refresh);
             this.tab_FormCreateInvoice.Controls.Add(this.txt_ChangeCreate);
             this.tab_FormCreateInvoice.Controls.Add(this.label4);
             this.tab_FormCreateInvoice.Controls.Add(this.txt_PhoneCustomerCreate);
             this.tab_FormCreateInvoice.Controls.Add(this.txt_CashCustomerCreate);
             this.tab_FormCreateInvoice.Controls.Add(this.label1);
-            this.tab_FormCreateInvoice.Controls.Add(this.txt_TotalCashOrder);
+            this.tab_FormCreateInvoice.Controls.Add(this.txt_TotalCashCreate);
             this.tab_FormCreateInvoice.Controls.Add(this.btn_FinishOrder);
             this.tab_FormCreateInvoice.Controls.Add(this.btn_Alter);
             this.tab_FormCreateInvoice.Controls.Add(this.btn_Delete);
@@ -207,14 +209,14 @@
             this.label1.TabIndex = 28;
             this.label1.Text = "Tiền Khách Đưa";
             // 
-            // txt_TotalCashOrder
+            // txt_TotalCashCreate
             // 
-            this.txt_TotalCashOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F);
-            this.txt_TotalCashOrder.Location = new System.Drawing.Point(673, 610);
-            this.txt_TotalCashOrder.Name = "txt_TotalCashOrder";
-            this.txt_TotalCashOrder.ReadOnly = true;
-            this.txt_TotalCashOrder.Size = new System.Drawing.Size(308, 68);
-            this.txt_TotalCashOrder.TabIndex = 25;
+            this.txt_TotalCashCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F);
+            this.txt_TotalCashCreate.Location = new System.Drawing.Point(673, 610);
+            this.txt_TotalCashCreate.Name = "txt_TotalCashCreate";
+            this.txt_TotalCashCreate.ReadOnly = true;
+            this.txt_TotalCashCreate.Size = new System.Drawing.Size(308, 68);
+            this.txt_TotalCashCreate.TabIndex = 25;
             // 
             // btn_FinishOrder
             // 
@@ -243,6 +245,7 @@
             this.btn_Alter.Size = new System.Drawing.Size(85, 59);
             this.btn_Alter.TabIndex = 22;
             this.btn_Alter.UseVisualStyleBackColor = true;
+            this.btn_Alter.Click += new System.EventHandler(this.btn_Alter_Click);
             // 
             // btn_Delete
             // 
@@ -256,6 +259,7 @@
             this.btn_Delete.Size = new System.Drawing.Size(81, 59);
             this.btn_Delete.TabIndex = 23;
             this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // label7
             // 
@@ -273,7 +277,7 @@
             // 
             this.lst_OrderCurrency.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
-            this.columnHeader2,
+            this.SL,
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5,
@@ -296,10 +300,10 @@
             this.columnHeader1.Text = "Tên Sản Phẩm";
             this.columnHeader1.Width = 150;
             // 
-            // columnHeader2
+            // SL
             // 
-            this.columnHeader2.Text = "SL";
-            this.columnHeader2.Width = 57;
+            this.SL.Text = "SL";
+            this.SL.Width = 57;
             // 
             // columnHeader3
             // 
@@ -355,6 +359,8 @@
             // 
             // cbb_DiscountCreate
             // 
+            this.cbb_DiscountCreate.DisplayMember = " ";
+            this.cbb_DiscountCreate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_DiscountCreate.FormattingEnabled = true;
             this.cbb_DiscountCreate.Location = new System.Drawing.Point(574, 74);
             this.cbb_DiscountCreate.Name = "cbb_DiscountCreate";
@@ -368,6 +374,7 @@
             this.cbb_NameProductCreate.Name = "cbb_NameProductCreate";
             this.cbb_NameProductCreate.Size = new System.Drawing.Size(207, 34);
             this.cbb_NameProductCreate.TabIndex = 33;
+            this.cbb_NameProductCreate.SelectionChangeCommitted += new System.EventHandler(this.cbb_NameProductCreate_SelectionChangeCommitted);
             // 
             // num_CountProductCreate
             // 
@@ -375,6 +382,13 @@
             this.num_CountProductCreate.Name = "num_CountProductCreate";
             this.num_CountProductCreate.Size = new System.Drawing.Size(139, 32);
             this.num_CountProductCreate.TabIndex = 18;
+            this.num_CountProductCreate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.num_CountProductCreate.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.num_CountProductCreate.ValueChanged += new System.EventHandler(this.num_CountProductCreate_ValueChanged);
             // 
             // btn_Add
             // 
@@ -398,6 +412,7 @@
             this.txt_PriceCreate.ReadOnly = true;
             this.txt_PriceCreate.Size = new System.Drawing.Size(139, 32);
             this.txt_PriceCreate.TabIndex = 14;
+            this.txt_PriceCreate.Text = " 0";
             // 
             // label6
             // 
@@ -846,6 +861,17 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "Mã Khách Hàng";
             // 
+            // lbl_ErrorCashCustomer
+            // 
+            this.lbl_ErrorCashCustomer.AutoSize = true;
+            this.lbl_ErrorCashCustomer.ForeColor = System.Drawing.Color.Red;
+            this.lbl_ErrorCashCustomer.Location = new System.Drawing.Point(678, 397);
+            this.lbl_ErrorCashCustomer.Name = "lbl_ErrorCashCustomer";
+            this.lbl_ErrorCashCustomer.Size = new System.Drawing.Size(82, 26);
+            this.lbl_ErrorCashCustomer.TabIndex = 33;
+            this.lbl_ErrorCashCustomer.Text = "label18";
+            this.lbl_ErrorCashCustomer.Visible = false;
+            // 
             // frmOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
@@ -889,14 +915,14 @@
         private System.Windows.Forms.TextBox txt_PhoneCustomerCreate;
         private System.Windows.Forms.TextBox txt_CashCustomerCreate;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txt_TotalCashOrder;
+        private System.Windows.Forms.TextBox txt_TotalCashCreate;
         private FontAwesome.Sharp.IconButton btn_FinishOrder;
         private FontAwesome.Sharp.IconButton btn_Alter;
         private FontAwesome.Sharp.IconButton btn_Delete;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ListView lst_OrderCurrency;
         private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader SL;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
@@ -947,5 +973,6 @@
         private System.Windows.Forms.TextBox txt_AmountCreate;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.Label lbl_ErrorCashCustomer;
     }
 }
