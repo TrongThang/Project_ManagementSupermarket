@@ -68,7 +68,6 @@ D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSuper
 D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmChangePassword.resources
 D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmInfomation.resources
 D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmCustomer.resources
-D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmHomeOfEmployee.resources
 D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmHomeOfManager.resources
 D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmLogin.resources
 D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmManagementEmployees.resources
@@ -84,3 +83,5 @@ D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSuper
 D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.pdb
 D:\C#\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.Manager.frmDiscount.resources
 D:\C#\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.Manager.frmTypeProduct.resources
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.Manager.frmDiscount.resources
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.Manager.frmTypeProduct.resources

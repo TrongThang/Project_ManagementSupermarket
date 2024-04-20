@@ -17,11 +17,11 @@ namespace ManagementSupermarket
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-<<<<<<< HEAD
-            Application.Run(new frmTypeProduct());
-=======
-            Application.Run(new frmCustomer());
->>>>>>> origin/TThang_formInvoiceSelleing
+
+            Application.Run(new frmDiscount());
+
+           //Application.Run(new frmCustomer());
+
         }
     }
 }
