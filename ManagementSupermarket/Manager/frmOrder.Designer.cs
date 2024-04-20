@@ -47,13 +47,16 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.grpInfo = new System.Windows.Forms.GroupBox();
+            this.txt_AmountCreate = new System.Windows.Forms.TextBox();
             this.cbb_DiscountCreate = new System.Windows.Forms.ComboBox();
             this.cbb_NameProductCreate = new System.Windows.Forms.ComboBox();
             this.num_CountProductCreate = new System.Windows.Forms.NumericUpDown();
             this.btn_Add = new FontAwesome.Sharp.IconButton();
             this.txt_PriceCreate = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -91,9 +94,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txt_AmountCreate = new System.Windows.Forms.TextBox();
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1.SuspendLayout();
             this.tab_FormCreateInvoice.SuspendLayout();
             this.grpInfo.SuspendLayout();
@@ -316,6 +316,11 @@
             this.columnHeader5.Text = "Giá KM";
             this.columnHeader5.Width = 93;
             // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Th.Tiền";
+            this.columnHeader6.Width = 132;
+            // 
             // grpInfo
             // 
             this.grpInfo.BackColor = System.Drawing.Color.Transparent;
@@ -337,6 +342,16 @@
             this.grpInfo.TabIndex = 20;
             this.grpInfo.TabStop = false;
             this.grpInfo.Text = "Thông tin";
+            // 
+            // txt_AmountCreate
+            // 
+            this.txt_AmountCreate.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.txt_AmountCreate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_AmountCreate.Location = new System.Drawing.Point(767, 75);
+            this.txt_AmountCreate.Name = "txt_AmountCreate";
+            this.txt_AmountCreate.ReadOnly = true;
+            this.txt_AmountCreate.Size = new System.Drawing.Size(210, 32);
+            this.txt_AmountCreate.TabIndex = 34;
             // 
             // cbb_DiscountCreate
             // 
@@ -380,6 +395,7 @@
             this.txt_PriceCreate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_PriceCreate.Location = new System.Drawing.Point(413, 76);
             this.txt_PriceCreate.Name = "txt_PriceCreate";
+            this.txt_PriceCreate.ReadOnly = true;
             this.txt_PriceCreate.Size = new System.Drawing.Size(139, 32);
             this.txt_PriceCreate.TabIndex = 14;
             // 
@@ -393,6 +409,17 @@
             this.label6.Size = new System.Drawing.Size(144, 25);
             this.label6.TabIndex = 5;
             this.label6.Text = "Tên Sản Phẩm";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(762, 45);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(113, 25);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "Thành Tiền";
             // 
             // label5
             // 
@@ -818,32 +845,6 @@
             this.label11.Size = new System.Drawing.Size(154, 25);
             this.label11.TabIndex = 1;
             this.label11.Text = "Mã Khách Hàng";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(762, 45);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(113, 25);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "Thành Tiền";
-            // 
-            // txt_AmountCreate
-            // 
-            this.txt_AmountCreate.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.txt_AmountCreate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_AmountCreate.Location = new System.Drawing.Point(767, 75);
-            this.txt_AmountCreate.Name = "txt_AmountCreate";
-            this.txt_AmountCreate.ReadOnly = true;
-            this.txt_AmountCreate.Size = new System.Drawing.Size(210, 32);
-            this.txt_AmountCreate.TabIndex = 34;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Th.Tiền";
-            this.columnHeader6.Width = 132;
             // 
             // frmOrder
             // 

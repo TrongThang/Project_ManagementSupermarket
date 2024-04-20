@@ -16,3 +16,9 @@ D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\DTO\obj\Debug\D
 D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\DTO\obj\Debug\DTO.dll
 D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\DTO\obj\Debug\DTO.pdb
+D:\C#\Prooject_ManagementSupermarket_20_04\DTO\bin\Debug\DTO.dll
+D:\C#\Prooject_ManagementSupermarket_20_04\DTO\bin\Debug\DTO.pdb
+D:\C#\Prooject_ManagementSupermarket_20_04\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
+D:\C#\Prooject_ManagementSupermarket_20_04\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+D:\C#\Prooject_ManagementSupermarket_20_04\DTO\obj\Debug\DTO.dll
+D:\C#\Prooject_ManagementSupermarket_20_04\DTO\obj\Debug\DTO.pdb

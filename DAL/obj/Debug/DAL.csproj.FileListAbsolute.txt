@@ -25,3 +25,12 @@ D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\DAL\obj\Debug\D
 D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\DAL\obj\Debug\DAL.csproj.CopyComplete
 D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\DAL\obj\Debug\DAL.dll
 D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\DAL\obj\Debug\DAL.pdb
+D:\C#\Prooject_ManagementSupermarket_20_04\DAL\bin\Debug\DAL.dll
+D:\C#\Prooject_ManagementSupermarket_20_04\DAL\bin\Debug\DAL.pdb
+D:\C#\Prooject_ManagementSupermarket_20_04\DAL\bin\Debug\DTO.dll
+D:\C#\Prooject_ManagementSupermarket_20_04\DAL\bin\Debug\DTO.pdb
+D:\C#\Prooject_ManagementSupermarket_20_04\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\C#\Prooject_ManagementSupermarket_20_04\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\C#\Prooject_ManagementSupermarket_20_04\DAL\obj\Debug\DAL.csproj.Up2Date
+D:\C#\Prooject_ManagementSupermarket_20_04\DAL\obj\Debug\DAL.dll
+D:\C#\Prooject_ManagementSupermarket_20_04\DAL\obj\Debug\DAL.pdb

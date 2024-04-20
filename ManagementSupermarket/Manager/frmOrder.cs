@@ -59,12 +59,12 @@ namespace ManagementSupermarket
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
-            string nameProduct, price, idDiscount;
-            decimal count, discount, amount;
+            string idProduct, idDiscount;
+            decimal price, count, discount, amount;
 
-            nameProduct = cbb_NameProductCreate.SelectedValue.ToString();
+            idProduct = cbb_NameProductCreate.SelectedValue.ToString();
             count = num_CountProductCreate.Value;
-            price = txt_PriceCreate.Text;
+            //price = (new BLL_Product()).GetProduct("MaSP", idProduct).Rows[0];
             idDiscount = cbb_DiscountCreate.SelectedValue.ToString();
             DataTable tblDiscount =  (new BLL_Discount()).GetDiscount("MaKM", idDiscount);
 
@@ -72,6 +72,21 @@ namespace ManagementSupermarket
             {
                 discount = (decimal)tblDiscount.Rows[0]["GiaKhuyenMai"];
             }
+            else
+            {
+                discount = 0;
+            }
+            
+
+
+        }
+
+        private void cbb_NameProductCreate_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            //string selectedValue = cbb_NameProductCreate.SelectedItem.ToString();
+
+            // Thực hiện các hành động cần thiết với giá trị đã chọn
+            //MessageBox.Show(selectedValue);
         }
     }
 }
