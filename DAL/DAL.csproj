@@ -43,8 +43,11 @@
   <ItemGroup>
     <Compile Include="DAL_Customer.cs" />
     <Compile Include="DAL_Account.cs" />
+    <Compile Include="DAL_Detail_InvloiceSelling.cs" />
     <Compile Include="DAL_Discount.cs" />
     <Compile Include="DAL_Employee.cs" />
+    <Compile Include="DAL_InvoiceSelling.cs" />
+    <Compile Include="DAL_Product.cs" />
     <Compile Include="DAL_Role.cs" />
     <Compile Include="DAL_Supplier.cs" />
     <Compile Include="DAL_TypeProduct.cs" />

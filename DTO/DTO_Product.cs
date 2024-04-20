@@ -20,6 +20,8 @@ namespace DTO
         private double d_CostPrice;
         private double d_SellingPrice;
 
+        private int i_Count;
+
         private string s_ShelfLife;
         private string s_Unit;
         private string s_FileNameImage;
@@ -27,34 +29,50 @@ namespace DTO
 
         public DTO_Product()
         {
-            s_IDProduct = null;
-            s_FullNameProduct = null;
-            s_IdSupplier = null;
-            s_NameSupplier = null;
-            s_IdTypeProduct = null;
-            s_NameTypeProduct = null;
-            this.d_CostPrice = 0;
-            this.d_SellingPrice = 0;
-            s_ShelfLife = null;
-            s_Unit = null;
-            s_FileNameImage = null;
-            s_Status = 0;
+            S_IDProduct = null;
+            S_FullNameProduct = null;
+            S_IdSupplier = null;
+            S_NameSupplier = null;
+            S_IdTypeProduct = null;
+            S_NameTypeProduct = null;
+            this.D_CostPrice = 0;
+            this.D_SellingPrice = 0;
+            I_Count = 0;
+            S_ShelfLife = null;
+            S_Unit = null;
+            S_FileNameImage = null;
+            S_Status = 0;
         }
 
-        public DTO_Product(string iDProduct, string fullNameProduct, string idSupplier, string idTypeProduct, double d_CostPrice, double d_SellingPrice, string shelfLife, string unit, string fileNameImage, byte status)
+        public DTO_Product(string iDProduct, string fullNameProduct, string idSupplier, string idTypeProduct, double d_CostPrice, double d_SellingPrice, int i_Count, string shelfLife, string unit, string fileNameImage, byte status)
         {
-            s_IDProduct = iDProduct;
-            s_FullNameProduct = fullNameProduct;
-            s_IdSupplier = idSupplier;
-            s_NameSupplier = null;
-            s_IdTypeProduct = idTypeProduct;
-            s_NameTypeProduct = null;
-            this.d_CostPrice = d_CostPrice;
-            this.d_SellingPrice = d_SellingPrice;
-            s_ShelfLife = shelfLife;
-            s_Unit = unit;
-            s_FileNameImage = fileNameImage;
-            s_Status = status;
+            S_IDProduct = iDProduct;
+            S_FullNameProduct = fullNameProduct;
+            S_IdSupplier = idSupplier;
+            S_NameSupplier = null;
+            S_IdTypeProduct = idTypeProduct;
+            S_NameTypeProduct = null;
+            this.D_CostPrice = d_CostPrice;
+            this.D_SellingPrice = d_SellingPrice;
+            i_Count = i_Count;
+            S_ShelfLife = shelfLife;
+            S_Unit = unit;
+            S_FileNameImage = fileNameImage;
+            S_Status = status;
         }
+
+        public string S_IDProduct { get => s_IDProduct; set => s_IDProduct = value; }
+        public string S_FullNameProduct { get => s_FullNameProduct; set => s_FullNameProduct = value; }
+        public string S_IdSupplier { get => s_IdSupplier; set => s_IdSupplier = value; }
+        public string S_NameSupplier { get => s_NameSupplier; set => s_NameSupplier = value; }
+        public string S_IdTypeProduct { get => s_IdTypeProduct; set => s_IdTypeProduct = value; }
+        public string S_NameTypeProduct { get => s_NameTypeProduct; set => s_NameTypeProduct = value; }
+        public double D_CostPrice { get => d_CostPrice; set => d_CostPrice = value; }
+        public double D_SellingPrice { get => d_SellingPrice; set => d_SellingPrice = value; }
+        public string S_ShelfLife { get => s_ShelfLife; set => s_ShelfLife = value; }
+        public string S_Unit { get => s_Unit; set => s_Unit = value; }
+        public string S_FileNameImage { get => s_FileNameImage; set => s_FileNameImage = value; }
+        public byte S_Status { get => s_Status; set => s_Status = value; }
+        public int I_Count { get => i_Count; set => i_Count = value; }
     }
 }

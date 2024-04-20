@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DTO;
 using BLL;
 using static System.Windows.Forms.ListViewItem;
+using System.Windows.Documents;
 
 namespace ManagementSupermarket
 {
@@ -65,8 +66,12 @@ namespace ManagementSupermarket
             count = num_CountProductCreate.Value;
             price = txt_PriceCreate.Text;
             idDiscount = cbb_DiscountCreate.SelectedValue.ToString();
-            discount = (new )
+            DataTable tblDiscount =  (new BLL_Discount()).GetDiscount("MaKM", idDiscount);
 
+            if(tblDiscount.Rows.Count > 0)
+            {
+                discount = (decimal)tblDiscount.Rows[0]["GiaKhuyenMai"];
+            }
         }
     }
 }
