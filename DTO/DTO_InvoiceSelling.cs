@@ -12,17 +12,26 @@ namespace DTO
         private string s_IdEmployee;
         private string s_IdCustomer;
 
-        private object[] obj_IdProduct;
-        private double[] d_Discount;
-        private int[] i_Count;
-        private double[] d_Price;
-        private double[] d_Amount;
-
         private DateTime dt_CreatedTime;
+
         private double d_TotalPrice;
         private double d_CashCustomer;
-        private string s_ChangeCash;
 
+        public DTO_InvoiceSelling(string idEmployee, DateTime dt_CreatedTime, double d_TotalPrice, double d_CashCustomer, string idCustomer = null, string idInvoice = null)
+        {
+            S_IdInvoice = idInvoice;
+            S_IdEmployee = idEmployee;
+            S_IdCustomer = idCustomer;
+            this.Dt_CreatedTime = dt_CreatedTime;
+            this.D_TotalPrice = d_TotalPrice;
+            this.D_CashCustomer = d_CashCustomer;
+        }
 
+        public string S_IdInvoice { get => s_IdInvoice; set => s_IdInvoice = value; }
+        public string S_IdEmployee { get => s_IdEmployee; set => s_IdEmployee = value; }
+        public string S_IdCustomer { get => s_IdCustomer; set => s_IdCustomer = value; }
+        public DateTime Dt_CreatedTime { get => dt_CreatedTime; set => dt_CreatedTime = value; }
+        public double D_TotalPrice { get => d_TotalPrice; set => d_TotalPrice = value; }
+        public double D_CashCustomer { get => d_CashCustomer; set => d_CashCustomer = value; }
     }
 }

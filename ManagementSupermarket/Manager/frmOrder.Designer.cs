@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tab_FormCreateInvoice = new System.Windows.Forms.TabPage();
             this.btn_Refresh = new FontAwesome.Sharp.IconButton();
             this.txt_ChangeCreate = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,22 +41,18 @@
             this.btn_Alter = new FontAwesome.Sharp.IconButton();
             this.btn_Delete = new FontAwesome.Sharp.IconButton();
             this.label7 = new System.Windows.Forms.Label();
-            this.lstOrderCurrency = new System.Windows.Forms.ListView();
+            this.lst_OrderCurrency = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.grpInfo = new System.Windows.Forms.GroupBox();
+            this.cbb_DiscountCreate = new System.Windows.Forms.ComboBox();
+            this.cbb_NameProductCreate = new System.Windows.Forms.ComboBox();
             this.num_CountProductCreate = new System.Windows.Forms.NumericUpDown();
             this.btn_Add = new FontAwesome.Sharp.IconButton();
-            this.txt_DiscountCreate = new System.Windows.Forms.TextBox();
             this.txt_PriceCreate = new System.Windows.Forms.TextBox();
-            this.txt = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.txt_IdOrderCreate = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txt_NameProductCreate = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -95,8 +91,11 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txt_AmountCreate = new System.Windows.Forms.TextBox();
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tab_FormCreateInvoice.SuspendLayout();
             this.grpInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_CountProductCreate)).BeginInit();
             this.tabPage2.SuspendLayout();
@@ -111,36 +110,36 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tab_FormCreateInvoice);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(-1, 0);
+            this.tabControl1.Location = new System.Drawing.Point(-1, -2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1193, 738);
+            this.tabControl1.Size = new System.Drawing.Size(1193, 734);
             this.tabControl1.TabIndex = 0;
             // 
-            // tabPage1
+            // tab_FormCreateInvoice
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.Teal;
-            this.tabPage1.Controls.Add(this.btn_Refresh);
-            this.tabPage1.Controls.Add(this.txt_ChangeCreate);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.txt_PhoneCustomerCreate);
-            this.tabPage1.Controls.Add(this.txt_CashCustomerCreate);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.txt_TotalCashOrder);
-            this.tabPage1.Controls.Add(this.btn_FinishOrder);
-            this.tabPage1.Controls.Add(this.btn_Alter);
-            this.tabPage1.Controls.Add(this.btn_Delete);
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.lstOrderCurrency);
-            this.tabPage1.Controls.Add(this.grpInfo);
-            this.tabPage1.Location = new System.Drawing.Point(4, 35);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1185, 699);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Lập Hoá Đơn";
+            this.tab_FormCreateInvoice.BackColor = System.Drawing.Color.Teal;
+            this.tab_FormCreateInvoice.Controls.Add(this.btn_Refresh);
+            this.tab_FormCreateInvoice.Controls.Add(this.txt_ChangeCreate);
+            this.tab_FormCreateInvoice.Controls.Add(this.label4);
+            this.tab_FormCreateInvoice.Controls.Add(this.txt_PhoneCustomerCreate);
+            this.tab_FormCreateInvoice.Controls.Add(this.txt_CashCustomerCreate);
+            this.tab_FormCreateInvoice.Controls.Add(this.label1);
+            this.tab_FormCreateInvoice.Controls.Add(this.txt_TotalCashOrder);
+            this.tab_FormCreateInvoice.Controls.Add(this.btn_FinishOrder);
+            this.tab_FormCreateInvoice.Controls.Add(this.btn_Alter);
+            this.tab_FormCreateInvoice.Controls.Add(this.btn_Delete);
+            this.tab_FormCreateInvoice.Controls.Add(this.label7);
+            this.tab_FormCreateInvoice.Controls.Add(this.lst_OrderCurrency);
+            this.tab_FormCreateInvoice.Controls.Add(this.grpInfo);
+            this.tab_FormCreateInvoice.Location = new System.Drawing.Point(4, 35);
+            this.tab_FormCreateInvoice.Name = "tab_FormCreateInvoice";
+            this.tab_FormCreateInvoice.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_FormCreateInvoice.Size = new System.Drawing.Size(1185, 695);
+            this.tab_FormCreateInvoice.TabIndex = 0;
+            this.tab_FormCreateInvoice.Text = "Lập Hoá Đơn";
             // 
             // btn_Refresh
             // 
@@ -160,7 +159,7 @@
             this.txt_ChangeCreate.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.txt_ChangeCreate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_ChangeCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.txt_ChangeCreate.Location = new System.Drawing.Point(556, 459);
+            this.txt_ChangeCreate.Location = new System.Drawing.Point(683, 456);
             this.txt_ChangeCreate.Name = "txt_ChangeCreate";
             this.txt_ChangeCreate.ReadOnly = true;
             this.txt_ChangeCreate.Size = new System.Drawing.Size(298, 45);
@@ -172,7 +171,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(551, 431);
+            this.label4.Location = new System.Drawing.Point(678, 428);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(95, 25);
             this.label4.TabIndex = 27;
@@ -182,7 +181,7 @@
             // 
             this.txt_PhoneCustomerCreate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_PhoneCustomerCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.txt_PhoneCustomerCreate.Location = new System.Drawing.Point(556, 250);
+            this.txt_PhoneCustomerCreate.Location = new System.Drawing.Point(683, 247);
             this.txt_PhoneCustomerCreate.Name = "txt_PhoneCustomerCreate";
             this.txt_PhoneCustomerCreate.Size = new System.Drawing.Size(298, 45);
             this.txt_PhoneCustomerCreate.TabIndex = 31;
@@ -191,7 +190,7 @@
             // 
             this.txt_CashCustomerCreate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_CashCustomerCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.txt_CashCustomerCreate.Location = new System.Drawing.Point(556, 352);
+            this.txt_CashCustomerCreate.Location = new System.Drawing.Point(683, 349);
             this.txt_CashCustomerCreate.Name = "txt_CashCustomerCreate";
             this.txt_CashCustomerCreate.Size = new System.Drawing.Size(298, 45);
             this.txt_CashCustomerCreate.TabIndex = 32;
@@ -202,7 +201,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(551, 324);
+            this.label1.Location = new System.Drawing.Point(678, 321);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 25);
             this.label1.TabIndex = 28;
@@ -211,7 +210,7 @@
             // txt_TotalCashOrder
             // 
             this.txt_TotalCashOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F);
-            this.txt_TotalCashOrder.Location = new System.Drawing.Point(546, 613);
+            this.txt_TotalCashOrder.Location = new System.Drawing.Point(673, 610);
             this.txt_TotalCashOrder.Name = "txt_TotalCashOrder";
             this.txt_TotalCashOrder.ReadOnly = true;
             this.txt_TotalCashOrder.Size = new System.Drawing.Size(308, 68);
@@ -224,7 +223,7 @@
             this.btn_FinishOrder.IconColor = System.Drawing.Color.Black;
             this.btn_FinishOrder.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_FinishOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_FinishOrder.Location = new System.Drawing.Point(885, 614);
+            this.btn_FinishOrder.Location = new System.Drawing.Point(1012, 611);
             this.btn_FinishOrder.Name = "btn_FinishOrder";
             this.btn_FinishOrder.Size = new System.Drawing.Size(154, 67);
             this.btn_FinishOrder.TabIndex = 24;
@@ -264,28 +263,33 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(551, 222);
+            this.label7.Location = new System.Drawing.Point(678, 219);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(251, 25);
             this.label7.TabIndex = 29;
             this.label7.Text = "Số Điện Thoại Khách Hàng";
             // 
-            // lstOrderCurrency
+            // lst_OrderCurrency
             // 
-            this.lstOrderCurrency.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lst_OrderCurrency.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4,
-            this.columnHeader5});
-            this.lstOrderCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lstOrderCurrency.HideSelection = false;
-            this.lstOrderCurrency.Location = new System.Drawing.Point(19, 223);
-            this.lstOrderCurrency.Name = "lstOrderCurrency";
-            this.lstOrderCurrency.Size = new System.Drawing.Size(506, 469);
-            this.lstOrderCurrency.TabIndex = 21;
-            this.lstOrderCurrency.UseCompatibleStateImageBehavior = false;
-            this.lstOrderCurrency.View = System.Windows.Forms.View.Details;
+            this.columnHeader5,
+            this.columnHeader6});
+            this.lst_OrderCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lst_OrderCurrency.FullRowSelect = true;
+            this.lst_OrderCurrency.GridLines = true;
+            this.lst_OrderCurrency.HideSelection = false;
+            this.lst_OrderCurrency.Location = new System.Drawing.Point(18, 219);
+            this.lst_OrderCurrency.MultiSelect = false;
+            this.lst_OrderCurrency.Name = "lst_OrderCurrency";
+            this.lst_OrderCurrency.Size = new System.Drawing.Size(629, 469);
+            this.lst_OrderCurrency.TabIndex = 21;
+            this.lst_OrderCurrency.UseCompatibleStateImageBehavior = false;
+            this.lst_OrderCurrency.View = System.Windows.Forms.View.Details;
+            this.lst_OrderCurrency.Click += new System.EventHandler(this.lst_OrderCurrency_Click);
             // 
             // columnHeader1
             // 
@@ -309,22 +313,20 @@
             // 
             // columnHeader5
             // 
-            this.columnHeader5.Text = "Th.Tiền";
+            this.columnHeader5.Text = "Giá KM";
             this.columnHeader5.Width = 93;
             // 
             // grpInfo
             // 
             this.grpInfo.BackColor = System.Drawing.Color.Transparent;
+            this.grpInfo.Controls.Add(this.txt_AmountCreate);
+            this.grpInfo.Controls.Add(this.cbb_DiscountCreate);
+            this.grpInfo.Controls.Add(this.cbb_NameProductCreate);
             this.grpInfo.Controls.Add(this.num_CountProductCreate);
             this.grpInfo.Controls.Add(this.btn_Add);
-            this.grpInfo.Controls.Add(this.txt_DiscountCreate);
             this.grpInfo.Controls.Add(this.txt_PriceCreate);
-            this.grpInfo.Controls.Add(this.txt);
-            this.grpInfo.Controls.Add(this.label18);
-            this.grpInfo.Controls.Add(this.txt_IdOrderCreate);
-            this.grpInfo.Controls.Add(this.label12);
-            this.grpInfo.Controls.Add(this.txt_NameProductCreate);
             this.grpInfo.Controls.Add(this.label6);
+            this.grpInfo.Controls.Add(this.label12);
             this.grpInfo.Controls.Add(this.label5);
             this.grpInfo.Controls.Add(this.label3);
             this.grpInfo.Controls.Add(this.label2);
@@ -336,9 +338,25 @@
             this.grpInfo.TabStop = false;
             this.grpInfo.Text = "Thông tin";
             // 
+            // cbb_DiscountCreate
+            // 
+            this.cbb_DiscountCreate.FormattingEnabled = true;
+            this.cbb_DiscountCreate.Location = new System.Drawing.Point(574, 74);
+            this.cbb_DiscountCreate.Name = "cbb_DiscountCreate";
+            this.cbb_DiscountCreate.Size = new System.Drawing.Size(154, 34);
+            this.cbb_DiscountCreate.TabIndex = 33;
+            // 
+            // cbb_NameProductCreate
+            // 
+            this.cbb_NameProductCreate.FormattingEnabled = true;
+            this.cbb_NameProductCreate.Location = new System.Drawing.Point(27, 74);
+            this.cbb_NameProductCreate.Name = "cbb_NameProductCreate";
+            this.cbb_NameProductCreate.Size = new System.Drawing.Size(207, 34);
+            this.cbb_NameProductCreate.TabIndex = 33;
+            // 
             // num_CountProductCreate
             // 
-            this.num_CountProductCreate.Location = new System.Drawing.Point(582, 74);
+            this.num_CountProductCreate.Location = new System.Drawing.Point(253, 76);
             this.num_CountProductCreate.Name = "num_CountProductCreate";
             this.num_CountProductCreate.Size = new System.Drawing.Size(139, 32);
             this.num_CountProductCreate.TabIndex = 18;
@@ -350,80 +368,27 @@
             this.btn_Add.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Add.IconColor = System.Drawing.Color.Black;
             this.btn_Add.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Add.Location = new System.Drawing.Point(1063, 46);
+            this.btn_Add.Location = new System.Drawing.Point(1044, 48);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(79, 64);
             this.btn_Add.TabIndex = 3;
             this.btn_Add.UseVisualStyleBackColor = true;
-            // 
-            // txt_DiscountCreate
-            // 
-            this.txt_DiscountCreate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_DiscountCreate.Location = new System.Drawing.Point(903, 74);
-            this.txt_DiscountCreate.Name = "txt_DiscountCreate";
-            this.txt_DiscountCreate.Size = new System.Drawing.Size(138, 32);
-            this.txt_DiscountCreate.TabIndex = 15;
+            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
             // txt_PriceCreate
             // 
             this.txt_PriceCreate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_PriceCreate.Location = new System.Drawing.Point(742, 74);
+            this.txt_PriceCreate.Location = new System.Drawing.Point(413, 76);
             this.txt_PriceCreate.Name = "txt_PriceCreate";
             this.txt_PriceCreate.Size = new System.Drawing.Size(139, 32);
             this.txt_PriceCreate.TabIndex = 14;
-            // 
-            // txt
-            // 
-            this.txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt.Location = new System.Drawing.Point(170, 74);
-            this.txt.Name = "txt";
-            this.txt.Size = new System.Drawing.Size(170, 32);
-            this.txt.TabIndex = 13;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(165, 48);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(154, 25);
-            this.label18.TabIndex = 5;
-            this.label18.Text = "Mã Khách Hàng";
-            // 
-            // txt_IdOrderCreate
-            // 
-            this.txt_IdOrderCreate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_IdOrderCreate.Location = new System.Drawing.Point(10, 74);
-            this.txt_IdOrderCreate.Name = "txt_IdOrderCreate";
-            this.txt_IdOrderCreate.Size = new System.Drawing.Size(139, 32);
-            this.txt_IdOrderCreate.TabIndex = 13;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(5, 48);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(122, 25);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "Mã Hoá Đơn";
-            // 
-            // txt_NameProductCreate
-            // 
-            this.txt_NameProductCreate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_NameProductCreate.Location = new System.Drawing.Point(356, 74);
-            this.txt_NameProductCreate.Name = "txt_NameProductCreate";
-            this.txt_NameProductCreate.Size = new System.Drawing.Size(207, 32);
-            this.txt_NameProductCreate.TabIndex = 13;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(351, 48);
+            this.label6.Location = new System.Drawing.Point(22, 50);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(144, 25);
             this.label6.TabIndex = 5;
@@ -434,7 +399,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(577, 46);
+            this.label5.Location = new System.Drawing.Point(248, 48);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(97, 25);
             this.label5.TabIndex = 4;
@@ -445,7 +410,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(898, 46);
+            this.label3.Location = new System.Drawing.Point(569, 46);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(117, 25);
             this.label3.TabIndex = 2;
@@ -456,7 +421,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(737, 46);
+            this.label2.Location = new System.Drawing.Point(408, 48);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 25);
             this.label2.TabIndex = 1;
@@ -473,7 +438,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 35);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1185, 699);
+            this.tabPage2.Size = new System.Drawing.Size(1185, 695);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Danh Sách Hoá Đơn";
             // 
@@ -584,9 +549,9 @@
             this.iconButton14.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton14.IconSize = 30;
             this.iconButton14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton14.Location = new System.Drawing.Point(455, 116);
+            this.iconButton14.Location = new System.Drawing.Point(444, 114);
             this.iconButton14.Name = "iconButton14";
-            this.iconButton14.Size = new System.Drawing.Size(111, 44);
+            this.iconButton14.Size = new System.Drawing.Size(122, 43);
             this.iconButton14.TabIndex = 28;
             this.iconButton14.Text = "Thành Tiền";
             this.iconButton14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -606,7 +571,7 @@
             this.txt_IntoMoney.Location = new System.Drawing.Point(246, 122);
             this.txt_IntoMoney.Name = "txt_IntoMoney";
             this.txt_IntoMoney.ReadOnly = true;
-            this.txt_IntoMoney.Size = new System.Drawing.Size(203, 32);
+            this.txt_IntoMoney.Size = new System.Drawing.Size(192, 32);
             this.txt_IntoMoney.TabIndex = 13;
             // 
             // txt_Price
@@ -854,6 +819,32 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "Mã Khách Hàng";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(762, 45);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(113, 25);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "Thành Tiền";
+            // 
+            // txt_AmountCreate
+            // 
+            this.txt_AmountCreate.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.txt_AmountCreate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_AmountCreate.Location = new System.Drawing.Point(767, 75);
+            this.txt_AmountCreate.Name = "txt_AmountCreate";
+            this.txt_AmountCreate.ReadOnly = true;
+            this.txt_AmountCreate.Size = new System.Drawing.Size(210, 32);
+            this.txt_AmountCreate.TabIndex = 34;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Th.Tiền";
+            this.columnHeader6.Width = 132;
+            // 
             // frmOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
@@ -866,9 +857,10 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmOrder";
             this.Text = "frmOrder";
+            this.Load += new System.EventHandler(this.frmOrder_Load);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.tab_FormCreateInvoice.ResumeLayout(false);
+            this.tab_FormCreateInvoice.PerformLayout();
             this.grpInfo.ResumeLayout(false);
             this.grpInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_CountProductCreate)).EndInit();
@@ -889,7 +881,7 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tab_FormCreateInvoice;
         private FontAwesome.Sharp.IconButton btn_Refresh;
         private System.Windows.Forms.TextBox txt_ChangeCreate;
         private System.Windows.Forms.Label label4;
@@ -901,7 +893,7 @@
         private FontAwesome.Sharp.IconButton btn_Alter;
         private FontAwesome.Sharp.IconButton btn_Delete;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ListView lstOrderCurrency;
+        private System.Windows.Forms.ListView lst_OrderCurrency;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
@@ -909,9 +901,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.GroupBox grpInfo;
         private FontAwesome.Sharp.IconButton btn_Add;
-        private System.Windows.Forms.TextBox txt_DiscountCreate;
         private System.Windows.Forms.TextBox txt_PriceCreate;
-        private System.Windows.Forms.TextBox txt_NameProductCreate;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
@@ -926,8 +916,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txt_IdOrderCreate;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView dgv_ListOrder;
         private System.Windows.Forms.DataGridView dgv_OrderDetail;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -953,7 +941,10 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.NumericUpDown num_CountProductCreate;
         private System.Windows.Forms.ComboBox cbb_Discount;
-        private System.Windows.Forms.TextBox txt;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ComboBox cbb_NameProductCreate;
+        private System.Windows.Forms.ComboBox cbb_DiscountCreate;
+        private System.Windows.Forms.TextBox txt_AmountCreate;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
     }
 }
