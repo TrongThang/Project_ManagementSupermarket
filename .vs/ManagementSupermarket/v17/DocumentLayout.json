@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\C#\\Prooject_ManagementSupermarket_20_04\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|d:\\c#\\prooject_managementsupermarket_20_04\\managementsupermarket\\manager\\frmtypeproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\manager\\frmtypeproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|d:\\c#\\prooject_managementsupermarket_20_04\\managementsupermarket\\manager\\frmorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\manager\\frmorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -26,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -65,25 +69,37 @@
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmTypeProduct.cs [Design]",
+              "DocumentMoniker": "D:\\C#\\Prooject_ManagementSupermarket_20_04\\ManagementSupermarket\\Manager\\frmTypeProduct.cs",
+              "RelativeDocumentMoniker": "ManagementSupermarket\\Manager\\frmTypeProduct.cs",
+              "ToolTip": "D:\\C#\\Prooject_ManagementSupermarket_20_04\\ManagementSupermarket\\Manager\\frmTypeProduct.cs [Design]",
+              "RelativeToolTip": "ManagementSupermarket\\Manager\\frmTypeProduct.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-20T11:39:41.703Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "frmOrder.cs",
               "DocumentMoniker": "D:\\C#\\Prooject_ManagementSupermarket_20_04\\ManagementSupermarket\\Manager\\frmOrder.cs",
               "RelativeDocumentMoniker": "ManagementSupermarket\\Manager\\frmOrder.cs",
               "ToolTip": "D:\\C#\\Prooject_ManagementSupermarket_20_04\\ManagementSupermarket\\Manager\\frmOrder.cs",
               "RelativeToolTip": "ManagementSupermarket\\Manager\\frmOrder.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAAEgAAAAAAAAA",
+              "ViewState": "AQIAADQAAAAAAAAAAAAUwEYAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-20T11:28:41.804Z",
               "EditorCaption": ""
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "frmOrder.resx",
               "DocumentMoniker": "D:\\C#\\Prooject_ManagementSupermarket_20_04\\ManagementSupermarket\\Manager\\frmOrder.resx",
               "RelativeDocumentMoniker": "ManagementSupermarket\\Manager\\frmOrder.resx",
@@ -94,7 +110,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "frmOrder.Designer.cs",
               "DocumentMoniker": "D:\\C#\\Prooject_ManagementSupermarket_20_04\\ManagementSupermarket\\Manager\\frmOrder.Designer.cs",
               "RelativeDocumentMoniker": "ManagementSupermarket\\Manager\\frmOrder.Designer.cs",
@@ -106,7 +122,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "frmOrder.cs [Design]",
               "DocumentMoniker": "D:\\C#\\Prooject_ManagementSupermarket_20_04\\ManagementSupermarket\\Manager\\frmOrder.cs",
               "RelativeDocumentMoniker": "ManagementSupermarket\\Manager\\frmOrder.cs",
