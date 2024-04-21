@@ -17,10 +17,9 @@ namespace BLL
             return dataInvoice.GetInvoiceSelling(keySearch, value);
         }
 
-        public int InsertInvoiceSelling(DTO_InvoiceSelling invoice)
+        public DataTable InsertInvoiceSelling(DTO_InvoiceSelling invoice)
         {
             return dataInvoice.InsertInvoiceSelling(invoice);
-
         }
 
         public int UpdateInvoiceSelling(DTO_InvoiceSelling invoice)
@@ -31,7 +30,6 @@ namespace BLL
         public int DeleteInvoiceSelling(string idInvoice)
         {
             return dataInvoice.DeleteInvoiceSelling(idInvoice);
-
         }
     }
 }

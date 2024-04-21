@@ -15,12 +15,13 @@ using System.Windows.Controls;
 using ListViewItem = System.Windows.Forms.ListViewItem;
 using System.Windows.Media.Animation;
 using System.Diagnostics;
+using System.Security.Permissions;
 
 namespace ManagementSupermarket
 {
     public partial class frmOrder : Form
     {
-        private string idEmployee;
+        private string idEmployee = "NV002";
         private float TotalMoney = 0;
         public frmOrder()
         {
@@ -64,7 +65,7 @@ namespace ManagementSupermarket
             LoadDataComboBox_NameProduct();
             LoadDataComboBox_Discount();
         }
-
+        
         private void lst_OrderCurrency_Click(object sender, EventArgs e)
         {
             if (lst_OrderCurrency.SelectedItems.Count > 0)
@@ -72,10 +73,21 @@ namespace ManagementSupermarket
 
                 ListViewSubItemCollection itemSelected = lst_OrderCurrency.SelectedItems[0].SubItems;
 
-                cbb_NameProductCreate.Text = itemSelected[0].Text;
-                num_CountProductCreate.Text = itemSelected[1].Text;
-                txt_Price.Text = itemSelected[2].Text;
-                txt_AmountCreate.Text = itemSelected[5].Text;
+                cbb_NameProductCreate.Text = itemSelected[1].Text;
+
+                DataTable tblDiscount = (new BLL_Discount()).GetDiscount("MaKM", itemSelected[4].Text);
+                bool issetNameDiscount = tblDiscount.Rows.Count > 0;
+                if (issetNameDiscount)
+                {
+                    cbb_DiscountCreate.Text = tblDiscount.Rows[0]["TenKM"].ToString();
+                }
+                else
+                {
+                    cbb_DiscountCreate.Text = "";
+                }
+                num_CountProductCreate.Text = itemSelected[2].Text;
+                txt_PriceCreate.Text = itemSelected[3].Text;
+                txt_AmountCreate.Text = itemSelected[6].Text;
             }
         }
         private bool IssetCash()
@@ -149,23 +161,25 @@ namespace ManagementSupermarket
             this.TotalMoney += amount;
 
 
-            ListViewItem item = new ListViewItem(nameProduct);
+            ListViewItem item = new ListViewItem(idProduct);
             item.Name = idProduct;
+            item.SubItems.Add(nameProduct);
             item.SubItems.Add(count.ToString());
             item.SubItems.Add(price.ToString());
             item.SubItems.Add(idDiscount);
             item.SubItems.Add($"{discount * 100}%");
             item.SubItems.Add(amount.ToString());
 
+            //Check If have product, sum Product old and new
             int indexItemExist = lst_OrderCurrency.Items.IndexOfKey(idProduct);
             if (indexItemExist >= 0)
             {
                 ListViewSubItemCollection subItem = lst_OrderCurrency.Items[indexItemExist].SubItems;
-                int newCount = int.Parse(subItem[1].Text) + count;
-                float newAmount = float.Parse(subItem[5].Text) + amount;
+                int newCount = int.Parse(subItem[2].Text) + count;
+                float newAmount = float.Parse(subItem[6].Text) + amount;
 
-                lst_OrderCurrency.Items[indexItemExist].SubItems[1].Text = newCount.ToString();
-                lst_OrderCurrency.Items[indexItemExist].SubItems[5].Text = newAmount.ToString();
+                lst_OrderCurrency.Items[indexItemExist].SubItems[2].Text = newCount.ToString();
+                lst_OrderCurrency.Items[indexItemExist].SubItems[6].Text = newAmount.ToString();
             }
             else
             {
@@ -268,6 +282,115 @@ namespace ManagementSupermarket
 
                 txt_TotalCashCreate.Text = this.TotalMoney.ToString();
             }
+
+        }
+
+        private void txt_PhoneCustomerCreate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            eventConfig.PressNumber(sender, e);
+        }
+        private void txt_CashCustomerCreate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool IsNotNumber = !char.IsDigit(e.KeyChar)
+                               && !char.IsControl(e.KeyChar);
+            if (IsNotNumber)
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if(txt_CashCustomerCreate.Text == "0" && txt_CashCustomerCreate.Text.Count() == 1)
+            {
+                e.Handled = true;
+                txt_CashCustomerCreate.Text = e.KeyChar.ToString();
+            }else if(txt_CashCustomerCreate.Text.Count() >= 1 && char.IsDigit(e.KeyChar))
+            {
+                float moneyCash = float.Parse(txt_CashCustomerCreate.Text) - float.Parse(txt_TotalCashCreate.Text);
+            }
+        }
+
+        private void btn_FinishOrder_Click(object sender, EventArgs e)
+        {
+            string idInvoice, idProduct, idDiscount, idEmployee, idCustomer,nameProduct, phone;
+            float price, discount, amount, totalMoney, cashCustomer;
+            int countProduct;
+
+            //Process: Insert Invoice => Get Id Invoice => Check Condition Insert Invoice => Before Use Loop To Insert Detail Invoice
+
+            //@MaNV varchar(10),
+            //@MaKH varchar(10) = null,
+            //@TongTien decimal,
+            //@TienKhachDua decimal = 0
+            idEmployee = this.idEmployee;
+            
+            phone = string.IsNullOrEmpty(txt_PhoneCustomerCreate.Text.Trim()) ? null : txt_PhoneCustomerCreate.Text;
+            if(phone == null || phone.Length == 0)
+            {
+                idCustomer = null;
+            }
+            else
+            {
+                DataTable tblCustomer = (new BLL_Customer()).GetCustomerTo("SDT", phone);
+                if (tblCustomer.Rows.Count > 0)
+                {
+                    idCustomer = tblCustomer.Rows[0]["MaKH"].ToString();
+
+                }
+                else
+                {
+                    idCustomer = null;
+                }
+            }
+
+            totalMoney = this.TotalMoney;
+            
+            cashCustomer = float.Parse(txt_CashCustomerCreate.Text);
+
+            DTO_InvoiceSelling invoiceSelling = new DTO_InvoiceSelling(idEmployee, totalMoney, cashCustomer, idCustomer);
+            idInvoice = (new BLL_InvoiceSelling()).InsertInvoiceSelling(invoiceSelling).Rows[0][0].ToString();
+            //FINISH INSERT INVOICE
+
+            int countInsertDetail = 0;
+            foreach (ListViewItem row in lst_OrderCurrency.Items)
+            {
+                //PROCES Insert Invoice
+                //@MaHD varchar(10),
+                //@MaSP varchar(20) = null,
+                //@MaKM varchar(10) = null,
+                //@SoLuong int = 0,
+                //@DonGia decimal = 0
+                idProduct = row.SubItems[0].Text;
+                countProduct = int.Parse(row.SubItems[2].Text);
+                idDiscount = string.IsNullOrEmpty(row.SubItems[4].Text) ? null : row.SubItems[4].Text;
+
+                countInsertDetail += countProduct;
+
+                price = int.Parse(row.SubItems[3].Text);
+
+                DTO_Detail_InvoiceSelling detailInvoice = new DTO_Detail_InvoiceSelling(idInvoice, idProduct, idDiscount, countProduct, price);
+                int numOfRows = (new BLL_Detail_InvoiceSelling()).InsertDetailInvoiceSelling(detailInvoice);
+                if(numOfRows > 0)
+                {
+                    countInsertDetail++;
+                }
+            }
+
+            if(countInsertDetail > 0)
+            {
+                MessageBox.Show($"Đã bán {countInsertDetail} sản phẩm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btn_RefreshCreate_Click(sender, e);
+                return;
+            }
+
+            MessageBox.Show($"Xảy ra sai sót trong quá trình bán hàng. Vui lòng thử lại", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return;
+
+            
+
+        }
+
+        private void btn_RefreshCreate_Click(object sender, EventArgs e)
+        {
 
         }
     }

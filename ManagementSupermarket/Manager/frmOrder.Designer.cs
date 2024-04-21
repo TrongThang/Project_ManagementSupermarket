@@ -30,7 +30,8 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab_FormCreateInvoice = new System.Windows.Forms.TabPage();
-            this.btn_Refresh = new FontAwesome.Sharp.IconButton();
+            this.lbl_ErrorCashCustomer = new System.Windows.Forms.Label();
+            this.btn_RefreshCreate = new FontAwesome.Sharp.IconButton();
             this.txt_ChangeCreate = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_PhoneCustomerCreate = new System.Windows.Forms.TextBox();
@@ -42,12 +43,12 @@
             this.btn_Delete = new FontAwesome.Sharp.IconButton();
             this.label7 = new System.Windows.Forms.Label();
             this.lst_OrderCurrency = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.TenSP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SL = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.MaKM = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Gia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.GiaKM = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ThanhTien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.grpInfo = new System.Windows.Forms.GroupBox();
             this.txt_AmountCreate = new System.Windows.Forms.TextBox();
             this.cbb_DiscountCreate = new System.Windows.Forms.ComboBox();
@@ -94,7 +95,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.lbl_ErrorCashCustomer = new System.Windows.Forms.Label();
+            this.MaSP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1.SuspendLayout();
             this.tab_FormCreateInvoice.SuspendLayout();
             this.grpInfo.SuspendLayout();
@@ -123,7 +124,7 @@
             // 
             this.tab_FormCreateInvoice.BackColor = System.Drawing.Color.Teal;
             this.tab_FormCreateInvoice.Controls.Add(this.lbl_ErrorCashCustomer);
-            this.tab_FormCreateInvoice.Controls.Add(this.btn_Refresh);
+            this.tab_FormCreateInvoice.Controls.Add(this.btn_RefreshCreate);
             this.tab_FormCreateInvoice.Controls.Add(this.txt_ChangeCreate);
             this.tab_FormCreateInvoice.Controls.Add(this.label4);
             this.tab_FormCreateInvoice.Controls.Add(this.txt_PhoneCustomerCreate);
@@ -143,25 +144,37 @@
             this.tab_FormCreateInvoice.TabIndex = 0;
             this.tab_FormCreateInvoice.Text = "Lập Hoá Đơn";
             // 
-            // btn_Refresh
+            // lbl_ErrorCashCustomer
             // 
-            this.btn_Refresh.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconReload;
-            this.btn_Refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Refresh.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btn_Refresh.IconColor = System.Drawing.Color.Black;
-            this.btn_Refresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Refresh.Location = new System.Drawing.Point(280, 153);
-            this.btn_Refresh.Name = "btn_Refresh";
-            this.btn_Refresh.Size = new System.Drawing.Size(79, 64);
-            this.btn_Refresh.TabIndex = 26;
-            this.btn_Refresh.UseVisualStyleBackColor = true;
+            this.lbl_ErrorCashCustomer.AutoSize = true;
+            this.lbl_ErrorCashCustomer.ForeColor = System.Drawing.Color.Red;
+            this.lbl_ErrorCashCustomer.Location = new System.Drawing.Point(739, 396);
+            this.lbl_ErrorCashCustomer.Name = "lbl_ErrorCashCustomer";
+            this.lbl_ErrorCashCustomer.Size = new System.Drawing.Size(82, 26);
+            this.lbl_ErrorCashCustomer.TabIndex = 33;
+            this.lbl_ErrorCashCustomer.Text = "label18";
+            this.lbl_ErrorCashCustomer.Visible = false;
+            // 
+            // btn_RefreshCreate
+            // 
+            this.btn_RefreshCreate.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconReload;
+            this.btn_RefreshCreate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_RefreshCreate.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btn_RefreshCreate.IconColor = System.Drawing.Color.Black;
+            this.btn_RefreshCreate.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_RefreshCreate.Location = new System.Drawing.Point(280, 153);
+            this.btn_RefreshCreate.Name = "btn_RefreshCreate";
+            this.btn_RefreshCreate.Size = new System.Drawing.Size(79, 64);
+            this.btn_RefreshCreate.TabIndex = 26;
+            this.btn_RefreshCreate.UseVisualStyleBackColor = true;
+            this.btn_RefreshCreate.Click += new System.EventHandler(this.btn_RefreshCreate_Click);
             // 
             // txt_ChangeCreate
             // 
             this.txt_ChangeCreate.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.txt_ChangeCreate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_ChangeCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.txt_ChangeCreate.Location = new System.Drawing.Point(683, 456);
+            this.txt_ChangeCreate.Location = new System.Drawing.Point(744, 455);
             this.txt_ChangeCreate.Name = "txt_ChangeCreate";
             this.txt_ChangeCreate.ReadOnly = true;
             this.txt_ChangeCreate.Size = new System.Drawing.Size(298, 45);
@@ -173,7 +186,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(678, 428);
+            this.label4.Location = new System.Drawing.Point(739, 427);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(95, 25);
             this.label4.TabIndex = 27;
@@ -183,19 +196,22 @@
             // 
             this.txt_PhoneCustomerCreate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_PhoneCustomerCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.txt_PhoneCustomerCreate.Location = new System.Drawing.Point(683, 247);
+            this.txt_PhoneCustomerCreate.Location = new System.Drawing.Point(744, 246);
             this.txt_PhoneCustomerCreate.Name = "txt_PhoneCustomerCreate";
             this.txt_PhoneCustomerCreate.Size = new System.Drawing.Size(298, 45);
             this.txt_PhoneCustomerCreate.TabIndex = 31;
+            this.txt_PhoneCustomerCreate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_PhoneCustomerCreate_KeyPress);
             // 
             // txt_CashCustomerCreate
             // 
             this.txt_CashCustomerCreate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_CashCustomerCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.txt_CashCustomerCreate.Location = new System.Drawing.Point(683, 349);
+            this.txt_CashCustomerCreate.Location = new System.Drawing.Point(744, 348);
             this.txt_CashCustomerCreate.Name = "txt_CashCustomerCreate";
             this.txt_CashCustomerCreate.Size = new System.Drawing.Size(298, 45);
             this.txt_CashCustomerCreate.TabIndex = 32;
+            this.txt_CashCustomerCreate.Text = "0";
+            this.txt_CashCustomerCreate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CashCustomerCreate_KeyPress);
             // 
             // label1
             // 
@@ -203,7 +219,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(678, 321);
+            this.label1.Location = new System.Drawing.Point(739, 320);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 25);
             this.label1.TabIndex = 28;
@@ -212,11 +228,12 @@
             // txt_TotalCashCreate
             // 
             this.txt_TotalCashCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F);
-            this.txt_TotalCashCreate.Location = new System.Drawing.Point(673, 610);
+            this.txt_TotalCashCreate.Location = new System.Drawing.Point(734, 609);
             this.txt_TotalCashCreate.Name = "txt_TotalCashCreate";
             this.txt_TotalCashCreate.ReadOnly = true;
             this.txt_TotalCashCreate.Size = new System.Drawing.Size(308, 68);
             this.txt_TotalCashCreate.TabIndex = 25;
+            this.txt_TotalCashCreate.Text = "0";
             // 
             // btn_FinishOrder
             // 
@@ -225,13 +242,14 @@
             this.btn_FinishOrder.IconColor = System.Drawing.Color.Black;
             this.btn_FinishOrder.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_FinishOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_FinishOrder.Location = new System.Drawing.Point(1012, 611);
+            this.btn_FinishOrder.Location = new System.Drawing.Point(1073, 610);
             this.btn_FinishOrder.Name = "btn_FinishOrder";
             this.btn_FinishOrder.Size = new System.Drawing.Size(154, 67);
             this.btn_FinishOrder.TabIndex = 24;
             this.btn_FinishOrder.Text = "Tổng Tiền";
             this.btn_FinishOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_FinishOrder.UseVisualStyleBackColor = false;
+            this.btn_FinishOrder.Click += new System.EventHandler(this.btn_FinishOrder_Click);
             // 
             // btn_Alter
             // 
@@ -267,7 +285,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(678, 219);
+            this.label7.Location = new System.Drawing.Point(739, 218);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(251, 25);
             this.label7.TabIndex = 29;
@@ -276,12 +294,13 @@
             // lst_OrderCurrency
             // 
             this.lst_OrderCurrency.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
+            this.MaSP,
+            this.TenSP,
             this.SL,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6});
+            this.Gia,
+            this.MaKM,
+            this.GiaKM,
+            this.ThanhTien});
             this.lst_OrderCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lst_OrderCurrency.FullRowSelect = true;
             this.lst_OrderCurrency.GridLines = true;
@@ -289,41 +308,41 @@
             this.lst_OrderCurrency.Location = new System.Drawing.Point(18, 219);
             this.lst_OrderCurrency.MultiSelect = false;
             this.lst_OrderCurrency.Name = "lst_OrderCurrency";
-            this.lst_OrderCurrency.Size = new System.Drawing.Size(629, 469);
+            this.lst_OrderCurrency.Size = new System.Drawing.Size(710, 469);
             this.lst_OrderCurrency.TabIndex = 21;
             this.lst_OrderCurrency.UseCompatibleStateImageBehavior = false;
             this.lst_OrderCurrency.View = System.Windows.Forms.View.Details;
             this.lst_OrderCurrency.Click += new System.EventHandler(this.lst_OrderCurrency_Click);
             // 
-            // columnHeader1
+            // TenSP
             // 
-            this.columnHeader1.Text = "Tên Sản Phẩm";
-            this.columnHeader1.Width = 150;
+            this.TenSP.Text = "Tên Sản Phẩm";
+            this.TenSP.Width = 135;
             // 
             // SL
             // 
             this.SL.Text = "SL";
             this.SL.Width = 57;
             // 
-            // columnHeader3
+            // MaKM
             // 
-            this.columnHeader3.Text = "Giá";
-            this.columnHeader3.Width = 83;
+            this.MaKM.Text = "Mã KM";
+            this.MaKM.Width = 83;
             // 
-            // columnHeader4
+            // Gia
             // 
-            this.columnHeader4.Text = "K.Mãi";
-            this.columnHeader4.Width = 105;
+            this.Gia.Text = "Giá";
+            this.Gia.Width = 95;
             // 
-            // columnHeader5
+            // GiaKM
             // 
-            this.columnHeader5.Text = "Giá KM";
-            this.columnHeader5.Width = 93;
+            this.GiaKM.Text = "Giá KM";
+            this.GiaKM.Width = 93;
             // 
-            // columnHeader6
+            // ThanhTien
             // 
-            this.columnHeader6.Text = "Th.Tiền";
-            this.columnHeader6.Width = 132;
+            this.ThanhTien.Text = "Th.Tiền";
+            this.ThanhTien.Width = 132;
             // 
             // grpInfo
             // 
@@ -861,16 +880,10 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "Mã Khách Hàng";
             // 
-            // lbl_ErrorCashCustomer
+            // MaSP
             // 
-            this.lbl_ErrorCashCustomer.AutoSize = true;
-            this.lbl_ErrorCashCustomer.ForeColor = System.Drawing.Color.Red;
-            this.lbl_ErrorCashCustomer.Location = new System.Drawing.Point(678, 397);
-            this.lbl_ErrorCashCustomer.Name = "lbl_ErrorCashCustomer";
-            this.lbl_ErrorCashCustomer.Size = new System.Drawing.Size(82, 26);
-            this.lbl_ErrorCashCustomer.TabIndex = 33;
-            this.lbl_ErrorCashCustomer.Text = "label18";
-            this.lbl_ErrorCashCustomer.Visible = false;
+            this.MaSP.Text = "Mã Sản Phẩm";
+            this.MaSP.Width = 130;
             // 
             // frmOrder
             // 
@@ -909,7 +922,7 @@
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tab_FormCreateInvoice;
-        private FontAwesome.Sharp.IconButton btn_Refresh;
+        private FontAwesome.Sharp.IconButton btn_RefreshCreate;
         private System.Windows.Forms.TextBox txt_ChangeCreate;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_PhoneCustomerCreate;
@@ -921,11 +934,11 @@
         private FontAwesome.Sharp.IconButton btn_Delete;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ListView lst_OrderCurrency;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader TenSP;
         private System.Windows.Forms.ColumnHeader SL;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader MaKM;
+        private System.Windows.Forms.ColumnHeader Gia;
+        private System.Windows.Forms.ColumnHeader GiaKM;
         private System.Windows.Forms.GroupBox grpInfo;
         private FontAwesome.Sharp.IconButton btn_Add;
         private System.Windows.Forms.TextBox txt_PriceCreate;
@@ -972,7 +985,8 @@
         private System.Windows.Forms.ComboBox cbb_DiscountCreate;
         private System.Windows.Forms.TextBox txt_AmountCreate;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader ThanhTien;
         private System.Windows.Forms.Label lbl_ErrorCashCustomer;
+        private System.Windows.Forms.ColumnHeader MaSP;
     }
 }
