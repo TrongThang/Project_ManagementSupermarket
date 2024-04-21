@@ -25,7 +25,7 @@ namespace DAL
             return dict;
         }
 
-        public DataTable GetDetailInvoiceSelling(string keySearch, string value)
+        public DataTable GetDetailInvoiceSelling(string keySearch, string value = null)
         {
             string sql = "sp_GetDetailInvoiceSelling";
 

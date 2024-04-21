@@ -16,6 +16,7 @@ using ListViewItem = System.Windows.Forms.ListViewItem;
 using System.Windows.Media.Animation;
 using System.Diagnostics;
 using System.Security.Permissions;
+using ComboBox = System.Windows.Forms.ComboBox;
 
 namespace ManagementSupermarket
 {
@@ -35,35 +36,52 @@ namespace ManagementSupermarket
 
         Event eventConfig = new Event();
         //LOAD DATA COMBO BOX
-        private void LoadDataComboBox_NameProduct()
+        private void LoadDataComboBox_NameProduct(ComboBox cbbProduct)
         {
-            cbb_NameProductCreate.DataSource = (new BLL_Product()).GetProduct("MaSP");
+            cbbProduct.DataSource = (new BLL_Product()).GetProduct("MaSP");
 
-            cbb_NameProductCreate.DisplayMember = "TenSP";
-            cbb_NameProductCreate.ValueMember = "MaSP";
+            cbbProduct.DisplayMember = "TenSP";
+            cbbProduct.ValueMember = "MaSP";
 
-            if (cbb_NameProductCreate.Items.Count > 0)
+            if (cbbProduct.Items.Count > 0)
             {
-                cbb_NameProductCreate.SelectedIndex = -1;
-                cbb_NameProductCreate.SelectedIndex = 0;
+                cbbProduct.SelectedIndex = -1;
+                cbbProduct.SelectedIndex = 0;
             }
         }
-        private void LoadDataComboBox_Discount()
+        private void LoadDataComboBox_Discount(ComboBox cbbDiscount)
         {
-            cbb_DiscountCreate.DataSource = (new BLL_Discount()).GetDiscountToday();
+            cbbDiscount.DataSource = (new BLL_Discount()).GetDiscountToday();
 
-            cbb_DiscountCreate.DisplayMember = "TenKM";
-            cbb_DiscountCreate.ValueMember = "MaKM";
+            cbbDiscount.DisplayMember = "TenKM";
+            cbbDiscount.ValueMember = "MaKM";
 
-            if (cbb_DiscountCreate.Items.Count > 0)
+            if (cbbDiscount.Items.Count > 0)
             {
-                cbb_DiscountCreate.SelectedIndex = 0;
+                cbbDiscount.SelectedIndex = 0;
             }
         }
+        private void LoadDataGridView_InvoiceSelling()
+        {
+            dgv_InvoiceSelling.DataSource = (new BLL_InvoiceSelling()).GetInvoiceSelling("MaHD");
+        }
+        private void LoadDataGridView_DetailInvoiceSelling(string idInvoice = null)
+        {
+            dgv_Detail_InvoiceSelling.DataSource = (new BLL_Detail_InvoiceSelling()).GetDetailInvoiceSelling("MaHD", idInvoice);
+        }
+
         private void frmOrder_Load(object sender, EventArgs e)
         {
-            LoadDataComboBox_NameProduct();
-            LoadDataComboBox_Discount();
+            tab_HomeInvoiceSelling.SelectedIndex = 1;
+
+            //LOAD DATA TAB 1
+            LoadDataComboBox_NameProduct(cbb_NameProductCreate);
+            LoadDataComboBox_Discount(cbb_DiscountCreate);
+
+            //LOAD DATA TAB 2
+            LoadDataGridView_InvoiceSelling();
+            LoadDataComboBox_NameProduct(cbb_NameProduct);
+            LoadDataComboBox_Discount(cbb_Discount);
         }
         
         private void lst_OrderCurrency_Click(object sender, EventArgs e)
@@ -90,28 +108,26 @@ namespace ManagementSupermarket
                 txt_AmountCreate.Text = itemSelected[6].Text;
             }
         }
-        private bool IssetCash()
+        private bool IsNotSetCash()
         {
             bool isSetCash = string.IsNullOrEmpty(txt_CashCustomerCreate.Text.Trim()) ? false : true;
+            bool isNotMoney = string.Compare(txt_CashCustomerCreate.Text, txt_TotalCashCreate.Text) == -1 ? true : false;
+
+
             if (isSetCash == false)
             {
                 lbl_ErrorCashCustomer.Visible = true;
-                lbl_ErrorCashCustomer.Text = "Vui lòng nhập số tiền của khách hàng!";
+                lbl_ErrorCashCustomer.Text = "*Vui lòng nhập số tiền của khách hàng!";
+                return true;
             }
-            return isSetCash;
-        }
-        private void codeWhenClick_InputInvoice()
-        {
-            //if (IssetCash() == false)
-            //{
-            //    return false;
-            //}
+            else if(isNotMoney == false)
+            {
+                lbl_ErrorCashCustomer.Visible = true;
+                lbl_ErrorCashCustomer.Text = "*Số tiền của khách hàng phải lớn hơn tổng tiền đơn hàng!";
+                return true;
+            }
+            return false;
 
-            ////MONEY -- CUSTOMER
-            //cashCustomer = float.Parse(txt_CashCustomerCreate.Text);
-            ////SET MONEY CUSTOMER
-            //changeMoney = this.TotalMoney - cashCustomer;
-            //txt_ChangeCreate.Text = changeMoney.ToString();
         }
         private void ClearControl()
         {
@@ -404,6 +420,42 @@ namespace ManagementSupermarket
             else {
                 txt_PhoneCustomerCreate.Enabled = false;
                 txt_PhoneCustomerCreate.BackColor = Color.Gray;
+            }
+        }
+
+        private void dgv_InvoiceSelling_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgv_InvoiceSelling.SelectedRows.Count > 0)
+            {
+                DataGridViewRow rowSelect = dgv_InvoiceSelling.SelectedRows[0];
+
+                txt_IdOrder.Text = rowSelect.Cells["MaHD"].Value.ToString();
+                txt_IdEmployee.Text = rowSelect.Cells["MaNV"].Value.ToString();
+                txt_IdCustomer.Text = rowSelect.Cells["MaKH"].Value.ToString();
+
+                dtp_CreatedTime.Value = (DateTime)rowSelect.Cells["NgayLapHD"].Value;
+                txt_CashCustomer.Text = rowSelect.Cells["TienKhachDua"].Value.ToString();
+                txt_Change.Text = rowSelect.Cells["TienTraKhach"].Value.ToString();
+                txt_TotalCash.Text = rowSelect.Cells["TongTien"].Value.ToString();
+                
+                LoadDataGridView_DetailInvoiceSelling(txt_IdOrder.Text);
+            }
+        }
+
+        private void dgv_Detail_InvoiceSelling_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgv_Detail_InvoiceSelling.SelectedRows.Count > 0)
+            {
+                DataGridViewRow rowSelect = dgv_Detail_InvoiceSelling.SelectedRows[0];
+
+                //Check
+                cbb_NameProduct.Text = rowSelect.Cells["MaSP"].Value.ToString();
+                cbb_Discount.Text = rowSelect.Cells["MaKM"].Value.ToString();
+                /////////
+                
+                num_CountProduct.Value = (int)rowSelect.Cells["SoLuong"].Value;
+                txt_Price.Text = rowSelect.Cells["DonGia"].Value.ToString();
+                txt_Amonut.Text = rowSelect.Cells["ThanhTien"].Value.ToString();
             }
         }
     }

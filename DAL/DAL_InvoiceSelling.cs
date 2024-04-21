@@ -39,7 +39,7 @@ namespace DAL
             return dict;
         }
 
-        public DataTable GetInvoiceSelling(string keySearch, string value)
+        public DataTable GetInvoiceSelling(string keySearch, string value = null)
         {
             string sql = "sp_GetInvoiceSelling";
 
