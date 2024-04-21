@@ -116,9 +116,15 @@ namespace ManagementSupermarket
         private void ClearControl()
         {
             cbb_NameProductCreate.SelectedIndex = 0;
-            num_CountProduct.Value = 0;
-            txt_Price.Text = "1";
-
+            num_CountProductCreate.Value = 0;
+            txt_PriceCreate.Text = "0";
+            cbb_DiscountCreate.SelectedIndex = 0;
+            txt_AmountCreate.Clear();
+            chk_PhoneCustomer.Checked = false;
+            txt_CashCustomer.Text = "0";
+            txt_ChangeCreate.Text = "0";
+            txt_TotalCashCreate.Text = "0";
+            lst_OrderCurrency.Items.Clear();
         }
         private void cbb_NameProductCreate_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -152,14 +158,13 @@ namespace ManagementSupermarket
             {
                 string value = tblDiscount.Rows[0]["GiaKhuyenMai"].ToString();
                 discount = float.Parse(value);
+                amount = price * count * (1 - discount);
             }
             else
             {
                 discount = 1;
+                amount = price * count;
             }
-            amount = price * count * (1 - discount);
-            this.TotalMoney += amount;
-
 
             ListViewItem item = new ListViewItem(idProduct);
             item.Name = idProduct;
@@ -185,8 +190,8 @@ namespace ManagementSupermarket
             {
                 lst_OrderCurrency.Items.Add(item);
             }
-
-
+            
+            this.TotalMoney += amount;
             txt_TotalCashCreate.Text = this.TotalMoney.ToString();
         }
         private void btn_Alter_Click(object sender, EventArgs e)
@@ -199,12 +204,12 @@ namespace ManagementSupermarket
 
             lbl_ErrorCashCustomer.Visible = false;
 
-            string idProduct, idDiscount, nameProduct, price;
-            float discount, amount;
+            string idProduct, idDiscount, nameProduct;
+            float price, discount, amount;
 
             idProduct = cbb_NameProductCreate.SelectedValue.ToString();
             nameProduct = cbb_NameProductCreate.Text;
-            price = txt_PriceCreate.Text;
+            price = float.Parse(txt_PriceCreate.Text);
 
            
             idDiscount = cbb_DiscountCreate.SelectedValue.ToString();
@@ -214,13 +219,14 @@ namespace ManagementSupermarket
             if (tblDiscount.Rows.Count > 0)
             {
                 string value = tblDiscount.Rows[0]["GiaKhuyenMai"].ToString();
-                discount = float.Parse(value);
+                discount = 1 - float.Parse(value);
+                amount = price * count * discount;
             }
             else
             {
-                discount = 1;
+                discount = 0;
+                amount = price * count;
             }
-            amount = float.Parse(price) * count * (1 - discount);
 
             DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn sửa thông tin bán hàng của {nameProduct}??", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
@@ -230,16 +236,15 @@ namespace ManagementSupermarket
                 if (indexItemExist >= 0)
                 {
                     ListViewSubItemCollection subItem = lst_OrderCurrency.Items[indexItemExist].SubItems;
+                    
+                    this.TotalMoney = TotalMoney - (int.Parse(subItem[2].Text) - count) * price * (discount == 0 ? 1 : discount);
 
-                    lst_OrderCurrency.Items[indexItemExist].SubItems[1].Text = count.ToString();
-                    lst_OrderCurrency.Items[indexItemExist].SubItems[2].Text = price.ToString();
-                    lst_OrderCurrency.Items[indexItemExist].SubItems[3].Text = idDiscount;
-                    lst_OrderCurrency.Items[indexItemExist].SubItems[4].Text = $"{discount * 100}%";
-                    lst_OrderCurrency.Items[indexItemExist].SubItems[5].Text = amount.ToString();
+                    subItem[2].Text = count.ToString();
+                    subItem[3].Text = price.ToString();
+                    subItem[5].Text = $"{discount * 100}%";
+                    subItem[6].Text = amount.ToString();
 
                     //Set Total Money after update Product
-                    this.TotalMoney = TotalMoney + (float.Parse(lst_OrderCurrency.Items[indexItemExist].SubItems[5].Text) - amount);
-
                     MessageBox.Show($"Chỉnh sửa thông tin {nameProduct} thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
@@ -269,7 +274,7 @@ namespace ManagementSupermarket
                 int indexItemExist = lst_OrderCurrency.Items.IndexOfKey(idProduct);
                 if (indexItemExist >= 0)
                 {
-                    //this.TotalMoney = this.TotalMoney - float.Parse(lst_OrderCurrency.Items[indexItemExist].Text);
+                    this.TotalMoney = this.TotalMoney - float.Parse(lst_OrderCurrency.Items[indexItemExist].SubItems[6].Text);
                     lst_OrderCurrency.Items.RemoveAt(indexItemExist);
 
                     MessageBox.Show($"Xoá sản phẩm {nameProduct} khỏi giỏ hàng thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -311,7 +316,7 @@ namespace ManagementSupermarket
 
         private void btn_FinishOrder_Click(object sender, EventArgs e)
         {
-            string idInvoice, idProduct, idDiscount, idEmployee, idCustomer,nameProduct, phone;
+            string idInvoice, idProduct, idDiscount, idEmployee, idCustomer = null,nameProduct, phone;
             float price, discount, amount, totalMoney, cashCustomer;
             int countProduct;
 
@@ -322,24 +327,15 @@ namespace ManagementSupermarket
             //@TongTien decimal,
             //@TienKhachDua decimal = 0
             idEmployee = this.idEmployee;
-            
-            phone = string.IsNullOrEmpty(txt_PhoneCustomerCreate.Text.Trim()) ? null : txt_PhoneCustomerCreate.Text;
-            if(phone == null || phone.Length == 0)
+            if (chk_PhoneCustomer.Checked)
             {
-                idCustomer = null;
-            }
-            else
-            {
+                phone = txt_PhoneCustomerCreate.Text.Trim();
                 DataTable tblCustomer = (new BLL_Customer()).GetCustomerTo("SDT", phone);
                 if (tblCustomer.Rows.Count > 0)
                 {
                     idCustomer = tblCustomer.Rows[0]["MaKH"].ToString();
 
-                }
-                else
-                {
-                    idCustomer = null;
-                }
+                }                
             }
 
             totalMoney = this.TotalMoney;
@@ -391,7 +387,24 @@ namespace ManagementSupermarket
 
         private void btn_RefreshCreate_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn làm mới trang?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                ClearControl();
+            }
+        }
 
+        private void chk_PhoneCustomer_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chk_PhoneCustomer.Checked == true)
+            {
+                txt_PhoneCustomerCreate.Enabled = true;
+                txt_PhoneCustomerCreate.BackColor = Color.White;
+            }
+            else {
+                txt_PhoneCustomerCreate.Enabled = false;
+                txt_PhoneCustomerCreate.BackColor = Color.Gray;
+            }
         }
     }
 }
