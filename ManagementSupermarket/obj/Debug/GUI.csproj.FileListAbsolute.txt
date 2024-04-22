@@ -85,7 +85,6 @@ D:\C#\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSu
 D:\C#\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.Manager.frmTypeProduct.resources
 D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.Manager.frmDiscount.resources
 D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.Manager.frmTypeProduct.resources
-D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.Manager.frmOrder.resources
 D:\C#\Prooject_ManagementSupermarket_20_04\ManagementSupermarket\obj\Debug\GUI.csproj.AssemblyReference.cache
 D:\C#\Prooject_ManagementSupermarket_20_04\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmChangePassword.resources
 D:\C#\Prooject_ManagementSupermarket_20_04\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmInfomation.resources

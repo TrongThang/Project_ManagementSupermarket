@@ -44,9 +44,11 @@
     <Compile Include="BLL_Account.cs" />
     <Compile Include="BLL_Customer.cs" />
     <Compile Include="BLL_Detail_InvoiceSelling.cs" />
+    <Compile Include="BLL_Detail_InvoiceWarehouse.cs" />
     <Compile Include="BLL_Discount.cs" />
     <Compile Include="BLL_Employee.cs" />
     <Compile Include="BLL_InvoiceSelling.cs" />
+    <Compile Include="BLL_InvoiceWarehouse.cs" />
     <Compile Include="BLL_Product.cs" />
     <Compile Include="BLL_Role.cs" />
     <Compile Include="BLL_Supplier.cs" />
