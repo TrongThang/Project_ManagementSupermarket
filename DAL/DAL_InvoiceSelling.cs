@@ -66,8 +66,13 @@ namespace DAL
         }
 
         public int DeleteInvoiceSelling(string idInvoice)
+<<<<<<< Updated upstream
         {
             string sql = "sp_UpdateInvoiceSelling";
+=======
+        {   
+            string sql = "sp_DeleteInvoiceSelling";
+>>>>>>> Stashed changes
 
             db.addParam("MaHD", idInvoice);
 

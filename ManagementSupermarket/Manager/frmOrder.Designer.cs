@@ -61,6 +61,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+<<<<<<< Updated upstream
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btn_AlterList = new FontAwesome.Sharp.IconButton();
             this.btn_AddList = new FontAwesome.Sharp.IconButton();
@@ -95,15 +96,42 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
+=======
+            this.chk_Update = new System.Windows.Forms.CheckBox();
+            this.btn_UpdateInvoice_TabList = new FontAwesome.Sharp.IconButton();
+            this.btn_Refresh_TabList = new FontAwesome.Sharp.IconButton();
+            this.btn_DeleteInvoice_TabList = new FontAwesome.Sharp.IconButton();
+            this.dgv_InvoiceSelling = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txt_IdOrder = new System.Windows.Forms.TextBox();
+            this.txt_IdCustomer = new System.Windows.Forms.TextBox();
+            this.txt_CashCustomer = new System.Windows.Forms.TextBox();
+            this.txt_Change = new System.Windows.Forms.TextBox();
+            this.txt_IdEmployee = new System.Windows.Forms.TextBox();
+            this.iconButton13 = new FontAwesome.Sharp.IconButton();
+            this.txt_TotalCash = new System.Windows.Forms.TextBox();
+            this.dtp_CreatedTime = new System.Windows.Forms.DateTimePicker();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tab_HomeInvoiceSelling.SuspendLayout();
+>>>>>>> Stashed changes
             this.tab_FormCreateInvoice.SuspendLayout();
             this.grpInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_CountProductCreate)).BeginInit();
             this.tabPage2.SuspendLayout();
+<<<<<<< Updated upstream
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_CountProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ListOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_OrderDetail)).BeginInit();
+=======
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_InvoiceSelling)).BeginInit();
+>>>>>>> Stashed changes
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -456,11 +484,20 @@
             // 
             // tabPage2
             // 
+<<<<<<< Updated upstream
             this.tabPage2.BackColor = System.Drawing.Color.Thistle;
             this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Controls.Add(this.dgv_ListOrder);
             this.tabPage2.Controls.Add(this.dgv_OrderDetail);
+=======
+            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
+            this.tabPage2.Controls.Add(this.chk_Update);
+            this.tabPage2.Controls.Add(this.btn_UpdateInvoice_TabList);
+            this.tabPage2.Controls.Add(this.btn_Refresh_TabList);
+            this.tabPage2.Controls.Add(this.btn_DeleteInvoice_TabList);
+            this.tabPage2.Controls.Add(this.dgv_InvoiceSelling);
+>>>>>>> Stashed changes
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Location = new System.Drawing.Point(4, 35);
             this.tabPage2.Name = "tabPage2";
@@ -469,6 +506,7 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Danh Sách Hoá Đơn";
             // 
+<<<<<<< Updated upstream
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.btn_AlterList);
@@ -483,22 +521,54 @@
             this.groupBox4.TabIndex = 20;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Chức Năng";
+=======
+            // chk_Update
             // 
-            // btn_AlterList
+            this.chk_Update.AutoSize = true;
+            this.chk_Update.ForeColor = System.Drawing.Color.White;
+            this.chk_Update.Location = new System.Drawing.Point(70, 238);
+            this.chk_Update.Name = "chk_Update";
+            this.chk_Update.Size = new System.Drawing.Size(122, 30);
+            this.chk_Update.TabIndex = 21;
+            this.chk_Update.Text = "Cập nhật";
+            this.chk_Update.UseVisualStyleBackColor = true;
+            this.chk_Update.CheckedChanged += new System.EventHandler(this.chk_Update_CheckedChanged);
             // 
-            this.btn_AlterList.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconPencil;
-            this.btn_AlterList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_AlterList.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btn_AlterList.IconColor = System.Drawing.Color.Black;
-            this.btn_AlterList.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_AlterList.Location = new System.Drawing.Point(89, 26);
-            this.btn_AlterList.Name = "btn_AlterList";
-            this.btn_AlterList.Size = new System.Drawing.Size(55, 55);
-            this.btn_AlterList.TabIndex = 13;
-            this.btn_AlterList.UseVisualStyleBackColor = true;
+            // btn_UpdateInvoice_TabList
             // 
-            // btn_AddList
+            this.btn_UpdateInvoice_TabList.BackColor = System.Drawing.Color.Gray;
+            this.btn_UpdateInvoice_TabList.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconPencil;
+            this.btn_UpdateInvoice_TabList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_UpdateInvoice_TabList.Enabled = false;
+            this.btn_UpdateInvoice_TabList.ForeColor = System.Drawing.Color.Black;
+            this.btn_UpdateInvoice_TabList.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btn_UpdateInvoice_TabList.IconColor = System.Drawing.Color.Black;
+            this.btn_UpdateInvoice_TabList.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_UpdateInvoice_TabList.Location = new System.Drawing.Point(9, 214);
+            this.btn_UpdateInvoice_TabList.Name = "btn_UpdateInvoice_TabList";
+            this.btn_UpdateInvoice_TabList.Size = new System.Drawing.Size(55, 55);
+            this.btn_UpdateInvoice_TabList.TabIndex = 17;
+            this.btn_UpdateInvoice_TabList.UseVisualStyleBackColor = false;
+            this.btn_UpdateInvoice_TabList.Click += new System.EventHandler(this.btn_UpdateInvoice_TabList_Click);
+>>>>>>> Stashed changes
             // 
+            // btn_Refresh_TabList
+            // 
+            this.btn_Refresh_TabList.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconReload;
+            this.btn_Refresh_TabList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Refresh_TabList.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btn_Refresh_TabList.IconColor = System.Drawing.Color.Black;
+            this.btn_Refresh_TabList.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Refresh_TabList.Location = new System.Drawing.Point(267, 213);
+            this.btn_Refresh_TabList.Name = "btn_Refresh_TabList";
+            this.btn_Refresh_TabList.Size = new System.Drawing.Size(55, 55);
+            this.btn_Refresh_TabList.TabIndex = 19;
+            this.btn_Refresh_TabList.UseVisualStyleBackColor = true;
+            this.btn_Refresh_TabList.Click += new System.EventHandler(this.btn_Refresh_TabList_Click);
+            // 
+            // btn_DeleteInvoice_TabList
+            // 
+<<<<<<< Updated upstream
             this.btn_AddList.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconPlus;
             this.btn_AddList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_AddList.IconChar = FontAwesome.Sharp.IconChar.None;
@@ -680,6 +750,33 @@
             this.dgv_OrderDetail.RowTemplate.Height = 24;
             this.dgv_OrderDetail.Size = new System.Drawing.Size(493, 419);
             this.dgv_OrderDetail.TabIndex = 4;
+=======
+            this.btn_DeleteInvoice_TabList.BackgroundImage = global::ManagementSupermarket.Properties.Resources.pngtree_vector_trash_icon_png_image_865284;
+            this.btn_DeleteInvoice_TabList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_DeleteInvoice_TabList.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btn_DeleteInvoice_TabList.IconColor = System.Drawing.Color.Black;
+            this.btn_DeleteInvoice_TabList.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_DeleteInvoice_TabList.Location = new System.Drawing.Point(196, 213);
+            this.btn_DeleteInvoice_TabList.Name = "btn_DeleteInvoice_TabList";
+            this.btn_DeleteInvoice_TabList.Size = new System.Drawing.Size(55, 55);
+            this.btn_DeleteInvoice_TabList.TabIndex = 18;
+            this.btn_DeleteInvoice_TabList.UseVisualStyleBackColor = true;
+            this.btn_DeleteInvoice_TabList.Click += new System.EventHandler(this.btn_DeleteInvoice_TabList_Click);
+            // 
+            // dgv_InvoiceSelling
+            // 
+            this.dgv_InvoiceSelling.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_InvoiceSelling.Location = new System.Drawing.Point(6, 283);
+            this.dgv_InvoiceSelling.MultiSelect = false;
+            this.dgv_InvoiceSelling.Name = "dgv_InvoiceSelling";
+            this.dgv_InvoiceSelling.ReadOnly = true;
+            this.dgv_InvoiceSelling.RowHeadersWidth = 51;
+            this.dgv_InvoiceSelling.RowTemplate.Height = 24;
+            this.dgv_InvoiceSelling.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_InvoiceSelling.Size = new System.Drawing.Size(1173, 408);
+            this.dgv_InvoiceSelling.TabIndex = 5;
+            this.dgv_InvoiceSelling.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_InvoiceSelling_CellClick);
+>>>>>>> Stashed changes
             // 
             // groupBox1
             // 
@@ -700,13 +797,18 @@
             this.groupBox1.ForeColor = System.Drawing.Color.Yellow;
             this.groupBox1.Location = new System.Drawing.Point(9, 1);
             this.groupBox1.Name = "groupBox1";
+<<<<<<< Updated upstream
             this.groupBox1.Size = new System.Drawing.Size(567, 342);
+=======
+            this.groupBox1.Size = new System.Drawing.Size(1170, 183);
+>>>>>>> Stashed changes
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin Hoá Đơn";
             // 
-            // txt_TotalCash
+            // label11
             // 
+<<<<<<< Updated upstream
             this.txt_TotalCash.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.txt_TotalCash.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.txt_TotalCash.Location = new System.Drawing.Point(58, 272);
@@ -714,9 +816,20 @@
             this.txt_TotalCash.ReadOnly = true;
             this.txt_TotalCash.Size = new System.Drawing.Size(234, 45);
             this.txt_TotalCash.TabIndex = 27;
+=======
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(542, 26);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(154, 25);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Mã Khách Hàng";
+>>>>>>> Stashed changes
             // 
-            // iconButton13
+            // label14
             // 
+<<<<<<< Updated upstream
             this.iconButton13.BackColor = System.Drawing.Color.Transparent;
             this.iconButton13.ForeColor = System.Drawing.SystemColors.WindowText;
             this.iconButton13.IconChar = FontAwesome.Sharp.IconChar.SackDollar;
@@ -812,6 +925,16 @@
             this.label16.Size = new System.Drawing.Size(157, 25);
             this.label16.TabIndex = 1;
             this.label16.Text = "Tiền Thối Khách";
+=======
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(19, 102);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(154, 25);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "Tiền Khách Đưa";
+>>>>>>> Stashed changes
             // 
             // label9
             // 
@@ -824,8 +947,9 @@
             this.label9.TabIndex = 4;
             this.label9.Text = "Mã Nhân Viên";
             // 
-            // label14
+            // label16
             // 
+<<<<<<< Updated upstream
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Black;
@@ -834,9 +958,20 @@
             this.label14.Size = new System.Drawing.Size(154, 25);
             this.label14.TabIndex = 1;
             this.label14.Text = "Tiền Khách Đưa";
+=======
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(285, 102);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(157, 25);
+            this.label16.TabIndex = 1;
+            this.label16.Text = "Tiền Thối Khách";
+>>>>>>> Stashed changes
             // 
-            // label11
+            // label8
             // 
+<<<<<<< Updated upstream
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
@@ -845,6 +980,108 @@
             this.label11.Size = new System.Drawing.Size(154, 25);
             this.label11.TabIndex = 1;
             this.label11.Text = "Mã Khách Hàng";
+=======
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(15, 28);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(122, 25);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "Mã Hoá Đơn";
+            // 
+            // txt_IdOrder
+            // 
+            this.txt_IdOrder.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.txt_IdOrder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_IdOrder.Location = new System.Drawing.Point(20, 54);
+            this.txt_IdOrder.Name = "txt_IdOrder";
+            this.txt_IdOrder.ReadOnly = true;
+            this.txt_IdOrder.Size = new System.Drawing.Size(240, 32);
+            this.txt_IdOrder.TabIndex = 13;
+            // 
+            // txt_IdCustomer
+            // 
+            this.txt_IdCustomer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_IdCustomer.Location = new System.Drawing.Point(547, 54);
+            this.txt_IdCustomer.Name = "txt_IdCustomer";
+            this.txt_IdCustomer.Size = new System.Drawing.Size(233, 32);
+            this.txt_IdCustomer.TabIndex = 14;
+            // 
+            // txt_CashCustomer
+            // 
+            this.txt_CashCustomer.BackColor = System.Drawing.Color.White;
+            this.txt_CashCustomer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_CashCustomer.Location = new System.Drawing.Point(24, 130);
+            this.txt_CashCustomer.Name = "txt_CashCustomer";
+            this.txt_CashCustomer.Size = new System.Drawing.Size(233, 32);
+            this.txt_CashCustomer.TabIndex = 14;
+            this.txt_CashCustomer.TextChanged += new System.EventHandler(this.txt_CashCustomer_TextChanged);
+            // 
+            // txt_Change
+            // 
+            this.txt_Change.BackColor = System.Drawing.Color.Gray;
+            this.txt_Change.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_Change.Location = new System.Drawing.Point(290, 130);
+            this.txt_Change.Name = "txt_Change";
+            this.txt_Change.ReadOnly = true;
+            this.txt_Change.Size = new System.Drawing.Size(233, 32);
+            this.txt_Change.TabIndex = 14;
+            // 
+            // txt_IdEmployee
+            // 
+            this.txt_IdEmployee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_IdEmployee.Location = new System.Drawing.Point(292, 54);
+            this.txt_IdEmployee.Name = "txt_IdEmployee";
+            this.txt_IdEmployee.Size = new System.Drawing.Size(220, 32);
+            this.txt_IdEmployee.TabIndex = 17;
+            // 
+            // iconButton13
+            // 
+            this.iconButton13.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton13.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.iconButton13.IconChar = FontAwesome.Sharp.IconChar.SackDollar;
+            this.iconButton13.IconColor = System.Drawing.Color.Lime;
+            this.iconButton13.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton13.Location = new System.Drawing.Point(791, 114);
+            this.iconButton13.Name = "iconButton13";
+            this.iconButton13.Size = new System.Drawing.Size(166, 53);
+            this.iconButton13.TabIndex = 26;
+            this.iconButton13.Text = "Tổng Tiền";
+            this.iconButton13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.iconButton13.UseVisualStyleBackColor = false;
+            // 
+            // txt_TotalCash
+            // 
+            this.txt_TotalCash.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.txt_TotalCash.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.txt_TotalCash.Location = new System.Drawing.Point(546, 119);
+            this.txt_TotalCash.Name = "txt_TotalCash";
+            this.txt_TotalCash.ReadOnly = true;
+            this.txt_TotalCash.Size = new System.Drawing.Size(234, 45);
+            this.txt_TotalCash.TabIndex = 27;
+            // 
+            // dtp_CreatedTime
+            // 
+            this.dtp_CreatedTime.CustomFormat = "dd/MM/yyyy HH:mm:ss";
+            this.dtp_CreatedTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_CreatedTime.Location = new System.Drawing.Point(6, 31);
+            this.dtp_CreatedTime.Name = "dtp_CreatedTime";
+            this.dtp_CreatedTime.Size = new System.Drawing.Size(243, 32);
+            this.dtp_CreatedTime.TabIndex = 11;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dtp_CreatedTime);
+            this.groupBox3.ForeColor = System.Drawing.Color.Yellow;
+            this.groupBox3.Location = new System.Drawing.Point(813, 21);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(255, 76);
+            this.groupBox3.TabIndex = 18;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Ngày Tạo";
+>>>>>>> Stashed changes
             // 
             // frmOrder
             // 
@@ -866,12 +1103,17 @@
             this.grpInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_CountProductCreate)).EndInit();
             this.tabPage2.ResumeLayout(false);
+<<<<<<< Updated upstream
             this.groupBox4.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_CountProduct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ListOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_OrderDetail)).EndInit();
+=======
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_InvoiceSelling)).EndInit();
+>>>>>>> Stashed changes
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -909,6 +1151,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox1;
+<<<<<<< Updated upstream
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DateTimePicker dtp_CreatedTime;
         private System.Windows.Forms.TextBox txt_NameEmployee;
@@ -940,12 +1183,39 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.GroupBox groupBox4;
+=======
+        private System.Windows.Forms.DataGridView dgv_InvoiceSelling;
+>>>>>>> Stashed changes
         private System.Windows.Forms.NumericUpDown num_CountProductCreate;
-        private System.Windows.Forms.ComboBox cbb_Discount;
         private System.Windows.Forms.ComboBox cbb_NameProductCreate;
         private System.Windows.Forms.ComboBox cbb_DiscountCreate;
         private System.Windows.Forms.TextBox txt_AmountCreate;
         private System.Windows.Forms.Label label12;
+<<<<<<< Updated upstream
         private System.Windows.Forms.ColumnHeader columnHeader6;
+=======
+        private System.Windows.Forms.ColumnHeader ThanhTien;
+        private System.Windows.Forms.Label lbl_ErrorCashCustomer;
+        private System.Windows.Forms.ColumnHeader MaSP;
+        private System.Windows.Forms.CheckBox chk_PhoneCustomer;
+        private FontAwesome.Sharp.IconButton btn_UpdateInvoice_TabList;
+        private FontAwesome.Sharp.IconButton btn_Refresh_TabList;
+        private FontAwesome.Sharp.IconButton btn_DeleteInvoice_TabList;
+        private System.Windows.Forms.CheckBox chk_Update;
+        private System.Windows.Forms.TextBox txt_TotalCash;
+        private FontAwesome.Sharp.IconButton iconButton13;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DateTimePicker dtp_CreatedTime;
+        private System.Windows.Forms.TextBox txt_IdEmployee;
+        private System.Windows.Forms.TextBox txt_Change;
+        private System.Windows.Forms.TextBox txt_CashCustomer;
+        private System.Windows.Forms.TextBox txt_IdCustomer;
+        private System.Windows.Forms.TextBox txt_IdOrder;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label11;
+>>>>>>> Stashed changes
     }
 }
