@@ -65,10 +65,6 @@ namespace ManagementSupermarket
         {
             dgv_InvoiceSelling.DataSource = (new BLL_InvoiceSelling()).GetInvoiceSelling("MaHD");
         }
-        private void LoadDataGridView_DetailInvoiceSelling(string idInvoice = null)
-        {
-            dgv_Detail_InvoiceSelling.DataSource = (new BLL_Detail_InvoiceSelling()).GetDetailInvoiceSelling("MaHD", idInvoice);
-        }
 
         private void frmOrder_Load(object sender, EventArgs e)
         {
@@ -80,8 +76,6 @@ namespace ManagementSupermarket
 
             //LOAD DATA TAB 2
             LoadDataGridView_InvoiceSelling();
-            LoadDataComboBox_NameProduct(cbb_NameProduct);
-            LoadDataComboBox_Discount(cbb_Discount);
         }
         
         private void lst_OrderCurrency_Click(object sender, EventArgs e)
@@ -396,9 +390,6 @@ namespace ManagementSupermarket
 
             MessageBox.Show($"Xảy ra sai sót trong quá trình bán hàng. Vui lòng thử lại", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
-
-            
-
         }
 
         private void btn_RefreshCreate_Click(object sender, EventArgs e)
@@ -437,25 +428,6 @@ namespace ManagementSupermarket
                 txt_CashCustomer.Text = rowSelect.Cells["TienKhachDua"].Value.ToString();
                 txt_Change.Text = rowSelect.Cells["TienTraKhach"].Value.ToString();
                 txt_TotalCash.Text = rowSelect.Cells["TongTien"].Value.ToString();
-                
-                LoadDataGridView_DetailInvoiceSelling(txt_IdOrder.Text);
-            }
-        }
-
-        private void dgv_Detail_InvoiceSelling_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgv_Detail_InvoiceSelling.SelectedRows.Count > 0)
-            {
-                DataGridViewRow rowSelect = dgv_Detail_InvoiceSelling.SelectedRows[0];
-
-                //Check
-                cbb_NameProduct.Text = rowSelect.Cells["MaSP"].Value.ToString();
-                cbb_Discount.Text = rowSelect.Cells["MaKM"].Value.ToString();
-                /////////
-                
-                num_CountProduct.Value = (int)rowSelect.Cells["SoLuong"].Value;
-                txt_Price.Text = rowSelect.Cells["DonGia"].Value.ToString();
-                txt_Amonut.Text = rowSelect.Cells["ThanhTien"].Value.ToString();
             }
         }
     }

@@ -63,27 +63,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btn_ShowDetailInvoice = new FontAwesome.Sharp.IconButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btn_AlterList = new FontAwesome.Sharp.IconButton();
-            this.btn_AddList = new FontAwesome.Sharp.IconButton();
-            this.btn_RefreshList = new FontAwesome.Sharp.IconButton();
-            this.btn_DeleteList = new FontAwesome.Sharp.IconButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cbb_NameProduct = new System.Windows.Forms.ComboBox();
-            this.cbb_Discount = new System.Windows.Forms.ComboBox();
-            this.iconButton14 = new FontAwesome.Sharp.IconButton();
-            this.num_CountProduct = new System.Windows.Forms.NumericUpDown();
-            this.txt_Amonut = new System.Windows.Forms.TextBox();
-            this.txt_Price = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.dgv_InvoiceSelling = new System.Windows.Forms.DataGridView();
-            this.dgv_Detail_InvoiceSelling = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txt_TotalCash = new System.Windows.Forms.TextBox();
             this.iconButton13 = new FontAwesome.Sharp.IconButton();
@@ -104,11 +90,7 @@
             this.grpInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_CountProductCreate)).BeginInit();
             this.tabPage2.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.num_CountProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_InvoiceSelling)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Detail_InvoiceSelling)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -504,13 +486,13 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
+            this.tabPage2.Controls.Add(this.btn_ShowDetailInvoice);
+            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.iconButton1);
-            this.tabPage2.Controls.Add(this.groupBox4);
-            this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Controls.Add(this.iconButton3);
             this.tabPage2.Controls.Add(this.iconButton4);
             this.tabPage2.Controls.Add(this.dgv_InvoiceSelling);
-            this.tabPage2.Controls.Add(this.dgv_Detail_InvoiceSelling);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.ForeColor = System.Drawing.Color.Black;
             this.tabPage2.Location = new System.Drawing.Point(4, 35);
@@ -520,6 +502,37 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Danh Sách Hoá Đơn";
             // 
+            // btn_ShowDetailInvoice
+            // 
+            this.btn_ShowDetailInvoice.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.btn_ShowDetailInvoice.IconColor = System.Drawing.Color.Black;
+            this.btn_ShowDetailInvoice.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btn_ShowDetailInvoice.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_ShowDetailInvoice.Location = new System.Drawing.Point(610, 187);
+            this.btn_ShowDetailInvoice.Name = "btn_ShowDetailInvoice";
+            this.btn_ShowDetailInvoice.Size = new System.Drawing.Size(281, 52);
+            this.btn_ShowDetailInvoice.TabIndex = 22;
+            this.btn_ShowDetailInvoice.Text = "Xem Chi Tiết Hoá Đơn";
+            this.btn_ShowDetailInvoice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_ShowDetailInvoice.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.textBox1.Location = new System.Drawing.Point(897, 201);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(189, 36);
+            this.textBox1.TabIndex = 21;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1092, 201);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(87, 36);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // iconButton1
             // 
             this.iconButton1.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconPencil;
@@ -527,204 +540,11 @@
             this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconButton1.IconColor = System.Drawing.Color.Black;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.Location = new System.Drawing.Point(8, 314);
+            this.iconButton1.Location = new System.Drawing.Point(9, 187);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(55, 55);
             this.iconButton1.TabIndex = 17;
             this.iconButton1.UseVisualStyleBackColor = true;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.btn_AlterList);
-            this.groupBox4.Controls.Add(this.btn_AddList);
-            this.groupBox4.Controls.Add(this.btn_RefreshList);
-            this.groupBox4.Controls.Add(this.btn_DeleteList);
-            this.groupBox4.ForeColor = System.Drawing.Color.Yellow;
-            this.groupBox4.Location = new System.Drawing.Point(591, 178);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(0);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox4.Size = new System.Drawing.Size(497, 87);
-            this.groupBox4.TabIndex = 20;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Chức Năng";
-            // 
-            // btn_AlterList
-            // 
-            this.btn_AlterList.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconPencil;
-            this.btn_AlterList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_AlterList.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btn_AlterList.IconColor = System.Drawing.Color.Black;
-            this.btn_AlterList.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_AlterList.Location = new System.Drawing.Point(89, 26);
-            this.btn_AlterList.Name = "btn_AlterList";
-            this.btn_AlterList.Size = new System.Drawing.Size(55, 55);
-            this.btn_AlterList.TabIndex = 13;
-            this.btn_AlterList.UseVisualStyleBackColor = true;
-            // 
-            // btn_AddList
-            // 
-            this.btn_AddList.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconPlus;
-            this.btn_AddList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_AddList.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btn_AddList.IconColor = System.Drawing.Color.Black;
-            this.btn_AddList.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_AddList.Location = new System.Drawing.Point(14, 26);
-            this.btn_AddList.Name = "btn_AddList";
-            this.btn_AddList.Size = new System.Drawing.Size(55, 55);
-            this.btn_AddList.TabIndex = 12;
-            this.btn_AddList.UseVisualStyleBackColor = true;
-            // 
-            // btn_RefreshList
-            // 
-            this.btn_RefreshList.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconReload;
-            this.btn_RefreshList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_RefreshList.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btn_RefreshList.IconColor = System.Drawing.Color.Black;
-            this.btn_RefreshList.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_RefreshList.Location = new System.Drawing.Point(230, 26);
-            this.btn_RefreshList.Name = "btn_RefreshList";
-            this.btn_RefreshList.Size = new System.Drawing.Size(55, 55);
-            this.btn_RefreshList.TabIndex = 15;
-            this.btn_RefreshList.UseVisualStyleBackColor = true;
-            // 
-            // btn_DeleteList
-            // 
-            this.btn_DeleteList.BackgroundImage = global::ManagementSupermarket.Properties.Resources.pngtree_vector_trash_icon_png_image_865284;
-            this.btn_DeleteList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_DeleteList.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btn_DeleteList.IconColor = System.Drawing.Color.Black;
-            this.btn_DeleteList.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_DeleteList.Location = new System.Drawing.Point(159, 26);
-            this.btn_DeleteList.Name = "btn_DeleteList";
-            this.btn_DeleteList.Size = new System.Drawing.Size(55, 55);
-            this.btn_DeleteList.TabIndex = 14;
-            this.btn_DeleteList.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.cbb_NameProduct);
-            this.groupBox2.Controls.Add(this.cbb_Discount);
-            this.groupBox2.Controls.Add(this.iconButton14);
-            this.groupBox2.Controls.Add(this.num_CountProduct);
-            this.groupBox2.Controls.Add(this.txt_Amonut);
-            this.groupBox2.Controls.Add(this.txt_Price);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.ForeColor = System.Drawing.Color.Yellow;
-            this.groupBox2.Location = new System.Drawing.Point(591, 4);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(586, 171);
-            this.groupBox2.TabIndex = 19;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Thông Tin Hoá Đơn";
-            // 
-            // cbb_NameProduct
-            // 
-            this.cbb_NameProduct.FormattingEnabled = true;
-            this.cbb_NameProduct.Location = new System.Drawing.Point(20, 53);
-            this.cbb_NameProduct.Name = "cbb_NameProduct";
-            this.cbb_NameProduct.Size = new System.Drawing.Size(194, 34);
-            this.cbb_NameProduct.TabIndex = 34;
-            // 
-            // cbb_Discount
-            // 
-            this.cbb_Discount.FormattingEnabled = true;
-            this.cbb_Discount.Location = new System.Drawing.Point(20, 121);
-            this.cbb_Discount.Name = "cbb_Discount";
-            this.cbb_Discount.Size = new System.Drawing.Size(194, 34);
-            this.cbb_Discount.TabIndex = 29;
-            // 
-            // iconButton14
-            // 
-            this.iconButton14.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton14.FlatAppearance.BorderSize = 0;
-            this.iconButton14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.iconButton14.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.iconButton14.IconChar = FontAwesome.Sharp.IconChar.SackDollar;
-            this.iconButton14.IconColor = System.Drawing.Color.Lime;
-            this.iconButton14.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton14.IconSize = 30;
-            this.iconButton14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton14.Location = new System.Drawing.Point(436, 114);
-            this.iconButton14.Name = "iconButton14";
-            this.iconButton14.Size = new System.Drawing.Size(122, 43);
-            this.iconButton14.TabIndex = 28;
-            this.iconButton14.Text = "Thành Tiền";
-            this.iconButton14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton14.UseVisualStyleBackColor = false;
-            // 
-            // num_CountProduct
-            // 
-            this.num_CountProduct.Location = new System.Drawing.Point(238, 55);
-            this.num_CountProduct.Name = "num_CountProduct";
-            this.num_CountProduct.Size = new System.Drawing.Size(129, 32);
-            this.num_CountProduct.TabIndex = 16;
-            // 
-            // txt_Amonut
-            // 
-            this.txt_Amonut.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.txt_Amonut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_Amonut.Location = new System.Drawing.Point(238, 122);
-            this.txt_Amonut.Name = "txt_Amonut";
-            this.txt_Amonut.ReadOnly = true;
-            this.txt_Amonut.Size = new System.Drawing.Size(192, 32);
-            this.txt_Amonut.TabIndex = 13;
-            // 
-            // txt_Price
-            // 
-            this.txt_Price.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_Price.Location = new System.Drawing.Point(387, 55);
-            this.txt_Price.Name = "txt_Price";
-            this.txt_Price.Size = new System.Drawing.Size(185, 32);
-            this.txt_Price.TabIndex = 13;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(382, 29);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(79, 25);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "Đơn giá";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(15, 98);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(117, 25);
-            this.label17.TabIndex = 5;
-            this.label17.Text = "Khuyến Mãi";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(15, 25);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(104, 25);
-            this.label13.TabIndex = 5;
-            this.label13.Text = "Sản Phẩm";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(233, 32);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(97, 25);
-            this.label15.TabIndex = 2;
-            this.label15.Text = "Số Lượng";
             // 
             // iconButton3
             // 
@@ -733,7 +553,7 @@
             this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconButton3.IconColor = System.Drawing.Color.Black;
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.Location = new System.Drawing.Point(149, 314);
+            this.iconButton3.Location = new System.Drawing.Point(227, 187);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(55, 55);
             this.iconButton3.TabIndex = 19;
@@ -746,7 +566,7 @@
             this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconButton4.IconColor = System.Drawing.Color.Black;
             this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.Location = new System.Drawing.Point(78, 314);
+            this.iconButton4.Location = new System.Drawing.Point(156, 187);
             this.iconButton4.Name = "iconButton4";
             this.iconButton4.Size = new System.Drawing.Size(55, 55);
             this.iconButton4.TabIndex = 18;
@@ -755,31 +575,16 @@
             // dgv_InvoiceSelling
             // 
             this.dgv_InvoiceSelling.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_InvoiceSelling.Location = new System.Drawing.Point(6, 374);
+            this.dgv_InvoiceSelling.Location = new System.Drawing.Point(6, 248);
             this.dgv_InvoiceSelling.MultiSelect = false;
             this.dgv_InvoiceSelling.Name = "dgv_InvoiceSelling";
             this.dgv_InvoiceSelling.ReadOnly = true;
             this.dgv_InvoiceSelling.RowHeadersWidth = 51;
             this.dgv_InvoiceSelling.RowTemplate.Height = 24;
             this.dgv_InvoiceSelling.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_InvoiceSelling.Size = new System.Drawing.Size(570, 317);
+            this.dgv_InvoiceSelling.Size = new System.Drawing.Size(1173, 443);
             this.dgv_InvoiceSelling.TabIndex = 5;
             this.dgv_InvoiceSelling.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_InvoiceSelling_CellClick);
-            // 
-            // dgv_Detail_InvoiceSelling
-            // 
-            this.dgv_Detail_InvoiceSelling.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_Detail_InvoiceSelling.ColumnHeadersHeight = 29;
-            this.dgv_Detail_InvoiceSelling.Location = new System.Drawing.Point(591, 273);
-            this.dgv_Detail_InvoiceSelling.MultiSelect = false;
-            this.dgv_Detail_InvoiceSelling.Name = "dgv_Detail_InvoiceSelling";
-            this.dgv_Detail_InvoiceSelling.ReadOnly = true;
-            this.dgv_Detail_InvoiceSelling.RowHeadersWidth = 51;
-            this.dgv_Detail_InvoiceSelling.RowTemplate.Height = 24;
-            this.dgv_Detail_InvoiceSelling.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Detail_InvoiceSelling.Size = new System.Drawing.Size(588, 419);
-            this.dgv_Detail_InvoiceSelling.TabIndex = 4;
-            this.dgv_Detail_InvoiceSelling.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Detail_InvoiceSelling_CellClick);
             // 
             // groupBox1
             // 
@@ -800,7 +605,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.Yellow;
             this.groupBox1.Location = new System.Drawing.Point(9, 1);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(567, 307);
+            this.groupBox1.Size = new System.Drawing.Size(1170, 180);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin Hoá Đơn";
@@ -809,7 +614,7 @@
             // 
             this.txt_TotalCash.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.txt_TotalCash.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.txt_TotalCash.Location = new System.Drawing.Point(53, 248);
+            this.txt_TotalCash.Location = new System.Drawing.Point(550, 114);
             this.txt_TotalCash.Name = "txt_TotalCash";
             this.txt_TotalCash.ReadOnly = true;
             this.txt_TotalCash.Size = new System.Drawing.Size(234, 45);
@@ -823,7 +628,7 @@
             this.iconButton13.IconColor = System.Drawing.Color.Lime;
             this.iconButton13.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton13.Location = new System.Drawing.Point(298, 243);
+            this.iconButton13.Location = new System.Drawing.Point(795, 109);
             this.iconButton13.Name = "iconButton13";
             this.iconButton13.Size = new System.Drawing.Size(166, 53);
             this.iconButton13.TabIndex = 26;
@@ -835,7 +640,7 @@
             // 
             this.groupBox3.Controls.Add(this.dtp_CreatedTime);
             this.groupBox3.ForeColor = System.Drawing.Color.Yellow;
-            this.groupBox3.Location = new System.Drawing.Point(292, 91);
+            this.groupBox3.Location = new System.Drawing.Point(803, 25);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(255, 76);
             this.groupBox3.TabIndex = 18;
@@ -862,7 +667,7 @@
             // txt_Change
             // 
             this.txt_Change.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_Change.Location = new System.Drawing.Point(292, 198);
+            this.txt_Change.Location = new System.Drawing.Point(292, 127);
             this.txt_Change.Name = "txt_Change";
             this.txt_Change.Size = new System.Drawing.Size(233, 32);
             this.txt_Change.TabIndex = 14;
@@ -870,7 +675,7 @@
             // txt_CashCustomer
             // 
             this.txt_CashCustomer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_CashCustomer.Location = new System.Drawing.Point(26, 198);
+            this.txt_CashCustomer.Location = new System.Drawing.Point(26, 127);
             this.txt_CashCustomer.Name = "txt_CashCustomer";
             this.txt_CashCustomer.Size = new System.Drawing.Size(233, 32);
             this.txt_CashCustomer.TabIndex = 14;
@@ -878,7 +683,7 @@
             // txt_IdCustomer
             // 
             this.txt_IdCustomer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_IdCustomer.Location = new System.Drawing.Point(20, 120);
+            this.txt_IdCustomer.Location = new System.Drawing.Point(531, 54);
             this.txt_IdCustomer.Name = "txt_IdCustomer";
             this.txt_IdCustomer.Size = new System.Drawing.Size(233, 32);
             this.txt_IdCustomer.TabIndex = 14;
@@ -907,7 +712,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(287, 170);
+            this.label16.Location = new System.Drawing.Point(287, 99);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(157, 25);
             this.label16.TabIndex = 1;
@@ -929,7 +734,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(21, 170);
+            this.label14.Location = new System.Drawing.Point(21, 99);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(154, 25);
             this.label14.TabIndex = 1;
@@ -940,7 +745,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(15, 92);
+            this.label11.Location = new System.Drawing.Point(526, 26);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(154, 25);
             this.label11.TabIndex = 1;
@@ -966,12 +771,8 @@
             this.grpInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_CountProductCreate)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.num_CountProduct)).EndInit();
+            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_InvoiceSelling)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Detail_InvoiceSelling)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -1017,29 +818,13 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridView dgv_InvoiceSelling;
-        private System.Windows.Forms.DataGridView dgv_Detail_InvoiceSelling;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private FontAwesome.Sharp.IconButton btn_RefreshList;
-        private FontAwesome.Sharp.IconButton btn_DeleteList;
-        private FontAwesome.Sharp.IconButton btn_AlterList;
-        private FontAwesome.Sharp.IconButton btn_AddList;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txt_Change;
         private System.Windows.Forms.TextBox txt_CashCustomer;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txt_TotalCash;
         private FontAwesome.Sharp.IconButton iconButton13;
-        private FontAwesome.Sharp.IconButton iconButton14;
-        private System.Windows.Forms.NumericUpDown num_CountProduct;
-        private System.Windows.Forms.TextBox txt_Amonut;
-        private System.Windows.Forms.TextBox txt_Price;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.NumericUpDown num_CountProductCreate;
-        private System.Windows.Forms.ComboBox cbb_Discount;
         private System.Windows.Forms.ComboBox cbb_NameProductCreate;
         private System.Windows.Forms.ComboBox cbb_DiscountCreate;
         private System.Windows.Forms.TextBox txt_AmountCreate;
@@ -1048,9 +833,11 @@
         private System.Windows.Forms.Label lbl_ErrorCashCustomer;
         private System.Windows.Forms.ColumnHeader MaSP;
         private System.Windows.Forms.CheckBox chk_PhoneCustomer;
-        private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton iconButton3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
+        private FontAwesome.Sharp.IconButton btn_ShowDetailInvoice;
+        private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton iconButton4;
-        private System.Windows.Forms.ComboBox cbb_NameProduct;
     }
 }
