@@ -16,7 +16,7 @@ namespace BLL
         {
             return dataInvoice.GetInvoiceImportWareHouse(keySearch, value);
         }
-        public int InsertInvoiceImportWareHouse(DTO_InvoiceWarehouse invoice)
+        public DataTable InsertInvoiceImportWareHouse(DTO_InvoiceWarehouse invoice)
         {
             return dataInvoice.InsertInvoiceImportWareHouse(invoice);
         }

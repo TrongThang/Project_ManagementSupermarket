@@ -114,3 +114,4 @@ D:\C#\Prooject_ManagementSupermarket_20_04\ManagementSupermarket\bin\Debug\BLL.p
 D:\C#\Prooject_ManagementSupermarket_20_04\ManagementSupermarket\bin\Debug\DTO.pdb
 D:\C#\Prooject_ManagementSupermarket_20_04\ManagementSupermarket\bin\Debug\DAL.pdb
 D:\C#\Prooject_ManagementSupermarket_20_04\ManagementSupermarket\obj\Debug\GUI.csproj.Up2Date
+D:\ĐỒ ÁN SIÊU THỊ MINI (TQ)\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.Manager.frmDetailWarehouse.resources

@@ -33,6 +33,7 @@
             this.btn_Search = new FontAwesome.Sharp.IconButton();
             this.txt_Search = new System.Windows.Forms.TextBox();
             this.grpInfo = new System.Windows.Forms.GroupBox();
+            this.cbb_ProductImportWarehouse = new System.Windows.Forms.ComboBox();
             this.cbb_NameSupplierCreate = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtp_CreatedTime = new System.Windows.Forms.DateTimePicker();
@@ -58,32 +59,17 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txt_TotalCashCreate = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btn_SeeDetailWarehouse = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.txt_SearchDetailOrderToReceive = new System.Windows.Forms.TextBox();
-            this.btn_SearchDetailOrderToReceive = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
             this.txt_SearchOrderToReceive = new System.Windows.Forms.TextBox();
             this.btn_SearchOrderToReceive = new FontAwesome.Sharp.IconButton();
-            this.dgv_OrderDetail = new System.Windows.Forms.DataGridView();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.iconButton11 = new FontAwesome.Sharp.IconButton();
-            this.iconButton9 = new FontAwesome.Sharp.IconButton();
-            this.iconButton10 = new FontAwesome.Sharp.IconButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.iconButton14 = new FontAwesome.Sharp.IconButton();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.dgv_ListOrder = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.cbb_NameSuplier = new System.Windows.Forms.ComboBox();
             this.txt_TotalCash = new System.Windows.Forms.TextBox();
-            this.iconButton13 = new FontAwesome.Sharp.IconButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dtp_CreatedTime_List = new System.Windows.Forms.DateTimePicker();
             this.txt_IdEmployee = new System.Windows.Forms.TextBox();
@@ -91,17 +77,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.cbb_ProductImportWarehouse = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.grpInfo.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_CountProductCreate)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_OrderDetail)).BeginInit();
-            this.groupBox4.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ListOrder)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -182,6 +163,15 @@
             this.grpInfo.TabIndex = 33;
             this.grpInfo.TabStop = false;
             this.grpInfo.Text = "Thông tin";
+            // 
+            // cbb_ProductImportWarehouse
+            // 
+            this.cbb_ProductImportWarehouse.FormattingEnabled = true;
+            this.cbb_ProductImportWarehouse.Location = new System.Drawing.Point(23, 139);
+            this.cbb_ProductImportWarehouse.Name = "cbb_ProductImportWarehouse";
+            this.cbb_ProductImportWarehouse.Size = new System.Drawing.Size(240, 34);
+            this.cbb_ProductImportWarehouse.TabIndex = 42;
+            this.cbb_ProductImportWarehouse.SelectionChangeCommitted += new System.EventHandler(this.cbb_ProductImportWarehouse_SelectionChangeCommitted);
             // 
             // cbb_NameSupplierCreate
             // 
@@ -426,16 +416,12 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.SteelBlue;
+            this.tabPage2.Controls.Add(this.btn_SeeDetailWarehouse);
             this.tabPage2.Controls.Add(this.iconButton2);
-            this.tabPage2.Controls.Add(this.txt_SearchDetailOrderToReceive);
-            this.tabPage2.Controls.Add(this.btn_SearchDetailOrderToReceive);
             this.tabPage2.Controls.Add(this.iconButton4);
             this.tabPage2.Controls.Add(this.iconButton5);
             this.tabPage2.Controls.Add(this.txt_SearchOrderToReceive);
             this.tabPage2.Controls.Add(this.btn_SearchOrderToReceive);
-            this.tabPage2.Controls.Add(this.dgv_OrderDetail);
-            this.tabPage2.Controls.Add(this.groupBox4);
-            this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.dgv_ListOrder);
             this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Location = new System.Drawing.Point(4, 35);
@@ -444,6 +430,23 @@
             this.tabPage2.Size = new System.Drawing.Size(1215, 682);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Danh Sách Nhập Kho";
+            // 
+            // btn_SeeDetailWarehouse
+            // 
+            this.btn_SeeDetailWarehouse.BackColor = System.Drawing.Color.Transparent;
+            this.btn_SeeDetailWarehouse.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btn_SeeDetailWarehouse.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.btn_SeeDetailWarehouse.IconColor = System.Drawing.Color.Black;
+            this.btn_SeeDetailWarehouse.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_SeeDetailWarehouse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_SeeDetailWarehouse.Location = new System.Drawing.Point(317, 247);
+            this.btn_SeeDetailWarehouse.Name = "btn_SeeDetailWarehouse";
+            this.btn_SeeDetailWarehouse.Size = new System.Drawing.Size(287, 53);
+            this.btn_SeeDetailWarehouse.TabIndex = 27;
+            this.btn_SeeDetailWarehouse.Text = "Xem Chi Tiết Hóa Đơn";
+            this.btn_SeeDetailWarehouse.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_SeeDetailWarehouse.UseVisualStyleBackColor = false;
+            this.btn_SeeDetailWarehouse.Click += new System.EventHandler(this.btn_SeeDetailWarehouse_Click);
             // 
             // iconButton2
             // 
@@ -457,29 +460,6 @@
             this.iconButton2.Size = new System.Drawing.Size(55, 55);
             this.iconButton2.TabIndex = 17;
             this.iconButton2.UseVisualStyleBackColor = true;
-            // 
-            // txt_SearchDetailOrderToReceive
-            // 
-            this.txt_SearchDetailOrderToReceive.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_SearchDetailOrderToReceive.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.txt_SearchDetailOrderToReceive.Location = new System.Drawing.Point(894, 272);
-            this.txt_SearchDetailOrderToReceive.Name = "txt_SearchDetailOrderToReceive";
-            this.txt_SearchDetailOrderToReceive.Size = new System.Drawing.Size(238, 36);
-            this.txt_SearchDetailOrderToReceive.TabIndex = 17;
-            // 
-            // btn_SearchDetailOrderToReceive
-            // 
-            this.btn_SearchDetailOrderToReceive.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconSearch;
-            this.btn_SearchDetailOrderToReceive.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_SearchDetailOrderToReceive.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_SearchDetailOrderToReceive.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btn_SearchDetailOrderToReceive.IconColor = System.Drawing.Color.Black;
-            this.btn_SearchDetailOrderToReceive.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_SearchDetailOrderToReceive.Location = new System.Drawing.Point(1131, 271);
-            this.btn_SearchDetailOrderToReceive.Name = "btn_SearchDetailOrderToReceive";
-            this.btn_SearchDetailOrderToReceive.Size = new System.Drawing.Size(65, 38);
-            this.btn_SearchDetailOrderToReceive.TabIndex = 16;
-            this.btn_SearchDetailOrderToReceive.UseVisualStyleBackColor = true;
             // 
             // iconButton4
             // 
@@ -511,7 +491,7 @@
             // 
             this.txt_SearchOrderToReceive.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_SearchOrderToReceive.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.txt_SearchOrderToReceive.Location = new System.Drawing.Point(378, 272);
+            this.txt_SearchOrderToReceive.Location = new System.Drawing.Point(887, 269);
             this.txt_SearchOrderToReceive.Name = "txt_SearchOrderToReceive";
             this.txt_SearchOrderToReceive.Size = new System.Drawing.Size(238, 36);
             this.txt_SearchOrderToReceive.TabIndex = 17;
@@ -524,202 +504,32 @@
             this.btn_SearchOrderToReceive.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_SearchOrderToReceive.IconColor = System.Drawing.Color.Black;
             this.btn_SearchOrderToReceive.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_SearchOrderToReceive.Location = new System.Drawing.Point(615, 272);
+            this.btn_SearchOrderToReceive.Location = new System.Drawing.Point(1131, 267);
             this.btn_SearchOrderToReceive.Name = "btn_SearchOrderToReceive";
             this.btn_SearchOrderToReceive.Size = new System.Drawing.Size(65, 38);
             this.btn_SearchOrderToReceive.TabIndex = 16;
             this.btn_SearchOrderToReceive.UseVisualStyleBackColor = true;
             // 
-            // dgv_OrderDetail
-            // 
-            this.dgv_OrderDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_OrderDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_OrderDetail.Location = new System.Drawing.Point(702, 308);
-            this.dgv_OrderDetail.Name = "dgv_OrderDetail";
-            this.dgv_OrderDetail.ReadOnly = true;
-            this.dgv_OrderDetail.RowHeadersWidth = 51;
-            this.dgv_OrderDetail.RowTemplate.Height = 24;
-            this.dgv_OrderDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_OrderDetail.Size = new System.Drawing.Size(493, 371);
-            this.dgv_OrderDetail.TabIndex = 22;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.iconButton11);
-            this.groupBox4.Controls.Add(this.iconButton9);
-            this.groupBox4.Controls.Add(this.iconButton10);
-            this.groupBox4.Location = new System.Drawing.Point(606, 170);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(0);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox4.Size = new System.Drawing.Size(580, 87);
-            this.groupBox4.TabIndex = 25;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Chức Năng";
-            // 
-            // iconButton11
-            // 
-            this.iconButton11.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconPencil;
-            this.iconButton11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.iconButton11.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton11.IconColor = System.Drawing.Color.Black;
-            this.iconButton11.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton11.Location = new System.Drawing.Point(8, 28);
-            this.iconButton11.Name = "iconButton11";
-            this.iconButton11.Size = new System.Drawing.Size(55, 55);
-            this.iconButton11.TabIndex = 13;
-            this.iconButton11.UseVisualStyleBackColor = true;
-            // 
-            // iconButton9
-            // 
-            this.iconButton9.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconReload;
-            this.iconButton9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.iconButton9.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton9.IconColor = System.Drawing.Color.Black;
-            this.iconButton9.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton9.Location = new System.Drawing.Point(149, 28);
-            this.iconButton9.Name = "iconButton9";
-            this.iconButton9.Size = new System.Drawing.Size(55, 55);
-            this.iconButton9.TabIndex = 15;
-            this.iconButton9.UseVisualStyleBackColor = true;
-            // 
-            // iconButton10
-            // 
-            this.iconButton10.BackgroundImage = global::ManagementSupermarket.Properties.Resources.pngtree_vector_trash_icon_png_image_865284;
-            this.iconButton10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.iconButton10.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton10.IconColor = System.Drawing.Color.Black;
-            this.iconButton10.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton10.Location = new System.Drawing.Point(78, 28);
-            this.iconButton10.Name = "iconButton10";
-            this.iconButton10.Size = new System.Drawing.Size(55, 55);
-            this.iconButton10.TabIndex = 14;
-            this.iconButton10.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.iconButton14);
-            this.groupBox1.Controls.Add(this.numericUpDown2);
-            this.groupBox1.Controls.Add(this.textBox19);
-            this.groupBox1.Controls.Add(this.textBox15);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.textBox17);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.ForeColor = System.Drawing.Color.Yellow;
-            this.groupBox1.Location = new System.Drawing.Point(606, -2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(586, 171);
-            this.groupBox1.TabIndex = 24;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Chi Tiết Hoá Đơn Nhập Kho";
-            // 
-            // iconButton14
-            // 
-            this.iconButton14.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.iconButton14.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.iconButton14.IconChar = FontAwesome.Sharp.IconChar.SackDollar;
-            this.iconButton14.IconColor = System.Drawing.Color.Lime;
-            this.iconButton14.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton14.IconSize = 30;
-            this.iconButton14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton14.Location = new System.Drawing.Point(392, 109);
-            this.iconButton14.Name = "iconButton14";
-            this.iconButton14.Size = new System.Drawing.Size(111, 44);
-            this.iconButton14.TabIndex = 28;
-            this.iconButton14.Text = "Thành tiền";
-            this.iconButton14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton14.UseVisualStyleBackColor = false;
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Location = new System.Drawing.Point(257, 55);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(129, 32);
-            this.numericUpDown2.TabIndex = 16;
-            // 
-            // textBox19
-            // 
-            this.textBox19.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.textBox19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox19.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.textBox19.Location = new System.Drawing.Point(169, 111);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.ReadOnly = true;
-            this.textBox19.Size = new System.Drawing.Size(203, 36);
-            this.textBox19.TabIndex = 13;
-            // 
-            // textBox15
-            // 
-            this.textBox15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox15.Location = new System.Drawing.Point(395, 55);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(185, 32);
-            this.textBox15.TabIndex = 13;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(390, 29);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(79, 25);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "Đơn giá";
-            // 
-            // textBox17
-            // 
-            this.textBox17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox17.Location = new System.Drawing.Point(20, 55);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(203, 32);
-            this.textBox17.TabIndex = 13;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(15, 29);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(104, 25);
-            this.label13.TabIndex = 5;
-            this.label13.Text = "Sản Phẩm";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(252, 32);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(97, 25);
-            this.label15.TabIndex = 2;
-            this.label15.Text = "Số Lượng";
-            // 
             // dgv_ListOrder
             // 
             this.dgv_ListOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_ListOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_ListOrder.Location = new System.Drawing.Point(21, 308);
+            this.dgv_ListOrder.Location = new System.Drawing.Point(21, 306);
             this.dgv_ListOrder.Name = "dgv_ListOrder";
             this.dgv_ListOrder.ReadOnly = true;
             this.dgv_ListOrder.RowHeadersWidth = 51;
             this.dgv_ListOrder.RowTemplate.Height = 24;
             this.dgv_ListOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_ListOrder.Size = new System.Drawing.Size(659, 370);
+            this.dgv_ListOrder.Size = new System.Drawing.Size(1175, 370);
             this.dgv_ListOrder.TabIndex = 23;
             this.dgv_ListOrder.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ListOrder_CellClick);
             // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.cbb_NameSuplier);
             this.groupBox3.Controls.Add(this.txt_TotalCash);
-            this.groupBox3.Controls.Add(this.iconButton13);
             this.groupBox3.Controls.Add(this.groupBox5);
             this.groupBox3.Controls.Add(this.txt_IdEmployee);
             this.groupBox3.Controls.Add(this.txt_IdToReceive);
@@ -729,15 +539,25 @@
             this.groupBox3.ForeColor = System.Drawing.Color.Yellow;
             this.groupBox3.Location = new System.Drawing.Point(24, 1);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(567, 240);
+            this.groupBox3.Size = new System.Drawing.Size(1172, 240);
             this.groupBox3.TabIndex = 21;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông Tin Hoá Đơn Nhập Kho";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(743, 88);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(107, 26);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "Tổng Tiền";
+            // 
             // cbb_NameSuplier
             // 
             this.cbb_NameSuplier.FormattingEnabled = true;
-            this.cbb_NameSuplier.Location = new System.Drawing.Point(19, 131);
+            this.cbb_NameSuplier.Location = new System.Drawing.Point(60, 160);
             this.cbb_NameSuplier.Name = "cbb_NameSuplier";
             this.cbb_NameSuplier.Size = new System.Drawing.Size(240, 34);
             this.cbb_NameSuplier.TabIndex = 28;
@@ -746,33 +566,17 @@
             // 
             this.txt_TotalCash.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.txt_TotalCash.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.txt_TotalCash.Location = new System.Drawing.Point(50, 184);
+            this.txt_TotalCash.Location = new System.Drawing.Point(736, 117);
             this.txt_TotalCash.Name = "txt_TotalCash";
             this.txt_TotalCash.ReadOnly = true;
             this.txt_TotalCash.Size = new System.Drawing.Size(234, 45);
             this.txt_TotalCash.TabIndex = 27;
             // 
-            // iconButton13
-            // 
-            this.iconButton13.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton13.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.iconButton13.IconChar = FontAwesome.Sharp.IconChar.SackDollar;
-            this.iconButton13.IconColor = System.Drawing.Color.Lime;
-            this.iconButton13.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton13.Location = new System.Drawing.Point(296, 179);
-            this.iconButton13.Name = "iconButton13";
-            this.iconButton13.Size = new System.Drawing.Size(166, 53);
-            this.iconButton13.TabIndex = 26;
-            this.iconButton13.Text = "Tổng Tiền";
-            this.iconButton13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton13.UseVisualStyleBackColor = false;
-            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.dtp_CreatedTime_List);
             this.groupBox5.ForeColor = System.Drawing.Color.Yellow;
-            this.groupBox5.Location = new System.Drawing.Point(291, 99);
+            this.groupBox5.Location = new System.Drawing.Point(394, 131);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(255, 76);
             this.groupBox5.TabIndex = 18;
@@ -791,7 +595,7 @@
             // txt_IdEmployee
             // 
             this.txt_IdEmployee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_IdEmployee.Location = new System.Drawing.Point(291, 56);
+            this.txt_IdEmployee.Location = new System.Drawing.Point(400, 73);
             this.txt_IdEmployee.Name = "txt_IdEmployee";
             this.txt_IdEmployee.Size = new System.Drawing.Size(220, 32);
             this.txt_IdEmployee.TabIndex = 17;
@@ -799,8 +603,9 @@
             // txt_IdToReceive
             // 
             this.txt_IdToReceive.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_IdToReceive.Location = new System.Drawing.Point(19, 56);
+            this.txt_IdToReceive.Location = new System.Drawing.Point(60, 73);
             this.txt_IdToReceive.Name = "txt_IdToReceive";
+            this.txt_IdToReceive.ReadOnly = true;
             this.txt_IdToReceive.Size = new System.Drawing.Size(240, 32);
             this.txt_IdToReceive.TabIndex = 13;
             // 
@@ -809,7 +614,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(14, 30);
+            this.label4.Location = new System.Drawing.Point(64, 45);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(133, 25);
             this.label4.TabIndex = 5;
@@ -820,7 +625,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(286, 30);
+            this.label9.Location = new System.Drawing.Point(406, 45);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(137, 25);
             this.label9.TabIndex = 4;
@@ -831,20 +636,11 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(14, 100);
+            this.label11.Location = new System.Drawing.Point(55, 131);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(183, 25);
             this.label11.TabIndex = 1;
             this.label11.Text = "Tên Nhà Cung Cấp";
-            // 
-            // cbb_ProductImportWarehouse
-            // 
-            this.cbb_ProductImportWarehouse.FormattingEnabled = true;
-            this.cbb_ProductImportWarehouse.Location = new System.Drawing.Point(23, 139);
-            this.cbb_ProductImportWarehouse.Name = "cbb_ProductImportWarehouse";
-            this.cbb_ProductImportWarehouse.Size = new System.Drawing.Size(240, 34);
-            this.cbb_ProductImportWarehouse.TabIndex = 42;
-            this.cbb_ProductImportWarehouse.SelectionChangeCommitted += new System.EventHandler(this.cbb_ProductImportWarehouse_SelectionChangeCommitted);
             // 
             // frmWarehouse
             // 
@@ -867,11 +663,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.num_CountProductCreate)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_OrderDetail)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ListOrder)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -907,24 +698,9 @@
         private System.Windows.Forms.TextBox txt_TotalCashCreate;
         private FontAwesome.Sharp.IconButton btn_DeleteCreate;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dgv_OrderDetail;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private FontAwesome.Sharp.IconButton iconButton11;
-        private FontAwesome.Sharp.IconButton iconButton9;
-        private FontAwesome.Sharp.IconButton iconButton10;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private FontAwesome.Sharp.IconButton iconButton14;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DataGridView dgv_ListOrder;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txt_TotalCash;
-        private FontAwesome.Sharp.IconButton iconButton13;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.DateTimePicker dtp_CreatedTime_List;
         private System.Windows.Forms.TextBox txt_IdEmployee;
@@ -936,8 +712,6 @@
         private System.Windows.Forms.TextBox txt_Search;
         private System.Windows.Forms.ComboBox cbb_NameSuplier;
         private System.Windows.Forms.ComboBox cbb_NameSupplierCreate;
-        private System.Windows.Forms.TextBox txt_SearchDetailOrderToReceive;
-        private FontAwesome.Sharp.IconButton btn_SearchDetailOrderToReceive;
         private System.Windows.Forms.TextBox txt_SearchOrderToReceive;
         private FontAwesome.Sharp.IconButton btn_SearchOrderToReceive;
         private FontAwesome.Sharp.IconButton iconButton2;
@@ -945,5 +719,7 @@
         private FontAwesome.Sharp.IconButton iconButton5;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ComboBox cbb_ProductImportWarehouse;
+        private FontAwesome.Sharp.IconButton btn_SeeDetailWarehouse;
+        private System.Windows.Forms.Label label7;
     }
 }
