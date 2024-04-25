@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "D:\\C#\\Prooject_ManagementSupermarket_20_04\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|D:\\C#\\Prooject_ManagementSupermarket_20_04\\managementsupermarket\\manager\\frmorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\manager\\frmorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|d:\\c#\\prooject_managementsupermarket_20_04\\managementsupermarket\\manager\\frmorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\manager\\frmorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6F5DC8D2-C22F-414B-97D1-F5CA3B71B3E1}|DAL\\DAL.csproj|d:\\c#\\prooject_managementsupermarket_20_04\\dal\\dal_discount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6F5DC8D2-C22F-414B-97D1-F5CA3B71B3E1}|DAL\\DAL.csproj|solutionrelative:dal\\dal_discount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|D:\\C#\\Prooject_ManagementSupermarket_20_04\\managementsupermarket\\manager\\frmorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\manager\\frmorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|d:\\c#\\prooject_managementsupermarket_20_04\\managementsupermarket\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|D:\\C#\\Prooject_ManagementSupermarket_20_04\\managementsupermarket\\manager\\frmcustomer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\manager\\frmcustomer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,75 +62,42 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DAL_Discount.cs",
-              "DocumentMoniker": "D:\\C#\\Prooject_ManagementSupermarket_20_04\\DAL\\DAL_Discount.cs",
-              "RelativeDocumentMoniker": "DAL\\DAL_Discount.cs",
-              "ToolTip": "D:\\C#\\Prooject_ManagementSupermarket_20_04\\DAL\\DAL_Discount.cs",
-              "RelativeToolTip": "DAL\\DAL_Discount.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAAAwwC0AAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-20T12:25:05.616Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\C#\\Prooject_ManagementSupermarket_20_04\\ManagementSupermarket\\Program.cs",
-              "RelativeDocumentMoniker": "ManagementSupermarket\\Program.cs",
-              "ToolTip": "D:\\C#\\Prooject_ManagementSupermarket_20_04\\ManagementSupermarket\\Program.cs",
-              "RelativeToolTip": "ManagementSupermarket\\Program.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABQAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-20T11:54:14.76Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "frmOrder.cs",
+              "DocumentMoniker": "D:\\C#\\Prooject_ManagementSupermarket_20_04\\ManagementSupermarket\\Manager\\frmOrder.cs",
+              "RelativeDocumentMoniker": "ManagementSupermarket\\Manager\\frmOrder.cs",
+              "ToolTip": "D:\\C#\\Prooject_ManagementSupermarket_20_04\\ManagementSupermarket\\Manager\\frmOrder.cs",
+              "RelativeToolTip": "ManagementSupermarket\\Manager\\frmOrder.cs",
+              "ViewState": "AQIAADwAAAAAAAAAAAAuwFAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-23T10:00:40.856Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmCustomer.cs [Design]",
+              "DocumentMoniker": "D:\\C#\\Prooject_ManagementSupermarket_20_04\\ManagementSupermarket\\Manager\\frmCustomer.cs",
+              "RelativeDocumentMoniker": "ManagementSupermarket\\Manager\\frmCustomer.cs",
+              "ToolTip": "D:\\C#\\Prooject_ManagementSupermarket_20_04\\ManagementSupermarket\\Manager\\frmCustomer.cs [Design]",
+              "RelativeToolTip": "ManagementSupermarket\\Manager\\frmCustomer.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T02:22:19.55Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "frmOrder.cs [Design]",
               "DocumentMoniker": "D:\\C#\\Prooject_ManagementSupermarket_20_04\\ManagementSupermarket\\Manager\\frmOrder.cs",
               "RelativeDocumentMoniker": "ManagementSupermarket\\Manager\\frmOrder.cs",
               "ToolTip": "D:\\C#\\Prooject_ManagementSupermarket_20_04\\ManagementSupermarket\\Manager\\frmOrder.cs [Design]",
               "RelativeToolTip": "ManagementSupermarket\\Manager\\frmOrder.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-20T11:20:32.463Z",
-              "EditorCaption": " [Design]"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "f88d9f80-02ff-41e4-be72-4ac7edbca031",
-        "Display": 1,
-        "X": 686,
-        "Y": 97,
-        "Width": 1034,
-        "Height": 551,
-        "WindowState": 2
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmOrder.cs",
-              "DocumentMoniker": "D:\\C#\\Prooject_ManagementSupermarket_20_04\\ManagementSupermarket\\Manager\\frmOrder.cs",
-              "RelativeDocumentMoniker": "ManagementSupermarket\\Manager\\frmOrder.cs",
-              "ToolTip": "D:\\C#\\Prooject_ManagementSupermarket_20_04\\ManagementSupermarket\\Manager\\frmOrder.cs",
-              "RelativeToolTip": "ManagementSupermarket\\Manager\\frmOrder.cs",
-              "ViewState": "AQIAAMkAAAAAAAAAAAAuwPMAAAB0AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-20T11:55:59.446Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-23T10:00:28.928Z"
             }
           ]
         }
