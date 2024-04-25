@@ -70,7 +70,6 @@ namespace DAL
 
             return numOfRows;
         }
-<<<<<<< HEAD
 
         public int DeleteInvoiceSelling(string idInvoice)
         {   
@@ -83,7 +82,5 @@ namespace DAL
 
             return numOfRows;
         }
-=======
->>>>>>> origin/Quan_Warehouse
     }
 }

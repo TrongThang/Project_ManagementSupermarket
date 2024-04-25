@@ -9,10 +9,8 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Media.Media3D;
 using BLL;
 using DTO;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace ManagementSupermarket.Manager
 {

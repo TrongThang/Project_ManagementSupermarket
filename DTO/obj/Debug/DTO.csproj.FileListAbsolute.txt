@@ -22,3 +22,9 @@ D:\C#\Prooject_ManagementSupermarket_20_04\DTO\obj\Debug\DTO.csproj.AssemblyRefe
 D:\C#\Prooject_ManagementSupermarket_20_04\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 D:\C#\Prooject_ManagementSupermarket_20_04\DTO\obj\Debug\DTO.dll
 D:\C#\Prooject_ManagementSupermarket_20_04\DTO\obj\Debug\DTO.pdb
+D:\C#\Project_ManagementSupermarket_ver3\DTO\bin\Debug\DTO.dll
+D:\C#\Project_ManagementSupermarket_ver3\DTO\bin\Debug\DTO.pdb
+D:\C#\Project_ManagementSupermarket_ver3\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
+D:\C#\Project_ManagementSupermarket_ver3\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+D:\C#\Project_ManagementSupermarket_ver3\DTO\obj\Debug\DTO.dll
+D:\C#\Project_ManagementSupermarket_ver3\DTO\obj\Debug\DTO.pdb
