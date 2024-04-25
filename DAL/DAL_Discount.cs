@@ -45,9 +45,8 @@ namespace DAL
             
             tblDiscount = db.queryExecuteAdapter(sql);
             return tblDiscount;
-
-           
         }
+        
         public int InsertDiscount(DTO_Discount discount)
         {
             string sql = "sp_InsertDiscount";

@@ -12,17 +12,16 @@ namespace DTO
         private string s_IdEmployee;
         private string s_IdCustomer;
 
-        private DateTime dt_CreatedTime;
+        private DateTime dt_CreatedTime = DateTime.Now;
 
         private double d_TotalPrice;
         private double d_CashCustomer;
 
-        public DTO_InvoiceSelling(string idEmployee, DateTime dt_CreatedTime, double d_TotalPrice, double d_CashCustomer, string idCustomer = null, string idInvoice = null)
+        public DTO_InvoiceSelling(string idEmployee, double d_TotalPrice, double d_CashCustomer, string idCustomer = null, string idInvoice = null)
         {
             S_IdInvoice = idInvoice;
             S_IdEmployee = idEmployee;
             S_IdCustomer = idCustomer;
-            this.Dt_CreatedTime = dt_CreatedTime;
             this.D_TotalPrice = d_TotalPrice;
             this.D_CashCustomer = d_CashCustomer;
         }

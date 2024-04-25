@@ -16,6 +16,11 @@ namespace DAL
         private Dictionary<string, dynamic> createDict(DTO_InvoiceSelling invoice)
         {
             Dictionary<string, dynamic> dict = new Dictionary<string, dynamic>();
+            if (invoice.S_IdEmployee != null)
+            {
+                dict.Add("MaNV", invoice.S_IdEmployee);
+            }
+
             if (invoice.S_IdInvoice != null)
             {
                 dict.Add("MaHD", invoice.S_IdInvoice);
@@ -24,16 +29,17 @@ namespace DAL
             {
                 dict.Add("MaKH", invoice.S_IdCustomer);
             }
-            dict.Add("MaNV", invoice.S_IdEmployee);
 
-
-            dict.Add("NgayLapHD", invoice.Dt_CreatedTime);
+            if(invoice.Dt_CreatedTime == null)
+            {
+                dict.Add("NgayLapHD", invoice.Dt_CreatedTime);
+            }
             dict.Add("TongTien", invoice.D_TotalPrice);
             dict.Add("TienKhachDua", invoice.D_CashCustomer);
             return dict;
         }
 
-        public DataTable GetInvoiceSelling(string keySearch, string value)
+        public DataTable GetInvoiceSelling(string keySearch, string value = null)
         {
             string sql = "sp_GetInvoiceSelling";
 
@@ -47,13 +53,13 @@ namespace DAL
             return tblInvoice;
         }
 
-        public int InsertInvoiceSelling(DTO_InvoiceSelling invoice)
+        public DataTable InsertInvoiceSelling(DTO_InvoiceSelling invoice)
         {
             string sql = "sp_InsertInvoiceSelling";
             DataTable tblInvoice = db.queryExecuteAdapter(sql, createDict(invoice));
-            int numOfRows = tblInvoice.Rows.Count;
 
-            return numOfRows;
+            
+            return tblInvoice;
         }
 
         public int UpdateInvoiceSelling(DTO_InvoiceSelling invoice)
@@ -64,5 +70,20 @@ namespace DAL
 
             return numOfRows;
         }
+<<<<<<< HEAD
+
+        public int DeleteInvoiceSelling(string idInvoice)
+        {   
+            string sql = "sp_UpdateInvoiceSelling";
+
+            db.addParam("MaHD", idInvoice);
+
+            DataTable tblInvoice = db.queryExecuteAdapter(sql);
+            int numOfRows = tblInvoice.Rows.Count;
+
+            return numOfRows;
+        }
+=======
+>>>>>>> origin/Quan_Warehouse
     }
 }

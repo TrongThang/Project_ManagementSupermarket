@@ -358,12 +358,12 @@ namespace ManagementSupermarket.Manager
             if (!string.IsNullOrEmpty(txt_IdToReceive.Text))
             {
                 frmDetailWarehouse frm = new frmDetailWarehouse();
-            frm.MaNhapKho = txt_IdToReceive.Text;
-            frm.MaNhanVien = txt_IdEmployee.Text;
-            frm.TenNhaCungCap = cbb_NameSuplier.Text;
-            frm.NgayNhapKho = dtp_CreatedTime_List.Value;
-            frm.TongTien = txt_TotalCash.Text;
-            frm.ShowDialog();
+                frm.MaNhapKho = txt_IdToReceive.Text;
+                frm.MaNhanVien = txt_IdEmployee.Text;
+                frm.TenNhaCungCap = cbb_NameSuplier.Text;
+                frm.NgayNhapKho = dtp_CreatedTime_List.Value;
+                frm.TongTien = txt_TotalCash.Text;
+                frm.ShowDialog();
             }
             else
             {

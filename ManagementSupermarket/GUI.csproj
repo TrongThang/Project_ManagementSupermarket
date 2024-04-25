@@ -76,11 +76,11 @@
     <Compile Include="Manager\frmCustomer.Designer.cs">
       <DependentUpon>frmCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manager\frmDetailWarehouse.cs">
+    <Compile Include="Manager\frmDetailInvoiceSelling.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manager\frmDetailWarehouse.Designer.cs">
-      <DependentUpon>frmDetailWarehouse.cs</DependentUpon>
+    <Compile Include="Manager\frmDetailInvoiceSelling.Designer.cs">
+      <DependentUpon>frmDetailInvoiceSelling.cs</DependentUpon>
     </Compile>
     <Compile Include="Manager\frmDiscount.cs">
       <SubType>Form</SubType>
@@ -112,6 +112,12 @@
     <Compile Include="Manager\frmManagementProducts.Designer.cs">
       <DependentUpon>frmManagementProducts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manager\frmOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\frmOrder.Designer.cs">
+      <DependentUpon>frmOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manager\frmSuppiler.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,8 +147,8 @@
     <EmbeddedResource Include="Manager\frmCustomer.resx">
       <DependentUpon>frmCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manager\frmDetailWarehouse.resx">
-      <DependentUpon>frmDetailWarehouse.cs</DependentUpon>
+    <EmbeddedResource Include="Manager\frmDetailInvoiceSelling.resx">
+      <DependentUpon>frmDetailInvoiceSelling.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\frmDiscount.resx">
       <DependentUpon>frmDiscount.cs</DependentUpon>
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\frmManagementProducts.resx">
       <DependentUpon>frmManagementProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\frmOrder.resx">
+      <DependentUpon>frmOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\frmSuppiler.resx">
       <DependentUpon>frmSuppiler.cs</DependentUpon>

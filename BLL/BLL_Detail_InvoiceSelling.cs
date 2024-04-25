@@ -13,7 +13,7 @@ namespace BLL
     public class BLL_Detail_InvoiceSelling
     {
         private DAL_Detail_InvloiceSelling dataDetailInvoice = new DAL_Detail_InvloiceSelling();
-        public DataTable GetDetailInvoiceSelling(string keySearch, string value)
+        public DataTable GetDetailInvoiceSelling(string keySearch, string value = null)
         {
             return dataDetailInvoice.GetDetailInvoiceSelling(keySearch, value);
         }
