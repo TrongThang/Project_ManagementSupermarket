@@ -30,8 +30,6 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btn_Search = new FontAwesome.Sharp.IconButton();
-            this.txt_Search = new System.Windows.Forms.TextBox();
             this.grpInfo = new System.Windows.Forms.GroupBox();
             this.cbb_ProductImportWarehouse = new System.Windows.Forms.ComboBox();
             this.cbb_NameSupplierCreate = new System.Windows.Forms.ComboBox();
@@ -59,10 +57,10 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txt_TotalCashCreate = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cbb_SearchRole = new System.Windows.Forms.ComboBox();
             this.btn_SeeDetailWarehouse = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.iconButton5 = new FontAwesome.Sharp.IconButton();
+            this.btn_Refresh = new FontAwesome.Sharp.IconButton();
+            this.btn_Delete = new FontAwesome.Sharp.IconButton();
             this.txt_SearchOrderToReceive = new System.Windows.Forms.TextBox();
             this.btn_SearchOrderToReceive = new FontAwesome.Sharp.IconButton();
             this.dgv_ListOrder = new System.Windows.Forms.DataGridView();
@@ -102,8 +100,6 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Teal;
-            this.tabPage1.Controls.Add(this.btn_Search);
-            this.tabPage1.Controls.Add(this.txt_Search);
             this.tabPage1.Controls.Add(this.grpInfo);
             this.tabPage1.Controls.Add(this.btn_Finish);
             this.tabPage1.Controls.Add(this.lst_ToReceive);
@@ -114,29 +110,6 @@
             this.tabPage1.Size = new System.Drawing.Size(1215, 682);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Lập Hoá Đơn Nhập Kho";
-            // 
-            // btn_Search
-            // 
-            this.btn_Search.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconSearch;
-            this.btn_Search.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Search.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btn_Search.IconColor = System.Drawing.Color.Black;
-            this.btn_Search.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Search.Location = new System.Drawing.Point(1131, 17);
-            this.btn_Search.Name = "btn_Search";
-            this.btn_Search.Size = new System.Drawing.Size(65, 47);
-            this.btn_Search.TabIndex = 38;
-            this.btn_Search.UseVisualStyleBackColor = true;
-            // 
-            // txt_Search
-            // 
-            this.txt_Search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Search.Location = new System.Drawing.Point(887, 17);
-            this.txt_Search.Name = "txt_Search";
-            this.txt_Search.Size = new System.Drawing.Size(238, 45);
-            this.txt_Search.TabIndex = 39;
             // 
             // grpInfo
             // 
@@ -186,7 +159,7 @@
             // 
             this.groupBox2.Controls.Add(this.dtp_CreatedTime);
             this.groupBox2.ForeColor = System.Drawing.Color.Yellow;
-            this.groupBox2.Location = new System.Drawing.Point(17, 388);
+            this.groupBox2.Location = new System.Drawing.Point(17, 347);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(289, 76);
             this.groupBox2.TabIndex = 17;
@@ -218,7 +191,7 @@
             // 
             // num_CountProductCreate
             // 
-            this.num_CountProductCreate.Location = new System.Drawing.Point(23, 265);
+            this.num_CountProductCreate.Location = new System.Drawing.Point(23, 218);
             this.num_CountProductCreate.Name = "num_CountProductCreate";
             this.num_CountProductCreate.Size = new System.Drawing.Size(148, 32);
             this.num_CountProductCreate.TabIndex = 16;
@@ -255,7 +228,7 @@
             // txt_IntoMoney
             // 
             this.txt_IntoMoney.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_IntoMoney.Location = new System.Drawing.Point(20, 507);
+            this.txt_IntoMoney.Location = new System.Drawing.Point(17, 472);
             this.txt_IntoMoney.Name = "txt_IntoMoney";
             this.txt_IntoMoney.Size = new System.Drawing.Size(203, 32);
             this.txt_IntoMoney.TabIndex = 15;
@@ -263,7 +236,7 @@
             // txt_PriceCreate
             // 
             this.txt_PriceCreate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_PriceCreate.Location = new System.Drawing.Point(20, 338);
+            this.txt_PriceCreate.Location = new System.Drawing.Point(23, 295);
             this.txt_PriceCreate.Name = "txt_PriceCreate";
             this.txt_PriceCreate.Size = new System.Drawing.Size(191, 32);
             this.txt_PriceCreate.TabIndex = 14;
@@ -295,7 +268,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(18, 229);
+            this.label5.Location = new System.Drawing.Point(26, 190);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(97, 25);
             this.label5.TabIndex = 4;
@@ -306,7 +279,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(15, 467);
+            this.label3.Location = new System.Drawing.Point(15, 444);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 25);
             this.label3.TabIndex = 2;
@@ -317,7 +290,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(15, 310);
+            this.label2.Location = new System.Drawing.Point(26, 267);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 25);
             this.label2.TabIndex = 1;
@@ -363,11 +336,12 @@
             this.columnHeader4,
             this.columnHeader5});
             this.lst_ToReceive.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lst_ToReceive.FullRowSelect = true;
             this.lst_ToReceive.GridLines = true;
             this.lst_ToReceive.HideSelection = false;
-            this.lst_ToReceive.Location = new System.Drawing.Point(437, 70);
+            this.lst_ToReceive.Location = new System.Drawing.Point(437, 26);
             this.lst_ToReceive.Name = "lst_ToReceive";
-            this.lst_ToReceive.Size = new System.Drawing.Size(759, 500);
+            this.lst_ToReceive.Size = new System.Drawing.Size(759, 544);
             this.lst_ToReceive.TabIndex = 34;
             this.lst_ToReceive.UseCompatibleStateImageBehavior = false;
             this.lst_ToReceive.View = System.Windows.Forms.View.Details;
@@ -416,10 +390,10 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.SteelBlue;
+            this.tabPage2.Controls.Add(this.cbb_SearchRole);
             this.tabPage2.Controls.Add(this.btn_SeeDetailWarehouse);
-            this.tabPage2.Controls.Add(this.iconButton2);
-            this.tabPage2.Controls.Add(this.iconButton4);
-            this.tabPage2.Controls.Add(this.iconButton5);
+            this.tabPage2.Controls.Add(this.btn_Refresh);
+            this.tabPage2.Controls.Add(this.btn_Delete);
             this.tabPage2.Controls.Add(this.txt_SearchOrderToReceive);
             this.tabPage2.Controls.Add(this.btn_SearchOrderToReceive);
             this.tabPage2.Controls.Add(this.dgv_ListOrder);
@@ -430,6 +404,19 @@
             this.tabPage2.Size = new System.Drawing.Size(1215, 682);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Danh Sách Nhập Kho";
+            // 
+            // cbb_SearchRole
+            // 
+            this.cbb_SearchRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbb_SearchRole.FormattingEnabled = true;
+            this.cbb_SearchRole.Items.AddRange(new object[] {
+            "MaNK",
+            "MaNV",
+            "MaNCC"});
+            this.cbb_SearchRole.Location = new System.Drawing.Point(750, 269);
+            this.cbb_SearchRole.Name = "cbb_SearchRole";
+            this.cbb_SearchRole.Size = new System.Drawing.Size(131, 34);
+            this.cbb_SearchRole.TabIndex = 38;
             // 
             // btn_SeeDetailWarehouse
             // 
@@ -448,44 +435,33 @@
             this.btn_SeeDetailWarehouse.UseVisualStyleBackColor = false;
             this.btn_SeeDetailWarehouse.Click += new System.EventHandler(this.btn_SeeDetailWarehouse_Click);
             // 
-            // iconButton2
+            // btn_Refresh
             // 
-            this.iconButton2.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconPencil;
-            this.iconButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.Location = new System.Drawing.Point(25, 247);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(55, 55);
-            this.iconButton2.TabIndex = 17;
-            this.iconButton2.UseVisualStyleBackColor = true;
+            this.btn_Refresh.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconReload;
+            this.btn_Refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Refresh.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btn_Refresh.IconColor = System.Drawing.Color.Black;
+            this.btn_Refresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Refresh.Location = new System.Drawing.Point(100, 246);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(55, 55);
+            this.btn_Refresh.TabIndex = 19;
+            this.btn_Refresh.UseVisualStyleBackColor = true;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
-            // iconButton4
+            // btn_Delete
             // 
-            this.iconButton4.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconReload;
-            this.iconButton4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton4.IconColor = System.Drawing.Color.Black;
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.Location = new System.Drawing.Point(166, 247);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(55, 55);
-            this.iconButton4.TabIndex = 19;
-            this.iconButton4.UseVisualStyleBackColor = true;
-            // 
-            // iconButton5
-            // 
-            this.iconButton5.BackgroundImage = global::ManagementSupermarket.Properties.Resources.pngtree_vector_trash_icon_png_image_865284;
-            this.iconButton5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton5.IconColor = System.Drawing.Color.Black;
-            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton5.Location = new System.Drawing.Point(95, 247);
-            this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Size = new System.Drawing.Size(55, 55);
-            this.iconButton5.TabIndex = 18;
-            this.iconButton5.UseVisualStyleBackColor = true;
+            this.btn_Delete.BackgroundImage = global::ManagementSupermarket.Properties.Resources.pngtree_vector_trash_icon_png_image_865284;
+            this.btn_Delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Delete.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btn_Delete.IconColor = System.Drawing.Color.Black;
+            this.btn_Delete.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Delete.Location = new System.Drawing.Point(39, 245);
+            this.btn_Delete.Name = "btn_Delete";
+            this.btn_Delete.Size = new System.Drawing.Size(55, 55);
+            this.btn_Delete.TabIndex = 18;
+            this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // txt_SearchOrderToReceive
             // 
@@ -509,6 +485,7 @@
             this.btn_SearchOrderToReceive.Size = new System.Drawing.Size(65, 38);
             this.btn_SearchOrderToReceive.TabIndex = 16;
             this.btn_SearchOrderToReceive.UseVisualStyleBackColor = true;
+            this.btn_SearchOrderToReceive.Click += new System.EventHandler(this.btn_SearchOrderToReceive_Click);
             // 
             // dgv_ListOrder
             // 
@@ -597,6 +574,7 @@
             this.txt_IdEmployee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_IdEmployee.Location = new System.Drawing.Point(400, 73);
             this.txt_IdEmployee.Name = "txt_IdEmployee";
+            this.txt_IdEmployee.ReadOnly = true;
             this.txt_IdEmployee.Size = new System.Drawing.Size(220, 32);
             this.txt_IdEmployee.TabIndex = 17;
             // 
@@ -708,18 +686,16 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
-        private FontAwesome.Sharp.IconButton btn_Search;
-        private System.Windows.Forms.TextBox txt_Search;
         private System.Windows.Forms.ComboBox cbb_NameSuplier;
         private System.Windows.Forms.ComboBox cbb_NameSupplierCreate;
         private System.Windows.Forms.TextBox txt_SearchOrderToReceive;
         private FontAwesome.Sharp.IconButton btn_SearchOrderToReceive;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton iconButton4;
-        private FontAwesome.Sharp.IconButton iconButton5;
+        private FontAwesome.Sharp.IconButton btn_Refresh;
+        private FontAwesome.Sharp.IconButton btn_Delete;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ComboBox cbb_ProductImportWarehouse;
         private FontAwesome.Sharp.IconButton btn_SeeDetailWarehouse;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cbb_SearchRole;
     }
 }

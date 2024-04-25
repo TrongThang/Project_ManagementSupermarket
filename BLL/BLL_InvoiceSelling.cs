@@ -28,10 +28,5 @@ namespace BLL
             return dataInvoice.UpdateInvoiceSelling(invoice);
         }
 
-        public int DeleteInvoiceSelling(string idInvoice)
-        {
-            return dataInvoice.DeleteInvoiceSelling(idInvoice);
-
-        }
     }
 }

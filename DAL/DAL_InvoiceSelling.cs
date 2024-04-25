@@ -64,22 +64,5 @@ namespace DAL
 
             return numOfRows;
         }
-
-        public int DeleteInvoiceSelling(string idInvoice)
-<<<<<<< Updated upstream
-        {
-            string sql = "sp_UpdateInvoiceSelling";
-=======
-        {   
-            string sql = "sp_DeleteInvoiceSelling";
->>>>>>> Stashed changes
-
-            db.addParam("MaHD", idInvoice);
-
-            DataTable tblInvoice = db.queryExecuteAdapter(sql);
-            int numOfRows = tblInvoice.Rows.Count;
-
-            return numOfRows;
-        }
     }
 }

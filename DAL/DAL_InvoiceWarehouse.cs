@@ -65,7 +65,7 @@ namespace DAL
         }
         public int DeleteInvoiceImportWareHouse(string idInvoice)
         {
-            string sql = " sp_DeleteInvoiceImportWareHouse";
+            string sql = "sp_DeleteInvoiceImportWareHouse";
 
             db.addParam("MaNK", idInvoice);
 

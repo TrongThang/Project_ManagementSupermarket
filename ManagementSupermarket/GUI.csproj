@@ -112,12 +112,6 @@
     <Compile Include="Manager\frmManagementProducts.Designer.cs">
       <DependentUpon>frmManagementProducts.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manager\frmOrder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Manager\frmOrder.Designer.cs">
-      <DependentUpon>frmOrder.cs</DependentUpon>
-    </Compile>
     <Compile Include="Manager\frmSuppiler.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,9 +158,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\frmManagementProducts.resx">
       <DependentUpon>frmManagementProducts.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Manager\frmOrder.resx">
-      <DependentUpon>frmOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\frmSuppiler.resx">
       <DependentUpon>frmSuppiler.cs</DependentUpon>

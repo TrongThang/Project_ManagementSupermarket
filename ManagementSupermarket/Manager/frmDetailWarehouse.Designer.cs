@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -90,7 +90,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(663, 191);
+            this.label5.Location = new System.Drawing.Point(636, 191);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(184, 23);
             this.label5.TabIndex = 4;
@@ -100,7 +100,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(663, 140);
+            this.label6.Location = new System.Drawing.Point(636, 140);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(192, 23);
             this.label6.TabIndex = 5;
@@ -120,25 +120,25 @@
             // 
             this.dgv_DetailWarehouse.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_DetailWarehouse.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_DetailWarehouse.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_DetailWarehouse.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_DetailWarehouse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_DetailWarehouse.Location = new System.Drawing.Point(76, 248);
             this.dgv_DetailWarehouse.Name = "dgv_DetailWarehouse";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_DetailWarehouse.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_DetailWarehouse.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_DetailWarehouse.RowHeadersWidth = 51;
             this.dgv_DetailWarehouse.RowTemplate.Height = 24;
             this.dgv_DetailWarehouse.Size = new System.Drawing.Size(1020, 228);
@@ -148,7 +148,7 @@
             // 
             this.lbl_idReceive.AutoSize = true;
             this.lbl_idReceive.Font = new System.Drawing.Font("Noto Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_idReceive.Location = new System.Drawing.Point(280, 140);
+            this.lbl_idReceive.Location = new System.Drawing.Point(326, 140);
             this.lbl_idReceive.Name = "lbl_idReceive";
             this.lbl_idReceive.Size = new System.Drawing.Size(154, 23);
             this.lbl_idReceive.TabIndex = 8;
@@ -158,7 +158,7 @@
             // 
             this.lbl_idEmployee.AutoSize = true;
             this.lbl_idEmployee.Font = new System.Drawing.Font("Noto Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_idEmployee.Location = new System.Drawing.Point(323, 191);
+            this.lbl_idEmployee.Location = new System.Drawing.Point(369, 191);
             this.lbl_idEmployee.Name = "lbl_idEmployee";
             this.lbl_idEmployee.Size = new System.Drawing.Size(154, 23);
             this.lbl_idEmployee.TabIndex = 9;
@@ -168,7 +168,7 @@
             // 
             this.lbl_CreateTime.AutoSize = true;
             this.lbl_CreateTime.Font = new System.Drawing.Font("Noto Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_CreateTime.Location = new System.Drawing.Point(861, 140);
+            this.lbl_CreateTime.Location = new System.Drawing.Point(907, 140);
             this.lbl_CreateTime.Name = "lbl_CreateTime";
             this.lbl_CreateTime.Size = new System.Drawing.Size(154, 23);
             this.lbl_CreateTime.TabIndex = 10;
@@ -178,7 +178,7 @@
             // 
             this.lbl_NameSuppiler.AutoSize = true;
             this.lbl_NameSuppiler.Font = new System.Drawing.Font("Noto Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_NameSuppiler.Location = new System.Drawing.Point(861, 191);
+            this.lbl_NameSuppiler.Location = new System.Drawing.Point(907, 191);
             this.lbl_NameSuppiler.Name = "lbl_NameSuppiler";
             this.lbl_NameSuppiler.Size = new System.Drawing.Size(154, 23);
             this.lbl_NameSuppiler.TabIndex = 11;
@@ -188,7 +188,7 @@
             // 
             this.lbl_TotalCash.AutoSize = true;
             this.lbl_TotalCash.Font = new System.Drawing.Font("Noto Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_TotalCash.Location = new System.Drawing.Point(916, 522);
+            this.lbl_TotalCash.Location = new System.Drawing.Point(962, 522);
             this.lbl_TotalCash.Name = "lbl_TotalCash";
             this.lbl_TotalCash.Size = new System.Drawing.Size(154, 23);
             this.lbl_TotalCash.TabIndex = 12;

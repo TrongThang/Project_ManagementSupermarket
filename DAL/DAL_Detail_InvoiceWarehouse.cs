@@ -20,7 +20,6 @@ namespace DAL
             
             dict.Add("SoLuong", invoice.I_Count);
             dict.Add("DonGiaNhap", invoice.D_Price);
-            dict.Add("ThanhTien", invoice.D_Amount);
             
             return dict;
         }
@@ -38,7 +37,7 @@ namespace DAL
         }
         public int InsertDetailInvoiceImportWareHouse(DTO_Detail_InvoiceWarehouse invoice)
         {
-            string sql = " sp_InsertDetailInvoiceImportWareHouse";
+            string sql = "sp_InsertDetailInvoiceImportWareHouse";
             DataTable tblInvoice = db.queryExecuteAdapter(sql, createDict(invoice));
             int numOfRows = tblInvoice.Rows.Count;
 
