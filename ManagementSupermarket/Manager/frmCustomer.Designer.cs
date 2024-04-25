@@ -417,7 +417,7 @@
             this.chk_CustomerStatus.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_CustomerStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chk_CustomerStatus.ForeColor = System.Drawing.Color.White;
-            this.chk_CustomerStatus.Location = new System.Drawing.Point(463, 293);
+            this.chk_CustomerStatus.Location = new System.Drawing.Point(463, 309);
             this.chk_CustomerStatus.Name = "chk_CustomerStatus";
             this.chk_CustomerStatus.Size = new System.Drawing.Size(351, 40);
             this.chk_CustomerStatus.TabIndex = 17;

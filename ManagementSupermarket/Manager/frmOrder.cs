@@ -17,6 +17,7 @@ using System.Windows.Media.Animation;
 using System.Diagnostics;
 using System.Security.Permissions;
 using ComboBox = System.Windows.Forms.ComboBox;
+using ManagementSupermarket.Manager;
 
 namespace ManagementSupermarket
 {
@@ -76,8 +77,10 @@ namespace ManagementSupermarket
 
             //LOAD DATA TAB 2
             LoadDataGridView_InvoiceSelling();
+            cbb_Search.SelectedIndex = 0;
+
         }
-        
+
         private void lst_OrderCurrency_Click(object sender, EventArgs e)
         {
             if (lst_OrderCurrency.SelectedItems.Count > 0)
@@ -386,8 +389,7 @@ namespace ManagementSupermarket
                 MessageBox.Show($"Đã bán {countInsertDetail} sản phẩm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btn_RefreshCreate_Click(sender, e);
                 return;
-            }
-
+            }   
             MessageBox.Show($"Xảy ra sai sót trong quá trình bán hàng. Vui lòng thử lại", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
@@ -429,6 +431,45 @@ namespace ManagementSupermarket
                 txt_Change.Text = rowSelect.Cells["TienTraKhach"].Value.ToString();
                 txt_TotalCash.Text = rowSelect.Cells["TongTien"].Value.ToString();
             }
+        }
+
+        private void btn_ShowDetailInvoice_Click(object sender, EventArgs e)
+        {
+            if(dgv_InvoiceSelling.SelectedRows.Count > 0)
+            {
+                string idInvoice = dgv_InvoiceSelling.SelectedRows[0].Cells["MaHD"].Value.ToString();
+                string idEmployee = dgv_InvoiceSelling.SelectedRows[0].Cells["MaNV"].Value.ToString();
+                string nameEmployee = (new BLL_Employee()).GetEmployeeTo("MaNV", idEmployee).Rows[0]["HoTen"].ToString();
+    
+                bool issetCustomer = (new BLL_Customer()).GetCustomerTo("MaKH", txt_IdCustomer.Text).Rows.Count > 0;
+                string nameCustomer = "";
+                if(issetCustomer)
+                {
+                    nameCustomer = (new BLL_Customer()).GetCustomerTo("MaKH", txt_IdCustomer.Text).Rows[0]["HoTen"].ToString();
+                }
+                double totalCash = double.Parse(dgv_InvoiceSelling.SelectedRows[0].Cells["TongTien"].Value.ToString());
+                frmDetailInvoiceSelling frmDetail = new frmDetailInvoiceSelling(txt_IdOrder.Text, nameEmployee, dtp_CreatedTime.Value, nameCustomer, totalCash);
+                frmDetail.ShowDialog();
+            }
+        }
+
+        private void btn_Search_Click(object sender, EventArgs e)
+        {
+            dgv_InvoiceSelling.DataSource = (new BLL_InvoiceSelling()).GetInvoiceSelling(cbb_Search.Text, txtSearch.Text);
+        }
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+            txt_IdOrder.Clear();
+            txt_IdCustomer.Clear();
+            txt_IdEmployee.Clear();
+            txt_CashCustomer.Clear();
+            txt_Change.Clear();
+            dtp_CreatedTime.Value = DateTime.Now;
+            txt_TotalCash.Clear();
+            cbb_Search.SelectedIndex = 0;
+            txtSearch.Clear();
+            LoadDataGridView_InvoiceSelling();
         }
     }
 }

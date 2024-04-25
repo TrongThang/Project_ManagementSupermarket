@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbl_TotalCash = new System.Windows.Forms.Label();
-            this.lbl_NameSuppiler = new System.Windows.Forms.Label();
+            this.lbl_NameCustomer = new System.Windows.Forms.Label();
             this.lbl_CreateTime = new System.Windows.Forms.Label();
             this.lbl_idEmployee = new System.Windows.Forms.Label();
-            this.lbl_idReceive = new System.Windows.Forms.Label();
-            this.dgv_DetailWarehouse = new System.Windows.Forms.DataGridView();
+            this.lbl_idInvoice = new System.Windows.Forms.Label();
+            this.dgv_Detail_InvoiceSelling = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -43,7 +43,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_DetailWarehouse)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Detail_InvoiceSelling)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_TotalCash
@@ -56,15 +56,15 @@
             this.lbl_TotalCash.TabIndex = 25;
             this.lbl_TotalCash.Text = "------------------------";
             // 
-            // lbl_NameSuppiler
+            // lbl_NameCustomer
             // 
-            this.lbl_NameSuppiler.AutoSize = true;
-            this.lbl_NameSuppiler.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_NameSuppiler.Location = new System.Drawing.Point(860, 199);
-            this.lbl_NameSuppiler.Name = "lbl_NameSuppiler";
-            this.lbl_NameSuppiler.Size = new System.Drawing.Size(153, 20);
-            this.lbl_NameSuppiler.TabIndex = 24;
-            this.lbl_NameSuppiler.Text = "------------------------";
+            this.lbl_NameCustomer.AutoSize = true;
+            this.lbl_NameCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_NameCustomer.Location = new System.Drawing.Point(860, 199);
+            this.lbl_NameCustomer.Name = "lbl_NameCustomer";
+            this.lbl_NameCustomer.Size = new System.Drawing.Size(153, 20);
+            this.lbl_NameCustomer.TabIndex = 24;
+            this.lbl_NameCustomer.Text = "------------------------";
             // 
             // lbl_CreateTime
             // 
@@ -86,43 +86,43 @@
             this.lbl_idEmployee.TabIndex = 22;
             this.lbl_idEmployee.Text = "------------------------";
             // 
-            // lbl_idReceive
+            // lbl_idInvoice
             // 
-            this.lbl_idReceive.AutoSize = true;
-            this.lbl_idReceive.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_idReceive.Location = new System.Drawing.Point(279, 148);
-            this.lbl_idReceive.Name = "lbl_idReceive";
-            this.lbl_idReceive.Size = new System.Drawing.Size(153, 20);
-            this.lbl_idReceive.TabIndex = 21;
-            this.lbl_idReceive.Text = "------------------------";
+            this.lbl_idInvoice.AutoSize = true;
+            this.lbl_idInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_idInvoice.Location = new System.Drawing.Point(279, 148);
+            this.lbl_idInvoice.Name = "lbl_idInvoice";
+            this.lbl_idInvoice.Size = new System.Drawing.Size(153, 20);
+            this.lbl_idInvoice.TabIndex = 21;
+            this.lbl_idInvoice.Text = "------------------------";
             // 
-            // dgv_DetailWarehouse
+            // dgv_Detail_InvoiceSelling
             // 
-            this.dgv_DetailWarehouse.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_DetailWarehouse.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_DetailWarehouse.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgv_DetailWarehouse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_DetailWarehouse.Location = new System.Drawing.Point(75, 234);
-            this.dgv_DetailWarehouse.Name = "dgv_DetailWarehouse";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_DetailWarehouse.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgv_DetailWarehouse.RowHeadersWidth = 51;
-            this.dgv_DetailWarehouse.RowTemplate.Height = 24;
-            this.dgv_DetailWarehouse.Size = new System.Drawing.Size(1020, 262);
-            this.dgv_DetailWarehouse.TabIndex = 20;
+            this.dgv_Detail_InvoiceSelling.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_Detail_InvoiceSelling.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Detail_InvoiceSelling.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_Detail_InvoiceSelling.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Detail_InvoiceSelling.Location = new System.Drawing.Point(75, 234);
+            this.dgv_Detail_InvoiceSelling.Name = "dgv_Detail_InvoiceSelling";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Detail_InvoiceSelling.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_Detail_InvoiceSelling.RowHeadersWidth = 51;
+            this.dgv_Detail_InvoiceSelling.RowTemplate.Height = 24;
+            this.dgv_Detail_InvoiceSelling.Size = new System.Drawing.Size(1020, 262);
+            this.dgv_Detail_InvoiceSelling.TabIndex = 20;
             // 
             // label7
             // 
@@ -200,11 +200,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1161, 603);
             this.Controls.Add(this.lbl_TotalCash);
-            this.Controls.Add(this.lbl_NameSuppiler);
+            this.Controls.Add(this.lbl_NameCustomer);
             this.Controls.Add(this.lbl_CreateTime);
             this.Controls.Add(this.lbl_idEmployee);
-            this.Controls.Add(this.lbl_idReceive);
-            this.Controls.Add(this.dgv_DetailWarehouse);
+            this.Controls.Add(this.lbl_idInvoice);
+            this.Controls.Add(this.dgv_Detail_InvoiceSelling);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -213,10 +213,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmDetailInvoiceSelling";
             this.Text = "frmDetailInvoiceSelling";
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_DetailWarehouse)).EndInit();
+            this.Load += new System.EventHandler(this.frmDetailInvoiceSelling_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Detail_InvoiceSelling)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,11 +226,11 @@
         #endregion
 
         private System.Windows.Forms.Label lbl_TotalCash;
-        private System.Windows.Forms.Label lbl_NameSuppiler;
+        private System.Windows.Forms.Label lbl_NameCustomer;
         private System.Windows.Forms.Label lbl_CreateTime;
         private System.Windows.Forms.Label lbl_idEmployee;
-        private System.Windows.Forms.Label lbl_idReceive;
-        private System.Windows.Forms.DataGridView dgv_DetailWarehouse;
+        private System.Windows.Forms.Label lbl_idInvoice;
+        private System.Windows.Forms.DataGridView dgv_Detail_InvoiceSelling;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
