@@ -12,15 +12,14 @@ namespace BLL
     public class BLL_InvoiceSelling
     {
         DAL_InvoiceSelling dataInvoice = new DAL_InvoiceSelling();
-        public DataTable GetInvoiceSelling(string keySearch, string value)
+        public DataTable GetInvoiceSelling(string keySearch, string value = null)
         {
             return dataInvoice.GetInvoiceSelling(keySearch, value);
         }
 
-        public int InsertInvoiceSelling(DTO_InvoiceSelling invoice)
+        public DataTable InsertInvoiceSelling(DTO_InvoiceSelling invoice)
         {
             return dataInvoice.InsertInvoiceSelling(invoice);
-
         }
 
         public int UpdateInvoiceSelling(DTO_InvoiceSelling invoice)
@@ -31,7 +30,6 @@ namespace BLL
         public int DeleteInvoiceSelling(string idInvoice)
         {
             return dataInvoice.DeleteInvoiceSelling(idInvoice);
-
         }
     }
 }
