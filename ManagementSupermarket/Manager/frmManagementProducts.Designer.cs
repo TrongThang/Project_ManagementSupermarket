@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.num_ShelfLife = new System.Windows.Forms.NumericUpDown();
             this.cbb_UnitTime = new System.Windows.Forms.ComboBox();
             this.cbb_TypeProduct = new System.Windows.Forms.ComboBox();
             this.cbb_UnitCaculator = new System.Windows.Forms.ComboBox();
             this.cbb_Supplier = new System.Windows.Forms.ComboBox();
             this.num_Count = new System.Windows.Forms.NumericUpDown();
             this.chk_Status = new System.Windows.Forms.CheckBox();
-            this.txt_Discount = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txt_Cost = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -59,12 +58,11 @@
             this.btn_Add = new FontAwesome.Sharp.IconButton();
             this.txt_Search = new System.Windows.Forms.TextBox();
             this.btn_Search = new FontAwesome.Sharp.IconButton();
-            this.num_ShelfLife = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.num_ShelfLife)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_Count)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Product)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ListProduct)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_ShelfLife)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -77,8 +75,6 @@
             this.panel1.Controls.Add(this.cbb_Supplier);
             this.panel1.Controls.Add(this.num_Count);
             this.panel1.Controls.Add(this.chk_Status);
-            this.panel1.Controls.Add(this.txt_Discount);
-            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.txt_Cost);
             this.panel1.Controls.Add(this.label7);
@@ -100,6 +96,14 @@
             this.panel1.Size = new System.Drawing.Size(385, 751);
             this.panel1.TabIndex = 0;
             // 
+            // num_ShelfLife
+            // 
+            this.num_ShelfLife.Location = new System.Drawing.Point(21, 494);
+            this.num_ShelfLife.Name = "num_ShelfLife";
+            this.num_ShelfLife.Size = new System.Drawing.Size(117, 32);
+            this.num_ShelfLife.TabIndex = 24;
+            this.num_ShelfLife.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // cbb_UnitTime
             // 
             this.cbb_UnitTime.FormattingEnabled = true;
@@ -112,7 +116,7 @@
             // 
             this.cbb_TypeProduct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_TypeProduct.FormattingEnabled = true;
-            this.cbb_TypeProduct.Location = new System.Drawing.Point(187, 349);
+            this.cbb_TypeProduct.Location = new System.Drawing.Point(21, 348);
             this.cbb_TypeProduct.Name = "cbb_TypeProduct";
             this.cbb_TypeProduct.Size = new System.Drawing.Size(180, 34);
             this.cbb_TypeProduct.TabIndex = 23;
@@ -120,7 +124,7 @@
             // cbb_UnitCaculator
             // 
             this.cbb_UnitCaculator.FormattingEnabled = true;
-            this.cbb_UnitCaculator.Location = new System.Drawing.Point(21, 349);
+            this.cbb_UnitCaculator.Location = new System.Drawing.Point(210, 348);
             this.cbb_UnitCaculator.Name = "cbb_UnitCaculator";
             this.cbb_UnitCaculator.Size = new System.Drawing.Size(158, 34);
             this.cbb_UnitCaculator.TabIndex = 23;
@@ -146,32 +150,12 @@
             // 
             this.chk_Status.AutoSize = true;
             this.chk_Status.ForeColor = System.Drawing.Color.White;
-            this.chk_Status.Location = new System.Drawing.Point(186, 683);
+            this.chk_Status.Location = new System.Drawing.Point(201, 621);
             this.chk_Status.Name = "chk_Status";
             this.chk_Status.Size = new System.Drawing.Size(181, 30);
             this.chk_Status.TabIndex = 20;
             this.chk_Status.Text = "Trạng Thái Bán";
             this.chk_Status.UseVisualStyleBackColor = true;
-            // 
-            // txt_Discount
-            // 
-            this.txt_Discount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_Discount.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Discount.Location = new System.Drawing.Point(21, 631);
-            this.txt_Discount.Name = "txt_Discount";
-            this.txt_Discount.Size = new System.Drawing.Size(244, 32);
-            this.txt_Discount.TabIndex = 19;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Yellow;
-            this.label8.Location = new System.Drawing.Point(16, 603);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(104, 22);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "Khuyến Mãi";
             // 
             // label5
             // 
@@ -209,7 +193,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Yellow;
-            this.label10.Location = new System.Drawing.Point(182, 323);
+            this.label10.Location = new System.Drawing.Point(16, 322);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(132, 22);
             this.label10.TabIndex = 16;
@@ -231,7 +215,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Yellow;
-            this.label4.Location = new System.Drawing.Point(16, 323);
+            this.label4.Location = new System.Drawing.Point(205, 322);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(105, 22);
             this.label4.TabIndex = 16;
@@ -322,26 +306,40 @@
             this.btn_Upload.Text = "Upload";
             this.btn_Upload.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_Upload.UseVisualStyleBackColor = true;
+            this.btn_Upload.Click += new System.EventHandler(this.btn_Upload_Click);
             // 
             // pic_Product
             // 
             this.pic_Product.BackColor = System.Drawing.Color.White;
             this.pic_Product.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pic_Product.Location = new System.Drawing.Point(61, 3);
+            this.pic_Product.Location = new System.Drawing.Point(48, 3);
             this.pic_Product.Name = "pic_Product";
             this.pic_Product.Size = new System.Drawing.Size(253, 131);
+            this.pic_Product.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_Product.TabIndex = 0;
             this.pic_Product.TabStop = false;
+            this.pic_Product.Click += new System.EventHandler(this.btn_Upload_Click);
             // 
             // dgv_ListProduct
             // 
+            this.dgv_ListProduct.AllowUserToAddRows = false;
+            this.dgv_ListProduct.AllowUserToDeleteRows = false;
+            this.dgv_ListProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv_ListProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_ListProduct.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_ListProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_ListProduct.Location = new System.Drawing.Point(410, 99);
+            this.dgv_ListProduct.MultiSelect = false;
             this.dgv_ListProduct.Name = "dgv_ListProduct";
+            this.dgv_ListProduct.ReadOnly = true;
             this.dgv_ListProduct.RowHeadersWidth = 51;
             this.dgv_ListProduct.RowTemplate.Height = 24;
+            this.dgv_ListProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_ListProduct.Size = new System.Drawing.Size(825, 640);
             this.dgv_ListProduct.TabIndex = 1;
+            this.dgv_ListProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ListProduct_CellClick);
             // 
             // btn_Refresh
             // 
@@ -418,20 +416,11 @@
             this.btn_Search.TabIndex = 10;
             this.btn_Search.UseVisualStyleBackColor = true;
             // 
-            // num_ShelfLife
-            // 
-            this.num_ShelfLife.Location = new System.Drawing.Point(21, 494);
-            this.num_ShelfLife.Name = "num_ShelfLife";
-            this.num_ShelfLife.Size = new System.Drawing.Size(117, 32);
-            this.num_ShelfLife.TabIndex = 24;
-            this.num_ShelfLife.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // frmManagementProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
-            this.BackgroundImage = global::ManagementSupermarket.Properties.Resources.bgMain;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1247, 751);
             this.Controls.Add(this.txt_Search);
@@ -446,14 +435,14 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmManagementProducts";
-            this.Text = "Quản Lý Sản Phẩm";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.frmManagementProducts_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.num_ShelfLife)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_Count)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Product)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ListProduct)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_ShelfLife)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -471,7 +460,6 @@
         private System.Windows.Forms.TextBox txt_ID;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox chk_Status;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
@@ -487,7 +475,6 @@
         private System.Windows.Forms.ComboBox cbb_UnitCaculator;
         private System.Windows.Forms.ComboBox cbb_Supplier;
         private System.Windows.Forms.NumericUpDown num_Count;
-        private System.Windows.Forms.TextBox txt_Discount;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cbb_UnitTime;
         private System.Windows.Forms.ComboBox cbb_TypeProduct;

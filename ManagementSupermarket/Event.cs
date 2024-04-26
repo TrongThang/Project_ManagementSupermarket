@@ -28,5 +28,14 @@ namespace ManagementSupermarket
             label.Text = "*" + key + error;
             label.Visible = true;
         }
+        public void CheckTextboxError(TextBox textBox,string error)
+        {
+            bool isError = string.IsNullOrEmpty(textBox.Text.Trim());
+
+            if(isError)
+            {
+                MessageBox.Show(error, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
