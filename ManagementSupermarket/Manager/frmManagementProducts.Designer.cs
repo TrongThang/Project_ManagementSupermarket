@@ -70,8 +70,12 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.num_ShelfLife);
             this.panel1.Controls.Add(this.cbb_UnitTime);
+            this.panel1.Controls.Add(this.btn_Refresh);
+            this.panel1.Controls.Add(this.btn_Delete);
             this.panel1.Controls.Add(this.cbb_TypeProduct);
+            this.panel1.Controls.Add(this.btn_Alter);
             this.panel1.Controls.Add(this.cbb_UnitCaculator);
+            this.panel1.Controls.Add(this.btn_Add);
             this.panel1.Controls.Add(this.cbb_Supplier);
             this.panel1.Controls.Add(this.num_Count);
             this.panel1.Controls.Add(this.chk_Status);
@@ -142,17 +146,18 @@
             // 
             this.num_Count.Location = new System.Drawing.Point(21, 562);
             this.num_Count.Name = "num_Count";
-            this.num_Count.Size = new System.Drawing.Size(172, 32);
+            this.num_Count.Size = new System.Drawing.Size(131, 32);
             this.num_Count.TabIndex = 21;
             this.num_Count.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // chk_Status
             // 
             this.chk_Status.AutoSize = true;
+            this.chk_Status.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.chk_Status.ForeColor = System.Drawing.Color.White;
-            this.chk_Status.Location = new System.Drawing.Point(201, 621);
+            this.chk_Status.Location = new System.Drawing.Point(174, 563);
             this.chk_Status.Name = "chk_Status";
-            this.chk_Status.Size = new System.Drawing.Size(181, 30);
+            this.chk_Status.Size = new System.Drawing.Size(208, 33);
             this.chk_Status.TabIndex = 20;
             this.chk_Status.Text = "Trạng Thái Bán";
             this.chk_Status.UseVisualStyleBackColor = true;
@@ -348,7 +353,7 @@
             this.btn_Refresh.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Refresh.IconColor = System.Drawing.Color.Black;
             this.btn_Refresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Refresh.Location = new System.Drawing.Point(666, 29);
+            this.btn_Refresh.Location = new System.Drawing.Point(271, 630);
             this.btn_Refresh.Name = "btn_Refresh";
             this.btn_Refresh.Size = new System.Drawing.Size(79, 64);
             this.btn_Refresh.TabIndex = 9;
@@ -362,7 +367,7 @@
             this.btn_Delete.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Delete.IconColor = System.Drawing.Color.Black;
             this.btn_Delete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Delete.Location = new System.Drawing.Point(581, 29);
+            this.btn_Delete.Location = new System.Drawing.Point(186, 630);
             this.btn_Delete.Name = "btn_Delete";
             this.btn_Delete.Size = new System.Drawing.Size(79, 64);
             this.btn_Delete.TabIndex = 8;
@@ -376,7 +381,7 @@
             this.btn_Alter.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Alter.IconColor = System.Drawing.Color.Black;
             this.btn_Alter.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Alter.Location = new System.Drawing.Point(496, 29);
+            this.btn_Alter.Location = new System.Drawing.Point(101, 630);
             this.btn_Alter.Name = "btn_Alter";
             this.btn_Alter.Size = new System.Drawing.Size(79, 64);
             this.btn_Alter.TabIndex = 7;
@@ -390,7 +395,7 @@
             this.btn_Add.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Add.IconColor = System.Drawing.Color.Black;
             this.btn_Add.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Add.Location = new System.Drawing.Point(411, 29);
+            this.btn_Add.Location = new System.Drawing.Point(16, 630);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(79, 64);
             this.btn_Add.TabIndex = 6;
@@ -430,10 +435,6 @@
             this.ClientSize = new System.Drawing.Size(1247, 751);
             this.Controls.Add(this.txt_Search);
             this.Controls.Add(this.btn_Search);
-            this.Controls.Add(this.btn_Refresh);
-            this.Controls.Add(this.btn_Delete);
-            this.Controls.Add(this.btn_Alter);
-            this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.dgv_ListProduct);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;

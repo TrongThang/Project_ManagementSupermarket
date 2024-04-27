@@ -56,7 +56,7 @@ namespace DTO
             S_NameTypeProduct = null;
             this.D_CostPrice = d_CostPrice;
             this.D_SellingPrice = d_SellingPrice;
-            i_Count = i_Count;
+            this.I_Count = i_Count;
             S_ShelfLife = shelfLife;
             S_Unit = unit;
             S_FileNameImage = fileNameImage;
