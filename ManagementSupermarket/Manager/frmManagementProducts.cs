@@ -12,6 +12,7 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Markup;
@@ -74,16 +75,17 @@ namespace ManagementSupermarket
             LoadDataComboBoxUnitItem();
 
         }
-        private void LoadDataGridView(string nameProdut = null)
+        private void AddColumnImageDGV()
         {
             //Create Column to show image
             DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
             imageColumn.HeaderText = "Hình ảnh";
             imageColumn.Name = "ImageColumn";
-            dgv_ListProduct.Columns.Add(imageColumn);   
-            
+            dgv_ListProduct.Columns.Add(imageColumn);
+        }
+        private void LoadDataGridView(string nameProdut = null)
+        {
             dgv_ListProduct.DataSource = (new BLL_Product()).GetProduct("TenSP", nameProdut);
-
             foreach (DataGridViewRow row in dgv_ListProduct.Rows)
             {
                 string path = row.Cells["HinhAnh"].Value.ToString();
@@ -99,15 +101,18 @@ namespace ManagementSupermarket
                     row.Cells["ImageColumn"].Value = null; 
                 }
             }
-            dgv_ListProduct.Columns["HinhAnh"].Visible = false;
+            //dgv_ListProduct.Columns["HinhAnh"].Visible = false;
+
         }
         private void frmManagementProducts_Load(object sender, EventArgs e)
         {
+            AddColumnImageDGV();
             LoadDataGridView();
             LoadDataComboBox();
             cbb_Supplier.SelectedIndex = 0;
             cbb_TypeProduct.SelectedIndex = 0;
-            
+            cbb_UnitCaculator.SelectedIndex = 0;    
+            cbb_UnitTime.SelectedIndex = 0;
         }
 
         //FINISH
@@ -185,6 +190,44 @@ namespace ManagementSupermarket
                 File.Copy(pathImage, destFileName);
             }
         }
+        
+        //CHECK ERROR INPUT
+        private bool IsErrorInput()
+        {
+            bool errorName = string.IsNullOrEmpty(txt_NameProduct.Text.Trim());
+            bool errorEmptyMoney = string.IsNullOrEmpty(txt_Cost.Text.Trim()) || string.IsNullOrEmpty(txt_Price.Text.Trim());
+            bool errorCost_Larger_Price = int.Parse(txt_Cost.Text) > int.Parse(txt_Price.Text);
+
+            string mess = "";
+            if (errorName)
+            {
+                mess = "Tên không được để trống!";
+                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return true;
+            }else if (errorEmptyMoney)
+            {
+                mess = "Giá nhập và giá bán không được để trống!";
+                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return true;
+            }
+            else if(errorCost_Larger_Price)
+            {
+                mess = "Giá bán phải lớn hơn giá nhập!";
+                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return true;
+            }
+            return false;
+
+        }
+        private double GetNumberShelfLife(string shelfLife)
+        {
+            string num = "";
+            for (int i = 0; i < shelfLife.Length - 1; i++)
+            {
+                num += shelfLife[i];
+            }
+            return double.Parse(num);
+        }
         private void btn_Add_Click(object sender, EventArgs e)
         {
             string pathImage, nameProduct, idSupplier, idType, unitItem, unitTime, shelfLife;
@@ -247,7 +290,7 @@ namespace ManagementSupermarket
             int count;
             byte status;
 
-            pathImage = pic_Product.ImageLocation;
+            pathImage = Path.GetFileName(pic_Product.ImageLocation);
             idProduct = txt_ID.Text;
             nameProduct = txt_NameProduct.Text.Trim();
             idSupplier = cbb_Supplier.SelectedValue.ToString();
@@ -322,7 +365,6 @@ namespace ManagementSupermarket
 
             }
         }
-
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
             pic_Product.ImageLocation = null;
@@ -340,7 +382,6 @@ namespace ManagementSupermarket
             num_Count.Value = 0;
             chk_Status.Checked = true;
         }
-
         private void btn_Search_Click(object sender, EventArgs e)
         {
             string nameProduct = txt_Search.Text.Trim();
