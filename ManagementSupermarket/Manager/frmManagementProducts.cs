@@ -1,17 +1,22 @@
 ﻿using BLL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Markup;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using ComboBox = System.Windows.Forms.ComboBox;
 using Image = System.Drawing.Image;
 
@@ -69,7 +74,7 @@ namespace ManagementSupermarket
             LoadDataComboBoxUnitItem();
 
         }
-        private void LoadDataGridView()
+        private void LoadDataGridView(string nameProdut = null)
         {
             //Create Column to show image
             DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
@@ -77,7 +82,7 @@ namespace ManagementSupermarket
             imageColumn.Name = "ImageColumn";
             dgv_ListProduct.Columns.Add(imageColumn);   
             
-            dgv_ListProduct.DataSource = (new BLL_Product()).GetProduct("MaSP");
+            dgv_ListProduct.DataSource = (new BLL_Product()).GetProduct("TenSP", nameProdut);
 
             foreach (DataGridViewRow row in dgv_ListProduct.Rows)
             {
@@ -170,8 +175,176 @@ namespace ManagementSupermarket
             }
 
         }
+        private void CopyImageToFolderProject(string pathImage)
+        {
+            string destFolder = Path.Combine(Application.StartupPath, "..", "..", "Image", "Products");
+            string destFileName = Path.Combine(destFolder, Path.GetFileName(pathImage));
 
+            if (!File.Exists(destFileName))
+            {
+                File.Copy(pathImage, destFileName);
+            }
+        }
+        private void btn_Add_Click(object sender, EventArgs e)
+        {
+            string pathImage, nameProduct, idSupplier, idType, unitItem, unitTime, shelfLife;
+            double cost, price;
+            int count;
+            byte status;
 
+            pathImage = pic_Product.ImageLocation;
+            idSupplier = cbb_Supplier.SelectedValue.ToString();
+            nameProduct = txt_NameProduct.Text.Trim();
+            idType = cbb_TypeProduct.SelectedValue.ToString();
+            unitItem = cbb_UnitCaculator.Text.ToString();
+            unitTime = cbb_UnitTime.SelectedValue.ToString();
 
+            cost = double.Parse(txt_Cost.Text);
+            price = double.Parse(txt_Price.Text);
+            shelfLife = num_ShelfLife.Text + unitTime;
+
+            count = (int)num_Count.Value;
+            status = (byte)(chk_Status.Checked ? 1 : 0);
+
+            DTO_Product product = new DTO_Product(pathImage, nameProduct, idSupplier, idType, cost, price, count, shelfLife, unitItem, status);
+
+            int affectedRows = (new BLL_Product()).InsertProduct(product);
+
+            string mess = "";
+            if (affectedRows > 0)
+            {
+                mess = $"Thêm sản phẩm {nameProduct} thành công!!";
+                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadDataGridView();
+
+                CopyImageToFolderProject(pathImage);
+                return;
+            }
+            else
+            {
+                mess = $"Thêm sản phẩm {nameProduct} thất bại. Vui lòng thử lại!!";
+                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+        private bool IsNotId()
+        {
+            if(dgv_ListProduct.SelectedRows.Count > 0) { 
+                return false;
+            }
+            MessageBox.Show("Vui lòng chọn sản phẩm cần thao tác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return true;
+        }
+
+        private void btn_Alter_Click(object sender, EventArgs e)
+        {
+            if (IsNotId())
+            {
+                return;
+            }
+            string pathImage, idProduct, nameProduct, idSupplier, idType, unitItem, unitTime, shelfLife;
+            double cost, price;
+            int count;
+            byte status;
+
+            pathImage = pic_Product.ImageLocation;
+            idProduct = txt_ID.Text;
+            nameProduct = txt_NameProduct.Text.Trim();
+            idSupplier = cbb_Supplier.SelectedValue.ToString();
+            idType = cbb_TypeProduct.SelectedValue.ToString();
+            unitItem = cbb_UnitCaculator.Text.ToString();
+            unitTime = cbb_UnitTime.SelectedValue.ToString();
+
+            cost = double.Parse(txt_Cost.Text);
+            price = double.Parse(txt_Price.Text);
+            shelfLife = num_ShelfLife.Text + unitTime;
+
+            count = (int)num_Count.Value;
+            status = (byte)(chk_Status.Checked ? 1 : 0);
+
+            DTO_Product product = new DTO_Product(pathImage, nameProduct, idSupplier, idType, cost, price, count, shelfLife, unitItem, status, idProduct);
+
+            int affectedRows = (new BLL_Product()).UpdateProduct(product);
+
+            string mess = "";
+            if (affectedRows > 0)
+            {
+                mess = $"Chỉnh sủa thông tin sản phẩm {nameProduct} thành công!!";
+                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadDataGridView();
+                CopyImageToFolderProject(pathImage);
+                return;
+            }
+            else
+            {
+                mess = $"Chỉnh sủa thông tin sản phẩm {nameProduct} thất bại. Vui lòng thử lại!!";
+                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void btn_Delete_Click(object sender, EventArgs e)
+        {
+            if (IsNotId())
+            {
+                return;
+            }
+            string idProduct, nameProduct;
+            idProduct = txt_ID.Text;
+            nameProduct = txt_NameProduct.Text;
+
+            DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xoá sản phẩm {nameProduct}?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    int affectedRows = (new BLL_Product()).UpdateStatusProduct(idProduct);
+                    string mess = "";
+                    if (affectedRows > 0)
+                    {
+                        mess = $"Xoá sản phẩm {nameProduct} thành công!!";
+                        MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadDataGridView();
+                        return;
+                    }
+                    else
+                    {
+                        mess = $"Xoá sản phẩm {nameProduct} thất bại. Vui lòng thử lại!!";
+                        MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw;
+                }
+
+            }
+        }
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+            pic_Product.ImageLocation = null;
+            txt_ID.Clear();
+            txt_NameProduct.Clear();
+            cbb_Supplier.SelectedIndex = 0;
+            cbb_TypeProduct.SelectedIndex = 0;
+            cbb_UnitCaculator.SelectedIndex = 0;
+            cbb_UnitTime.SelectedIndex = 0;
+
+            txt_Cost.Clear();
+            txt_Price.Clear();
+            
+
+            num_Count.Value = 0;
+            chk_Status.Checked = true;
+        }
+
+        private void btn_Search_Click(object sender, EventArgs e)
+        {
+            string nameProduct = txt_Search.Text.Trim();
+            LoadDataGridView(nameProduct);
+        }
     }
 }

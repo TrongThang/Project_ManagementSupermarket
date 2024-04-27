@@ -8,6 +8,9 @@ namespace DTO
 {
     public class DTO_Product
     {
+
+        private string s_FileNameImage;
+
         private string s_IDProduct;
         private string s_FullNameProduct;
 
@@ -24,7 +27,6 @@ namespace DTO
 
         private string s_ShelfLife;
         private string s_Unit;
-        private string s_FileNameImage;
         private byte s_Status;
 
         public DTO_Product()
@@ -44,7 +46,7 @@ namespace DTO
             S_Status = 0;
         }
 
-        public DTO_Product(string iDProduct, string fullNameProduct, string idSupplier, string idTypeProduct, double d_CostPrice, double d_SellingPrice, int i_Count, string shelfLife, string unit, string fileNameImage, byte status)
+        public DTO_Product(string fileNameImage, string fullNameProduct, string idSupplier, string idTypeProduct, double d_CostPrice, double d_SellingPrice, int i_Count, string shelfLife, string unit, byte status, string iDProduct = null)
         {
             S_IDProduct = iDProduct;
             S_FullNameProduct = fullNameProduct;
@@ -60,6 +62,7 @@ namespace DTO
             S_FileNameImage = fileNameImage;
             S_Status = status;
         }
+
 
         public string S_IDProduct { get => s_IDProduct; set => s_IDProduct = value; }
         public string S_FullNameProduct { get => s_FullNameProduct; set => s_FullNameProduct = value; }

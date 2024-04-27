@@ -18,6 +18,7 @@ namespace DAL
             {
                 dict.Add("MaSP", product.S_IDProduct);
             }
+            dict.Add("HinhAnh", product.S_FileNameImage);
             dict.Add("TenSP", product.S_FullNameProduct);
             dict.Add("MaNCC", product.S_IdSupplier);
             dict.Add("MaLoaiSP", product.S_IdTypeProduct);
@@ -63,7 +64,7 @@ namespace DAL
         public int UpdateStatusProduct(string id)
         {
             string sql = "sp_UpdateStatusProduct";
-            db.addParam("MaNCC", id);
+            db.addParam("MaSP", id);
 
             DataTable tblProduct = db.queryExecuteAdapter(sql);
 
