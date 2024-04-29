@@ -251,5 +251,11 @@ namespace ManagementSupermarket
             dgv_ListEmployee.Refresh();
         }
 
+        private void btn_ExportExcel_Click(object sender, EventArgs e)
+        {
+            DataTable tblEmployee = (DataTable)dgv_ListEmployee.DataSource;
+            ConfigExcel_PDF.ExportToExcel(tblEmployee, "Employee");
+            return;
+        }
     }
 }

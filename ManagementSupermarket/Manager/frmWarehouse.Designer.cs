@@ -75,6 +75,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.btn_ExportExcel = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.grpInfo.SuspendLayout();
@@ -93,7 +94,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1223, 721);
+            this.tabControl1.Size = new System.Drawing.Size(1223, 686);
             this.tabControl1.TabIndex = 34;
             this.tabControl1.Tag = "";
             // 
@@ -107,7 +108,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 35);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1215, 682);
+            this.tabPage1.Size = new System.Drawing.Size(1215, 647);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Lập Hoá Đơn Nhập Kho";
             // 
@@ -132,7 +133,7 @@
             this.grpInfo.ForeColor = System.Drawing.Color.Yellow;
             this.grpInfo.Location = new System.Drawing.Point(8, 13);
             this.grpInfo.Name = "grpInfo";
-            this.grpInfo.Size = new System.Drawing.Size(423, 654);
+            this.grpInfo.Size = new System.Drawing.Size(423, 617);
             this.grpInfo.TabIndex = 33;
             this.grpInfo.TabStop = false;
             this.grpInfo.Text = "Thông tin";
@@ -182,7 +183,7 @@
             this.btn_RefreshCreate.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_RefreshCreate.IconColor = System.Drawing.Color.Black;
             this.btn_RefreshCreate.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_RefreshCreate.Location = new System.Drawing.Point(338, 579);
+            this.btn_RefreshCreate.Location = new System.Drawing.Point(305, 537);
             this.btn_RefreshCreate.Name = "btn_RefreshCreate";
             this.btn_RefreshCreate.Size = new System.Drawing.Size(79, 64);
             this.btn_RefreshCreate.TabIndex = 38;
@@ -204,7 +205,7 @@
             this.btn_DeleteCreate.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_DeleteCreate.IconColor = System.Drawing.Color.Black;
             this.btn_DeleteCreate.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_DeleteCreate.Location = new System.Drawing.Point(237, 582);
+            this.btn_DeleteCreate.Location = new System.Drawing.Point(200, 537);
             this.btn_DeleteCreate.Name = "btn_DeleteCreate";
             this.btn_DeleteCreate.Size = new System.Drawing.Size(81, 59);
             this.btn_DeleteCreate.TabIndex = 35;
@@ -218,7 +219,7 @@
             this.btn_AddCreate.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_AddCreate.IconColor = System.Drawing.Color.Black;
             this.btn_AddCreate.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_AddCreate.Location = new System.Drawing.Point(17, 583);
+            this.btn_AddCreate.Location = new System.Drawing.Point(17, 534);
             this.btn_AddCreate.Name = "btn_AddCreate";
             this.btn_AddCreate.Size = new System.Drawing.Size(79, 64);
             this.btn_AddCreate.TabIndex = 3;
@@ -303,7 +304,7 @@
             this.btn_AlterCreate.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_AlterCreate.IconColor = System.Drawing.Color.Black;
             this.btn_AlterCreate.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_AlterCreate.Location = new System.Drawing.Point(123, 583);
+            this.btn_AlterCreate.Location = new System.Drawing.Point(102, 537);
             this.btn_AlterCreate.Name = "btn_AlterCreate";
             this.btn_AlterCreate.Size = new System.Drawing.Size(85, 59);
             this.btn_AlterCreate.TabIndex = 22;
@@ -317,7 +318,7 @@
             this.btn_Finish.IconColor = System.Drawing.Color.Black;
             this.btn_Finish.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Finish.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Finish.Location = new System.Drawing.Point(761, 588);
+            this.btn_Finish.Location = new System.Drawing.Point(761, 565);
             this.btn_Finish.Name = "btn_Finish";
             this.btn_Finish.Size = new System.Drawing.Size(154, 67);
             this.btn_Finish.TabIndex = 36;
@@ -339,9 +340,9 @@
             this.lst_ToReceive.FullRowSelect = true;
             this.lst_ToReceive.GridLines = true;
             this.lst_ToReceive.HideSelection = false;
-            this.lst_ToReceive.Location = new System.Drawing.Point(437, 26);
+            this.lst_ToReceive.Location = new System.Drawing.Point(437, 33);
             this.lst_ToReceive.Name = "lst_ToReceive";
-            this.lst_ToReceive.Size = new System.Drawing.Size(759, 544);
+            this.lst_ToReceive.Size = new System.Drawing.Size(759, 526);
             this.lst_ToReceive.TabIndex = 34;
             this.lst_ToReceive.UseCompatibleStateImageBehavior = false;
             this.lst_ToReceive.View = System.Windows.Forms.View.Details;
@@ -381,7 +382,7 @@
             // 
             this.txt_TotalCashCreate.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.txt_TotalCashCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F);
-            this.txt_TotalCashCreate.Location = new System.Drawing.Point(437, 581);
+            this.txt_TotalCashCreate.Location = new System.Drawing.Point(437, 563);
             this.txt_TotalCashCreate.Name = "txt_TotalCashCreate";
             this.txt_TotalCashCreate.ReadOnly = true;
             this.txt_TotalCashCreate.Size = new System.Drawing.Size(308, 68);
@@ -390,6 +391,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.SteelBlue;
+            this.tabPage2.Controls.Add(this.btn_ExportExcel);
             this.tabPage2.Controls.Add(this.cbb_SearchRole);
             this.tabPage2.Controls.Add(this.btn_SeeDetailWarehouse);
             this.tabPage2.Controls.Add(this.btn_Refresh);
@@ -401,7 +403,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 35);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1215, 682);
+            this.tabPage2.Size = new System.Drawing.Size(1215, 647);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Danh Sách Nhập Kho";
             // 
@@ -620,16 +622,29 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "Tên Nhà Cung Cấp";
             // 
+            // btn_ExportExcel
+            // 
+            this.btn_ExportExcel.BackgroundImage = global::ManagementSupermarket.Properties.Resources.png_clipart_microsoft_excel_logo_microsoft_excel_computer_icons_xls_microsoft_angle_text;
+            this.btn_ExportExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_ExportExcel.Location = new System.Drawing.Point(161, 245);
+            this.btn_ExportExcel.Name = "btn_ExportExcel";
+            this.btn_ExportExcel.Size = new System.Drawing.Size(79, 55);
+            this.btn_ExportExcel.TabIndex = 32;
+            this.btn_ExportExcel.UseVisualStyleBackColor = true;
+            this.btn_ExportExcel.Click += new System.EventHandler(this.btn_ExportExcel_Click);
+            // 
             // frmWarehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1212, 730);
+            this.ClientSize = new System.Drawing.Size(1215, 730);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmWarehouse";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Kho Hàng";
             this.Load += new System.EventHandler(this.frmWarehouse_Load);
             this.tabControl1.ResumeLayout(false);
@@ -697,5 +712,6 @@
         private FontAwesome.Sharp.IconButton btn_SeeDetailWarehouse;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbb_SearchRole;
+        private System.Windows.Forms.Button btn_ExportExcel;
     }
 }

@@ -32,9 +32,24 @@ namespace ManagementSupermarket
                 btnShowHidePassword.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
             }
         }
-
+        private bool AutoLogin()
+        {
+            if(txt_Username.Text == "" && txt_Password.Text == "")
+            {
+                string role = "QL";
+                frmHomeOfManager frmHomeOfManager = new frmHomeOfManager(role);
+                this.Hide();
+                frmHomeOfManager.Show();
+                return true;
+            }
+            return false;
+        }
         private void btn_Login_Click(object sender, EventArgs e)
         {
+            if (AutoLogin())
+            {
+                return;
+            }
             string username = txt_Username.Text.Trim(), password = txt_Password.Text.Trim();
 
             //Process if username or password empty

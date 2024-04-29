@@ -471,5 +471,12 @@ namespace ManagementSupermarket
             txtSearch.Clear();
             LoadDataGridView_InvoiceSelling();
         }
+
+        private void btn_ExportExcel_Click_1(object sender, EventArgs e)
+        {
+            DataTable tblInvoiceSelling = (DataTable)dgv_InvoiceSelling.DataSource;
+            ConfigExcel_PDF.ExportToExcel(tblInvoiceSelling, $"Invoice Selling");
+            return;
+        }
     }
 }

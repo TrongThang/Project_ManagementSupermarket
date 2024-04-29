@@ -58,6 +58,7 @@
             this.dgv_ListProduct = new System.Windows.Forms.DataGridView();
             this.txt_Search = new System.Windows.Forms.TextBox();
             this.btn_Search = new FontAwesome.Sharp.IconButton();
+            this.btn_ExportExcel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_ShelfLife)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_Count)).BeginInit();
@@ -68,6 +69,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.btn_ExportExcel);
             this.panel1.Controls.Add(this.num_ShelfLife);
             this.panel1.Controls.Add(this.cbb_UnitTime);
             this.panel1.Controls.Add(this.btn_Refresh);
@@ -97,7 +99,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(392, 751);
+            this.panel1.Size = new System.Drawing.Size(490, 751);
             this.panel1.TabIndex = 0;
             // 
             // num_ShelfLife
@@ -395,14 +397,14 @@
             this.dgv_ListProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_ListProduct.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_ListProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_ListProduct.Location = new System.Drawing.Point(410, 69);
+            this.dgv_ListProduct.Location = new System.Drawing.Point(410, 73);
             this.dgv_ListProduct.MultiSelect = false;
             this.dgv_ListProduct.Name = "dgv_ListProduct";
             this.dgv_ListProduct.ReadOnly = true;
             this.dgv_ListProduct.RowHeadersWidth = 51;
             this.dgv_ListProduct.RowTemplate.Height = 24;
             this.dgv_ListProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_ListProduct.Size = new System.Drawing.Size(825, 670);
+            this.dgv_ListProduct.Size = new System.Drawing.Size(841, 666);
             this.dgv_ListProduct.TabIndex = 1;
             this.dgv_ListProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ListProduct_CellClick);
             // 
@@ -430,21 +432,34 @@
             this.btn_Search.UseVisualStyleBackColor = true;
             this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
             // 
+            // btn_ExportExcel
+            // 
+            this.btn_ExportExcel.BackgroundImage = global::ManagementSupermarket.Properties.Resources.png_clipart_microsoft_excel_logo_microsoft_excel_computer_icons_xls_microsoft_angle_text;
+            this.btn_ExportExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_ExportExcel.Location = new System.Drawing.Point(410, 7);
+            this.btn_ExportExcel.Name = "btn_ExportExcel";
+            this.btn_ExportExcel.Size = new System.Drawing.Size(82, 64);
+            this.btn_ExportExcel.TabIndex = 30;
+            this.btn_ExportExcel.UseVisualStyleBackColor = true;
+            this.btn_ExportExcel.Click += new System.EventHandler(this.btn_ExportExcel_Click);
+            // 
             // frmManagementProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1247, 751);
+            this.ClientSize = new System.Drawing.Size(1263, 751);
             this.Controls.Add(this.txt_Search);
             this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.dgv_ListProduct);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmManagementProducts";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = " ";
             this.Load += new System.EventHandler(this.frmManagementProducts_Load);
             this.panel1.ResumeLayout(false);
@@ -490,5 +505,6 @@
         private System.Windows.Forms.ComboBox cbb_TypeProduct;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.NumericUpDown num_ShelfLife;
+        private System.Windows.Forms.Button btn_ExportExcel;
     }
 }

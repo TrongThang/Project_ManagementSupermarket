@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Syncfusion.Blazor.Buttons.25.1.38\build\Syncfusion.Blazor.Buttons.props" Condition="Exists('..\packages\Syncfusion.Blazor.Buttons.25.1.38\build\Syncfusion.Blazor.Buttons.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -222,6 +221,7 @@
     <Content Include="Image\Icon\iconReload.png" />
     <Content Include="Image\Icon\iconSearch.png" />
     <Content Include="Image\Icon\iconStudent.png" />
+    <Content Include="Image\Icon\png-clipart-microsoft-excel-logo-microsoft-excel-computer-icons-xls-microsoft-angle-text.png" />
     <Content Include="Image\Icon\pngtree-vector-trash-icon-png-image_865284.jpg" />
     <Content Include="Image\Logo Project C#\avartaNam.png" />
     <Content Include="Image\Logo Project C#\avatarNu.png" />
@@ -254,6 +254,7 @@
     <Content Include="Image\Products\suavinamilk.jpg" />
     <Content Include="Image\Products\tainghebluetooth.jpg" />
     <Content Include="Image\Products\tieuxanh.jpg" />
+    <None Include="Resources\png-clipart-microsoft-excel-logo-microsoft-excel-computer-icons-xls-microsoft-angle-text.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
@@ -266,10 +267,4 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Syncfusion.Blazor.Buttons.25.1.38\build\Syncfusion.Blazor.Buttons.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Syncfusion.Blazor.Buttons.25.1.38\build\Syncfusion.Blazor.Buttons.props'))" />
-  </Target>
 </Project>

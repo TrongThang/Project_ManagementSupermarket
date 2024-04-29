@@ -40,14 +40,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txt_Search = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_Address = new System.Windows.Forms.Label();
             this.btn_Delete = new FontAwesome.Sharp.IconButton();
+            this.lbl_Phone = new System.Windows.Forms.Label();
             this.btn_Alter = new FontAwesome.Sharp.IconButton();
+            this.lbl_Name = new System.Windows.Forms.Label();
             this.btn_Add = new FontAwesome.Sharp.IconButton();
             this.btn_Refresh = new FontAwesome.Sharp.IconButton();
             this.btn_Search = new FontAwesome.Sharp.IconButton();
-            this.lbl_Name = new System.Windows.Forms.Label();
-            this.lbl_Phone = new System.Windows.Forms.Label();
-            this.lbl_Address = new System.Windows.Forms.Label();
             this.chk_StatusDGV = new System.Windows.Forms.CheckBox();
             this.cbb_Search = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Supplier)).BeginInit();
@@ -199,8 +199,19 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(382, 707);
+            this.panel1.Size = new System.Drawing.Size(478, 707);
             this.panel1.TabIndex = 12;
+            // 
+            // lbl_Address
+            // 
+            this.lbl_Address.AutoSize = true;
+            this.lbl_Address.ForeColor = System.Drawing.Color.Red;
+            this.lbl_Address.Location = new System.Drawing.Point(13, 460);
+            this.lbl_Address.Name = "lbl_Address";
+            this.lbl_Address.Size = new System.Drawing.Size(70, 26);
+            this.lbl_Address.TabIndex = 21;
+            this.lbl_Address.Text = "label4";
+            this.lbl_Address.Visible = false;
             // 
             // btn_Delete
             // 
@@ -216,6 +227,17 @@
             this.btn_Delete.UseVisualStyleBackColor = true;
             this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
+            // lbl_Phone
+            // 
+            this.lbl_Phone.AutoSize = true;
+            this.lbl_Phone.ForeColor = System.Drawing.Color.Red;
+            this.lbl_Phone.Location = new System.Drawing.Point(13, 358);
+            this.lbl_Phone.Name = "lbl_Phone";
+            this.lbl_Phone.Size = new System.Drawing.Size(70, 26);
+            this.lbl_Phone.TabIndex = 21;
+            this.lbl_Phone.Text = "label4";
+            this.lbl_Phone.Visible = false;
+            // 
             // btn_Alter
             // 
             this.btn_Alter.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconPencil;
@@ -229,6 +251,17 @@
             this.btn_Alter.TabIndex = 15;
             this.btn_Alter.UseVisualStyleBackColor = true;
             this.btn_Alter.Click += new System.EventHandler(this.btn_Alter_Click);
+            // 
+            // lbl_Name
+            // 
+            this.lbl_Name.AutoSize = true;
+            this.lbl_Name.ForeColor = System.Drawing.Color.Red;
+            this.lbl_Name.Location = new System.Drawing.Point(13, 245);
+            this.lbl_Name.Name = "lbl_Name";
+            this.lbl_Name.Size = new System.Drawing.Size(70, 26);
+            this.lbl_Name.TabIndex = 21;
+            this.lbl_Name.Text = "label4";
+            this.lbl_Name.Visible = false;
             // 
             // btn_Add
             // 
@@ -273,39 +306,6 @@
             this.btn_Search.UseVisualStyleBackColor = true;
             this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
             // 
-            // lbl_Name
-            // 
-            this.lbl_Name.AutoSize = true;
-            this.lbl_Name.ForeColor = System.Drawing.Color.Red;
-            this.lbl_Name.Location = new System.Drawing.Point(13, 245);
-            this.lbl_Name.Name = "lbl_Name";
-            this.lbl_Name.Size = new System.Drawing.Size(70, 26);
-            this.lbl_Name.TabIndex = 21;
-            this.lbl_Name.Text = "label4";
-            this.lbl_Name.Visible = false;
-            // 
-            // lbl_Phone
-            // 
-            this.lbl_Phone.AutoSize = true;
-            this.lbl_Phone.ForeColor = System.Drawing.Color.Red;
-            this.lbl_Phone.Location = new System.Drawing.Point(13, 358);
-            this.lbl_Phone.Name = "lbl_Phone";
-            this.lbl_Phone.Size = new System.Drawing.Size(70, 26);
-            this.lbl_Phone.TabIndex = 21;
-            this.lbl_Phone.Text = "label4";
-            this.lbl_Phone.Visible = false;
-            // 
-            // lbl_Address
-            // 
-            this.lbl_Address.AutoSize = true;
-            this.lbl_Address.ForeColor = System.Drawing.Color.Red;
-            this.lbl_Address.Location = new System.Drawing.Point(13, 460);
-            this.lbl_Address.Name = "lbl_Address";
-            this.lbl_Address.Size = new System.Drawing.Size(70, 26);
-            this.lbl_Address.TabIndex = 21;
-            this.lbl_Address.Text = "label4";
-            this.lbl_Address.Visible = false;
-            // 
             // chk_StatusDGV
             // 
             this.chk_StatusDGV.AutoSize = true;
@@ -340,7 +340,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
-            this.ClientSize = new System.Drawing.Size(1246, 707);
+            this.ClientSize = new System.Drawing.Size(1249, 707);
             this.Controls.Add(this.cbb_Search);
             this.Controls.Add(this.chk_StatusDGV);
             this.Controls.Add(this.dgv_Supplier);
@@ -348,6 +348,7 @@
             this.Controls.Add(this.txt_Search);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmSuppiler";
             this.Text = "frmSuppiler";

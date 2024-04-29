@@ -85,6 +85,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.btn_ExportExcel = new System.Windows.Forms.Button();
             this.tab_HomeInvoiceSelling.SuspendLayout();
             this.tab_FormCreateInvoice.SuspendLayout();
             this.grpInfo.SuspendLayout();
@@ -486,6 +487,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
+            this.tabPage2.Controls.Add(this.btn_ExportExcel);
             this.tabPage2.Controls.Add(this.cbb_Search);
             this.tabPage2.Controls.Add(this.btn_ShowDetailInvoice);
             this.tabPage2.Controls.Add(this.txtSearch);
@@ -763,6 +765,17 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "Mã Khách Hàng";
             // 
+            // btn_ExportExcel
+            // 
+            this.btn_ExportExcel.BackgroundImage = global::ManagementSupermarket.Properties.Resources.png_clipart_microsoft_excel_logo_microsoft_excel_computer_icons_xls_microsoft_angle_text;
+            this.btn_ExportExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_ExportExcel.Location = new System.Drawing.Point(407, 184);
+            this.btn_ExportExcel.Name = "btn_ExportExcel";
+            this.btn_ExportExcel.Size = new System.Drawing.Size(79, 55);
+            this.btn_ExportExcel.TabIndex = 31;
+            this.btn_ExportExcel.UseVisualStyleBackColor = true;
+            this.btn_ExportExcel.Click += new System.EventHandler(this.btn_ExportExcel_Click_1);
+            // 
             // frmOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
@@ -772,8 +785,10 @@
             this.Controls.Add(this.tab_HomeInvoiceSelling);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmOrder";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmOrder";
             this.Load += new System.EventHandler(this.frmOrder_Load);
             this.tab_HomeInvoiceSelling.ResumeLayout(false);
@@ -851,5 +866,6 @@
         private FontAwesome.Sharp.IconButton btn_ShowDetailInvoice;
         private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.ComboBox cbb_Search;
+        private System.Windows.Forms.Button btn_ExportExcel;
     }
 }

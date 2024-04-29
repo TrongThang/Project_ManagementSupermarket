@@ -230,12 +230,16 @@ namespace ManagementSupermarket
         }
         private void btn_Add_Click(object sender, EventArgs e)
         {
+            if (IsErrorInput())
+            {
+                return;
+            }
             string pathImage, nameProduct, idSupplier, idType, unitItem, unitTime, shelfLife;
             double cost, price;
             int count;
             byte status;
 
-            pathImage = pic_Product.ImageLocation;
+            pathImage = Path.GetFileName(pic_Product.ImageLocation);
             idSupplier = cbb_Supplier.SelectedValue.ToString();
             nameProduct = txt_NameProduct.Text.Trim();
             idType = cbb_TypeProduct.SelectedValue.ToString();
@@ -284,7 +288,11 @@ namespace ManagementSupermarket
             if (IsNotId())
             {
                 return;
+            }else if (IsErrorInput())
+            {
+                return;
             }
+
             string pathImage, idProduct, nameProduct, idSupplier, idType, unitItem, unitTime, shelfLife;
             double cost, price;
             int count;
@@ -386,6 +394,13 @@ namespace ManagementSupermarket
         {
             string nameProduct = txt_Search.Text.Trim();
             LoadDataGridView(nameProduct);
+        }
+
+        private void btn_ExportExcel_Click(object sender, EventArgs e)
+        {
+            DataTable tblProduct = (DataTable)dgv_ListProduct.DataSource;
+            ConfigExcel_PDF.ExportToExcel(tblProduct, "Product");
+            return;
         }
     }
 }

@@ -355,8 +355,10 @@
             this.Controls.Add(this.txt_ID);
             this.Controls.Add(this.lbl_);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "frmDiscount";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmDiscount";
             this.Load += new System.EventHandler(this.frmDiscount_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ListDiscount)).EndInit();
