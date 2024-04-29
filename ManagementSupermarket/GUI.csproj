@@ -141,6 +141,12 @@
     <Compile Include="Manager\frmWarehouse.Designer.cs">
       <DependentUpon>frmWarehouse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manager\frmRevenue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\frmRevenue.Designer.cs">
+      <DependentUpon>frmRevenue.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmChangePassword.resx">
@@ -175,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\frmOrder.resx">
       <DependentUpon>frmOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\frmRevenue.resx">
+      <DependentUpon>frmRevenue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\frmSuppiler.resx">
       <DependentUpon>frmSuppiler.cs</DependentUpon>

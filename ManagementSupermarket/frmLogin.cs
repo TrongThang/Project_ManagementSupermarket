@@ -36,8 +36,9 @@ namespace ManagementSupermarket
         {
             if(txt_Username.Text == "" && txt_Password.Text == "")
             {
-                string role = "QL";
-                frmHomeOfManager frmHomeOfManager = new frmHomeOfManager(role);
+                string role = "NV";
+                string idEmployee = "NV001";
+                frmHomeOfManager frmHomeOfManager = new frmHomeOfManager(idEmployee, role);
                 this.Hide();
                 frmHomeOfManager.Show();
                 return true;
@@ -70,7 +71,8 @@ namespace ManagementSupermarket
             else
             {
                 string role = tblAccount.Rows[0][1].ToString();
-                frmHomeOfManager frmHomeOfManager = new frmHomeOfManager(role);
+                string idEmployee = txt_Username.Text.Trim();
+                frmHomeOfManager frmHomeOfManager = new frmHomeOfManager(idEmployee, role);
                 this.Hide();
                 frmHomeOfManager.Show();
             }

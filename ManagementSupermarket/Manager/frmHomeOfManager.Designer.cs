@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel_Avatar = new System.Windows.Forms.FlowLayoutPanel();
+            this.btn_Info = new FontAwesome.Sharp.IconButton();
+            this.btn_ChangePassword = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pic_Avatar = new System.Windows.Forms.PictureBox();
             this.lbl_Name = new System.Windows.Forms.Label();
@@ -46,6 +49,7 @@
             this.btn_TypeProduct = new FontAwesome.Sharp.IconButton();
             this.btn_Customer = new FontAwesome.Sharp.IconButton();
             this.panel2.SuspendLayout();
+            this.panel_Avatar.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Avatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Logo)).BeginInit();
@@ -56,20 +60,57 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(150)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.panel_Avatar);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.pic_Logo);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1300, 126);
+            this.panel2.Size = new System.Drawing.Size(1345, 126);
             this.panel2.TabIndex = 1;
+            // 
+            // panel_Avatar
+            // 
+            this.panel_Avatar.Controls.Add(this.btn_Info);
+            this.panel_Avatar.Controls.Add(this.btn_ChangePassword);
+            this.panel_Avatar.Location = new System.Drawing.Point(1002, 9);
+            this.panel_Avatar.Name = "panel_Avatar";
+            this.panel_Avatar.Size = new System.Drawing.Size(200, 106);
+            this.panel_Avatar.TabIndex = 5;
+            this.panel_Avatar.Visible = false;
+            // 
+            // btn_Info
+            // 
+            this.btn_Info.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btn_Info.IconColor = System.Drawing.Color.Black;
+            this.btn_Info.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Info.Location = new System.Drawing.Point(3, 3);
+            this.btn_Info.Name = "btn_Info";
+            this.btn_Info.Size = new System.Drawing.Size(197, 47);
+            this.btn_Info.TabIndex = 0;
+            this.btn_Info.Text = "Thông tin";
+            this.btn_Info.UseVisualStyleBackColor = true;
+            this.btn_Info.Click += new System.EventHandler(this.btn_Info_Click);
+            // 
+            // btn_ChangePassword
+            // 
+            this.btn_ChangePassword.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btn_ChangePassword.IconColor = System.Drawing.Color.Black;
+            this.btn_ChangePassword.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_ChangePassword.Location = new System.Drawing.Point(3, 56);
+            this.btn_ChangePassword.Name = "btn_ChangePassword";
+            this.btn_ChangePassword.Size = new System.Drawing.Size(197, 47);
+            this.btn_ChangePassword.TabIndex = 1;
+            this.btn_ChangePassword.Text = "Đổi mật khẩu";
+            this.btn_ChangePassword.UseVisualStyleBackColor = true;
+            this.btn_ChangePassword.Click += new System.EventHandler(this.btn_ChangePassword_Click);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.pic_Avatar);
             this.panel1.Controls.Add(this.lbl_Name);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(1109, 0);
+            this.panel1.Location = new System.Drawing.Point(1154, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(189, 124);
             this.panel1.TabIndex = 5;
@@ -83,6 +124,7 @@
             this.pic_Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_Avatar.TabIndex = 3;
             this.pic_Avatar.TabStop = false;
+            this.pic_Avatar.Click += new System.EventHandler(this.pic_Avatar_Click);
             // 
             // lbl_Name
             // 
@@ -121,7 +163,7 @@
             this.FlowPanel_Button.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.FlowPanel_Button.Location = new System.Drawing.Point(0, 126);
             this.FlowPanel_Button.Name = "FlowPanel_Button";
-            this.FlowPanel_Button.Size = new System.Drawing.Size(246, 702);
+            this.FlowPanel_Button.Size = new System.Drawing.Size(246, 733);
             this.FlowPanel_Button.TabIndex = 7;
             this.FlowPanel_Button.WrapContents = false;
             // 
@@ -317,7 +359,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1300, 828);
+            this.ClientSize = new System.Drawing.Size(1345, 859);
             this.Controls.Add(this.FlowPanel_Button);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -326,7 +368,9 @@
             this.Name = "frmHomeOfManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmHome";
+            this.Load += new System.EventHandler(this.frmHomeOfManager_Load);
             this.panel2.ResumeLayout(false);
+            this.panel_Avatar.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Avatar)).EndInit();
@@ -354,5 +398,8 @@
         private FontAwesome.Sharp.IconButton btn_Exit;
         private FontAwesome.Sharp.IconButton btn_TypeProduct;
         private FontAwesome.Sharp.IconButton btn_Customer;
+        private System.Windows.Forms.FlowLayoutPanel panel_Avatar;
+        private FontAwesome.Sharp.IconButton btn_Info;
+        private FontAwesome.Sharp.IconButton btn_ChangePassword;
     }
 }

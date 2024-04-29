@@ -18,12 +18,16 @@ using System.Diagnostics;
 using System.Security.Permissions;
 using ComboBox = System.Windows.Forms.ComboBox;
 using ManagementSupermarket.Manager;
+using Button = System.Windows.Forms.Button;
+using Image = System.Drawing.Image;
+using System.IO;
 
 namespace ManagementSupermarket
 {
     public partial class frmOrder : Form
     {
-        private string idEmployee = "NV002";
+        private string s_idEmployee = "NV002";
+        private string s_role = "NV";
         private float TotalMoney = 0;
         public frmOrder()
         {
@@ -31,7 +35,7 @@ namespace ManagementSupermarket
         }
         public frmOrder(string idEmployee)
         {
-            this.idEmployee = idEmployee;
+            this.s_idEmployee = idEmployee;
             InitializeComponent();
         }
 
@@ -64,7 +68,37 @@ namespace ManagementSupermarket
         }
         private void LoadDataGridView_InvoiceSelling()
         {
-            dgv_InvoiceSelling.DataSource = (new BLL_InvoiceSelling()).GetInvoiceSelling("MaHD");
+            string idEmployee = null;
+            if (s_role == "NV")
+            {
+                idEmployee = this.s_idEmployee;
+            }
+            dgv_InvoiceSelling.DataSource = (new BLL_InvoiceSelling()).GetInvoiceSelling("MaNV", idEmployee);
+        }
+        private void LoadButtonProduct()
+        {
+            DataTable tblProduct = (new BLL_Product()).GetProduct("MaSP");
+
+            foreach (DataRow rows in tblProduct.Rows)
+            {
+                Button btn = new Button();
+                string imagePath = Path.Combine(Application.StartupPath, "..", "..","Image", "Products", rows["HinhAnh"].ToString());
+    
+                if (!File.Exists(imagePath))
+                {
+                    btn.BackgroundImage = Image.FromFile(imagePath);
+                    btn.BackgroundImageLayout = ImageLayout.Zoom;
+
+                }
+
+                btn.ImageAlign = ContentAlignment.MiddleLeft;
+                btn.TextAlign = ContentAlignment.MiddleCenter;
+                btn.Text = rows["TenSP"].ToString();
+                btn.Text += "\n\n";
+                btn.Text += rows["GiaBan"].ToString();
+                btn.Size = new Size(panel_Button.Width / 2 - 20, 150);
+                panel_Button.Controls.Add(btn);
+            }
         }
 
         private void frmOrder_Load(object sender, EventArgs e)
@@ -79,6 +113,12 @@ namespace ManagementSupermarket
             LoadDataGridView_InvoiceSelling();
             cbb_Search.SelectedIndex = 0;
 
+            LoadButtonProduct();
+            if (s_role == "NV")
+            {
+                int index = cbb_Search.FindString("MaNV");
+                cbb_Search.Items.RemoveAt(index);
+            }
         }
 
         private void lst_OrderCurrency_Click(object sender, EventArgs e)
@@ -339,7 +379,7 @@ namespace ManagementSupermarket
             //@MaKH varchar(10) = null,
             //@TongTien decimal,
             //@TienKhachDua decimal = 0
-            idEmployee = this.idEmployee;
+            idEmployee = this.s_idEmployee;
             if (chk_PhoneCustomer.Checked)
             {
                 phone = txt_PhoneCustomerCreate.Text.Trim();

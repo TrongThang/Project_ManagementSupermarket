@@ -53,6 +53,24 @@ namespace DAL
             return tblInvoice;
         }
 
+        public DataTable GetRevenue(string criteria, int value = 0)
+        {
+            string sql = "sp_GetRevenue";
+
+            DataTable tblRevenue = null;
+
+            //keySearch: is Text in ComboBox Search user choice
+            //Value: Text in TextBox user input
+            db.addParam("TieuChi", criteria);
+            if(value != 0)
+            {
+                db.addParam("GiaTri", value);
+            }
+            tblRevenue = db.queryExecuteAdapter(sql);
+
+            return tblRevenue;
+        }
+
         public DataTable InsertInvoiceSelling(DTO_InvoiceSelling invoice)
         {
             string sql = "sp_InsertInvoiceSelling";

@@ -15,13 +15,33 @@ namespace ManagementSupermarket
     public partial class frmHomeOfManager : Form
     {
         private string s_role;
-        public frmHomeOfManager(string role)
+        private string s_idEmployee;
+        public frmHomeOfManager(string idEmployee, string role)
         {
+            s_idEmployee = idEmployee;
             s_role = role;
             InitializeComponent();
         }
         private Form childForm;
         private object numCurrency;
+
+        private void RoleAccess()
+        {
+            if (s_role == "NV")
+            {
+                btn_Employee.Visible = false;
+                btn_Customer.Visible = false;
+                btn_Product.Visible = false;
+                btn_Discount.Visible = false;
+                btn_Supplier.Visible = false;
+                btn_WareHouse.Visible = false;
+                btn_TypeProduct.Visible = false;
+            }
+        }
+        private void frmHomeOfManager_Load(object sender, EventArgs e)
+        {
+            RoleAccess();
+        }
         private void btn_Sell_Click(object sender, EventArgs e)
         {
             if (numCurrency == btn_Sell.Tag)
@@ -193,5 +213,30 @@ namespace ManagementSupermarket
             }
         }
 
+        private void pic_Avatar_Click(object sender, EventArgs e)
+        {
+            if(panel_Avatar.Visible)
+            {
+                panel_Avatar.Visible = false;
+            }
+            else
+            {
+                panel_Avatar.Visible = true;
+            }
+        }
+
+        private void btn_Info_Click(object sender, EventArgs e)
+        {
+            frmInfomation frmInfomation = new frmInfomation(this.s_idEmployee);
+            frmInfomation.Show();
+        }
+
+        private void btn_ChangePassword_Click(object sender, EventArgs e)
+        {
+            frmChangePassword frmChangePassword = new frmChangePassword(this.s_idEmployee);
+            frmChangePassword.Show();
+        }
+
+       
     }
 }

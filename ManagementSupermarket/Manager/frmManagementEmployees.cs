@@ -9,6 +9,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Markup;
 using System.Windows.Media.Media3D;
 using BLL;
 using DTO;
@@ -17,10 +18,16 @@ namespace ManagementSupermarket
 {
     public partial class frmManagementEmployees : Form
     {
+        private string s_role = "QL";
         Event eventConfig = new Event();
         BLL_Employee dataEmployee = new BLL_Employee();
         public frmManagementEmployees()
         {
+            InitializeComponent();
+        }
+        public frmManagementEmployees(string role)
+        {
+            s_role = role;
             InitializeComponent();
         }
 
@@ -38,6 +45,24 @@ namespace ManagementSupermarket
             }
 
             dgv_ListEmployee.DataSource = dataEmployee.GetEmployeeTo("MaNV");
+        }
+        private bool IsMaster(string idEmployee)
+        {
+            bool isMaster = (new BLL_Employee()).GetEmployeeTo("MaNV", idEmployee).Rows[0]["MaChucVu"].ToString() == "QLCC";
+            if(isMaster )
+            {
+                return true;
+            }
+            return false;
+        }
+        private bool CanNotAddRole()
+        {
+            if (s_role == "QL")
+            {
+                MessageBox.Show("Bạn không có quyền tuỳ chỉnh chức vụ Quản lý cao cấp", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return true;
+            }
+            return false;
         }
         private void frmManagementEmployee_Load(object sender, EventArgs e)
         {
@@ -123,6 +148,10 @@ namespace ManagementSupermarket
         private void btn_Add_Click(object sender, EventArgs e)
         {
             On_OffLabelError(0);
+            if (CanNotAddRole())
+            {
+                return;
+            }
             string fullName = txt_FullName.Text.Trim();
             string CCCD = txt_CCCD.Text.Trim();
             string phone = txt_Phone.Text.Trim();
@@ -160,6 +189,10 @@ namespace ManagementSupermarket
         private void btn_Alter_Click(object sender, EventArgs e)
         {
             On_OffLabelError(0);
+            if (CanNotAddRole())
+            {
+                return;
+            }
             string id = txt_Id.Text.Trim();
             if (string.IsNullOrEmpty(id))
             {
@@ -203,6 +236,11 @@ namespace ManagementSupermarket
         private void btn_Delete_Click(object sender, EventArgs e)
         {
             string id = txt_Id.Text.Trim();
+            if (IsMaster(id))
+            {
+                MessageBox.Show("Không thể xoá quản lý cao cấp", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (string.IsNullOrEmpty(id))
             {
                 string mess = "Vui lòng chọn nhân viên muốn chỉnh sửa";
