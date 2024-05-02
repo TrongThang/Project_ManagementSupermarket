@@ -227,17 +227,15 @@
             // pic_Avatar
             // 
             this.pic_Avatar.BackColor = System.Drawing.Color.White;
-            this.pic_Avatar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pic_Avatar.ErrorImage = null;
             this.pic_Avatar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.pic_Avatar.IconChar = FontAwesome.Sharp.IconChar.None;
             this.pic_Avatar.IconColor = System.Drawing.SystemColors.ControlLightLight;
             this.pic_Avatar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.pic_Avatar.IconSize = 318;
+            this.pic_Avatar.IconSize = 302;
             this.pic_Avatar.InitialImage = global::ManagementSupermarket.Properties.Resources.avartaNam;
-            this.pic_Avatar.Location = new System.Drawing.Point(102, 183);
+            this.pic_Avatar.Location = new System.Drawing.Point(125, 167);
             this.pic_Avatar.Name = "pic_Avatar";
-            this.pic_Avatar.Size = new System.Drawing.Size(318, 393);
+            this.pic_Avatar.Size = new System.Drawing.Size(302, 385);
             this.pic_Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_Avatar.TabIndex = 0;
             this.pic_Avatar.TabStop = false;
