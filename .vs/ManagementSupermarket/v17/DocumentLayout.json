@@ -11,12 +11,12 @@
       "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\manager\\frmrevenue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|D:\\C#\\Project_ManagementSupermarket\\managementsupermarket\\manager\\frmhomeofmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\manager\\frmhomeofmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|d:\\c#\\project_managementsupermarket\\managementsupermarket\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|D:\\C#\\Project_ManagementSupermarket\\managementsupermarket\\manager\\frmhomeofmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\manager\\frmhomeofmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +30,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "frmHomeOfManager.cs",
               "DocumentMoniker": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\Manager\\frmHomeOfManager.cs",
               "RelativeDocumentMoniker": "ManagementSupermarket\\Manager\\frmHomeOfManager.cs",
@@ -80,13 +80,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\Program.cs",
               "RelativeDocumentMoniker": "ManagementSupermarket\\Program.cs",
               "ToolTip": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\Program.cs",
               "RelativeToolTip": "ManagementSupermarket\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAoAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-30T15:27:44.389Z",
               "EditorCaption": ""
@@ -99,7 +99,7 @@
               "RelativeDocumentMoniker": "ManagementSupermarket\\Manager\\frmRevenue.cs",
               "ToolTip": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\Manager\\frmRevenue.cs",
               "RelativeToolTip": "ManagementSupermarket\\Manager\\frmRevenue.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAIA0wCMAAAARAAAA",
+              "ViewState": "AQIAABwAAAAAAAAAAAAWwCkAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-30T15:20:22.889Z",
               "EditorCaption": ""

@@ -33,20 +33,24 @@ namespace ManagementSupermarket.Manager
         }
         private void LoadCriteria_Month()
         {
+            chart_Revenue.Series.Clear();
+            chart_Revenue.Series.Add("Lương");
             for (int i = 0; i < 11; i++)
             {
                 string money = IsMoney("Tháng", i + 1);
               
-                chart_Revenue.Series["Salary"].Points.AddXY($"Tháng {i + 1}", money);
+                chart_Revenue.Series["Lương"].Points.AddXY($"Tháng {i + 1}", money);
             }
         }
         private void LoadCriteria_Quarter()
         {
+            chart_Revenue.Series.Clear();
+            chart_Revenue.Series.Add("Lương");
             for (int i = 0; i < 4; i++)
             {
                 string money = IsMoney("Quý", i + 1);
 
-                chart_Revenue.Series["Salary"].Points.AddXY($"Quý {i + 1}", money);
+                chart_Revenue.Series["Lương"].Points.AddXY($"Quý {i + 1}", money);
             }
         }
         private void cbb_Criteria_SelectedIndexChanged(object sender, EventArgs e)
