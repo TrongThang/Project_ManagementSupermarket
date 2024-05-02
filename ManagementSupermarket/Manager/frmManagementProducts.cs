@@ -310,45 +310,51 @@ namespace ManagementSupermarket
             {
                 return;
             }
-
-            string pathImage, idProduct, nameProduct, idSupplier, idType, unitItem, unitTime, shelfLife;
-            double cost, price;
-            int count;
-            byte status;
-
-            pathImage = Path.GetFileName(pic_Product.ImageLocation);
-            idProduct = txt_ID.Text;
-            nameProduct = txt_NameProduct.Text.Trim();
-            idSupplier = cbb_Supplier.SelectedValue.ToString();
-            idType = cbb_TypeProduct.SelectedValue.ToString();
-            unitItem = cbb_UnitCaculator.Text.ToString();
-            unitTime = cbb_UnitTime.SelectedValue.ToString();
-
-            cost = double.Parse(txt_Cost.Text);
-            price = double.Parse(txt_Price.Text);
-            shelfLife = num_ShelfLife.Text + unitTime;
-
-            count = (int)num_Count.Value;
-            status = (byte)(chk_Status.Checked ? 1 : 0);
-
-            DTO_Product product = new DTO_Product(pathImage, nameProduct, idSupplier, idType, cost, price, count, shelfLife, unitItem, status, idProduct);
-
-            int affectedRows = (new BLL_Product()).UpdateProduct(product);
-
-            string mess = "";
-            if (affectedRows > 0)
+            try
             {
-                mess = $"Chỉnh sủa thông tin sản phẩm {nameProduct} thành công!!";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadDataGridView();
-                CopyImageToFolderProject(pathImage);
-                return;
+                string pathImage, idProduct, nameProduct, idSupplier, idType, unitItem, unitTime, shelfLife;
+                double cost, price;
+                int count;
+                byte status;
+
+                pathImage = Path.GetFileName(pic_Product.ImageLocation);
+                idProduct = txt_ID.Text;
+                nameProduct = txt_NameProduct.Text.Trim();
+                idSupplier = cbb_Supplier.SelectedValue.ToString();
+                idType = cbb_TypeProduct.SelectedValue.ToString();
+                unitItem = cbb_UnitCaculator.Text.ToString();
+                unitTime = cbb_UnitTime.SelectedValue.ToString();
+
+                cost = double.Parse(txt_Cost.Text);
+                price = double.Parse(txt_Price.Text);
+                shelfLife = num_ShelfLife.Text + unitTime;
+
+                count = (int)num_Count.Value;
+                status = (byte)(chk_Status.Checked ? 1 : 0);
+
+                DTO_Product product = new DTO_Product(pathImage, nameProduct, idSupplier, idType, cost, price, count, shelfLife, unitItem, status, idProduct);
+
+                int affectedRows = (new BLL_Product()).UpdateProduct(product);
+
+                string mess = "";
+                if (affectedRows > 0)
+                {
+                    mess = $"Chỉnh sủa thông tin sản phẩm {nameProduct} thành công!!";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadDataGridView();
+                    CopyImageToFolderProject(pathImage);
+                    return;
+                }
+                else
+                {
+                    mess = $"Chỉnh sủa thông tin sản phẩm {nameProduct} thất bại. Vui lòng thử lại!!";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
-            else
+            catch (Exception err)
             {
-                mess = $"Chỉnh sủa thông tin sản phẩm {nameProduct} thất bại. Vui lòng thử lại!!";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -358,38 +364,46 @@ namespace ManagementSupermarket
             {
                 return;
             }
-            string idProduct, nameProduct;
-            idProduct = txt_ID.Text;
-            nameProduct = txt_NameProduct.Text;
-
-            DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xoá sản phẩm {nameProduct}?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (result == DialogResult.Yes)
+            try
             {
-                try
-                {
-                    int affectedRows = (new BLL_Product()).UpdateStatusProduct(idProduct);
-                    string mess = "";
-                    if (affectedRows > 0)
-                    {
-                        mess = $"Xoá sản phẩm {nameProduct} thành công!!";
-                        MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadDataGridView();
-                        return;
-                    }
-                    else
-                    {
-                        mess = $"Xoá sản phẩm {nameProduct} thất bại. Vui lòng thử lại!!";
-                        MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                }
-                catch (Exception err)
-                {
-                    MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    throw;
-                }
+                string idProduct, nameProduct;
+                idProduct = txt_ID.Text;
+                nameProduct = txt_NameProduct.Text;
 
+                DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xoá sản phẩm {nameProduct}?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        int affectedRows = (new BLL_Product()).UpdateStatusProduct(idProduct);
+                        string mess = "";
+                        if (affectedRows > 0)
+                        {
+                            mess = $"Xoá sản phẩm {nameProduct} thành công!!";
+                            MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadDataGridView();
+                            return;
+                        }
+                        else
+                        {
+                            mess = $"Xoá sản phẩm {nameProduct} thất bại. Vui lòng thử lại!!";
+                            MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                    catch (Exception err)
+                    {
+                        MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        throw;
+                    }
+
+                }
             }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
         private void btn_Refresh_Click(object sender, EventArgs e)
         {

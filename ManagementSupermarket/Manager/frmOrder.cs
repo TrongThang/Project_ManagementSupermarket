@@ -111,28 +111,35 @@ namespace ManagementSupermarket
         }
         private void LoadButtonProduct()
         {
-            DataTable tblProduct = (new BLL_Product()).GetProduct("MaSP");
-
-            foreach (DataRow rows in tblProduct.Rows)
+            try
             {
-                Button btn = new Button();
-                string imagePath = Path.Combine(Application.StartupPath, "..", "..","Image", "Products", rows["HinhAnh"].ToString());
-    
-                if (!File.Exists(imagePath))
+                DataTable tblProduct = (new BLL_Product()).GetProduct("MaSP");
+
+                foreach (DataRow rows in tblProduct.Rows)
                 {
-                    btn.BackgroundImage = Image.FromFile(imagePath);
-                    btn.BackgroundImageLayout = ImageLayout.Zoom;
+                    Button btn = new Button();
+                    string imagePath = Path.Combine(Application.StartupPath, "..", "..", "Image", "Products", rows["HinhAnh"].ToString());
 
+                    if (!File.Exists(imagePath))
+                    {
+                        btn.BackgroundImage = Image.FromFile(imagePath);
+                        btn.BackgroundImageLayout = ImageLayout.Zoom;
+
+                    }
+
+                    btn.ImageAlign = ContentAlignment.MiddleLeft;
+                    btn.TextAlign = ContentAlignment.MiddleCenter;
+                    btn.Text = rows["TenSP"].ToString();
+                    btn.Text += "\n\n";
+                    btn.Text += rows["GiaBan"].ToString();
+                    btn.Size = new Size(panel_Button.Width / 2 - 20, 150);
+                    panel_Button.Controls.Add(btn);
                 }
-
-                btn.ImageAlign = ContentAlignment.MiddleLeft;
-                btn.TextAlign = ContentAlignment.MiddleCenter;
-                btn.Text = rows["TenSP"].ToString();
-                btn.Text += "\n\n";
-                btn.Text += rows["GiaBan"].ToString();
-                btn.Size = new Size(panel_Button.Width / 2 - 20, 150);
-                panel_Button.Controls.Add(btn);
             }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }   
         }
 
         private void frmOrder_Load(object sender, EventArgs e)
@@ -157,26 +164,33 @@ namespace ManagementSupermarket
 
         private void lst_OrderCurrency_Click(object sender, EventArgs e)
         {
-            if (lst_OrderCurrency.SelectedItems.Count > 0)
+            try
             {
-
-                ListViewSubItemCollection itemSelected = lst_OrderCurrency.SelectedItems[0].SubItems;
-
-                cbb_NameProductCreate.Text = itemSelected[1].Text;
-
-                DataTable tblDiscount = (new BLL_Discount()).GetDiscount("MaKM", itemSelected[4].Text);
-                bool issetNameDiscount = tblDiscount.Rows.Count > 0;
-                if (issetNameDiscount)
+                if (lst_OrderCurrency.SelectedItems.Count > 0)
                 {
-                    cbb_DiscountCreate.Text = tblDiscount.Rows[0]["TenKM"].ToString();
+
+                    ListViewSubItemCollection itemSelected = lst_OrderCurrency.SelectedItems[0].SubItems;
+
+                    cbb_NameProductCreate.Text = itemSelected[1].Text;
+
+                    DataTable tblDiscount = (new BLL_Discount()).GetDiscount("MaKM", itemSelected[4].Text);
+                    bool issetNameDiscount = tblDiscount.Rows.Count > 0;
+                    if (issetNameDiscount)
+                    {
+                        cbb_DiscountCreate.Text = tblDiscount.Rows[0]["TenKM"].ToString();
+                    }
+                    else
+                    {
+                        cbb_DiscountCreate.Text = "";
+                    }
+                    num_CountProductCreate.Text = itemSelected[2].Text;
+                    txt_PriceCreate.Text = itemSelected[3].Text;
+                    txt_AmountCreate.Text = itemSelected[6].Text;
                 }
-                else
-                {
-                    cbb_DiscountCreate.Text = "";
-                }
-                num_CountProductCreate.Text = itemSelected[2].Text;
-                txt_PriceCreate.Text = itemSelected[3].Text;
-                txt_AmountCreate.Text = itemSelected[6].Text;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private bool IsNotSetCash()
@@ -215,133 +229,154 @@ namespace ManagementSupermarket
         }
         private void cbb_NameProductCreate_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            string idProduct = cbb_NameProductCreate.SelectedValue.ToString();
-            txt_PriceCreate.Text = (new BLL_Product()).GetProduct("MaSP", idProduct).Rows[0]["GiaBan"].ToString();
+            try
+            {
+                string idProduct = cbb_NameProductCreate.SelectedValue.ToString();
+                txt_PriceCreate.Text = (new BLL_Product()).GetProduct("MaSP", idProduct).Rows[0]["GiaBan"].ToString();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }   
         }
         private void btn_Add_Click(object sender, EventArgs e)
         {
-            int count = (int)num_CountProductCreate.Value;
-            if (count <= 0)
+            try
             {
-                MessageBox.Show("Vui lòng chọn số lượng ít nhất là 1!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
+                int count = (int)num_CountProductCreate.Value;
+                if (count <= 0)
+                {
+                    MessageBox.Show("Vui lòng chọn số lượng ít nhất là 1!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
 
-            lbl_ErrorCashCustomer.Visible = false;
+                lbl_ErrorCashCustomer.Visible = false;
 
-            string idProduct, idDiscount, nameProduct;
-            float price, discount, amount;
+                string idProduct, idDiscount, nameProduct;
+                float price, discount, amount;
 
-            idProduct = cbb_NameProductCreate.SelectedValue.ToString();
-            nameProduct = cbb_NameProductCreate.Text;
-            price = float.Parse(txt_PriceCreate.Text);
+                idProduct = cbb_NameProductCreate.SelectedValue.ToString();
+                nameProduct = cbb_NameProductCreate.Text;
+                price = float.Parse(txt_PriceCreate.Text);
 
 
-            idDiscount = cbb_DiscountCreate.SelectedValue.ToString();
-            DataTable tblDiscount = (new BLL_Discount()).GetDiscount("MaKM", idDiscount);
+                idDiscount = cbb_DiscountCreate.SelectedValue.ToString();
+                DataTable tblDiscount = (new BLL_Discount()).GetDiscount("MaKM", idDiscount);
 
-            //Discount price use to show user. Don't Insert Database. Insert Database is Id Discount
-            if (tblDiscount.Rows.Count > 0)
-            {
-                string value = tblDiscount.Rows[0]["GiaKhuyenMai"].ToString();
-                discount = float.Parse(value);
-                amount = price * count * (1 - discount);
-            }
-            else
-            {
-                discount = 1;
-                amount = price * count;
-            }
+                //Discount price use to show user. Don't Insert Database. Insert Database is Id Discount
+                if (tblDiscount.Rows.Count > 0)
+                {
+                    string value = tblDiscount.Rows[0]["GiaKhuyenMai"].ToString();
+                    discount = float.Parse(value);
+                    amount = price * count * (1 - discount);
+                }
+                else
+                {
+                    discount = 1;
+                    amount = price * count;
+                }
 
-            ListViewItem item = new ListViewItem(idProduct);
-            item.Name = idProduct;
-            item.SubItems.Add(nameProduct);
-            item.SubItems.Add(count.ToString());
-            item.SubItems.Add(price.ToString());
-            item.SubItems.Add(idDiscount);
-            item.SubItems.Add($"{discount * 100}%");
-            item.SubItems.Add(amount.ToString());
+                ListViewItem item = new ListViewItem(idProduct);
+                item.Name = idProduct;
+                item.SubItems.Add(nameProduct);
+                item.SubItems.Add(count.ToString());
+                item.SubItems.Add(price.ToString());
+                item.SubItems.Add(idDiscount);
+                item.SubItems.Add($"{discount * 100}%");
+                item.SubItems.Add(amount.ToString());
 
-            //Check If have product, sum Product old and new
-            int indexItemExist = lst_OrderCurrency.Items.IndexOfKey(idProduct);
-            if (indexItemExist >= 0)
-            {
-                ListViewSubItemCollection subItem = lst_OrderCurrency.Items[indexItemExist].SubItems;
-                int newCount = int.Parse(subItem[2].Text) + count;
-                float newAmount = float.Parse(subItem[6].Text) + amount;
-
-                lst_OrderCurrency.Items[indexItemExist].SubItems[2].Text = newCount.ToString();
-                lst_OrderCurrency.Items[indexItemExist].SubItems[6].Text = newAmount.ToString();
-            }
-            else
-            {
-                lst_OrderCurrency.Items.Add(item);
-            }
-            
-            this.TotalMoney += amount;
-            txt_TotalCashCreate.Text = this.TotalMoney.ToString();
-        }
-        private void btn_Alter_Click(object sender, EventArgs e)
-        {
-            int count = (int)num_CountProductCreate.Value;
-            if (count < 1)
-            {
-                btn_Delete_Click(sender, e);
-            }
-
-            lbl_ErrorCashCustomer.Visible = false;
-
-            string idProduct, idDiscount, nameProduct;
-            float price, discount, amount;
-
-            idProduct = cbb_NameProductCreate.SelectedValue.ToString();
-            nameProduct = cbb_NameProductCreate.Text;
-            price = float.Parse(txt_PriceCreate.Text);
-
-           
-            idDiscount = cbb_DiscountCreate.SelectedValue.ToString();
-            DataTable tblDiscount = (new BLL_Discount()).GetDiscount("MaKM", idDiscount);
-
-            //Discount price use to show user. Don't Insert Database. Insert Database is Id Discount
-            if (tblDiscount.Rows.Count > 0)
-            {
-                string value = tblDiscount.Rows[0]["GiaKhuyenMai"].ToString();
-                discount = 1 - float.Parse(value);
-                amount = price * count * discount;
-            }
-            else
-            {
-                discount = 0;
-                amount = price * count;
-            }
-
-            DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn sửa thông tin bán hàng của {nameProduct}??", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
-            {
+                //Check If have product, sum Product old and new
                 int indexItemExist = lst_OrderCurrency.Items.IndexOfKey(idProduct);
                 if (indexItemExist >= 0)
                 {
                     ListViewSubItemCollection subItem = lst_OrderCurrency.Items[indexItemExist].SubItems;
-                    
-                    this.TotalMoney = TotalMoney - (int.Parse(subItem[2].Text) - count) * price * (discount == 0 ? 1 : discount);
+                    int newCount = int.Parse(subItem[2].Text) + count;
+                    float newAmount = float.Parse(subItem[6].Text) + amount;
 
-                    subItem[2].Text = count.ToString();
-                    subItem[3].Text = price.ToString();
-                    subItem[5].Text = $"{discount * 100}%";
-                    subItem[6].Text = amount.ToString();
-
-                    //Set Total Money after update Product
-                    MessageBox.Show($"Chỉnh sửa thông tin {nameProduct} thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    lst_OrderCurrency.Items[indexItemExist].SubItems[2].Text = newCount.ToString();
+                    lst_OrderCurrency.Items[indexItemExist].SubItems[6].Text = newAmount.ToString();
                 }
                 else
                 {
-                    MessageBox.Show($"Có lõi trong quá trình chỉnh sửa thông tin {nameProduct}. Vui lòng thử lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    lst_OrderCurrency.Items.Add(item);
                 }
 
+                this.TotalMoney += amount;
                 txt_TotalCashCreate.Text = this.TotalMoney.ToString();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void btn_Alter_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int count = (int)num_CountProductCreate.Value;
+                if (count < 1)
+                {
+                    btn_Delete_Click(sender, e);
+                }
 
+                lbl_ErrorCashCustomer.Visible = false;
+
+                string idProduct, idDiscount, nameProduct;
+                float price, discount, amount;
+
+                idProduct = cbb_NameProductCreate.SelectedValue.ToString();
+                nameProduct = cbb_NameProductCreate.Text;
+                price = float.Parse(txt_PriceCreate.Text);
+
+
+                idDiscount = cbb_DiscountCreate.SelectedValue.ToString();
+                DataTable tblDiscount = (new BLL_Discount()).GetDiscount("MaKM", idDiscount);
+
+                //Discount price use to show user. Don't Insert Database. Insert Database is Id Discount
+                if (tblDiscount.Rows.Count > 0)
+                {
+                    string value = tblDiscount.Rows[0]["GiaKhuyenMai"].ToString();
+                    discount = 1 - float.Parse(value);
+                    amount = price * count * discount;
+                }
+                else
+                {
+                    discount = 0;
+                    amount = price * count;
+                }
+
+                DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn sửa thông tin bán hàng của {nameProduct}??", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    int indexItemExist = lst_OrderCurrency.Items.IndexOfKey(idProduct);
+                    if (indexItemExist >= 0)
+                    {
+                        ListViewSubItemCollection subItem = lst_OrderCurrency.Items[indexItemExist].SubItems;
+
+                        this.TotalMoney = TotalMoney - (int.Parse(subItem[2].Text) - count) * price * (discount == 0 ? 1 : discount);
+
+                        subItem[2].Text = count.ToString();
+                        subItem[3].Text = price.ToString();
+                        subItem[5].Text = $"{discount * 100}%";
+                        subItem[6].Text = amount.ToString();
+
+                        //Set Total Money after update Product
+                        MessageBox.Show($"Chỉnh sửa thông tin {nameProduct} thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Có lõi trong quá trình chỉnh sửa thông tin {nameProduct}. Vui lòng thử lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    txt_TotalCashCreate.Text = this.TotalMoney.ToString();
+
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -404,73 +439,81 @@ namespace ManagementSupermarket
         
         private void btn_FinishOrder_Click(object sender, EventArgs e)
         {
-            lbl_ErrorCashCustomer.Visible = false;
-            ErrorMoneyCashCustomer();
-
-
-            string idInvoice, idProduct, idDiscount, idEmployee, idCustomer = null,nameProduct, phone;
-            float price, discount, amount, totalMoney, cashCustomer;
-            int countProduct;
-
-            //Process: Insert Invoice => Get Id Invoice => Check Condition Insert Invoice => Before Use Loop To Insert Detail Invoice
-
-            //@MaNV varchar(10),
-            //@MaKH varchar(10) = null,
-            //@TongTien decimal,
-            //@TienKhachDua decimal = 0
-            idEmployee = this.s_idEmployee;
-            if (chk_PhoneCustomer.Checked)
+            try
             {
-                phone = txt_PhoneCustomerCreate.Text.Trim();
-                DataTable tblCustomer = (new BLL_Customer()).GetCustomerTo("SDT", phone);
-                if (tblCustomer.Rows.Count > 0)
+                lbl_ErrorCashCustomer.Visible = false;
+                ErrorMoneyCashCustomer();
+
+
+                string idInvoice, idProduct, idDiscount, idEmployee, idCustomer = null, nameProduct, phone;
+                float price, discount, amount, totalMoney, cashCustomer;
+                int countProduct;
+
+                //Process: Insert Invoice => Get Id Invoice => Check Condition Insert Invoice => Before Use Loop To Insert Detail Invoice
+
+                //@MaNV varchar(10),
+                //@MaKH varchar(10) = null,
+                //@TongTien decimal,
+                //@TienKhachDua decimal = 0
+                idEmployee = this.s_idEmployee;
+                if (chk_PhoneCustomer.Checked)
                 {
-                    idCustomer = tblCustomer.Rows[0]["MaKH"].ToString();
+                    phone = txt_PhoneCustomerCreate.Text.Trim();
+                    DataTable tblCustomer = (new BLL_Customer()).GetCustomerTo("SDT", phone);
+                    if (tblCustomer.Rows.Count > 0)
+                    {
+                        idCustomer = tblCustomer.Rows[0]["MaKH"].ToString();
 
-                }                
-            }
-
-            totalMoney = this.TotalMoney;
-            
-            cashCustomer = string.IsNullOrEmpty(txt_CashCustomerCreate.Text) ? 0 : float.Parse(txt_CashCustomerCreate.Text);
-
-            DTO_InvoiceSelling invoiceSelling = new DTO_InvoiceSelling(idEmployee, totalMoney, cashCustomer, idCustomer);
-            idInvoice = (new BLL_InvoiceSelling()).InsertInvoiceSelling(invoiceSelling).Rows[0][0].ToString();
-            //FINISH INSERT INVOICE
-
-            int countInsertDetail = 0;
-            foreach (ListViewItem row in lst_OrderCurrency.Items)
-            {
-                //PROCES Insert Invoice
-                //@MaHD varchar(10),
-                //@MaSP varchar(20) = null,
-                //@MaKM varchar(10) = null,
-                //@SoLuong int = 0,
-                //@DonGia decimal = 0
-                idProduct = row.SubItems[0].Text;
-                countProduct = int.Parse(row.SubItems[2].Text);
-                idDiscount = string.IsNullOrEmpty(row.SubItems[4].Text) ? null : row.SubItems[4].Text;
-
-                countInsertDetail += countProduct;
-
-                price = int.Parse(row.SubItems[3].Text);
-
-                DTO_Detail_InvoiceSelling detailInvoice = new DTO_Detail_InvoiceSelling(idInvoice, idProduct, idDiscount, countProduct, price);
-                int numOfRows = (new BLL_Detail_InvoiceSelling()).InsertDetailInvoiceSelling(detailInvoice);
-                if(numOfRows > 0)
-                {
-                    countInsertDetail++;
+                    }
                 }
-            }
 
-            if(countInsertDetail > 0)
-            {
-                MessageBox.Show($"Đã bán {countInsertDetail} sản phẩm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                btn_RefreshCreate_Click(sender, e);
+                totalMoney = this.TotalMoney;
+
+                cashCustomer = string.IsNullOrEmpty(txt_CashCustomerCreate.Text) ? 0 : float.Parse(txt_CashCustomerCreate.Text);
+
+                DTO_InvoiceSelling invoiceSelling = new DTO_InvoiceSelling(idEmployee, totalMoney, cashCustomer, idCustomer);
+                idInvoice = (new BLL_InvoiceSelling()).InsertInvoiceSelling(invoiceSelling).Rows[0][0].ToString();
+                //FINISH INSERT INVOICE
+
+                int countInsertDetail = 0;
+                foreach (ListViewItem row in lst_OrderCurrency.Items)
+                {
+                    //PROCES Insert Invoice
+                    //@MaHD varchar(10),
+                    //@MaSP varchar(20) = null,
+                    //@MaKM varchar(10) = null,
+                    //@SoLuong int = 0,
+                    //@DonGia decimal = 0
+                    idProduct = row.SubItems[0].Text;
+                    countProduct = int.Parse(row.SubItems[2].Text);
+                    idDiscount = string.IsNullOrEmpty(row.SubItems[4].Text) ? null : row.SubItems[4].Text;
+
+                    countInsertDetail += countProduct;
+
+                    price = int.Parse(row.SubItems[3].Text);
+
+                    DTO_Detail_InvoiceSelling detailInvoice = new DTO_Detail_InvoiceSelling(idInvoice, idProduct, idDiscount, countProduct, price);
+                    int numOfRows = (new BLL_Detail_InvoiceSelling()).InsertDetailInvoiceSelling(detailInvoice);
+                    if (numOfRows > 0)
+                    {
+                        countInsertDetail++;
+                    }
+                }
+
+                if (countInsertDetail > 0)
+                {
+                    MessageBox.Show($"Đã bán {countInsertDetail} sản phẩm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btn_RefreshCreate_Click(sender, e);
+                    return;
+                }
+                MessageBox.Show($"Xảy ra sai sót trong quá trình bán hàng. Vui lòng thử lại", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            }   
-            MessageBox.Show($"Xảy ra sai sót trong quá trình bán hàng. Vui lòng thử lại", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void btn_RefreshCreate_Click(object sender, EventArgs e)
@@ -514,21 +557,28 @@ namespace ManagementSupermarket
 
         private void btn_ShowDetailInvoice_Click(object sender, EventArgs e)
         {
-            if(dgv_InvoiceSelling.SelectedRows.Count > 0)
+            try
             {
-                string idInvoice = dgv_InvoiceSelling.SelectedRows[0].Cells["MaHD"].Value.ToString();
-                string idEmployee = dgv_InvoiceSelling.SelectedRows[0].Cells["MaNV"].Value.ToString();
-                string nameEmployee = (new BLL_Employee()).GetEmployeeTo("MaNV", idEmployee).Rows[0]["HoTen"].ToString();
-    
-                bool issetCustomer = (new BLL_Customer()).GetCustomerTo("MaKH", txt_IdCustomer.Text).Rows.Count > 0;
-                string nameCustomer = "";
-                if(issetCustomer)
+                if (dgv_InvoiceSelling.SelectedRows.Count > 0)
                 {
-                    nameCustomer = (new BLL_Customer()).GetCustomerTo("MaKH", txt_IdCustomer.Text).Rows[0]["HoTen"].ToString();
+                    string idInvoice = dgv_InvoiceSelling.SelectedRows[0].Cells["MaHD"].Value.ToString();
+                    string idEmployee = dgv_InvoiceSelling.SelectedRows[0].Cells["MaNV"].Value.ToString();
+                    string nameEmployee = (new BLL_Employee()).GetEmployeeTo("MaNV", idEmployee).Rows[0]["HoTen"].ToString();
+
+                    bool issetCustomer = (new BLL_Customer()).GetCustomerTo("MaKH", txt_IdCustomer.Text).Rows.Count > 0;
+                    string nameCustomer = "";
+                    if (issetCustomer)
+                    {
+                        nameCustomer = (new BLL_Customer()).GetCustomerTo("MaKH", txt_IdCustomer.Text).Rows[0]["HoTen"].ToString();
+                    }
+                    double totalCash = double.Parse(dgv_InvoiceSelling.SelectedRows[0].Cells["TongTien"].Value.ToString());
+                    frmDetailInvoiceSelling frmDetail = new frmDetailInvoiceSelling(txt_IdOrder.Text, nameEmployee, dtp_CreatedTime.Value, nameCustomer, totalCash);
+                    frmDetail.ShowDialog();
                 }
-                double totalCash = double.Parse(dgv_InvoiceSelling.SelectedRows[0].Cells["TongTien"].Value.ToString());
-                frmDetailInvoiceSelling frmDetail = new frmDetailInvoiceSelling(txt_IdOrder.Text, nameEmployee, dtp_CreatedTime.Value, nameCustomer, totalCash);
-                frmDetail.ShowDialog();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -553,9 +603,17 @@ namespace ManagementSupermarket
 
         private void btn_ExportExcel_Click_1(object sender, EventArgs e)
         {
-            DataTable tblInvoiceSelling = (DataTable)dgv_InvoiceSelling.DataSource;
-            ConfigExcel_PDF.ExportToExcel(tblInvoiceSelling, $"Invoice Selling");
-            return;
+            try
+            {
+                DataTable tblInvoiceSelling = (DataTable)dgv_InvoiceSelling.DataSource;
+                ConfigExcel_PDF.ExportToExcel(tblInvoiceSelling, $"Invoice Selling");
+                return;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }

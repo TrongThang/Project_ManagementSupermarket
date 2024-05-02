@@ -123,22 +123,29 @@ namespace ManagementSupermarket
 
         private void dgv_ListEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewCellCollection rowSelected = dgv_ListEmployee.SelectedRows[0].Cells;
-
-            if (rowSelected.Count > 0)
+            try
             {
-                txt_Id.Text = rowSelected["MaNV"].Value.ToString();
-                txt_FullName.Text = rowSelected["HoTen"].Value.ToString();
-                txt_CCCD.Text = rowSelected["CCCD"].Value.ToString();
-                txt_Phone.Text = rowSelected["SDT"].Value.ToString();
-                txt_Address.Text = rowSelected["DiaChi"].Value.ToString();
+                DataGridViewCellCollection rowSelected = dgv_ListEmployee.SelectedRows[0].Cells;
 
-                dtp_CreatedTime.Value = (DateTime)rowSelected["NgayTao"].Value;
+                if (rowSelected.Count > 0)
+                {
+                    txt_Id.Text = rowSelected["MaNV"].Value.ToString();
+                    txt_FullName.Text = rowSelected["HoTen"].Value.ToString();
+                    txt_CCCD.Text = rowSelected["CCCD"].Value.ToString();
+                    txt_Phone.Text = rowSelected["SDT"].Value.ToString();
+                    txt_Address.Text = rowSelected["DiaChi"].Value.ToString();
 
-                cbb_Role.Text = rowSelected["MaChucVu"].Value.ToString();
-                rad_Male.Checked = rowSelected["GioiTinh"].Value.ToString() == "Nam" ? true : false;
-                rad_Female.Checked = !rad_Male.Checked;
-                chk_Status.Checked = (bool)rowSelected["TrangThai"].Value;
+                    dtp_CreatedTime.Value = (DateTime)rowSelected["NgayTao"].Value;
+
+                    cbb_Role.Text = rowSelected["MaChucVu"].Value.ToString();
+                    rad_Male.Checked = rowSelected["GioiTinh"].Value.ToString() == "Nam" ? true : false;
+                    rad_Female.Checked = !rad_Male.Checked;
+                    chk_Status.Checked = (bool)rowSelected["TrangThai"].Value;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -162,29 +169,35 @@ namespace ManagementSupermarket
             {
                 return;
             }
-
+            
             DateTime createdTime = dtp_CreatedTime.Value;
             string gender = rad_Male.Checked ? "Nam" : "Nữ";
             string RoleName = cbb_Role.Text.Trim();
             byte status = (byte)(chk_Status.Checked ? 1 : 0);
 
-           
 
-            DTO_Employee employee = new DTO_Employee(fullName, CCCD, gender, address, phone, createdTime, RoleName, status);
-
-            int numOfRows = dataEmployee.InsertEmployee(employee);
-            if (numOfRows > 0)
+            try
             {
-                string mess = "Thêm nhân viên thành công";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
-            }
-            else
-            {
-                string mess = "Thêm nhân viên thất bại";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+                DTO_Employee employee = new DTO_Employee(fullName, CCCD, gender, address, phone, createdTime, RoleName, status);
 
+                int numOfRows = dataEmployee.InsertEmployee(employee);
+                if (numOfRows > 0)
+                {
+                    string mess = "Thêm nhân viên thành công";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                }
+                else
+                {
+                    string mess = "Thêm nhân viên thất bại";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btn_Alter_Click(object sender, EventArgs e)
@@ -249,18 +262,25 @@ namespace ManagementSupermarket
                 return;
             }
 
-            int numOfRows = dataEmployee.UpdateStatusEmployee(id);
+            try
+            {
+                int numOfRows = dataEmployee.UpdateStatusEmployee(id);
 
-            if (numOfRows > 0)
-            {
-                string mess = "Xoá thông tin nhân viên thành công";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
+                if (numOfRows > 0)
+                {
+                    string mess = "Xoá thông tin nhân viên thành công";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                }
+                else
+                {
+                    string mess = "Xoá thông tin nhân viên thất bại";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
+            catch (Exception err)
             {
-                string mess = "Xoá thông tin nhân viên thất bại";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
