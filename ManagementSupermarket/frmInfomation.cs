@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
 using BLL;
+using System.IO;
 namespace ManagementSupermarket
 {
     public partial class frmInfomation : Form
@@ -45,11 +46,10 @@ namespace ManagementSupermarket
             if(isMale)
             {
                 rad_Male.Checked = true;
-                pic_Avatar.ImageLocation = "\\Image\\Icon\\avatarDefaultFemale.png";
+                pic_Avatar.ImageLocation = Path.Combine(Application.StartupPath, "..", "..", "Image" ,"Icon", "avatarDefaultMale.png");
             }else { 
                 rad_Female.Checked = true;
-                pic_Avatar.ImageLocation = "\\Image\\Icon\\avatarDefaultFemale.png";
-
+                pic_Avatar.ImageLocation = Path.Combine(Application.StartupPath, "..", "..", "Image" ,"Icon", "avatarDefaultFemale.png");
             }
 
             txt_Address.Text = employee["DiaChi"].ToString();

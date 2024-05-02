@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "D:\\C#\\Project_ManagementSupermarket\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|d:\\c#\\project_managementsupermarket\\managementsupermarket\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|d:\\c#\\project_managementsupermarket\\managementsupermarket\\frminfomation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\frminfomation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|D:\\C#\\Project_ManagementSupermarket\\managementsupermarket\\manager\\frmhomeofmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|d:\\c#\\project_managementsupermarket\\managementsupermarket\\frminfomation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\frminfomation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|d:\\c#\\project_managementsupermarket\\managementsupermarket\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|d:\\c#\\project_managementsupermarket\\managementsupermarket\\manager\\frmhomeofmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\manager\\frmhomeofmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|d:\\c#\\project_managementsupermarket\\managementsupermarket\\manager\\frmhomeofmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\manager\\frmhomeofmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|d:\\c#\\project_managementsupermarket\\managementsupermarket\\manager\\frmmanagementproducts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\manager\\frmmanagementproducts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,21 +34,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 12,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmHomeOfManager.cs",
-              "DocumentMoniker": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\Manager\\frmHomeOfManager.cs",
-              "RelativeDocumentMoniker": "ManagementSupermarket\\Manager\\frmHomeOfManager.cs",
-              "ToolTip": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\Manager\\frmHomeOfManager.cs",
-              "RelativeToolTip": "ManagementSupermarket\\Manager\\frmHomeOfManager.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAACwAAABjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-30T15:20:59.374Z",
-              "IsPinned": true
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -71,16 +74,81 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\Program.cs",
-              "RelativeDocumentMoniker": "ManagementSupermarket\\Program.cs",
-              "ToolTip": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\Program.cs",
-              "RelativeToolTip": "ManagementSupermarket\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAaAAAA",
+              "DocumentIndex": 5,
+              "Title": "frmManagementProducts.cs",
+              "DocumentMoniker": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\Manager\\frmManagementProducts.cs",
+              "RelativeDocumentMoniker": "ManagementSupermarket\\Manager\\frmManagementProducts.cs",
+              "ToolTip": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\Manager\\frmManagementProducts.cs",
+              "RelativeToolTip": "ManagementSupermarket\\Manager\\frmManagementProducts.cs",
+              "ViewState": "AQIAAFQAAAAAAAAAAAAlwFsAAAByAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-30T15:27:44.389Z",
+              "WhenOpened": "2024-05-02T04:02:42.776Z",
+              "IsPinned": true,
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmLogin.cs",
+              "DocumentMoniker": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\frmLogin.cs",
+              "RelativeDocumentMoniker": "ManagementSupermarket\\frmLogin.cs",
+              "ToolTip": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\frmLogin.cs",
+              "RelativeToolTip": "ManagementSupermarket\\frmLogin.cs",
+              "ViewState": "AQIAADgAAAAAAAAAAADwvysAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T04:07:37.967Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmInfomation.cs [Design]",
+              "DocumentMoniker": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\frmInfomation.cs",
+              "RelativeDocumentMoniker": "ManagementSupermarket\\frmInfomation.cs",
+              "ToolTip": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\frmInfomation.cs [Design]",
+              "RelativeToolTip": "ManagementSupermarket\\frmInfomation.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T04:15:52.389Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmInfomation.cs",
+              "DocumentMoniker": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\frmInfomation.cs",
+              "RelativeDocumentMoniker": "ManagementSupermarket\\frmInfomation.cs",
+              "ToolTip": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\frmInfomation.cs",
+              "RelativeToolTip": "ManagementSupermarket\\frmInfomation.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAwwDAAAACHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T04:12:04.662Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmHomeOfManager.cs",
+              "DocumentMoniker": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\Manager\\frmHomeOfManager.cs",
+              "RelativeDocumentMoniker": "ManagementSupermarket\\Manager\\frmHomeOfManager.cs",
+              "ToolTip": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\Manager\\frmHomeOfManager.cs",
+              "RelativeToolTip": "ManagementSupermarket\\Manager\\frmHomeOfManager.cs",
+              "ViewState": "AQIAAKEAAAAAAAAAAIA0wKoAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T03:46:30.449Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmHomeOfManager.cs [Design]",
+              "DocumentMoniker": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\Manager\\frmHomeOfManager.cs",
+              "RelativeDocumentMoniker": "ManagementSupermarket\\Manager\\frmHomeOfManager.cs",
+              "ToolTip": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\Manager\\frmHomeOfManager.cs [Design]",
+              "RelativeToolTip": "ManagementSupermarket\\Manager\\frmHomeOfManager.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T03:46:28.927Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
