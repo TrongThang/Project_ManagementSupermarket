@@ -69,16 +69,18 @@
             this.panel_Top.Location = new System.Drawing.Point(0, 0);
             this.panel_Top.Margin = new System.Windows.Forms.Padding(0);
             this.panel_Top.Name = "panel_Top";
-            this.panel_Top.Size = new System.Drawing.Size(1379, 126);
+            this.panel_Top.Size = new System.Drawing.Size(1542, 146);
             this.panel_Top.TabIndex = 1;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel_Avatar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(245, 0);
+            this.panel2.Font = new System.Drawing.Font("Sitka Display", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel2.Location = new System.Drawing.Point(244, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(945, 126);
+            this.panel2.Size = new System.Drawing.Size(1122, 146);
             this.panel2.TabIndex = 9;
             // 
             // panel_Avatar
@@ -86,9 +88,10 @@
             this.panel_Avatar.Controls.Add(this.btn_Info);
             this.panel_Avatar.Controls.Add(this.btn_ChangePassword);
             this.panel_Avatar.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.panel_Avatar.Location = new System.Drawing.Point(724, 12);
+            this.panel_Avatar.Location = new System.Drawing.Point(646, 15);
+            this.panel_Avatar.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.panel_Avatar.Name = "panel_Avatar";
-            this.panel_Avatar.Size = new System.Drawing.Size(221, 106);
+            this.panel_Avatar.Size = new System.Drawing.Size(204, 121);
             this.panel_Avatar.TabIndex = 5;
             this.panel_Avatar.Visible = false;
             // 
@@ -97,9 +100,10 @@
             this.btn_Info.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Info.IconColor = System.Drawing.Color.Black;
             this.btn_Info.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Info.Location = new System.Drawing.Point(21, 3);
+            this.btn_Info.Location = new System.Drawing.Point(19, 1);
+            this.btn_Info.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.btn_Info.Name = "btn_Info";
-            this.btn_Info.Size = new System.Drawing.Size(197, 47);
+            this.btn_Info.Size = new System.Drawing.Size(182, 53);
             this.btn_Info.TabIndex = 0;
             this.btn_Info.Text = "Thông tin";
             this.btn_Info.UseVisualStyleBackColor = true;
@@ -110,9 +114,10 @@
             this.btn_ChangePassword.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_ChangePassword.IconColor = System.Drawing.Color.Black;
             this.btn_ChangePassword.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_ChangePassword.Location = new System.Drawing.Point(21, 56);
+            this.btn_ChangePassword.Location = new System.Drawing.Point(19, 56);
+            this.btn_ChangePassword.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.btn_ChangePassword.Name = "btn_ChangePassword";
-            this.btn_ChangePassword.Size = new System.Drawing.Size(197, 47);
+            this.btn_ChangePassword.Size = new System.Drawing.Size(182, 53);
             this.btn_ChangePassword.TabIndex = 1;
             this.btn_ChangePassword.Text = "Đổi mật khẩu";
             this.btn_ChangePassword.UseVisualStyleBackColor = true;
@@ -123,17 +128,19 @@
             this.panel1.Controls.Add(this.pic_Avatar);
             this.panel1.Controls.Add(this.lbl_Name);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(1190, 0);
+            this.panel1.Location = new System.Drawing.Point(1366, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(189, 126);
+            this.panel1.Size = new System.Drawing.Size(176, 146);
             this.panel1.TabIndex = 5;
             // 
             // pic_Avatar
             // 
             this.pic_Avatar.Image = global::ManagementSupermarket.Properties.Resources.avartaNam;
-            this.pic_Avatar.Location = new System.Drawing.Point(45, 9);
+            this.pic_Avatar.Location = new System.Drawing.Point(39, 10);
+            this.pic_Avatar.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.pic_Avatar.Name = "pic_Avatar";
-            this.pic_Avatar.Size = new System.Drawing.Size(116, 80);
+            this.pic_Avatar.Size = new System.Drawing.Size(107, 93);
             this.pic_Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_Avatar.TabIndex = 3;
             this.pic_Avatar.TabStop = false;
@@ -143,9 +150,9 @@
             // 
             this.lbl_Name.AutoSize = true;
             this.lbl_Name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(246)))), ((int)(((byte)(227)))));
-            this.lbl_Name.Location = new System.Drawing.Point(3, 92);
+            this.lbl_Name.Location = new System.Drawing.Point(3, 106);
             this.lbl_Name.Name = "lbl_Name";
-            this.lbl_Name.Size = new System.Drawing.Size(82, 26);
+            this.lbl_Name.Size = new System.Drawing.Size(82, 30);
             this.lbl_Name.TabIndex = 4;
             this.lbl_Name.Text = "Họ Tên";
             // 
@@ -154,8 +161,9 @@
             this.pic_Logo.Dock = System.Windows.Forms.DockStyle.Left;
             this.pic_Logo.Image = global::ManagementSupermarket.Properties.Resources.banhang;
             this.pic_Logo.Location = new System.Drawing.Point(0, 0);
+            this.pic_Logo.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.pic_Logo.Name = "pic_Logo";
-            this.pic_Logo.Size = new System.Drawing.Size(245, 126);
+            this.pic_Logo.Size = new System.Drawing.Size(244, 146);
             this.pic_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_Logo.TabIndex = 2;
             this.pic_Logo.TabStop = false;
@@ -175,10 +183,10 @@
             this.FlowPanel_Button.Controls.Add(this.btn_Exit);
             this.FlowPanel_Button.Dock = System.Windows.Forms.DockStyle.Left;
             this.FlowPanel_Button.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.FlowPanel_Button.Location = new System.Drawing.Point(0, 126);
+            this.FlowPanel_Button.Location = new System.Drawing.Point(0, 146);
             this.FlowPanel_Button.Margin = new System.Windows.Forms.Padding(0);
             this.FlowPanel_Button.Name = "FlowPanel_Button";
-            this.FlowPanel_Button.Size = new System.Drawing.Size(246, 832);
+            this.FlowPanel_Button.Size = new System.Drawing.Size(250, 731);
             this.FlowPanel_Button.TabIndex = 7;
             this.FlowPanel_Button.WrapContents = false;
             // 
@@ -192,8 +200,8 @@
             this.btn_Sell.Location = new System.Drawing.Point(0, 0);
             this.btn_Sell.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Sell.Name = "btn_Sell";
-            this.btn_Sell.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_Sell.Size = new System.Drawing.Size(246, 77);
+            this.btn_Sell.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btn_Sell.Size = new System.Drawing.Size(227, 89);
             this.btn_Sell.TabIndex = 15;
             this.btn_Sell.Tag = "1";
             this.btn_Sell.Text = "Bán Hàng";
@@ -208,11 +216,11 @@
             this.btn_Employee.IconColor = System.Drawing.Color.Black;
             this.btn_Employee.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Employee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Employee.Location = new System.Drawing.Point(0, 77);
+            this.btn_Employee.Location = new System.Drawing.Point(0, 89);
             this.btn_Employee.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Employee.Name = "btn_Employee";
-            this.btn_Employee.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_Employee.Size = new System.Drawing.Size(246, 77);
+            this.btn_Employee.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btn_Employee.Size = new System.Drawing.Size(227, 89);
             this.btn_Employee.TabIndex = 8;
             this.btn_Employee.Tag = "2";
             this.btn_Employee.Text = "Nhân Viên";
@@ -227,11 +235,11 @@
             this.btn_Product.IconColor = System.Drawing.Color.Black;
             this.btn_Product.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Product.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Product.Location = new System.Drawing.Point(0, 154);
+            this.btn_Product.Location = new System.Drawing.Point(0, 178);
             this.btn_Product.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Product.Name = "btn_Product";
-            this.btn_Product.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_Product.Size = new System.Drawing.Size(246, 77);
+            this.btn_Product.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btn_Product.Size = new System.Drawing.Size(227, 89);
             this.btn_Product.TabIndex = 10;
             this.btn_Product.Tag = "3";
             this.btn_Product.Text = "Sản Phẩm";
@@ -246,11 +254,11 @@
             this.btn_TypeProduct.IconColor = System.Drawing.Color.Black;
             this.btn_TypeProduct.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_TypeProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_TypeProduct.Location = new System.Drawing.Point(0, 231);
+            this.btn_TypeProduct.Location = new System.Drawing.Point(0, 267);
             this.btn_TypeProduct.Margin = new System.Windows.Forms.Padding(0);
             this.btn_TypeProduct.Name = "btn_TypeProduct";
-            this.btn_TypeProduct.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_TypeProduct.Size = new System.Drawing.Size(246, 77);
+            this.btn_TypeProduct.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btn_TypeProduct.Size = new System.Drawing.Size(227, 89);
             this.btn_TypeProduct.TabIndex = 17;
             this.btn_TypeProduct.Tag = "7";
             this.btn_TypeProduct.Text = "Loại Sản Phẩm";
@@ -265,11 +273,11 @@
             this.btn_Customer.IconColor = System.Drawing.Color.Black;
             this.btn_Customer.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Customer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Customer.Location = new System.Drawing.Point(0, 308);
+            this.btn_Customer.Location = new System.Drawing.Point(0, 356);
             this.btn_Customer.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Customer.Name = "btn_Customer";
-            this.btn_Customer.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_Customer.Size = new System.Drawing.Size(246, 77);
+            this.btn_Customer.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btn_Customer.Size = new System.Drawing.Size(227, 89);
             this.btn_Customer.TabIndex = 18;
             this.btn_Customer.Tag = "customer";
             this.btn_Customer.Text = "Khách Hàng";
@@ -284,11 +292,11 @@
             this.btn_Supplier.IconColor = System.Drawing.Color.Black;
             this.btn_Supplier.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Supplier.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Supplier.Location = new System.Drawing.Point(0, 385);
+            this.btn_Supplier.Location = new System.Drawing.Point(0, 445);
             this.btn_Supplier.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Supplier.Name = "btn_Supplier";
-            this.btn_Supplier.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_Supplier.Size = new System.Drawing.Size(246, 77);
+            this.btn_Supplier.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btn_Supplier.Size = new System.Drawing.Size(227, 89);
             this.btn_Supplier.TabIndex = 12;
             this.btn_Supplier.Tag = "5";
             this.btn_Supplier.Text = "Nhà Cung Cấp";
@@ -303,11 +311,11 @@
             this.btn_Discount.IconColor = System.Drawing.Color.Black;
             this.btn_Discount.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Discount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Discount.Location = new System.Drawing.Point(0, 462);
+            this.btn_Discount.Location = new System.Drawing.Point(0, 534);
             this.btn_Discount.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Discount.Name = "btn_Discount";
-            this.btn_Discount.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_Discount.Size = new System.Drawing.Size(246, 77);
+            this.btn_Discount.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btn_Discount.Size = new System.Drawing.Size(227, 89);
             this.btn_Discount.TabIndex = 11;
             this.btn_Discount.Tag = "4";
             this.btn_Discount.Text = "Khuyến Mãi";
@@ -322,11 +330,11 @@
             this.btn_WareHouse.IconColor = System.Drawing.Color.Black;
             this.btn_WareHouse.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_WareHouse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_WareHouse.Location = new System.Drawing.Point(0, 539);
+            this.btn_WareHouse.Location = new System.Drawing.Point(0, 623);
             this.btn_WareHouse.Margin = new System.Windows.Forms.Padding(0);
             this.btn_WareHouse.Name = "btn_WareHouse";
-            this.btn_WareHouse.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_WareHouse.Size = new System.Drawing.Size(246, 77);
+            this.btn_WareHouse.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btn_WareHouse.Size = new System.Drawing.Size(227, 89);
             this.btn_WareHouse.TabIndex = 13;
             this.btn_WareHouse.Tag = "6";
             this.btn_WareHouse.Text = "Kho Hàng";
@@ -341,11 +349,11 @@
             this.btn_LogOut.IconColor = System.Drawing.Color.Black;
             this.btn_LogOut.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_LogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_LogOut.Location = new System.Drawing.Point(0, 616);
+            this.btn_LogOut.Location = new System.Drawing.Point(0, 712);
             this.btn_LogOut.Margin = new System.Windows.Forms.Padding(0);
             this.btn_LogOut.Name = "btn_LogOut";
-            this.btn_LogOut.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_LogOut.Size = new System.Drawing.Size(246, 77);
+            this.btn_LogOut.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btn_LogOut.Size = new System.Drawing.Size(227, 89);
             this.btn_LogOut.TabIndex = 14;
             this.btn_LogOut.Text = "Đăng Xuất";
             this.btn_LogOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -359,11 +367,11 @@
             this.btn_Exit.IconColor = System.Drawing.Color.Black;
             this.btn_Exit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Exit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Exit.Location = new System.Drawing.Point(0, 693);
+            this.btn_Exit.Location = new System.Drawing.Point(0, 801);
             this.btn_Exit.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Exit.Name = "btn_Exit";
-            this.btn_Exit.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_Exit.Size = new System.Drawing.Size(246, 77);
+            this.btn_Exit.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btn_Exit.Size = new System.Drawing.Size(227, 89);
             this.btn_Exit.TabIndex = 16;
             this.btn_Exit.Text = "Thoát";
             this.btn_Exit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -372,23 +380,25 @@
             // 
             // panel_body
             // 
+            this.panel_body.AutoScroll = true;
             this.panel_body.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_body.Location = new System.Drawing.Point(246, 126);
+            this.panel_body.Location = new System.Drawing.Point(250, 146);
+            this.panel_body.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.panel_body.Name = "panel_body";
-            this.panel_body.Size = new System.Drawing.Size(1133, 832);
+            this.panel_body.Size = new System.Drawing.Size(1292, 731);
             this.panel_body.TabIndex = 9;
             // 
             // frmHomeOfManager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1379, 958);
+            this.ClientSize = new System.Drawing.Size(1542, 877);
             this.Controls.Add(this.panel_body);
             this.Controls.Add(this.FlowPanel_Button);
             this.Controls.Add(this.panel_Top);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(5);
+            this.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.Name = "frmHomeOfManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmHome";

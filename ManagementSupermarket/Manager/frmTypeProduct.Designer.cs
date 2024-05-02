@@ -114,6 +114,9 @@
             this.dgv_TypeProduct.AllowUserToAddRows = false;
             this.dgv_TypeProduct.AllowUserToDeleteRows = false;
             this.dgv_TypeProduct.AllowUserToOrderColumns = true;
+            this.dgv_TypeProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_TypeProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_TypeProduct.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgv_TypeProduct.BackgroundColor = System.Drawing.Color.Azure;
@@ -125,7 +128,7 @@
             this.dgv_TypeProduct.RowHeadersWidth = 51;
             this.dgv_TypeProduct.RowTemplate.Height = 24;
             this.dgv_TypeProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_TypeProduct.Size = new System.Drawing.Size(1356, 472);
+            this.dgv_TypeProduct.Size = new System.Drawing.Size(1269, 510);
             this.dgv_TypeProduct.TabIndex = 28;
             this.dgv_TypeProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_TypeProduct_CellClick);
             // 
@@ -137,7 +140,7 @@
             this.btn_Search.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Search.IconColor = System.Drawing.Color.Black;
             this.btn_Search.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Search.Location = new System.Drawing.Point(1287, 156);
+            this.btn_Search.Location = new System.Drawing.Point(1218, 158);
             this.btn_Search.Name = "btn_Search";
             this.btn_Search.Size = new System.Drawing.Size(65, 47);
             this.btn_Search.TabIndex = 33;
@@ -148,7 +151,7 @@
             // 
             this.txt_Search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Search.Location = new System.Drawing.Point(1043, 156);
+            this.txt_Search.Location = new System.Drawing.Point(974, 158);
             this.txt_Search.Name = "txt_Search";
             this.txt_Search.Size = new System.Drawing.Size(238, 45);
             this.txt_Search.TabIndex = 34;
@@ -238,7 +241,7 @@
             this.cbb_SearchRole.Items.AddRange(new object[] {
             "MaLoaiSP",
             "TenLoai"});
-            this.cbb_SearchRole.Location = new System.Drawing.Point(897, 162);
+            this.cbb_SearchRole.Location = new System.Drawing.Point(828, 164);
             this.cbb_SearchRole.Name = "cbb_SearchRole";
             this.cbb_SearchRole.Size = new System.Drawing.Size(131, 37);
             this.cbb_SearchRole.TabIndex = 37;
@@ -248,7 +251,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
-            this.ClientSize = new System.Drawing.Size(1378, 691);
+            this.ClientSize = new System.Drawing.Size(1292, 731);
             this.Controls.Add(this.cbb_SearchRole);
             this.Controls.Add(this.txt_ID);
             this.Controls.Add(this.label6);

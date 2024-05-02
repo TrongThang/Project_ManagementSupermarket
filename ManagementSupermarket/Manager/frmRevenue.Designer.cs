@@ -48,7 +48,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Salary";
             this.chart_Revenue.Series.Add(series1);
-            this.chart_Revenue.Size = new System.Drawing.Size(1264, 526);
+            this.chart_Revenue.Size = new System.Drawing.Size(1250, 602);
             this.chart_Revenue.TabIndex = 0;
             this.chart_Revenue.Text = "chart1";
             // 
@@ -61,7 +61,7 @@
             "Tháng",
             "Quý",
             "Năm"});
-            this.cbb_Criteria.Location = new System.Drawing.Point(1148, 27);
+            this.cbb_Criteria.Location = new System.Drawing.Point(1134, 27);
             this.cbb_Criteria.Name = "cbb_Criteria";
             this.cbb_Criteria.Size = new System.Drawing.Size(128, 37);
             this.cbb_Criteria.TabIndex = 1;
@@ -71,7 +71,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1288, 608);
+            this.ClientSize = new System.Drawing.Size(1274, 684);
             this.Controls.Add(this.cbb_Criteria);
             this.Controls.Add(this.chart_Revenue);
             this.Name = "frmRevenue";

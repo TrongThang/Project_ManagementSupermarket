@@ -68,7 +68,7 @@
             // txt_Search
             // 
             this.txt_Search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_Search.Location = new System.Drawing.Point(951, 315);
+            this.txt_Search.Location = new System.Drawing.Point(1000, 313);
             this.txt_Search.Name = "txt_Search";
             this.txt_Search.Size = new System.Drawing.Size(212, 32);
             this.txt_Search.TabIndex = 15;
@@ -86,14 +86,14 @@
             this.dgv_ListCustomer.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.dgv_ListCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_ListCustomer.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgv_ListCustomer.Location = new System.Drawing.Point(6, 355);
+            this.dgv_ListCustomer.Location = new System.Drawing.Point(6, 351);
             this.dgv_ListCustomer.MultiSelect = false;
             this.dgv_ListCustomer.Name = "dgv_ListCustomer";
             this.dgv_ListCustomer.ReadOnly = true;
             this.dgv_ListCustomer.RowHeadersWidth = 51;
             this.dgv_ListCustomer.RowTemplate.Height = 24;
             this.dgv_ListCustomer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_ListCustomer.Size = new System.Drawing.Size(1228, 368);
+            this.dgv_ListCustomer.Size = new System.Drawing.Size(1280, 368);
             this.dgv_ListCustomer.TabIndex = 9;
             this.dgv_ListCustomer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ListCustomer_CellClick);
             // 
@@ -286,7 +286,7 @@
             this.grpInfo.Controls.Add(this.label4);
             this.grpInfo.Controls.Add(this.label2);
             this.grpInfo.ForeColor = System.Drawing.Color.Yellow;
-            this.grpInfo.Location = new System.Drawing.Point(23, 7);
+            this.grpInfo.Location = new System.Drawing.Point(46, 12);
             this.grpInfo.Name = "grpInfo";
             this.grpInfo.Size = new System.Drawing.Size(1198, 241);
             this.grpInfo.TabIndex = 8;
@@ -348,7 +348,7 @@
             this.btn_Search.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Search.IconColor = System.Drawing.Color.Black;
             this.btn_Search.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Search.Location = new System.Drawing.Point(1169, 313);
+            this.btn_Search.Location = new System.Drawing.Point(1218, 311);
             this.btn_Search.Name = "btn_Search";
             this.btn_Search.Size = new System.Drawing.Size(65, 36);
             this.btn_Search.TabIndex = 14;
@@ -362,7 +362,7 @@
             this.btn_Refresh.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Refresh.IconColor = System.Drawing.Color.Black;
             this.btn_Refresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Refresh.Location = new System.Drawing.Point(378, 283);
+            this.btn_Refresh.Location = new System.Drawing.Point(352, 283);
             this.btn_Refresh.Name = "btn_Refresh";
             this.btn_Refresh.Size = new System.Drawing.Size(79, 64);
             this.btn_Refresh.TabIndex = 13;
@@ -376,7 +376,7 @@
             this.btn_Delete.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Delete.IconColor = System.Drawing.Color.Black;
             this.btn_Delete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Delete.Location = new System.Drawing.Point(203, 283);
+            this.btn_Delete.Location = new System.Drawing.Point(177, 283);
             this.btn_Delete.Name = "btn_Delete";
             this.btn_Delete.Size = new System.Drawing.Size(79, 64);
             this.btn_Delete.TabIndex = 12;
@@ -390,7 +390,7 @@
             this.btn_Add.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Add.IconColor = System.Drawing.Color.Black;
             this.btn_Add.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Add.Location = new System.Drawing.Point(33, 283);
+            this.btn_Add.Location = new System.Drawing.Point(7, 283);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(79, 64);
             this.btn_Add.TabIndex = 10;
@@ -404,7 +404,7 @@
             this.btn_Alter.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Alter.IconColor = System.Drawing.Color.Black;
             this.btn_Alter.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Alter.Location = new System.Drawing.Point(118, 283);
+            this.btn_Alter.Location = new System.Drawing.Point(92, 283);
             this.btn_Alter.Name = "btn_Alter";
             this.btn_Alter.Size = new System.Drawing.Size(79, 64);
             this.btn_Alter.TabIndex = 11;
@@ -418,7 +418,7 @@
             this.chk_CustomerStatus.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_CustomerStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chk_CustomerStatus.ForeColor = System.Drawing.Color.White;
-            this.chk_CustomerStatus.Location = new System.Drawing.Point(463, 309);
+            this.chk_CustomerStatus.Location = new System.Drawing.Point(512, 307);
             this.chk_CustomerStatus.Name = "chk_CustomerStatus";
             this.chk_CustomerStatus.Size = new System.Drawing.Size(351, 40);
             this.chk_CustomerStatus.TabIndex = 17;
@@ -438,7 +438,7 @@
             "DiaChi",
             "SDT",
             "NgayTao"});
-            this.cbb_SearchRole.Location = new System.Drawing.Point(814, 313);
+            this.cbb_SearchRole.Location = new System.Drawing.Point(863, 311);
             this.cbb_SearchRole.Name = "cbb_SearchRole";
             this.cbb_SearchRole.Size = new System.Drawing.Size(131, 34);
             this.cbb_SearchRole.TabIndex = 18;
@@ -447,7 +447,7 @@
             // 
             this.btn_ExportExcel.BackgroundImage = global::ManagementSupermarket.Properties.Resources.png_clipart_microsoft_excel_logo_microsoft_excel_computer_icons_xls_microsoft_angle_text;
             this.btn_ExportExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_ExportExcel.Location = new System.Drawing.Point(288, 283);
+            this.btn_ExportExcel.Location = new System.Drawing.Point(262, 283);
             this.btn_ExportExcel.Name = "btn_ExportExcel";
             this.btn_ExportExcel.Size = new System.Drawing.Size(82, 64);
             this.btn_ExportExcel.TabIndex = 29;
@@ -459,7 +459,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
-            this.ClientSize = new System.Drawing.Size(1240, 735);
+            this.ClientSize = new System.Drawing.Size(1292, 731);
             this.Controls.Add(this.btn_ExportExcel);
             this.Controls.Add(this.cbb_SearchRole);
             this.Controls.Add(this.chk_CustomerStatus);

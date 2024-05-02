@@ -75,38 +75,38 @@ namespace ManagementSupermarket
             LoadDataComboBoxUnitItem();
 
         }
-        private void AddColumnImageDGV()
-        {
-            //Create Column to show image
-            DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
-            imageColumn.HeaderText = "Hình ảnh";
-            imageColumn.Name = "ImageColumn";
-            dgv_ListProduct.Columns.Add(imageColumn);
-        }
+        //private void AddColumnImageDGV()
+        //{
+        //    //Create Column to show image
+        //    DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
+        //    imageColumn.HeaderText = "Hình ảnh";
+        //    imageColumn.Name = "ImageColumn";
+        //    dgv_ListProduct.Columns.Add(imageColumn);
+        //}
         private void LoadDataGridView(string nameProdut = null)
         {
             dgv_ListProduct.DataSource = (new BLL_Product()).GetProduct("TenSP", nameProdut);
-            foreach (DataGridViewRow row in dgv_ListProduct.Rows)
-            {
-                string path = row.Cells["HinhAnh"].Value.ToString();
-                string imagePath = Path.Combine(Application.StartupPath, "..", "..", "Image", "Products", path);
+            //foreach (DataGridViewRow row in dgv_ListProduct.Rows)
+            //{
+            //    string path = row.Cells["HinhAnh"].Value.ToString();
+            //    string imagePath = Path.Combine(Application.StartupPath, "..", "..", "Image", "Products", path);
 
-                if (File.Exists(imagePath))
-                {
-                    Image image = Image.FromFile(imagePath);
-                    row.Cells["ImageColumn"].Value = image;
-                }
-                else
-                {
-                    row.Cells["ImageColumn"].Value = null; 
-                }
-            }
+            //    if (File.Exists(imagePath))
+            //    {
+            //        Image image = Image.FromFile(imagePath);
+            //        row.Cells["ImageColumn"].Value = image;
+            //    }
+            //    else
+            //    {
+            //        row.Cells["ImageColumn"].Value = null;
+            //    }
+            //}
             //dgv_ListProduct.Columns["HinhAnh"].Visible = false;
 
         }
         private void frmManagementProducts_Load(object sender, EventArgs e)
         {
-            AddColumnImageDGV();
+            //AddColumnImageDGV();
             LoadDataGridView();
             LoadDataComboBox();
             cbb_Supplier.SelectedIndex = 0;
@@ -118,51 +118,60 @@ namespace ManagementSupermarket
         //FINISH
         private void dgv_ListProduct_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(dgv_ListProduct.SelectedRows.Count > 0) {
-                DataGridViewCellCollection rowSelected = dgv_ListProduct.SelectedRows[0].Cells;
-
-                pic_Product.ImageLocation = Path.Combine(Application.StartupPath, "..", "..", "Image", "Products", rowSelected["HinhAnh"].Value.ToString());
-
-                txt_ID.Text = rowSelected["MaSP"].Value.ToString();
-                    
-                string nameSupplier = rowSelected["TenNCC"].Value.ToString();
-                cbb_Supplier.SelectedIndex = cbb_Supplier.FindString(nameSupplier);
-
-
-                txt_NameProduct.Text = rowSelected["TenSP"].Value.ToString();
-
-                string nameTypeProduct = rowSelected["TenLoai"].Value.ToString();
-                cbb_TypeProduct.SelectedIndex = cbb_TypeProduct.FindString(nameTypeProduct);
-
-                string unitCaculator = rowSelected["DonViTinh"].Value.ToString();
-                cbb_UnitCaculator.SelectedIndex = cbb_UnitCaculator.FindString(unitCaculator);  
-
-                txt_Cost.Text = rowSelected["GiaNhap"].Value.ToString();
-                txt_Price.Text = rowSelected["GiaBan"].Value.ToString();
-
-                string date = rowSelected["HanSuDung"].Value.ToString();
-                if (date.Length > 0)
+            try
+            {
+                if (dgv_ListProduct.SelectedRows.Count > 0)
                 {
-                    num_ShelfLife.Value = decimal.Parse(date[0].ToString());
-                    string unitTime = date[date.Length - 1].ToString();
-                    int index = -1;
-                    if (unitTime == "D")
-                        index = 0;
-                    else if(unitTime == "M")
-                        index = 1;
-                    else if(unitTime == "Y")
-                        index = 2;
-                    cbb_UnitTime.SelectedIndex = index;
-                }
-                else
-                {
-                    num_ShelfLife.Value = 99;
-                    cbb_UnitTime.Text = "";
-                }
-                num_Count.Text = rowSelected["SoLuong"].Value.ToString();
-                chk_Status.Checked = (bool)rowSelected["TrangThai"].Value;
+                    DataGridViewCellCollection rowSelected = dgv_ListProduct.SelectedRows[0].Cells;
 
+                    pic_Product.ImageLocation = Path.Combine(Application.StartupPath, "..", "..", "Image", "Products", rowSelected["HinhAnh"].Value.ToString());
+
+                    txt_ID.Text = rowSelected["MaSP"].Value.ToString();
+
+                    string nameSupplier = rowSelected["TenNCC"].Value.ToString();
+                    cbb_Supplier.SelectedIndex = cbb_Supplier.FindString(nameSupplier);
+
+
+                    txt_NameProduct.Text = rowSelected["TenSP"].Value.ToString();
+
+                    string nameTypeProduct = rowSelected["TenLoai"].Value.ToString();
+                    cbb_TypeProduct.SelectedIndex = cbb_TypeProduct.FindString(nameTypeProduct);
+
+                    string unitCaculator = rowSelected["DonViTinh"].Value.ToString();
+                    cbb_UnitCaculator.SelectedIndex = cbb_UnitCaculator.FindString(unitCaculator);
+
+                    txt_Cost.Text = rowSelected["GiaNhap"].Value.ToString();
+                    txt_Price.Text = rowSelected["GiaBan"].Value.ToString();
+
+                    string date = rowSelected["HanSuDung"].Value.ToString();
+                    if (date.Length > 0)
+                    {
+                        num_ShelfLife.Value = decimal.Parse(date[0].ToString());
+                        string unitTime = date[date.Length - 1].ToString();
+                        int index = -1;
+                        if (unitTime == "D")
+                            index = 0;
+                        else if (unitTime == "M")
+                            index = 1;
+                        else if (unitTime == "Y")
+                            index = 2;
+                        cbb_UnitTime.SelectedIndex = index;
+                    }
+                    else
+                    {
+                        num_ShelfLife.Value = 99;
+                        cbb_UnitTime.Text = "";
+                    }
+                    num_Count.Text = rowSelected["SoLuong"].Value.ToString();
+                    chk_Status.Checked = (bool)rowSelected["TrangThai"].Value;
+
+                }
             }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
         //FINISH
         private void btn_Upload_Click(object sender, EventArgs e)
@@ -248,49 +257,57 @@ namespace ManagementSupermarket
         }
         private void btn_Add_Click(object sender, EventArgs e)
         {
-            if (IsErrorInput())
+            try
             {
-                return;
+                if (IsErrorInput())
+                {
+                    return;
+                }
+                string pathImage, nameProduct, idSupplier, idType, unitItem, unitTime, shelfLife;
+                double cost, price;
+                int count;
+                byte status;
+
+                pathImage = Path.GetFileName(pic_Product.ImageLocation);
+                idSupplier = cbb_Supplier.SelectedValue.ToString();
+                nameProduct = txt_NameProduct.Text.Trim();
+                idType = cbb_TypeProduct.SelectedValue.ToString();
+                unitItem = cbb_UnitCaculator.Text.ToString();
+                unitTime = cbb_UnitTime.SelectedValue.ToString();
+
+                cost = double.Parse(txt_Cost.Text);
+                price = double.Parse(txt_Price.Text);
+                shelfLife = num_ShelfLife.Text + unitTime;
+
+                count = (int)num_Count.Value;
+                status = (byte)(chk_Status.Checked ? 1 : 0);
+
+                DTO_Product product = new DTO_Product(pathImage, nameProduct, idSupplier, idType, cost, price, count, shelfLife, unitItem, status);
+
+                int affectedRows = (new BLL_Product()).InsertProduct(product);
+
+                string mess = "";
+                if (affectedRows > 0)
+                {
+                    mess = $"Thêm sản phẩm {nameProduct} thành công!!";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadDataGridView();
+
+                    CopyImageToFolderProject(pathImage);
+                    return;
+                }
+                else
+                {
+                    mess = $"Thêm sản phẩm {nameProduct} thất bại. Vui lòng thử lại!!";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
-            string pathImage, nameProduct, idSupplier, idType, unitItem, unitTime, shelfLife;
-            double cost, price;
-            int count;
-            byte status;
-
-            pathImage = Path.GetFileName(pic_Product.ImageLocation);
-            idSupplier = cbb_Supplier.SelectedValue.ToString();
-            nameProduct = txt_NameProduct.Text.Trim();
-            idType = cbb_TypeProduct.SelectedValue.ToString();
-            unitItem = cbb_UnitCaculator.Text.ToString();
-            unitTime = cbb_UnitTime.SelectedValue.ToString();
-
-            cost = double.Parse(txt_Cost.Text);
-            price = double.Parse(txt_Price.Text);
-            shelfLife = num_ShelfLife.Text + unitTime;
-
-            count = (int)num_Count.Value;
-            status = (byte)(chk_Status.Checked ? 1 : 0);
-
-            DTO_Product product = new DTO_Product(pathImage, nameProduct, idSupplier, idType, cost, price, count, shelfLife, unitItem, status);
-
-            int affectedRows = (new BLL_Product()).InsertProduct(product);
-
-            string mess = "";
-            if (affectedRows > 0)
+            catch (Exception err)
             {
-                mess = $"Thêm sản phẩm {nameProduct} thành công!!";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadDataGridView();
-
-                CopyImageToFolderProject(pathImage);
-                return;
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
-            {
-                mess = $"Thêm sản phẩm {nameProduct} thất bại. Vui lòng thử lại!!";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            
         }
         private bool IsNotId()
         {
@@ -310,6 +327,7 @@ namespace ManagementSupermarket
             {
                 return;
             }
+
             try
             {
                 string pathImage, idProduct, nameProduct, idSupplier, idType, unitItem, unitTime, shelfLife;
@@ -430,9 +448,17 @@ namespace ManagementSupermarket
 
         private void btn_ExportExcel_Click(object sender, EventArgs e)
         {
-            DataTable tblProduct = (DataTable)dgv_ListProduct.DataSource;
-            ConfigExcel_PDF.ExportToExcel(tblProduct, "Product");
-            return;
+            try
+            {
+                DataTable tblProduct = (DataTable)dgv_ListProduct.DataSource;
+                ConfigExcel_PDF.ExportToExcel(tblProduct, "Product");
+                return;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+          
         }
     }
 }

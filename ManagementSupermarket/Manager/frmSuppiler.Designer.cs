@@ -70,7 +70,7 @@
             this.dgv_Supplier.RowHeadersWidth = 51;
             this.dgv_Supplier.RowTemplate.Height = 24;
             this.dgv_Supplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Supplier.Size = new System.Drawing.Size(825, 605);
+            this.dgv_Supplier.Size = new System.Drawing.Size(864, 629);
             this.dgv_Supplier.TabIndex = 13;
             this.dgv_Supplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Supplier_CellClick);
             // 
@@ -172,7 +172,7 @@
             // 
             this.txt_Search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Search.Location = new System.Drawing.Point(931, 39);
+            this.txt_Search.Location = new System.Drawing.Point(972, 39);
             this.txt_Search.Name = "txt_Search";
             this.txt_Search.Size = new System.Drawing.Size(238, 45);
             this.txt_Search.TabIndex = 19;
@@ -199,7 +199,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(478, 707);
+            this.panel1.Size = new System.Drawing.Size(478, 731);
             this.panel1.TabIndex = 12;
             // 
             // lbl_Address
@@ -299,7 +299,7 @@
             this.btn_Search.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Search.IconColor = System.Drawing.Color.Black;
             this.btn_Search.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Search.Location = new System.Drawing.Point(1175, 39);
+            this.btn_Search.Location = new System.Drawing.Point(1216, 39);
             this.btn_Search.Name = "btn_Search";
             this.btn_Search.Size = new System.Drawing.Size(65, 47);
             this.btn_Search.TabIndex = 18;
@@ -330,7 +330,7 @@
             "MaNCC",
             "SDT",
             "DiaChi"});
-            this.cbb_Search.Location = new System.Drawing.Point(798, 38);
+            this.cbb_Search.Location = new System.Drawing.Point(839, 38);
             this.cbb_Search.Name = "cbb_Search";
             this.cbb_Search.Size = new System.Drawing.Size(131, 46);
             this.cbb_Search.TabIndex = 23;
@@ -340,7 +340,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
-            this.ClientSize = new System.Drawing.Size(1249, 707);
+            this.ClientSize = new System.Drawing.Size(1292, 731);
             this.Controls.Add(this.cbb_Search);
             this.Controls.Add(this.chk_StatusDGV);
             this.Controls.Add(this.dgv_Supplier);

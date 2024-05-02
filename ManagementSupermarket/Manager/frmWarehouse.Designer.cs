@@ -95,7 +95,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1223, 721);
+            this.tabControl1.Size = new System.Drawing.Size(1292, 731);
             this.tabControl1.TabIndex = 34;
             this.tabControl1.Tag = "";
             // 
@@ -109,7 +109,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 35);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1215, 682);
+            this.tabPage1.Size = new System.Drawing.Size(1284, 692);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Lập Hoá Đơn Nhập Kho";
             // 
@@ -651,7 +651,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1212, 730);
+            this.ClientSize = new System.Drawing.Size(1274, 684);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5);
