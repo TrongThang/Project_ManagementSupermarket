@@ -1,4 +1,5 @@
 ﻿using BLL;
+using FontAwesome.Sharp;
 using ManagementSupermarket.Manager;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,8 @@ namespace ManagementSupermarket
     {
         private string s_role;
         private string s_idEmployee;
+        private Form frmChild;
+        private IconButton lastClickedButton;
         public frmHomeOfManager(string idEmployee, string role)
         {
             s_idEmployee = idEmployee;
@@ -44,170 +47,85 @@ namespace ManagementSupermarket
             RoleAccess();
             lbl_Name.Text = (new BLL_Employee()).GetEmployeeTo("MaNV", s_idEmployee).Rows[0]["HoTen"].ToString();
         }
-        private void FixSizeForm(Form frm)
+        private void OpenfrmChild(Form Child, IconButton btn)
         {
-            int panelTop = panel_Top.Size.Height;
-            int panelLeft = FlowPanel_Button.Size.Width;
-            frm.Size = new Size(this.Width - panelTop, this.Height - panelLeft);
+            if (frmChild != null)
+            {
+                frmChild.Close();
+            }
+            frmChild = Child;
+            Child.TopLevel = false;
+            Child.FormBorderStyle = FormBorderStyle.None;
+            Child.Dock = DockStyle.Fill;
+            panel_body.Controls.Add(Child);
+            panel_body.Tag = Child;
+            Child.BringToFront();
+            Child.Show();
+
+            if (lastClickedButton != null)
+            {
+                lastClickedButton.BackColor = Color.FromArgb(255, 255, 255);
+                lastClickedButton.ForeColor = Color.Black;
+                lastClickedButton.IconColor = Color.Black;
+            }
+            IconButton clickedButton = btn;
+            if (clickedButton != null)
+            {
+                clickedButton.BackColor = Color.FromArgb(57, 65, 107);
+                clickedButton.ForeColor = Color.Yellow;
+                clickedButton.IconColor = Color.White;
+                // Lưu trữ tham chiếu của nút mới được nhấn vào biến theo dõi
+                lastClickedButton = clickedButton;
+            }
         }
+
         private void btn_Sell_Click(object sender, EventArgs e)
         {
-
-            if (numCurrency == btn_Sell.Tag)
-            {
-                return;
-            }
-            numCurrency = btn_Sell.Tag;
-
-            if (childForm != null && !childForm.IsDisposed)
-            {
-                childForm.Close();
-            }
-            frmOrder frmOrder = new frmOrder();
-            frmOrder.MdiParent = this;
-            frmOrder.StartPosition = FormStartPosition.CenterParent;
-            FixSizeForm(frmOrder);
-
-            frmOrder.Show();
-            childForm = frmOrder;
+            IconButton btn = sender as IconButton;
+            OpenfrmChild(new frmOrder(), btn);
         }
 
         private void btn_Employee_Click(object sender, EventArgs e)
         {
-            if (btn_Employee.Tag == numCurrency)
-            {
-                return;
-            }
-            numCurrency = btn_Employee.Tag;
-
-            if (childForm != null && !childForm.IsDisposed)
-            {
-                childForm.Close();
-            }
-            frmManagementEmployees frmEmployee = new frmManagementEmployees();
-            frmEmployee.MdiParent = this;
-            frmEmployee.StartPosition = FormStartPosition.CenterParent;
-            FixSizeForm(frmEmployee);
-
-            frmEmployee.BringToFront();
-            frmEmployee.Show();
-                
-            this.childForm = frmEmployee;
+            IconButton btn = sender as IconButton;
+            OpenfrmChild(new frmManagementEmployees(), btn);
 
         }
 
         private void btn_Product_Click(object sender, EventArgs e)
         {
-            if (btn_Product.Tag == numCurrency)
-            {
-                return;
-            }
-            numCurrency = btn_Product.Tag;
-
-            frmManagementProducts frmProducts = new frmManagementProducts();
-            frmProducts.MdiParent = this;
-            frmProducts.Show();
-
-            if (childForm != null && !childForm.IsDisposed)
-            {
-                childForm.Close();
-            }
-            this.childForm = frmProducts;
+            IconButton btn = sender as IconButton;
+            OpenfrmChild(new frmManagementProducts(), btn);
         }
 
         private void btn_Discount_Click(object sender, EventArgs e)
         {
-            if (btn_Discount.Tag == numCurrency)
-            {
-                return;
-            }
-            numCurrency = btn_Discount.Tag;
-
-            frmDiscount frmDiscount = new frmDiscount();
-            frmDiscount.MdiParent = this;
-            frmDiscount.Show();
-
-            if (childForm != null && !childForm.IsDisposed)
-            {
-                childForm.Close();
-            }
-            this.childForm = frmDiscount;
+            IconButton btn = sender as IconButton;
+            OpenfrmChild(new frmDiscount(), btn);
         }
 
         private void btn_Supplier_Click(object sender, EventArgs e)
         {
-            if (btn_Supplier.Tag == numCurrency)
-            {
-                return;
-            }
-            numCurrency = btn_Supplier.Tag;
-
-            frmSuppiler frmSuppiler = new frmSuppiler();
-            frmSuppiler.MdiParent = this;
-            frmSuppiler.Show();
-
-            if (childForm != null && !childForm.IsDisposed)
-            {
-                childForm.Close();
-            }
-            this.childForm = frmSuppiler;
+            IconButton btn = sender as IconButton;
+            OpenfrmChild(new frmSuppiler(), btn);
         }
 
         private void btn_WareHouse_Click(object sender, EventArgs e)
         {
-            if (btn_WareHouse.Tag == numCurrency)
-            {
-                return;
-            }
-            numCurrency = btn_WareHouse.Tag;
-
-            frmWarehouse frmWarehouse = new frmWarehouse();
-            frmWarehouse.MdiParent = this;
-            frmWarehouse.Show();
-
-            if (childForm != null && !childForm.IsDisposed)
-            {
-                childForm.Close();
-            }
-            this.childForm = frmWarehouse;
+            IconButton btn = sender as IconButton;
+            OpenfrmChild(new frmWarehouse(), btn);
         }
 
         private void btn_TypeProduct_Click(object sender, EventArgs e)
         {
-            if (btn_TypeProduct.Tag == numCurrency)
-            {
-                return;
-            }
-            numCurrency = btn_TypeProduct.Tag;
-
-            frmTypeProduct frmTypeProduct = new frmTypeProduct();
-            frmTypeProduct.MdiParent = this;
-            frmTypeProduct.Show();
-
-            if (childForm != null && !childForm.IsDisposed)
-            {
-                childForm.Close();
-            }
-            this.childForm = frmTypeProduct;
+            IconButton btn = sender as IconButton;
+            OpenfrmChild(new frmTypeProduct(), btn);
         }
 
         private void btn_Customer_Click(object sender, EventArgs e)
         {
-            if (btn_Customer.Tag == numCurrency)
-            {
-                return;
-            }
-            numCurrency = btn_Customer.Tag;
-
-            frmCustomer frmCustomer = new frmCustomer();
-            frmCustomer.MdiParent = this;
-            frmCustomer.Show();
-
-            if (childForm != null && !childForm.IsDisposed)
-            {
-                childForm.Close();
-            }
-            this.childForm = frmCustomer;
+            IconButton btn = sender as IconButton;
+            OpenfrmChild(new frmCustomer(), btn);
         }
         private void btn_LogOut_Click(object sender, EventArgs e)
         {
@@ -231,7 +149,7 @@ namespace ManagementSupermarket
 
         private void pic_Avatar_Click(object sender, EventArgs e)
         {
-            if(panel_Avatar.Visible)
+            if (panel_Avatar.Visible)
             {
                 panel_Avatar.Visible = false;
             }
@@ -243,16 +161,14 @@ namespace ManagementSupermarket
 
         private void btn_Info_Click(object sender, EventArgs e)
         {
-            frmInfomation frmInfomation = new frmInfomation(this.s_idEmployee);
-            frmInfomation.Show();
+            IconButton btn = sender as IconButton;
+            OpenfrmChild(new frmInfomation(), btn);
         }
 
         private void btn_ChangePassword_Click(object sender, EventArgs e)
         {
-            frmChangePassword frmChangePassword = new frmChangePassword(this.s_idEmployee);
-            frmChangePassword.Show();
+            IconButton btn = sender as IconButton;
+            OpenfrmChild(new frmChangePassword(this.s_idEmployee), btn);
         }
-
-       
     }
 }

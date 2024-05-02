@@ -43,3 +43,12 @@ D:\C#\Project_ManagementSupermarket_ver3\DAL\bin\Debug\DAL.pdb
 D:\C#\Project_ManagementSupermarket_ver3\DAL\bin\Debug\DTO.dll
 D:\C#\Project_ManagementSupermarket_ver3\DAL\bin\Debug\DTO.pdb
 D:\C#\Project_ManagementSupermarket_ver3\DAL\obj\Debug\DAL.csproj.Up2Date
+D:\C#\Fix merge\DAL\bin\Debug\DAL.dll
+D:\C#\Fix merge\DAL\bin\Debug\DAL.pdb
+D:\C#\Fix merge\DAL\bin\Debug\DTO.dll
+D:\C#\Fix merge\DAL\bin\Debug\DTO.pdb
+D:\C#\Fix merge\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\C#\Fix merge\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\C#\Fix merge\DAL\obj\Debug\DAL.csproj.Up2Date
+D:\C#\Fix merge\DAL\obj\Debug\DAL.dll
+D:\C#\Fix merge\DAL\obj\Debug\DAL.pdb
