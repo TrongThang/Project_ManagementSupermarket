@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel_Top = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel_Avatar = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_Info = new FontAwesome.Sharp.IconButton();
             this.btn_ChangePassword = new FontAwesome.Sharp.IconButton();
@@ -49,9 +48,8 @@
             this.btn_WareHouse = new FontAwesome.Sharp.IconButton();
             this.btn_LogOut = new FontAwesome.Sharp.IconButton();
             this.btn_Exit = new FontAwesome.Sharp.IconButton();
-            this.panel_body = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel_Top.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel_Avatar.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Avatar)).BeginInit();
@@ -63,6 +61,7 @@
             // 
             this.panel_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(150)))));
             this.panel_Top.Controls.Add(this.panel2);
+            this.panel_Top.Controls.Add(this.panel_Avatar);
             this.panel_Top.Controls.Add(this.panel1);
             this.panel_Top.Controls.Add(this.pic_Logo);
             this.panel_Top.Dock = System.Windows.Forms.DockStyle.Top;
@@ -72,23 +71,13 @@
             this.panel_Top.Size = new System.Drawing.Size(1379, 126);
             this.panel_Top.TabIndex = 1;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.panel_Avatar);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(245, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(945, 126);
-            this.panel2.TabIndex = 9;
-            // 
             // panel_Avatar
             // 
             this.panel_Avatar.Controls.Add(this.btn_Info);
             this.panel_Avatar.Controls.Add(this.btn_ChangePassword);
-            this.panel_Avatar.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.panel_Avatar.Location = new System.Drawing.Point(724, 12);
+            this.panel_Avatar.Location = new System.Drawing.Point(1002, 9);
             this.panel_Avatar.Name = "panel_Avatar";
-            this.panel_Avatar.Size = new System.Drawing.Size(221, 106);
+            this.panel_Avatar.Size = new System.Drawing.Size(200, 106);
             this.panel_Avatar.TabIndex = 5;
             this.panel_Avatar.Visible = false;
             // 
@@ -97,7 +86,7 @@
             this.btn_Info.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Info.IconColor = System.Drawing.Color.Black;
             this.btn_Info.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Info.Location = new System.Drawing.Point(21, 3);
+            this.btn_Info.Location = new System.Drawing.Point(3, 3);
             this.btn_Info.Name = "btn_Info";
             this.btn_Info.Size = new System.Drawing.Size(197, 47);
             this.btn_Info.TabIndex = 0;
@@ -110,7 +99,7 @@
             this.btn_ChangePassword.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_ChangePassword.IconColor = System.Drawing.Color.Black;
             this.btn_ChangePassword.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_ChangePassword.Location = new System.Drawing.Point(21, 56);
+            this.btn_ChangePassword.Location = new System.Drawing.Point(3, 56);
             this.btn_ChangePassword.Name = "btn_ChangePassword";
             this.btn_ChangePassword.Size = new System.Drawing.Size(197, 47);
             this.btn_ChangePassword.TabIndex = 1;
@@ -370,20 +359,19 @@
             this.btn_Exit.UseVisualStyleBackColor = true;
             this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
-            // panel_body
+            // panel2
             // 
-            this.panel_body.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_body.Location = new System.Drawing.Point(246, 126);
-            this.panel_body.Name = "panel_body";
-            this.panel_body.Size = new System.Drawing.Size(1133, 832);
-            this.panel_body.TabIndex = 9;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(245, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(945, 126);
+            this.panel2.TabIndex = 9;
             // 
             // frmHomeOfManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1379, 958);
-            this.Controls.Add(this.panel_body);
             this.Controls.Add(this.FlowPanel_Button);
             this.Controls.Add(this.panel_Top);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -394,7 +382,6 @@
             this.Text = "frmHome";
             this.Load += new System.EventHandler(this.frmHomeOfManager_Load);
             this.panel_Top.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.panel_Avatar.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -427,6 +414,5 @@
         private FontAwesome.Sharp.IconButton btn_Info;
         private FontAwesome.Sharp.IconButton btn_ChangePassword;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel_body;
     }
 }

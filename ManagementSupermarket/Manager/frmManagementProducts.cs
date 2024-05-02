@@ -78,35 +78,35 @@ namespace ManagementSupermarket
         private void AddColumnImageDGV()
         {
             //Create Column to show image
-            //DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
-            //imageColumn.HeaderText = "Hình ảnh";
-            //imageColumn.Name = "ImageColumn";
-            //dgv_ListProduct.Columns.Add(imageColumn);
+            DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
+            imageColumn.HeaderText = "Hình ảnh";
+            imageColumn.Name = "ImageColumn";
+            dgv_ListProduct.Columns.Add(imageColumn);
         }
         private void LoadDataGridView(string nameProdut = null)
         {
             dgv_ListProduct.DataSource = (new BLL_Product()).GetProduct("TenSP", nameProdut);
-            //foreach (DataGridViewRow row in dgv_ListProduct.Rows)
-            //{
-            //    string path = row.Cells["HinhAnh"].Value.ToString();
-            //    string imagePath = Path.Combine(Application.StartupPath, "..", "..", "Image", "Products", path);
+            foreach (DataGridViewRow row in dgv_ListProduct.Rows)
+            {
+                string path = row.Cells["HinhAnh"].Value.ToString();
+                string imagePath = Path.Combine(Application.StartupPath, "..", "..", "Image", "Products", path);
 
-            //    if (File.Exists(imagePath))
-            //    {
-            //        Image image = Image.FromFile(imagePath);
-            //        row.Cells["ImageColumn"].Value = image;
-            //    }
-            //    else
-            //    {
-            //        row.Cells["ImageColumn"].Value = null; 
-            //    }
-            //}
+                if (File.Exists(imagePath))
+                {
+                    Image image = Image.FromFile(imagePath);
+                    row.Cells["ImageColumn"].Value = image;
+                }
+                else
+                {
+                    row.Cells["ImageColumn"].Value = null; 
+                }
+            }
             //dgv_ListProduct.Columns["HinhAnh"].Visible = false;
 
         }
         private void frmManagementProducts_Load(object sender, EventArgs e)
         {
-            //AddColumnImageDGV();
+            AddColumnImageDGV();
             LoadDataGridView();
             LoadDataComboBox();
             cbb_Supplier.SelectedIndex = 0;
