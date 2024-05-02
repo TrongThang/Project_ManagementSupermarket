@@ -34,8 +34,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 13,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "frmManagementProducts.cs",
+              "DocumentMoniker": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\Manager\\frmManagementProducts.cs",
+              "RelativeDocumentMoniker": "ManagementSupermarket\\Manager\\frmManagementProducts.cs",
+              "ToolTip": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\Manager\\frmManagementProducts.cs",
+              "RelativeToolTip": "ManagementSupermarket\\Manager\\frmManagementProducts.cs",
+              "ViewState": "AQIAAFQAAAAAAAAAAAAlwFsAAAByAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T04:02:42.776Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmLogin.cs",
+              "DocumentMoniker": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\frmLogin.cs",
+              "RelativeDocumentMoniker": "ManagementSupermarket\\frmLogin.cs",
+              "ToolTip": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\frmLogin.cs",
+              "RelativeToolTip": "ManagementSupermarket\\frmLogin.cs",
+              "ViewState": "AQIAADgAAAAAAAAAAADwvysAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T04:07:37.967Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -70,35 +98,11 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "frmManagementProducts.cs",
-              "DocumentMoniker": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\Manager\\frmManagementProducts.cs",
-              "RelativeDocumentMoniker": "ManagementSupermarket\\Manager\\frmManagementProducts.cs",
-              "ToolTip": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\Manager\\frmManagementProducts.cs",
-              "RelativeToolTip": "ManagementSupermarket\\Manager\\frmManagementProducts.cs",
-              "ViewState": "AQIAAFQAAAAAAAAAAAAlwFsAAAByAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-02T04:02:42.776Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmLogin.cs",
-              "DocumentMoniker": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\frmLogin.cs",
-              "RelativeDocumentMoniker": "ManagementSupermarket\\frmLogin.cs",
-              "ToolTip": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\frmLogin.cs",
-              "RelativeToolTip": "ManagementSupermarket\\frmLogin.cs",
-              "ViewState": "AQIAADgAAAAAAAAAAADwvysAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-02T04:07:37.967Z",
-              "IsPinned": true,
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -120,7 +124,7 @@
               "RelativeDocumentMoniker": "ManagementSupermarket\\frmInfomation.cs",
               "ToolTip": "D:\\C#\\Project_ManagementSupermarket\\ManagementSupermarket\\frmInfomation.cs",
               "RelativeToolTip": "ManagementSupermarket\\frmInfomation.cs",
-              "ViewState": "AQIAACQAAAAAAAAAAAAwwDAAAACHAAAA",
+              "ViewState": "AQIAACQAAAAAAAAAAAAwwDwAAABXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-02T04:12:04.662Z",
               "EditorCaption": ""
