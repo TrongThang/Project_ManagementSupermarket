@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_ExportExcel = new System.Windows.Forms.Button();
             this.num_ShelfLife = new System.Windows.Forms.NumericUpDown();
             this.cbb_UnitTime = new System.Windows.Forms.ComboBox();
             this.btn_Refresh = new FontAwesome.Sharp.IconButton();
@@ -58,7 +59,6 @@
             this.dgv_ListProduct = new System.Windows.Forms.DataGridView();
             this.txt_Search = new System.Windows.Forms.TextBox();
             this.btn_Search = new FontAwesome.Sharp.IconButton();
-            this.btn_ExportExcel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_ShelfLife)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_Count)).BeginInit();
@@ -102,13 +102,34 @@
             this.panel1.Size = new System.Drawing.Size(490, 751);
             this.panel1.TabIndex = 0;
             // 
+            // btn_ExportExcel
+            // 
+            this.btn_ExportExcel.BackgroundImage = global::ManagementSupermarket.Properties.Resources.png_clipart_microsoft_excel_logo_microsoft_excel_computer_icons_xls_microsoft_angle_text;
+            this.btn_ExportExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_ExportExcel.Location = new System.Drawing.Point(410, 7);
+            this.btn_ExportExcel.Name = "btn_ExportExcel";
+            this.btn_ExportExcel.Size = new System.Drawing.Size(82, 64);
+            this.btn_ExportExcel.TabIndex = 30;
+            this.btn_ExportExcel.UseVisualStyleBackColor = true;
+            this.btn_ExportExcel.Click += new System.EventHandler(this.btn_ExportExcel_Click);
+            // 
             // num_ShelfLife
             // 
             this.num_ShelfLife.Location = new System.Drawing.Point(21, 507);
+            this.num_ShelfLife.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.num_ShelfLife.Name = "num_ShelfLife";
             this.num_ShelfLife.Size = new System.Drawing.Size(117, 32);
             this.num_ShelfLife.TabIndex = 24;
             this.num_ShelfLife.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.num_ShelfLife.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // cbb_UnitTime
             // 
@@ -431,17 +452,6 @@
             this.btn_Search.TabIndex = 10;
             this.btn_Search.UseVisualStyleBackColor = true;
             this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
-            // 
-            // btn_ExportExcel
-            // 
-            this.btn_ExportExcel.BackgroundImage = global::ManagementSupermarket.Properties.Resources.png_clipart_microsoft_excel_logo_microsoft_excel_computer_icons_xls_microsoft_angle_text;
-            this.btn_ExportExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_ExportExcel.Location = new System.Drawing.Point(410, 7);
-            this.btn_ExportExcel.Name = "btn_ExportExcel";
-            this.btn_ExportExcel.Size = new System.Drawing.Size(82, 64);
-            this.btn_ExportExcel.TabIndex = 30;
-            this.btn_ExportExcel.UseVisualStyleBackColor = true;
-            this.btn_ExportExcel.Click += new System.EventHandler(this.btn_ExportExcel_Click);
             // 
             // frmManagementProducts
             // 

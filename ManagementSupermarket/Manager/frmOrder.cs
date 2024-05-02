@@ -21,6 +21,7 @@ using ManagementSupermarket.Manager;
 using Button = System.Windows.Forms.Button;
 using Image = System.Drawing.Image;
 using System.IO;
+using System.Windows.Media.Media3D;
 
 namespace ManagementSupermarket
 {
@@ -40,6 +41,39 @@ namespace ManagementSupermarket
         }
 
         Event eventConfig = new Event();
+
+        private bool IsErrorInput()
+        {
+            string mess = "";
+            bool flag = false;
+            bool errName = string.IsNullOrEmpty(cbb_NameProductCreate.Text.Trim());
+            DataTable tblProduct = (new BLL_Product()).GetProduct("TenSP", cbb_NameProductCreate.Text);
+            bool isNotCountProduct = false;
+            if (tblProduct.Rows.Count > 0)
+            {
+                isNotCountProduct = int.Parse(tblProduct.Rows[0]["SoLuong"].ToString()) - num_CountProductCreate.Value < 0;
+            }
+
+            if (errName)
+            {
+                mess = "Vui lòng chọn một sản phẩm!";
+                flag = true;
+            }
+            else if (isNotCountProduct)
+            {
+                mess = $"Số lượng sản phẩm {cbb_NameProductCreate.Text} đã hết!";
+                flag = true;
+            }
+
+            if (flag)
+            {
+                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return true;
+            }
+
+            return false;
+        }
+
         //LOAD DATA COMBO BOX
         private void LoadDataComboBox_NameProduct(ComboBox cbbProduct)
         {
@@ -357,18 +391,23 @@ namespace ManagementSupermarket
                 return;
             }
 
-            if(txt_CashCustomerCreate.Text == "0" && txt_CashCustomerCreate.Text.Count() == 1)
-            {
-                e.Handled = true;
-                txt_CashCustomerCreate.Text = e.KeyChar.ToString();
-            }else if(txt_CashCustomerCreate.Text.Count() >= 1 && char.IsDigit(e.KeyChar))
-            {
-                float moneyCash = float.Parse(txt_CashCustomerCreate.Text) - float.Parse(txt_TotalCashCreate.Text);
+            //txt_CashCustomerCreate.Text = eventConfig.ProcessMoney(txt_CashCustomerCreate.Text);
+        }
+        private void ErrorMoneyCashCustomer()
+        {
+            bool errMoney = double.Parse(txt_CashCustomerCreate.Text) < double.Parse(txt_TotalCashCreate.Text);
+            if(errMoney) {
+                lbl_ErrorCashCustomer.Text = "*Tiền của khách hàng phải hiện nhỏ hơn tổng đơn hàng!";
+                lbl_ErrorCashCustomer.Visible = true;
             }
         }
-
+        
         private void btn_FinishOrder_Click(object sender, EventArgs e)
         {
+            lbl_ErrorCashCustomer.Visible = false;
+            ErrorMoneyCashCustomer();
+
+
             string idInvoice, idProduct, idDiscount, idEmployee, idCustomer = null,nameProduct, phone;
             float price, discount, amount, totalMoney, cashCustomer;
             int countProduct;
@@ -393,7 +432,7 @@ namespace ManagementSupermarket
 
             totalMoney = this.TotalMoney;
             
-            cashCustomer = float.Parse(txt_CashCustomerCreate.Text);
+            cashCustomer = string.IsNullOrEmpty(txt_CashCustomerCreate.Text) ? 0 : float.Parse(txt_CashCustomerCreate.Text);
 
             DTO_InvoiceSelling invoiceSelling = new DTO_InvoiceSelling(idEmployee, totalMoney, cashCustomer, idCustomer);
             idInvoice = (new BLL_InvoiceSelling()).InsertInvoiceSelling(invoiceSelling).Rows[0][0].ToString();

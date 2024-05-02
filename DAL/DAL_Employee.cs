@@ -29,7 +29,6 @@ namespace DAL
 
             DataTable tblRole = (new DAL_Role()).GetRole("TenChucVu", employee.S_Role);
             dict.Add("MaChucVu", tblRole.Rows[0]["MaChucVu"]);
-            dict.Add("Luong", employee.D_Salary);
             dict.Add("TrangThai", employee.S_Status);
             return dict;
         }

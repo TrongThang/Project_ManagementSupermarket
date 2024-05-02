@@ -1,4 +1,5 @@
-﻿using ManagementSupermarket.Manager;
+﻿using BLL;
+using ManagementSupermarket.Manager;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,22 +42,33 @@ namespace ManagementSupermarket
         private void frmHomeOfManager_Load(object sender, EventArgs e)
         {
             RoleAccess();
+            lbl_Name.Text = (new BLL_Employee()).GetEmployeeTo("MaNV", s_idEmployee).Rows[0]["HoTen"].ToString();
+        }
+        private void FixSizeForm(Form frm)
+        {
+            int panelTop = panel_Top.Size.Height;
+            int panelLeft = FlowPanel_Button.Size.Width;
+            frm.Size = new Size(this.Width - panelTop, this.Height - panelLeft);
         }
         private void btn_Sell_Click(object sender, EventArgs e)
         {
+
             if (numCurrency == btn_Sell.Tag)
             {
                 return;
             }
             numCurrency = btn_Sell.Tag;
-            frmOrder frmOrder = new frmOrder();
-            frmOrder.MdiParent = this;
-            frmOrder.Show();
 
             if (childForm != null && !childForm.IsDisposed)
             {
                 childForm.Close();
             }
+            frmOrder frmOrder = new frmOrder();
+            frmOrder.MdiParent = this;
+            frmOrder.StartPosition = FormStartPosition.CenterParent;
+            FixSizeForm(frmOrder);
+
+            frmOrder.Show();
             childForm = frmOrder;
         }
 
@@ -68,14 +80,18 @@ namespace ManagementSupermarket
             }
             numCurrency = btn_Employee.Tag;
 
-            frmManagementEmployees frmEmployee = new frmManagementEmployees();
-            frmEmployee.MdiParent = this;
-            frmEmployee.Show();
-
             if (childForm != null && !childForm.IsDisposed)
             {
                 childForm.Close();
             }
+            frmManagementEmployees frmEmployee = new frmManagementEmployees();
+            frmEmployee.MdiParent = this;
+            frmEmployee.StartPosition = FormStartPosition.CenterParent;
+            FixSizeForm(frmEmployee);
+
+            frmEmployee.BringToFront();
+            frmEmployee.Show();
+                
             this.childForm = frmEmployee;
 
         }

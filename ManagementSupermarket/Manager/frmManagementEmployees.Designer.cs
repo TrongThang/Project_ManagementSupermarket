@@ -36,13 +36,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rad_Female = new System.Windows.Forms.RadioButton();
             this.rad_Male = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtp_CreatedTime = new System.Windows.Forms.DateTimePicker();
-            this.txt_Salary = new System.Windows.Forms.TextBox();
             this.txt_FullName = new System.Windows.Forms.TextBox();
             this.txt_CCCD = new System.Windows.Forms.TextBox();
             this.txt_Phone = new System.Windows.Forms.TextBox();
@@ -55,6 +53,7 @@
             this.lbl_ErrorPhone = new System.Windows.Forms.Label();
             this.lbl_ErrorAddress = new System.Windows.Forms.Label();
             this.grpInfo = new System.Windows.Forms.GroupBox();
+            this.pic_Avatar = new FontAwesome.Sharp.IconPictureBox();
             this.txt_Id = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.chk_EmployeeStatus = new System.Windows.Forms.CheckBox();
@@ -64,7 +63,6 @@
             this.btn_Delete = new FontAwesome.Sharp.IconButton();
             this.btn_Alter = new FontAwesome.Sharp.IconButton();
             this.btn_Add = new FontAwesome.Sharp.IconButton();
-            this.pic_Avatar = new FontAwesome.Sharp.IconPictureBox();
             this.iconDropDownButton1 = new FontAwesome.Sharp.IconDropDownButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ListEmployee)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -167,23 +165,12 @@
             this.label8.TabIndex = 8;
             this.label8.Text = "SĐT";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(418, 132);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(67, 25);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "Lương";
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.rad_Female);
             this.groupBox1.Controls.Add(this.rad_Male);
             this.groupBox1.ForeColor = System.Drawing.Color.Yellow;
-            this.groupBox1.Location = new System.Drawing.Point(570, 132);
+            this.groupBox1.Location = new System.Drawing.Point(415, 140);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(180, 76);
             this.groupBox1.TabIndex = 10;
@@ -218,7 +205,7 @@
             // 
             this.groupBox2.Controls.Add(this.dtp_CreatedTime);
             this.groupBox2.ForeColor = System.Drawing.Color.Yellow;
-            this.groupBox2.Location = new System.Drawing.Point(769, 132);
+            this.groupBox2.Location = new System.Drawing.Point(614, 140);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(196, 76);
             this.groupBox2.TabIndex = 11;
@@ -233,15 +220,6 @@
             this.dtp_CreatedTime.Name = "dtp_CreatedTime";
             this.dtp_CreatedTime.Size = new System.Drawing.Size(181, 32);
             this.dtp_CreatedTime.TabIndex = 11;
-            // 
-            // txt_Salary
-            // 
-            this.txt_Salary.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_Salary.Location = new System.Drawing.Point(415, 158);
-            this.txt_Salary.Name = "txt_Salary";
-            this.txt_Salary.Size = new System.Drawing.Size(149, 32);
-            this.txt_Salary.TabIndex = 16;
-            this.txt_Salary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PressNumber);
             // 
             // txt_FullName
             // 
@@ -284,7 +262,7 @@
             this.chk_Status.AutoSize = true;
             this.chk_Status.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chk_Status.ForeColor = System.Drawing.Color.White;
-            this.chk_Status.Location = new System.Drawing.Point(979, 220);
+            this.chk_Status.Location = new System.Drawing.Point(1013, 168);
             this.chk_Status.Name = "chk_Status";
             this.chk_Status.Size = new System.Drawing.Size(179, 40);
             this.chk_Status.TabIndex = 21;
@@ -295,9 +273,9 @@
             // 
             this.cbb_Role.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_Role.FormattingEnabled = true;
-            this.cbb_Role.Location = new System.Drawing.Point(982, 161);
+            this.cbb_Role.Location = new System.Drawing.Point(827, 169);
             this.cbb_Role.Name = "cbb_Role";
-            this.cbb_Role.Size = new System.Drawing.Size(185, 34);
+            this.cbb_Role.Size = new System.Drawing.Size(168, 34);
             this.cbb_Role.TabIndex = 24;
             // 
             // label7
@@ -305,7 +283,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(982, 130);
+            this.label7.Location = new System.Drawing.Point(827, 138);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(89, 25);
             this.label7.TabIndex = 25;
@@ -375,10 +353,8 @@
             this.grpInfo.Controls.Add(this.txt_CCCD);
             this.grpInfo.Controls.Add(this.txt_Id);
             this.grpInfo.Controls.Add(this.txt_FullName);
-            this.grpInfo.Controls.Add(this.txt_Salary);
             this.grpInfo.Controls.Add(this.groupBox2);
             this.grpInfo.Controls.Add(this.groupBox1);
-            this.grpInfo.Controls.Add(this.label9);
             this.grpInfo.Controls.Add(this.label8);
             this.grpInfo.Controls.Add(this.label2);
             this.grpInfo.Controls.Add(this.label1);
@@ -391,6 +367,23 @@
             this.grpInfo.TabIndex = 0;
             this.grpInfo.TabStop = false;
             this.grpInfo.Text = "Thông tin";
+            // 
+            // pic_Avatar
+            // 
+            this.pic_Avatar.BackColor = System.Drawing.Color.SlateGray;
+            this.pic_Avatar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pic_Avatar.BackgroundImage")));
+            this.pic_Avatar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pic_Avatar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pic_Avatar.ForeColor = System.Drawing.Color.Yellow;
+            this.pic_Avatar.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.pic_Avatar.IconColor = System.Drawing.Color.Yellow;
+            this.pic_Avatar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.pic_Avatar.IconSize = 164;
+            this.pic_Avatar.Location = new System.Drawing.Point(20, 52);
+            this.pic_Avatar.Name = "pic_Avatar";
+            this.pic_Avatar.Size = new System.Drawing.Size(169, 164);
+            this.pic_Avatar.TabIndex = 22;
+            this.pic_Avatar.TabStop = false;
             // 
             // txt_Id
             // 
@@ -509,23 +502,6 @@
             this.btn_Add.UseVisualStyleBackColor = true;
             this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
-            // pic_Avatar
-            // 
-            this.pic_Avatar.BackColor = System.Drawing.Color.SlateGray;
-            this.pic_Avatar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pic_Avatar.BackgroundImage")));
-            this.pic_Avatar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pic_Avatar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pic_Avatar.ForeColor = System.Drawing.Color.Yellow;
-            this.pic_Avatar.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.pic_Avatar.IconColor = System.Drawing.Color.Yellow;
-            this.pic_Avatar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.pic_Avatar.IconSize = 164;
-            this.pic_Avatar.Location = new System.Drawing.Point(20, 52);
-            this.pic_Avatar.Name = "pic_Avatar";
-            this.pic_Avatar.Size = new System.Drawing.Size(169, 164);
-            this.pic_Avatar.TabIndex = 22;
-            this.pic_Avatar.TabStop = false;
-            // 
             // iconDropDownButton1
             // 
             this.iconDropDownButton1.IconChar = FontAwesome.Sharp.IconChar.None;
@@ -539,6 +515,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1251, 745);
@@ -588,13 +566,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rad_Female;
         private System.Windows.Forms.RadioButton rad_Male;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DateTimePicker dtp_CreatedTime;
-        private System.Windows.Forms.TextBox txt_Salary;
         private System.Windows.Forms.TextBox txt_FullName;
         private System.Windows.Forms.TextBox txt_CCCD;
         private System.Windows.Forms.TextBox txt_Phone;

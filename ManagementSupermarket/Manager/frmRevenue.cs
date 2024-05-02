@@ -62,7 +62,7 @@ namespace ManagementSupermarket.Manager
 
         private void frmRevenue_Load(object sender, EventArgs e)
         {
-
+            LoadCriteria_Month();
         }
     }
 }

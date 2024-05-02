@@ -195,27 +195,45 @@ namespace ManagementSupermarket
         private bool IsErrorInput()
         {
             bool errorName = string.IsNullOrEmpty(txt_NameProduct.Text.Trim());
+            bool errSupplier = string.IsNullOrEmpty(cbb_Supplier.Text.Trim());
+            bool errTypeProduct = string.IsNullOrEmpty(cbb_TypeProduct.Text.Trim());
             bool errorEmptyMoney = string.IsNullOrEmpty(txt_Cost.Text.Trim()) || string.IsNullOrEmpty(txt_Price.Text.Trim());
             bool errorCost_Larger_Price = int.Parse(txt_Cost.Text) > int.Parse(txt_Price.Text);
+            bool flag = true;
 
             string mess = "";
             if (errorName)
             {
                 mess = "Tên không được để trống!";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return true;
-            }else if (errorEmptyMoney)
+                flag = false;
+            }
+            else if (errSupplier)
+            {
+                mess = "Vui lòng chọn một nhà cung cấp";
+                flag = false;
+            }
+            else if (errTypeProduct)
+            {
+                mess = "Vui lòng chọn một loại sản phẩm";
+                flag = false;
+            }
+            else if (errorEmptyMoney)
             {
                 mess = "Giá nhập và giá bán không được để trống!";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return true;
+                flag = false;
             }
             else if(errorCost_Larger_Price)
             {
                 mess = "Giá bán phải lớn hơn giá nhập!";
+                flag = false;
+            }
+
+            if(flag == false)
+            {
                 MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return true;
             }
+
             return false;
 
         }

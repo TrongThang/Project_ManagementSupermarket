@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel_Top = new System.Windows.Forms.Panel();
             this.panel_Avatar = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_Info = new FontAwesome.Sharp.IconButton();
             this.btn_ChangePassword = new FontAwesome.Sharp.IconButton();
@@ -41,14 +41,15 @@
             this.btn_Sell = new FontAwesome.Sharp.IconButton();
             this.btn_Employee = new FontAwesome.Sharp.IconButton();
             this.btn_Product = new FontAwesome.Sharp.IconButton();
-            this.btn_Discount = new FontAwesome.Sharp.IconButton();
+            this.btn_TypeProduct = new FontAwesome.Sharp.IconButton();
+            this.btn_Customer = new FontAwesome.Sharp.IconButton();
             this.btn_Supplier = new FontAwesome.Sharp.IconButton();
+            this.btn_Discount = new FontAwesome.Sharp.IconButton();
             this.btn_WareHouse = new FontAwesome.Sharp.IconButton();
             this.btn_LogOut = new FontAwesome.Sharp.IconButton();
             this.btn_Exit = new FontAwesome.Sharp.IconButton();
-            this.btn_TypeProduct = new FontAwesome.Sharp.IconButton();
-            this.btn_Customer = new FontAwesome.Sharp.IconButton();
-            this.panel2.SuspendLayout();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel_Top.SuspendLayout();
             this.panel_Avatar.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Avatar)).BeginInit();
@@ -56,18 +57,19 @@
             this.FlowPanel_Button.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel2
+            // panel_Top
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(150)))));
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.panel_Avatar);
-            this.panel2.Controls.Add(this.panel1);
-            this.panel2.Controls.Add(this.pic_Logo);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1345, 126);
-            this.panel2.TabIndex = 1;
+            this.panel_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(150)))));
+            this.panel_Top.Controls.Add(this.panel2);
+            this.panel_Top.Controls.Add(this.panel_Avatar);
+            this.panel_Top.Controls.Add(this.panel1);
+            this.panel_Top.Controls.Add(this.pic_Logo);
+            this.panel_Top.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_Top.Location = new System.Drawing.Point(0, 0);
+            this.panel_Top.Margin = new System.Windows.Forms.Padding(0);
+            this.panel_Top.Name = "panel_Top";
+            this.panel_Top.Size = new System.Drawing.Size(1379, 126);
+            this.panel_Top.TabIndex = 1;
             // 
             // panel_Avatar
             // 
@@ -110,9 +112,9 @@
             this.panel1.Controls.Add(this.pic_Avatar);
             this.panel1.Controls.Add(this.lbl_Name);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(1154, 0);
+            this.panel1.Location = new System.Drawing.Point(1190, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(189, 124);
+            this.panel1.Size = new System.Drawing.Size(189, 126);
             this.panel1.TabIndex = 5;
             // 
             // pic_Avatar
@@ -130,7 +132,7 @@
             // 
             this.lbl_Name.AutoSize = true;
             this.lbl_Name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(246)))), ((int)(((byte)(227)))));
-            this.lbl_Name.Location = new System.Drawing.Point(64, 94);
+            this.lbl_Name.Location = new System.Drawing.Point(3, 92);
             this.lbl_Name.Name = "lbl_Name";
             this.lbl_Name.Size = new System.Drawing.Size(82, 26);
             this.lbl_Name.TabIndex = 4;
@@ -142,28 +144,30 @@
             this.pic_Logo.Image = global::ManagementSupermarket.Properties.Resources.banhang;
             this.pic_Logo.Location = new System.Drawing.Point(0, 0);
             this.pic_Logo.Name = "pic_Logo";
-            this.pic_Logo.Size = new System.Drawing.Size(245, 124);
+            this.pic_Logo.Size = new System.Drawing.Size(245, 126);
             this.pic_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_Logo.TabIndex = 2;
             this.pic_Logo.TabStop = false;
             // 
             // FlowPanel_Button
             // 
+            this.FlowPanel_Button.AutoScroll = true;
             this.FlowPanel_Button.Controls.Add(this.btn_Sell);
             this.FlowPanel_Button.Controls.Add(this.btn_Employee);
             this.FlowPanel_Button.Controls.Add(this.btn_Product);
-            this.FlowPanel_Button.Controls.Add(this.btn_Discount);
+            this.FlowPanel_Button.Controls.Add(this.btn_TypeProduct);
+            this.FlowPanel_Button.Controls.Add(this.btn_Customer);
             this.FlowPanel_Button.Controls.Add(this.btn_Supplier);
+            this.FlowPanel_Button.Controls.Add(this.btn_Discount);
             this.FlowPanel_Button.Controls.Add(this.btn_WareHouse);
             this.FlowPanel_Button.Controls.Add(this.btn_LogOut);
             this.FlowPanel_Button.Controls.Add(this.btn_Exit);
-            this.FlowPanel_Button.Controls.Add(this.btn_TypeProduct);
-            this.FlowPanel_Button.Controls.Add(this.btn_Customer);
             this.FlowPanel_Button.Dock = System.Windows.Forms.DockStyle.Left;
             this.FlowPanel_Button.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.FlowPanel_Button.Location = new System.Drawing.Point(0, 126);
+            this.FlowPanel_Button.Margin = new System.Windows.Forms.Padding(0);
             this.FlowPanel_Button.Name = "FlowPanel_Button";
-            this.FlowPanel_Button.Size = new System.Drawing.Size(246, 733);
+            this.FlowPanel_Button.Size = new System.Drawing.Size(246, 832);
             this.FlowPanel_Button.TabIndex = 7;
             this.FlowPanel_Button.WrapContents = false;
             // 
@@ -224,99 +228,6 @@
             this.btn_Product.UseVisualStyleBackColor = true;
             this.btn_Product.Click += new System.EventHandler(this.btn_Product_Click);
             // 
-            // btn_Discount
-            // 
-            this.btn_Discount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Discount.IconChar = FontAwesome.Sharp.IconChar.Shopify;
-            this.btn_Discount.IconColor = System.Drawing.Color.Black;
-            this.btn_Discount.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Discount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Discount.Location = new System.Drawing.Point(0, 231);
-            this.btn_Discount.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_Discount.Name = "btn_Discount";
-            this.btn_Discount.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_Discount.Size = new System.Drawing.Size(246, 77);
-            this.btn_Discount.TabIndex = 11;
-            this.btn_Discount.Tag = "4";
-            this.btn_Discount.Text = "Khuyến Mãi";
-            this.btn_Discount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_Discount.UseVisualStyleBackColor = true;
-            this.btn_Discount.Click += new System.EventHandler(this.btn_Discount_Click);
-            // 
-            // btn_Supplier
-            // 
-            this.btn_Supplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Supplier.IconChar = FontAwesome.Sharp.IconChar.BuildingCircleCheck;
-            this.btn_Supplier.IconColor = System.Drawing.Color.Black;
-            this.btn_Supplier.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Supplier.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Supplier.Location = new System.Drawing.Point(0, 308);
-            this.btn_Supplier.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_Supplier.Name = "btn_Supplier";
-            this.btn_Supplier.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_Supplier.Size = new System.Drawing.Size(246, 77);
-            this.btn_Supplier.TabIndex = 12;
-            this.btn_Supplier.Tag = "5";
-            this.btn_Supplier.Text = "Nhà Cung Cấp";
-            this.btn_Supplier.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_Supplier.UseVisualStyleBackColor = true;
-            this.btn_Supplier.Click += new System.EventHandler(this.btn_Supplier_Click);
-            // 
-            // btn_WareHouse
-            // 
-            this.btn_WareHouse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_WareHouse.IconChar = FontAwesome.Sharp.IconChar.BoxesAlt;
-            this.btn_WareHouse.IconColor = System.Drawing.Color.Black;
-            this.btn_WareHouse.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_WareHouse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_WareHouse.Location = new System.Drawing.Point(0, 385);
-            this.btn_WareHouse.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_WareHouse.Name = "btn_WareHouse";
-            this.btn_WareHouse.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_WareHouse.Size = new System.Drawing.Size(246, 77);
-            this.btn_WareHouse.TabIndex = 13;
-            this.btn_WareHouse.Tag = "6";
-            this.btn_WareHouse.Text = "Kho Hàng";
-            this.btn_WareHouse.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_WareHouse.UseVisualStyleBackColor = true;
-            this.btn_WareHouse.Click += new System.EventHandler(this.btn_WareHouse_Click);
-            // 
-            // btn_LogOut
-            // 
-            this.btn_LogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_LogOut.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
-            this.btn_LogOut.IconColor = System.Drawing.Color.Black;
-            this.btn_LogOut.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_LogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_LogOut.Location = new System.Drawing.Point(0, 462);
-            this.btn_LogOut.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_LogOut.Name = "btn_LogOut";
-            this.btn_LogOut.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_LogOut.Size = new System.Drawing.Size(246, 77);
-            this.btn_LogOut.TabIndex = 14;
-            this.btn_LogOut.Text = "Đăng Xuất";
-            this.btn_LogOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_LogOut.UseVisualStyleBackColor = true;
-            this.btn_LogOut.Click += new System.EventHandler(this.btn_LogOut_Click);
-            // 
-            // btn_Exit
-            // 
-            this.btn_Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Exit.IconChar = FontAwesome.Sharp.IconChar.DoorOpen;
-            this.btn_Exit.IconColor = System.Drawing.Color.Black;
-            this.btn_Exit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Exit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Exit.Location = new System.Drawing.Point(0, 539);
-            this.btn_Exit.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_Exit.Name = "btn_Exit";
-            this.btn_Exit.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_Exit.Size = new System.Drawing.Size(246, 77);
-            this.btn_Exit.TabIndex = 16;
-            this.btn_Exit.Text = "Thoát";
-            this.btn_Exit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_Exit.UseVisualStyleBackColor = true;
-            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
-            // 
             // btn_TypeProduct
             // 
             this.btn_TypeProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -324,7 +235,7 @@
             this.btn_TypeProduct.IconColor = System.Drawing.Color.Black;
             this.btn_TypeProduct.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_TypeProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_TypeProduct.Location = new System.Drawing.Point(0, 616);
+            this.btn_TypeProduct.Location = new System.Drawing.Point(0, 231);
             this.btn_TypeProduct.Margin = new System.Windows.Forms.Padding(0);
             this.btn_TypeProduct.Name = "btn_TypeProduct";
             this.btn_TypeProduct.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -343,7 +254,7 @@
             this.btn_Customer.IconColor = System.Drawing.Color.Black;
             this.btn_Customer.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Customer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Customer.Location = new System.Drawing.Point(0, 693);
+            this.btn_Customer.Location = new System.Drawing.Point(0, 308);
             this.btn_Customer.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Customer.Name = "btn_Customer";
             this.btn_Customer.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -355,13 +266,114 @@
             this.btn_Customer.UseVisualStyleBackColor = true;
             this.btn_Customer.Click += new System.EventHandler(this.btn_Customer_Click);
             // 
+            // btn_Supplier
+            // 
+            this.btn_Supplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Supplier.IconChar = FontAwesome.Sharp.IconChar.BuildingCircleCheck;
+            this.btn_Supplier.IconColor = System.Drawing.Color.Black;
+            this.btn_Supplier.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Supplier.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Supplier.Location = new System.Drawing.Point(0, 385);
+            this.btn_Supplier.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Supplier.Name = "btn_Supplier";
+            this.btn_Supplier.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btn_Supplier.Size = new System.Drawing.Size(246, 77);
+            this.btn_Supplier.TabIndex = 12;
+            this.btn_Supplier.Tag = "5";
+            this.btn_Supplier.Text = "Nhà Cung Cấp";
+            this.btn_Supplier.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_Supplier.UseVisualStyleBackColor = true;
+            this.btn_Supplier.Click += new System.EventHandler(this.btn_Supplier_Click);
+            // 
+            // btn_Discount
+            // 
+            this.btn_Discount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Discount.IconChar = FontAwesome.Sharp.IconChar.Shopify;
+            this.btn_Discount.IconColor = System.Drawing.Color.Black;
+            this.btn_Discount.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Discount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Discount.Location = new System.Drawing.Point(0, 462);
+            this.btn_Discount.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Discount.Name = "btn_Discount";
+            this.btn_Discount.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btn_Discount.Size = new System.Drawing.Size(246, 77);
+            this.btn_Discount.TabIndex = 11;
+            this.btn_Discount.Tag = "4";
+            this.btn_Discount.Text = "Khuyến Mãi";
+            this.btn_Discount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_Discount.UseVisualStyleBackColor = true;
+            this.btn_Discount.Click += new System.EventHandler(this.btn_Discount_Click);
+            // 
+            // btn_WareHouse
+            // 
+            this.btn_WareHouse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_WareHouse.IconChar = FontAwesome.Sharp.IconChar.BoxesAlt;
+            this.btn_WareHouse.IconColor = System.Drawing.Color.Black;
+            this.btn_WareHouse.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_WareHouse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_WareHouse.Location = new System.Drawing.Point(0, 539);
+            this.btn_WareHouse.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_WareHouse.Name = "btn_WareHouse";
+            this.btn_WareHouse.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btn_WareHouse.Size = new System.Drawing.Size(246, 77);
+            this.btn_WareHouse.TabIndex = 13;
+            this.btn_WareHouse.Tag = "6";
+            this.btn_WareHouse.Text = "Kho Hàng";
+            this.btn_WareHouse.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_WareHouse.UseVisualStyleBackColor = true;
+            this.btn_WareHouse.Click += new System.EventHandler(this.btn_WareHouse_Click);
+            // 
+            // btn_LogOut
+            // 
+            this.btn_LogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_LogOut.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            this.btn_LogOut.IconColor = System.Drawing.Color.Black;
+            this.btn_LogOut.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_LogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_LogOut.Location = new System.Drawing.Point(0, 616);
+            this.btn_LogOut.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_LogOut.Name = "btn_LogOut";
+            this.btn_LogOut.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btn_LogOut.Size = new System.Drawing.Size(246, 77);
+            this.btn_LogOut.TabIndex = 14;
+            this.btn_LogOut.Text = "Đăng Xuất";
+            this.btn_LogOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_LogOut.UseVisualStyleBackColor = true;
+            this.btn_LogOut.Click += new System.EventHandler(this.btn_LogOut_Click);
+            // 
+            // btn_Exit
+            // 
+            this.btn_Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Exit.IconChar = FontAwesome.Sharp.IconChar.DoorOpen;
+            this.btn_Exit.IconColor = System.Drawing.Color.Black;
+            this.btn_Exit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Exit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Exit.Location = new System.Drawing.Point(0, 693);
+            this.btn_Exit.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Exit.Name = "btn_Exit";
+            this.btn_Exit.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btn_Exit.Size = new System.Drawing.Size(246, 77);
+            this.btn_Exit.TabIndex = 16;
+            this.btn_Exit.Text = "Thoát";
+            this.btn_Exit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_Exit.UseVisualStyleBackColor = true;
+            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(245, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(945, 126);
+            this.panel2.TabIndex = 9;
+            // 
             // frmHomeOfManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1345, 859);
+            this.ClientSize = new System.Drawing.Size(1379, 958);
             this.Controls.Add(this.FlowPanel_Button);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel_Top);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(5);
@@ -369,7 +381,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmHome";
             this.Load += new System.EventHandler(this.frmHomeOfManager_Load);
-            this.panel2.ResumeLayout(false);
+            this.panel_Top.ResumeLayout(false);
             this.panel_Avatar.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -381,7 +393,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel_Top;
         private System.Windows.Forms.PictureBox pic_Logo;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.FlowLayoutPanel FlowPanel_Button;
@@ -401,5 +413,6 @@
         private System.Windows.Forms.FlowLayoutPanel panel_Avatar;
         private FontAwesome.Sharp.IconButton btn_Info;
         private FontAwesome.Sharp.IconButton btn_ChangePassword;
+        private System.Windows.Forms.Panel panel2;
     }
 }

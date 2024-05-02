@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,15 @@ namespace ManagementSupermarket
             {
                 MessageBox.Show(error, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        public string ProcessMoney(string number)
+        {
+            if(string.IsNullOrEmpty(number) == false)
+            {
+                double money = double.Parse(number);
+                return money.ToString("N", CultureInfo.CreateSpecificCulture("vi-VN"));
+            }
+            return number;
         }
     }
 }

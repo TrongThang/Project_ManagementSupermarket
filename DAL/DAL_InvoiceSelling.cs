@@ -53,6 +53,22 @@ namespace DAL
             return tblInvoice;
         }
 
+        public DataTable GetInvoiceSellingToEmployee(string idEmployee, string keySearch, string value = null)
+        {
+            string sql = "sp_GetInvoiceSelling";
+
+            DataTable tblInvoice = null;
+
+            //keySearch: is Text in ComboBox Search user choice
+            //Value: Text in TextBox user input
+            db.addParam("MaNV", idEmployee);
+            db.addParam(keySearch, value);
+            
+            tblInvoice = db.queryExecuteAdapter(sql);
+
+            return tblInvoice;
+        }
+
         public DataTable GetRevenue(string criteria, int value = 0)
         {
             string sql = "sp_GetRevenue";

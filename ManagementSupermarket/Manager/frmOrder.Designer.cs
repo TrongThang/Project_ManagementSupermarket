@@ -237,7 +237,6 @@
             this.txt_CashCustomerCreate.Name = "txt_CashCustomerCreate";
             this.txt_CashCustomerCreate.Size = new System.Drawing.Size(273, 45);
             this.txt_CashCustomerCreate.TabIndex = 32;
-            this.txt_CashCustomerCreate.Text = "0";
             this.txt_CashCustomerCreate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CashCustomerCreate_KeyPress);
             // 
             // label1

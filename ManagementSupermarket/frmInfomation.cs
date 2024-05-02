@@ -111,7 +111,7 @@ namespace ManagementSupermarket
                 return;
             }
 
-            DTO_Employee DTO_employee = new DTO_Employee(fullname, CCCD, gender, address, phone, createdTime, roleName, salary, 1, id);
+            DTO_Employee DTO_employee = new DTO_Employee(fullname, CCCD, gender, address, phone, createdTime, roleName, 1, id);
 
             int numOfRows = dataEmployee.UpdateEmployee(DTO_employee);
             if (numOfRows > 0)
