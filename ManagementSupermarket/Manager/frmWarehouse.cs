@@ -38,52 +38,102 @@ namespace ManagementSupermarket.Manager
         
         private void LoadDataComboBox_NameSuppilerCreate()
         {
-            cbb_NameSupplierCreate.DataSource = (new BLL_Supplier()).GetSupplier("MaNCC");
+            try
+            {
+            cbb_NameSupplierCreate.DataSource = (new BLL_Supplier()).GetSupplier("TenNCC");
             cbb_NameSupplierCreate.DisplayMember = "TenNCC";
             cbb_NameSupplierCreate.ValueMember = "MaNCC";
 
+            }
+            catch(Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+          
                 
             
         }
-        private void LoadDataComboBox_CreateProduct(string idSupllier = null)
+        private void LoadDataComboBox_CreateProduct(string nameSupplier = null)
         {
-            cbb_ProductImportWarehouse.DataSource = (new BLL_Product()).GetProduct("MaNCC", idSupllier);
+            try
+            {
+            cbb_ProductImportWarehouse.DataSource = (new BLL_Product()).GetProduct("TenNCC", nameSupplier);
             cbb_ProductImportWarehouse.DisplayMember = "TenSP";
             cbb_ProductImportWarehouse.ValueMember = "MaSP";
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
         private void cbb_NameSupplierCreate_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try
+            {
             //string idSupplier = cbb_NameSupplierCreate.SelectedValue.ToString();
             //LoadDataComboBox_CreateProduct(idSupplier);
             if (cbb_NameSupplierCreate.SelectedItem != null)
             {
-                string idSupplier = cbb_NameSupplierCreate.SelectedValue.ToString();
-                LoadDataComboBox_CreateProduct(idSupplier);
+                string nameSupplier = cbb_NameSupplierCreate.Text;
+                LoadDataComboBox_CreateProduct(nameSupplier);
             }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
 
 
         }
         private void LoadDataComboBox_NameSuppiler()
         {
-            cbb_NameSuplier.DataSource = (new BLL_Supplier()).GetSupplier("MaNCC");
+            try
+            {
+            cbb_NameSuplier.DataSource = (new BLL_Supplier()).GetSupplier("TenNCC");
             cbb_NameSuplier.DisplayMember = "TenNCC";
             cbb_NameSuplier.ValueMember = "MaNCC";
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
 
         }
         private void LoadDataComboBox_NameProduct()
         {
+            try
+            {
             cbb_NameSuplier.DataSource = (new BLL_Product()).GetProduct("MaSP");
             cbb_NameSuplier.DisplayMember = "TenSP";
             cbb_NameSuplier.ValueMember = "MaSP";
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
 
         }
         private void LoadDataGridView_InvoiceWarehouse()
         {
+            try
+            {
             dgv_ListOrder.DataSource = (new BLL_InvoiceWarehouse()).GetInvoiceImportWareHouse("MaNK");
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
       
         private void frmWarehouse_Load(object sender, EventArgs e)
         {
+            try
+            {
             LoadDataComboBox_NameSuppilerCreate();
             
             LoadDataComboBox_CreateProduct();
@@ -95,35 +145,82 @@ namespace ManagementSupermarket.Manager
             LoadDataGridView_InvoiceWarehouse();
            
             LoadDataComboBox_NameSuppiler();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void lst_ToReceive_Click(object sender, EventArgs e)
         {
-            if(lst_ToReceive.SelectedItems.Count > 0)
+            try
             {
-                ListViewSubItemCollection itemSelected = lst_ToReceive.SelectedItems[0].SubItems;
+                if (lst_ToReceive.SelectedItems.Count > 0)
+                {
+                    ListViewSubItemCollection itemSelected = lst_ToReceive.SelectedItems[0].SubItems;
 
-                cbb_NameSupplierCreate.Text = itemSelected[0].Text;
-                cbb_ProductImportWarehouse.Text = itemSelected[1].Text;
+                    cbb_NameSupplierCreate.Text = itemSelected[0].Text;
+                    cbb_ProductImportWarehouse.Text = itemSelected[1].Text;
                 
-                num_CountProductCreate.Text = itemSelected[2].Text;
-                txt_PriceCreate.Text = itemSelected[3].Text;
+                    num_CountProductCreate.Text = itemSelected[2].Text;
+                    txt_PriceCreate.Text = itemSelected[3].Text;
                 
-                dtp_CreatedTime.Text = itemSelected[4].Text;
-                txt_IntoMoney.Text = itemSelected[5].Text;
+                    dtp_CreatedTime.Text = itemSelected[4].Text;
+                    txt_IntoMoney.Text = itemSelected[5].Text;
 
+                }
             }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
+       
+        private bool IsNullPrice()
+        {
+            try
+            {
+                bool isNullPrice = string.IsNullOrEmpty(txt_PriceCreate.Text.Trim());
+                if (isNullPrice)
+                {
+                    lbl_ErrorPrice.Visible = true;
+                    lbl_ErrorPrice.Text = "Vui lòng chọn tên NCC và tên sản phẩm!";
+                }
+                else
+                {
+                    lbl_ErrorPrice.Visible = false; // Ẩn label lỗi nếu giá sản phẩm hợp lệ
+                }
+                return isNullPrice;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return false;
+            
+        }
+
         private void ClearControl()
         {
-            cbb_NameSupplierCreate.SelectedIndex = -1;
-            cbb_ProductImportWarehouse.SelectedIndex = -1;
-            num_CountProductCreate.Value = 0;
-            txt_PriceCreate.Clear();
-            dtp_CreatedTime.Value = DateTime.Now;
-            txt_IntoMoney.Clear();
-            txt_TotalCashCreate.Clear();
-            lst_ToReceive.Items.Clear();
+            try
+            {
+                 cbb_NameSupplierCreate.SelectedIndex = -1;
+                cbb_ProductImportWarehouse.SelectedIndex = -1;
+                num_CountProductCreate.Value = 0;
+                txt_PriceCreate.Clear();
+                dtp_CreatedTime.Value = DateTime.Now;
+                txt_IntoMoney.Clear();
+                txt_TotalCashCreate.Clear();
+                lst_ToReceive.Items.Clear();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
 
 
 
@@ -131,101 +228,126 @@ namespace ManagementSupermarket.Manager
 
         private void btn_AddCreate_Click(object sender, EventArgs e)
         {
-            int count = (int)num_CountProductCreate.Value;
-            if (count <= 0)
+            try
             {
-                MessageBox.Show("Vui lòng chọn số lượng ít nhất là 1!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            string  nameSuppiler, nameProduct;
-            float price, amount;
-            DateTime createTime;
-            nameSuppiler=cbb_NameSupplierCreate.SelectedValue.ToString();
-            nameProduct = cbb_ProductImportWarehouse.SelectedValue.ToString();
-            //nameProduct = cbb_ProductImportWarehouse.SelectedValue.ToString();
-            price =float.Parse(txt_PriceCreate.Text);
-            createTime = dtp_CreatedTime.Value;
-            amount = price * count;
+                if (IsNullPrice())  
+                {
+                    return;
+                }
+
+                int count = (int)num_CountProductCreate.Value;
+                if (count <= 0)
+                {
+                    MessageBox.Show("Vui lòng chọn số lượng ít nhất là 1!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                string  nameSuppiler, nameProduct;
+                float price, amount;
+                DateTime createTime;
+                nameSuppiler=cbb_NameSupplierCreate.SelectedValue.ToString();
+                nameProduct = cbb_ProductImportWarehouse.SelectedValue.ToString();
+            
+                price =float.Parse(txt_PriceCreate.Text);
+                if (string.IsNullOrEmpty(txt_PriceCreate.Text))
+                {
+                    IsNullPrice();
+                }
+                createTime = dtp_CreatedTime.Value;
+                amount = price * count;
             
 
-            ListViewItem item = new ListViewItem(nameSuppiler);
-            item.Name = nameProduct;
+                ListViewItem item = new ListViewItem(nameSuppiler);
+                item.Name = nameProduct;
            
-            item.SubItems.Add(nameProduct);
-            item.SubItems.Add(count.ToString());
-            item.SubItems.Add(price.ToString());
-            item.SubItems.Add(createTime.ToString());
-            item.SubItems.Add(amount.ToString());
-            txt_IntoMoney.Text = amount.ToString();
+                item.SubItems.Add(nameProduct);
+                item.SubItems.Add(count.ToString());
+                item.SubItems.Add(price.ToString());
+                item.SubItems.Add(createTime.ToString());
+                item.SubItems.Add(amount.ToString());
+                txt_IntoMoney.Text = amount.ToString();
 
-            int indexItemExist = lst_ToReceive.Items.IndexOfKey(nameProduct);
-            if (indexItemExist >= 0)
-            {
-                ListViewSubItemCollection subItem = lst_ToReceive.Items[indexItemExist].SubItems;
-                int newCount = int.Parse(subItem[2].Text) + count;
-                //float newPrice =float.Parse(subItem[3].Text)+price;
-                float newAmout=float.Parse(subItem[5].Text)+amount;
+                int indexItemExist = lst_ToReceive.Items.IndexOfKey(nameProduct);
+                if (indexItemExist >= 0)
+                {
+                    ListViewSubItemCollection subItem = lst_ToReceive.Items[indexItemExist].SubItems;
+                    int newCount = int.Parse(subItem[2].Text) + count;
+                    //float newPrice =float.Parse(subItem[3].Text)+price;
+                    float newAmout=float.Parse(subItem[5].Text)+amount;
 
-                lst_ToReceive.Items[indexItemExist].SubItems[2].Text = newCount.ToString();
-               //lst_ToReceive.Items[indexItemExist].SubItems[3].Text = newPrice.ToString();
-                lst_ToReceive.Items[indexItemExist].SubItems[5].Text = newAmout.ToString();
+                    lst_ToReceive.Items[indexItemExist].SubItems[2].Text = newCount.ToString();
+                   //lst_ToReceive.Items[indexItemExist].SubItems[3].Text = newPrice.ToString();
+                    lst_ToReceive.Items[indexItemExist].SubItems[5].Text = newAmout.ToString();
 
 
+                }
+                else
+                {
+                    lst_ToReceive.Items.Add(item);
+                }
+                this.TotalMoney += amount;
+                txt_TotalCashCreate.Text = this.TotalMoney.ToString();
             }
-            else
+            catch (Exception err)
             {
-                lst_ToReceive.Items.Add(item);
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            this.TotalMoney += amount;
-            txt_TotalCashCreate.Text = this.TotalMoney.ToString();
+            
 
 
         }
 
         private void btn_AlterCreate_Click(object sender, EventArgs e)
         {
-            int count = (int)num_CountProductCreate.Value;
-            if (count < 1)
+            try
             {
-                btn_DeleteCreate_Click(sender, e);
+                int count = (int)num_CountProductCreate.Value;
+                if (count < 1)
+                {
+                    btn_DeleteCreate_Click(sender, e);
+                }
+                string nameSuppiler, nameProduct;
+                float price, amount;
+                DateTime createTime;
+
+
+                nameSuppiler = cbb_NameSupplierCreate.SelectedValue.ToString();
+                nameProduct = cbb_ProductImportWarehouse.Text;
+                price = float.Parse(txt_PriceCreate.Text);
+                createTime = dtp_CreatedTime.Value;
+                amount =price * count;
+
+                DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn sửa thông tin nhập kho của {nameProduct}??", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if(result == DialogResult.Yes)
+                {
+                    int indexItemExist = lst_ToReceive.Items.IndexOfKey(nameProduct);
+                    if (indexItemExist >= 0)
+                    {
+                        ListViewSubItemCollection subItem = lst_ToReceive.Items[indexItemExist].SubItems;
+                        //lst_ToReceive.Items[indexItemExist].SubItems[3].Text=count.ToString();
+                        //lst_ToReceive.Items[indexItemExist].SubItems[4].Text = price.ToString();
+                        //lst_ToReceive.Items[indexItemExist].SubItems[6].Text = amount.ToString();
+
+                        //this.TotalMoney = TotalMoney + (float.Parse(lst_ToReceive.Items[indexItemExist].SubItems[6].Text) - amount);
+                        this.TotalMoney = TotalMoney - (int.Parse(subItem[2].Text)-count)*price;
+                        subItem[2].Text=count.ToString();
+                        subItem[3].Text = price.ToString();
+                        subItem[5].Text= amount.ToString();
+                        MessageBox.Show($"Chỉnh sửa thông tin {nameProduct} thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Có lõi trong quá trình chỉnh sửa thông tin {nameProduct}. Vui lòng thử lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    txt_TotalCashCreate.Text = this.TotalMoney.ToString();
+                }
             }
-            string nameSuppiler, nameProduct;
-            float price, amount;
-            DateTime createTime;
-
-
-            nameSuppiler = cbb_NameSupplierCreate.SelectedValue.ToString();
-            nameProduct = cbb_ProductImportWarehouse.Text;
-            price = float.Parse(txt_PriceCreate.Text);
-            createTime = dtp_CreatedTime.Value;
-            amount =price * count;
-
-            DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn sửa thông tin nhập kho của {nameProduct}??", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if(result == DialogResult.Yes)
+            catch (Exception err)
             {
-                int indexItemExist = lst_ToReceive.Items.IndexOfKey(nameProduct);
-                if (indexItemExist >= 0)
-                {
-                    ListViewSubItemCollection subItem = lst_ToReceive.Items[indexItemExist].SubItems;
-                    //lst_ToReceive.Items[indexItemExist].SubItems[3].Text=count.ToString();
-                    //lst_ToReceive.Items[indexItemExist].SubItems[4].Text = price.ToString();
-                    //lst_ToReceive.Items[indexItemExist].SubItems[6].Text = amount.ToString();
-
-                    //this.TotalMoney = TotalMoney + (float.Parse(lst_ToReceive.Items[indexItemExist].SubItems[6].Text) - amount);
-                    this.TotalMoney = TotalMoney - (int.Parse(subItem[2].Text)-count)*price;
-                    subItem[2].Text=count.ToString();
-                    subItem[3].Text = price.ToString();
-                    subItem[5].Text= amount.ToString();
-                    MessageBox.Show($"Chỉnh sửa thông tin {nameProduct} thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show($"Có lõi trong quá trình chỉnh sửa thông tin {nameProduct}. Vui lòng thử lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                txt_TotalCashCreate.Text = this.TotalMoney.ToString();
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
 
 
 
@@ -238,178 +360,242 @@ namespace ManagementSupermarket.Manager
 
         private void btn_DeleteCreate_Click(object sender, EventArgs e)
         {
-            string nameProduct = cbb_ProductImportWarehouse.Text;
-            string nameSuppiler = cbb_NameSupplierCreate.SelectedValue.ToString();
-
-            DialogResult result = MessageBox.Show($"Bạn có chắc chắn xoá nhập kho {nameProduct} khỏi giỏ hàng?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (result == DialogResult.Yes)
+            try
             {
-                int indexItemExist =lst_ToReceive.Items.IndexOfKey(nameProduct);
-                if (indexItemExist >= 0)
+                string nameProduct = cbb_ProductImportWarehouse.Text;
+                string nameSuppiler = cbb_NameSupplierCreate.SelectedValue.ToString();
+
+                DialogResult result = MessageBox.Show($"Bạn có chắc chắn xoá nhập kho {nameProduct} khỏi giỏ hàng?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
                 {
-                    this.TotalMoney = this.TotalMoney - float.Parse(lst_ToReceive.Items[indexItemExist].SubItems[5].Text);
-                    lst_ToReceive.Items.RemoveAt(indexItemExist);
-                    MessageBox.Show($"Xoá nhập kho {nameProduct} khỏi hóa đơn thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    int indexItemExist =lst_ToReceive.Items.IndexOfKey(nameProduct);
+                    if (indexItemExist >= 0)
+                    {
+                        this.TotalMoney = this.TotalMoney - float.Parse(lst_ToReceive.Items[indexItemExist].SubItems[5].Text);
+                        lst_ToReceive.Items.RemoveAt(indexItemExist);
+                        MessageBox.Show($"Xoá nhập kho {nameProduct} khỏi hóa đơn thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Có lỗi trong quá trình xoá {nameProduct}. Vui lòng thử lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    txt_TotalCashCreate.Text=this.TotalMoney.ToString();
                 }
-                else
-                {
-                    MessageBox.Show($"Có lỗi trong quá trình xoá {nameProduct}. Vui lòng thử lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                txt_TotalCashCreate.Text=this.TotalMoney.ToString();
             }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
 
         private void btn_Finish_Click(object sender, EventArgs e)
         {
-
-            string idReceive, idEmployee, idSuppiler, idProduct;
-            float totalMoney, price, amount;
-            int countProduct;
-            DateTime createTime;
-
-            idEmployee = this.idEmployee;
-
-            totalMoney = this.TotalMoney;
-           
-            idSuppiler = cbb_NameSupplierCreate.SelectedValue.ToString();
-            createTime = dtp_CreatedTime.Value;
-
-            DTO_InvoiceWarehouse invoiceWarehouse = new DTO_InvoiceWarehouse(idEmployee, idSuppiler, createTime, totalMoney);
-            idReceive = (new BLL_InvoiceWarehouse()).InsertInvoiceImportWareHouse(invoiceWarehouse).Rows[0][0].ToString();
-            foreach (ListViewItem row in lst_ToReceive.Items)
+            try
             {
+                string idReceive, idEmployee, idSuppiler, idProduct;
+                float totalMoney, price, amount;
+                int countProduct;
+                DateTime createTime;
 
-                if (!string.IsNullOrEmpty(idReceive))
-                {   
-                    // Nếu thông tin hóa đơn đã được thêm thành công, thêm các chi tiết hóa đơn
-                    idProduct = row.SubItems[1].Text;
-                    countProduct = int.Parse(row.SubItems[2].Text);
-                    price = int.Parse(row.SubItems[3].Text);
-                    amount = int.Parse(row.SubItems[5].Text);
+                idEmployee = this.idEmployee;
+
+                totalMoney = this.TotalMoney;
+           
+                idSuppiler = cbb_NameSupplierCreate.SelectedValue.ToString();
+                createTime = dtp_CreatedTime.Value;
+
+                DTO_InvoiceWarehouse invoiceWarehouse = new DTO_InvoiceWarehouse(idEmployee, idSuppiler, createTime, totalMoney);
+                idReceive = (new BLL_InvoiceWarehouse()).InsertInvoiceImportWareHouse(invoiceWarehouse).Rows[0][0].ToString();
+                foreach (ListViewItem row in lst_ToReceive.Items)
+                {
+
+                    if (!string.IsNullOrEmpty(idReceive))
+                    {   
+                        // Nếu thông tin hóa đơn đã được thêm thành công, thêm các chi tiết hóa đơn
+                        idProduct = row.SubItems[1].Text;
+                        countProduct = int.Parse(row.SubItems[2].Text);
+                        price = int.Parse(row.SubItems[3].Text);
+                        amount = int.Parse(row.SubItems[5].Text);
                     
 
-                    DTO_Detail_InvoiceWarehouse detailInvoice = new DTO_Detail_InvoiceWarehouse(idReceive, idProduct, countProduct, price);
-                    // Thêm chi tiết hóa đơn vào cơ sở dữ liệu
-                    // Lưu ý rằng bạn cần thay đổi phương thức InsertInvoiceImportWareHouse để chấp nhận chi tiết hóa đơn.
-                    int numOfRows = (new BLL_Detail_InvoiceWarehouse()).InsertDetailInvoiceImportWareHouse(detailInvoice);
+                        DTO_Detail_InvoiceWarehouse detailInvoice = new DTO_Detail_InvoiceWarehouse(idReceive, idProduct, countProduct, price);
+                        // Thêm chi tiết hóa đơn vào cơ sở dữ liệu
+                        // Lưu ý rằng bạn cần thay đổi phương thức InsertInvoiceImportWareHouse để chấp nhận chi tiết hóa đơn.
+                        int numOfRows = (new BLL_Detail_InvoiceWarehouse()).InsertDetailInvoiceImportWareHouse(detailInvoice);
 
 
 
-                    MessageBox.Show("Thêm dữ liệu hóa đơn thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Thêm dữ liệu hóa đơn thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    }
+                    else
+                    {
+                        MessageBox.Show("Có lỗi xảy ra khi cập nhật dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Có lỗi xảy ra khi cập nhật dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+
+                // Sau khi hoàn thành vòng lặp, cập nhật giao diện người dùng
+                LoadDataGridView_InvoiceWarehouse();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            // Sau khi hoàn thành vòng lặp, cập nhật giao diện người dùng
-            LoadDataGridView_InvoiceWarehouse();
-
-
-
         }
-
-
-
-
 
 
 
         private void dgv_ListOrder_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgv_ListOrder.SelectedRows.Count > 0)
+            try
             {
-                DataGridViewRow rowSelect = dgv_ListOrder.SelectedRows[0];
+            if (dgv_ListOrder.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow rowSelect = dgv_ListOrder.SelectedRows[0];
 
-                txt_IdToReceive.Text = rowSelect.Cells["MaNK"].Value.ToString();
-                txt_IdEmployee.Text = rowSelect.Cells["MaNV"].Value.ToString();
+                    txt_IdToReceive.Text = rowSelect.Cells["MaNK"].Value.ToString();
+                    txt_IdEmployee.Text = rowSelect.Cells["MaNV"].Value.ToString();
 
-                string idSupllier = (rowSelect.Cells[2].Value.ToString());
-                cbb_NameSuplier.Text = (new BLL_Supplier()).GetSupplier("MaNCC", idSupllier).Rows[0]["TenNCC"].ToString();
+                    string idSupllier = (rowSelect.Cells[2].Value.ToString());
+                    cbb_NameSuplier.Text = (new BLL_Supplier()).GetSupplier("MaNCC", idSupllier).Rows[0]["TenNCC"].ToString();
 
-                    dtp_CreatedTime_List.Value = (DateTime)rowSelect.Cells["NgayNhapKho"].Value;
-                    txt_TotalCash.Text = rowSelect.Cells["TongTien"].Value.ToString();
+                        dtp_CreatedTime_List.Value = (DateTime)rowSelect.Cells["NgayNhapKho"].Value;
+                        txt_TotalCash.Text = rowSelect.Cells["TongTien"].Value.ToString();
 
                 
 
+                }
             }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
 
         private void cbb_ProductImportWarehouse_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            string idProduct = cbb_ProductImportWarehouse.SelectedValue.ToString();
-            txt_PriceCreate.Text = (new BLL_Product()).GetProduct("MaSP", idProduct).Rows[0]["GiaBan"].ToString();
+            try
+            {
+                string idProduct = cbb_ProductImportWarehouse.SelectedValue.ToString();
+                txt_PriceCreate.Text = (new BLL_Product()).GetProduct("MaSP", idProduct).Rows[0]["GiaBan"].ToString();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void btn_RefreshCreate_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn làm mới trang?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (result == DialogResult.Yes)
+            try
             {
-                ClearControl();
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn làm mới trang?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    ClearControl();
+                }
             }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void btn_SeeDetailWarehouse_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txt_IdToReceive.Text))
+            try
             {
-                frmDetailWarehouse frm = new frmDetailWarehouse();
-                frm.MaNhapKho = txt_IdToReceive.Text;
-                frm.MaNhanVien = txt_IdEmployee.Text;
-                frm.TenNhaCungCap = cbb_NameSuplier.Text;
-                frm.NgayNhapKho = dtp_CreatedTime_List.Value;
-                frm.TongTien = txt_TotalCash.Text;
-                frm.ShowDialog();
+                if (!string.IsNullOrEmpty(txt_IdToReceive.Text))
+                    {
+                        frmDetailWarehouse frm = new frmDetailWarehouse();
+                        frm.MaNhapKho = txt_IdToReceive.Text;
+                        frm.MaNhanVien = txt_IdEmployee.Text;
+                        frm.TenNhaCungCap = cbb_NameSuplier.Text;
+                        frm.NgayNhapKho = dtp_CreatedTime_List.Value;
+                        frm.TongTien = txt_TotalCash.Text;
+                        frm.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vui lòng chọn một hóa đơn để xem chi tiết.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
             }
-            else
+            catch (Exception err)
             {
-                MessageBox.Show("Vui lòng chọn một hóa đơn để xem chi tiết.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
 
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
+            try
+            {
             txt_IdToReceive.Clear();
             txt_IdEmployee.Clear();
             txt_TotalCash.Clear();
             cbb_NameSuplier.SelectedIndex = 1;
             dtp_CreatedTime_List.Value = DateTime.Now;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
 
         private void btn_Delete_Click(object sender, EventArgs e)
         {
-            BLL_InvoiceWarehouse dataWarehouse = new BLL_InvoiceWarehouse();
-            string IdToReceive = txt_IdToReceive.Text.Trim();
-            if (string.IsNullOrEmpty(IdToReceive))
+            try
             {
-                string mess = "Vui lòng chọn mã nhập kho  muốn chỉnh sửa";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                BLL_InvoiceWarehouse dataWarehouse = new BLL_InvoiceWarehouse();
+                string IdToReceive = txt_IdToReceive.Text.Trim();
+                if (string.IsNullOrEmpty(IdToReceive))
+                {
+                    string mess = "Vui lòng chọn mã nhập kho  muốn chỉnh sửa";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                int numOfRows = dataWarehouse.DeleteInvoiceImportWareHouse(IdToReceive);
+                if (numOfRows > 0)
+                {
+                    string mess = "Xoá thông tin mã nhập kho thành công";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadDataGridView_InvoiceWarehouse();
+                }
+                else
+                {
+                    string mess = "Xoá thông tin mã nhập kho thất bại";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            int numOfRows = dataWarehouse.DeleteInvoiceImportWareHouse(IdToReceive);
-            if (numOfRows > 0)
+            catch (Exception err)
             {
-                string mess = "Xoá thông tin mã nhập kho thành công";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadDataGridView_InvoiceWarehouse();
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
-            {
-                string mess = "Xoá thông tin mã nhập kho thất bại";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            
         }
 
         private void btn_SearchOrderToReceive_Click(object sender, EventArgs e)
         {
-            BLL_InvoiceWarehouse dataWarehouse = new BLL_InvoiceWarehouse();
-            string text = string.IsNullOrEmpty(txt_SearchOrderToReceive.Text) ? null : txt_SearchOrderToReceive.Text;
-            dgv_ListOrder.DataSource = dataWarehouse.GetInvoiceImportWareHouse(cbb_SearchRole.Text, text);
-            dgv_ListOrder.Refresh();
+            try
+            {
+                BLL_InvoiceWarehouse dataWarehouse = new BLL_InvoiceWarehouse();
+                string text = string.IsNullOrEmpty(txt_SearchOrderToReceive.Text) ? null : txt_SearchOrderToReceive.Text;
+                dgv_ListOrder.DataSource = dataWarehouse.GetInvoiceImportWareHouse(cbb_SearchRole.Text, text);
+                dgv_ListOrder.Refresh();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
     }
 }

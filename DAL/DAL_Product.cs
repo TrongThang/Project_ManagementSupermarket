@@ -37,6 +37,7 @@ namespace DAL
             //keySearch: is Text in ComboBox Search user choice
             //Value: Text in TextBox user input
             db.addParam(keySearch, value);
+
             tblProduct = db.queryExecuteAdapter(sql);
 
             return tblProduct;

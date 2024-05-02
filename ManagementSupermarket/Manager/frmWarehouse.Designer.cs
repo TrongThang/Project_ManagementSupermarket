@@ -75,6 +75,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.lbl_ErrorPrice = new System.Windows.Forms.Label();
+            this.lbl_ErrorCbbSuppiler = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.grpInfo.SuspendLayout();
@@ -114,6 +116,8 @@
             // grpInfo
             // 
             this.grpInfo.BackColor = System.Drawing.Color.Transparent;
+            this.grpInfo.Controls.Add(this.lbl_ErrorCbbSuppiler);
+            this.grpInfo.Controls.Add(this.lbl_ErrorPrice);
             this.grpInfo.Controls.Add(this.cbb_ProductImportWarehouse);
             this.grpInfo.Controls.Add(this.cbb_NameSupplierCreate);
             this.grpInfo.Controls.Add(this.groupBox2);
@@ -140,7 +144,7 @@
             // cbb_ProductImportWarehouse
             // 
             this.cbb_ProductImportWarehouse.FormattingEnabled = true;
-            this.cbb_ProductImportWarehouse.Location = new System.Drawing.Point(23, 139);
+            this.cbb_ProductImportWarehouse.Location = new System.Drawing.Point(23, 165);
             this.cbb_ProductImportWarehouse.Name = "cbb_ProductImportWarehouse";
             this.cbb_ProductImportWarehouse.Size = new System.Drawing.Size(240, 34);
             this.cbb_ProductImportWarehouse.TabIndex = 42;
@@ -149,7 +153,7 @@
             // cbb_NameSupplierCreate
             // 
             this.cbb_NameSupplierCreate.FormattingEnabled = true;
-            this.cbb_NameSupplierCreate.Location = new System.Drawing.Point(23, 66);
+            this.cbb_NameSupplierCreate.Location = new System.Drawing.Point(23, 79);
             this.cbb_NameSupplierCreate.Name = "cbb_NameSupplierCreate";
             this.cbb_NameSupplierCreate.Size = new System.Drawing.Size(240, 34);
             this.cbb_NameSupplierCreate.TabIndex = 41;
@@ -159,7 +163,7 @@
             // 
             this.groupBox2.Controls.Add(this.dtp_CreatedTime);
             this.groupBox2.ForeColor = System.Drawing.Color.Yellow;
-            this.groupBox2.Location = new System.Drawing.Point(17, 347);
+            this.groupBox2.Location = new System.Drawing.Point(17, 408);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(289, 76);
             this.groupBox2.TabIndex = 17;
@@ -191,7 +195,7 @@
             // 
             // num_CountProductCreate
             // 
-            this.num_CountProductCreate.Location = new System.Drawing.Point(23, 218);
+            this.num_CountProductCreate.Location = new System.Drawing.Point(23, 237);
             this.num_CountProductCreate.Name = "num_CountProductCreate";
             this.num_CountProductCreate.Size = new System.Drawing.Size(148, 32);
             this.num_CountProductCreate.TabIndex = 16;
@@ -228,7 +232,7 @@
             // txt_IntoMoney
             // 
             this.txt_IntoMoney.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_IntoMoney.Location = new System.Drawing.Point(17, 472);
+            this.txt_IntoMoney.Location = new System.Drawing.Point(17, 533);
             this.txt_IntoMoney.Name = "txt_IntoMoney";
             this.txt_IntoMoney.Size = new System.Drawing.Size(203, 32);
             this.txt_IntoMoney.TabIndex = 15;
@@ -236,8 +240,9 @@
             // txt_PriceCreate
             // 
             this.txt_PriceCreate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_PriceCreate.Location = new System.Drawing.Point(23, 295);
+            this.txt_PriceCreate.Location = new System.Drawing.Point(23, 314);
             this.txt_PriceCreate.Name = "txt_PriceCreate";
+            this.txt_PriceCreate.ReadOnly = true;
             this.txt_PriceCreate.Size = new System.Drawing.Size(191, 32);
             this.txt_PriceCreate.TabIndex = 14;
             // 
@@ -246,7 +251,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(23, 38);
+            this.label1.Location = new System.Drawing.Point(23, 51);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(183, 25);
             this.label1.TabIndex = 5;
@@ -257,7 +262,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(26, 111);
+            this.label6.Location = new System.Drawing.Point(26, 128);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(144, 25);
             this.label6.TabIndex = 5;
@@ -268,7 +273,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(26, 190);
+            this.label5.Location = new System.Drawing.Point(26, 209);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(97, 25);
             this.label5.TabIndex = 4;
@@ -279,7 +284,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(15, 444);
+            this.label3.Location = new System.Drawing.Point(15, 505);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 25);
             this.label3.TabIndex = 2;
@@ -290,7 +295,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(26, 267);
+            this.label2.Location = new System.Drawing.Point(26, 286);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 25);
             this.label2.TabIndex = 1;
@@ -620,6 +625,27 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "Tên Nhà Cung Cấp";
             // 
+            // lbl_ErrorPrice
+            // 
+            this.lbl_ErrorPrice.AutoSize = true;
+            this.lbl_ErrorPrice.ForeColor = System.Drawing.Color.Red;
+            this.lbl_ErrorPrice.Location = new System.Drawing.Point(6, 362);
+            this.lbl_ErrorPrice.Name = "lbl_ErrorPrice";
+            this.lbl_ErrorPrice.Size = new System.Drawing.Size(70, 26);
+            this.lbl_ErrorPrice.TabIndex = 43;
+            this.lbl_ErrorPrice.Text = "label4";
+            this.lbl_ErrorPrice.Visible = false;
+            // 
+            // lbl_ErrorCbbSuppiler
+            // 
+            this.lbl_ErrorCbbSuppiler.AutoSize = true;
+            this.lbl_ErrorCbbSuppiler.ForeColor = System.Drawing.Color.Red;
+            this.lbl_ErrorCbbSuppiler.Location = new System.Drawing.Point(18, 103);
+            this.lbl_ErrorCbbSuppiler.Name = "lbl_ErrorCbbSuppiler";
+            this.lbl_ErrorCbbSuppiler.Size = new System.Drawing.Size(0, 26);
+            this.lbl_ErrorCbbSuppiler.TabIndex = 44;
+            this.lbl_ErrorCbbSuppiler.Visible = false;
+            // 
             // frmWarehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
@@ -697,5 +723,7 @@
         private FontAwesome.Sharp.IconButton btn_SeeDetailWarehouse;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbb_SearchRole;
+        private System.Windows.Forms.Label lbl_ErrorCbbSuppiler;
+        private System.Windows.Forms.Label lbl_ErrorPrice;
     }
 }

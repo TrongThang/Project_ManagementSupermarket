@@ -10,7 +10,7 @@ namespace DAL
 {
     public class DP
     {
-        private SqlConnection _conn = new SqlConnection("Data Source=ThangPhan;Database = QLST;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True");
+        private SqlConnection _conn = new SqlConnection("Data Source=NAQ;Database = QLST;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True");
         private Dictionary<string, dynamic> data = new Dictionary<string, dynamic>();
 
         public void addParam(string para, dynamic value)
