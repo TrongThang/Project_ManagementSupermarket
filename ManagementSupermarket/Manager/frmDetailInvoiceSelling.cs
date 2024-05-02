@@ -31,19 +31,27 @@ namespace ManagementSupermarket.Manager
 
         private void frmDetailInvoiceSelling_Load(object sender, EventArgs e)
         {
-            lbl_idInvoice.Text = s_IdInvoice;
-            lbl_idEmployee.Text = s_NameEmployee;
-            lbl_NameCustomer.Text = "";
-
-            if (string.IsNullOrEmpty(s_NameCustomer))
+            try
             {
-                lbl_NameCustomer.Text = s_NameCustomer;
-            }
+                lbl_idInvoice.Text = s_IdInvoice;
+                lbl_idEmployee.Text = s_NameEmployee;
+                lbl_NameCustomer.Text = "";
 
-            lbl_CreateTime.Text = dt_CreatedTime.ToString("dd/mm/yyyy HH:mm:ss");
-            lbl_TotalCash.Text = d_TotalCash.ToString();
-            DataTable tblDetailInvoice = (new BLL_Detail_InvoiceSelling()).GetDetailInvoiceSelling("MaHD", s_IdInvoice);
-            dgv_Detail_InvoiceSelling.DataSource = tblDetailInvoice;
+                if (string.IsNullOrEmpty(s_NameCustomer))
+                {
+                    lbl_NameCustomer.Text = s_NameCustomer;
+                }
+
+                lbl_CreateTime.Text = dt_CreatedTime.ToString("dd/mm/yyyy HH:mm:ss");
+                lbl_TotalCash.Text = d_TotalCash.ToString();
+                DataTable tblDetailInvoice = (new BLL_Detail_InvoiceSelling()).GetDetailInvoiceSelling("MaHD", s_IdInvoice);
+                dgv_Detail_InvoiceSelling.DataSource = tblDetailInvoice;
+            }
+            catch(Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
     }
 }

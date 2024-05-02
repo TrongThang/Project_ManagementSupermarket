@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Dynamic;
+using System.IO.Ports;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -184,108 +185,119 @@ namespace ManagementSupermarket.Manager
             On_OffLabelError(0);
             string id = txt_ID.Text.Trim();
 
-
-
-            string nameDiscount = txt_NameDiscount.Text.Trim();
-            double priceDiscount = 0;
-            // Kiểm tra nếu giá khuyến mãi được nhập và có thể chuyển đổi thành double
-            if (!string.IsNullOrEmpty(txt_PriceDiscount.Text.Trim()))
+            try
             {
-                if (double.TryParse(txt_PriceDiscount.Text.Trim(), out priceDiscount))
+                string nameDiscount = txt_NameDiscount.Text.Trim();
+                double priceDiscount = 0;
+                // Kiểm tra nếu giá khuyến mãi được nhập và có thể chuyển đổi thành double
+                if (!string.IsNullOrEmpty(txt_PriceDiscount.Text.Trim()))
                 {
-                    // Giá khuyến mãi có thể chuyển đổi thành double
-                    priceDiscount = double.Parse(txt_PriceDiscount.Text.Trim());
+                    if (double.TryParse(txt_PriceDiscount.Text.Trim(), out priceDiscount))
+                    {
+                        // Giá khuyến mãi có thể chuyển đổi thành double
+                        priceDiscount = double.Parse(txt_PriceDiscount.Text.Trim());
+                    }
+                }
+                DateTime starDay = dtpTimeStart.Value;
+
+                int thoiHan = (int)num_CountTime.Value;
+                string donViThoiHan = cbb_UnitTime.SelectedItem.ToString();
+                DateTime endDay = CalculateEndDate(starDay, thoiHan, donViThoiHan);
+
+                bool isEmpty = IsEmptytTextBox(id, nameDiscount, priceDiscount);
+
+                if (isEmpty)
+                {
+                    return;
+                }
+                // Gọi phương thức GetDiscount từ đối tượng BLL_Discount để kiểm tra tồn tại mã khuyến mãi
+                DataTable dt = dataDiscount.GetDiscount("MaKM", id);
+
+                // Kiểm tra số hàng trong bảng để xác định mã khuyến mãi có tồn tại hay không
+                if (dt.Rows.Count > 0)
+                {
+                    MessageBox.Show("Mã khuyến mãi đã tồn tại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                if (priceDiscount == 0)
+                {
+                    lbl_PriceDiscount.Visible = true;
+                }
+
+                DTO_Discount discount = new DTO_Discount(id, nameDiscount, priceDiscount, starDay, endDay);
+                int numOfRows = dataDiscount.InsertDiscount(discount);
+                if (numOfRows > 0)
+                {
+                    string mess = "Thêm khuyến mãi thành công";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                }
+                else
+                {
+                    string mess = "Thêm khuyến mãi thất bại";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            DateTime starDay = dtpTimeStart.Value;
-
-            int thoiHan = (int)num_CountTime.Value;
-            string donViThoiHan = cbb_UnitTime.SelectedItem.ToString();
-            DateTime endDay = CalculateEndDate(starDay, thoiHan, donViThoiHan);
-
-            bool isEmpty = IsEmptytTextBox(id, nameDiscount, priceDiscount);
-
-            if (isEmpty)
+            catch (Exception err)
             {
-                return;
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            // Gọi phương thức GetDiscount từ đối tượng BLL_Discount để kiểm tra tồn tại mã khuyến mãi
-            DataTable dt = dataDiscount.GetDiscount("MaKM", id);
-
-            // Kiểm tra số hàng trong bảng để xác định mã khuyến mãi có tồn tại hay không
-            if (dt.Rows.Count > 0)
-            {
-                MessageBox.Show("Mã khuyến mãi đã tồn tại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            if (priceDiscount == 0)
-            {
-                lbl_PriceDiscount.Visible = true;
-            }
-
-            DTO_Discount discount = new DTO_Discount(id, nameDiscount, priceDiscount, starDay, endDay);
-            int numOfRows = dataDiscount.InsertDiscount(discount);
-            if (numOfRows > 0)
-            {
-                string mess = "Thêm khuyến mãi thành công";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
-            }
-            else
-            {
-                string mess = "Thêm khuyến mãi thất bại";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
         }
 
         private void btn_Alter_Click(object sender, EventArgs e)
         {
-            On_OffLabelError(0);
-            string id = txt_ID.Text.Trim();
-            if (string.IsNullOrEmpty(id))
+            try
             {
-                string mess = "Vui lòng chọn khuyến mãi muốn chỉnh sửa";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            string nameDiscount = txt_NameDiscount.Text.Trim();
-            double priceDiscount = 0;
-            // Kiểm tra nếu giá khuyến mãi được nhập và có thể chuyển đổi thành double
-            if (!string.IsNullOrEmpty(txt_PriceDiscount.Text.Trim()))
-            {
-                if (double.TryParse(txt_PriceDiscount.Text.Trim(), out priceDiscount))
+                
+                On_OffLabelError(0);
+                string id = txt_ID.Text.Trim();
+                if (string.IsNullOrEmpty(id))
                 {
-                    // Giá khuyến mãi có thể chuyển đổi thành double
-                    priceDiscount = double.Parse(txt_PriceDiscount.Text.Trim());
+                    string mess = "Vui lòng chọn khuyến mãi muốn chỉnh sửa";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                string nameDiscount = txt_NameDiscount.Text.Trim();
+                double priceDiscount = 0;
+                // Kiểm tra nếu giá khuyến mãi được nhập và có thể chuyển đổi thành double
+                if (!string.IsNullOrEmpty(txt_PriceDiscount.Text.Trim()))
+                {
+                    if (double.TryParse(txt_PriceDiscount.Text.Trim(), out priceDiscount))
+                    {
+                        // Giá khuyến mãi có thể chuyển đổi thành double
+                        priceDiscount = double.Parse(txt_PriceDiscount.Text.Trim());
+                    }
+                }
+                DateTime starDay = dtpTimeStart.Value;
+                //int thoiHan = CaculatorDayComboBox((int)num_CountTime.Value, cbb_UnitTime.SelectedItem.ToString());
+                int thoiHan = (int)num_CountTime.Value;
+                string donViThoiHan = cbb_UnitTime.SelectedItem.ToString();
+                DateTime endDay = CalculateEndDate(starDay, thoiHan, donViThoiHan);
+                bool isEmpty = IsEmptytTextBox(id, nameDiscount, priceDiscount);
+
+                if (isEmpty)
+                {
+                    return;
+                }
+                DTO_Discount discount = new DTO_Discount(id, nameDiscount, priceDiscount, starDay, endDay);
+                int numOfRows = dataDiscount.UpdateDiscount(discount);
+                if (numOfRows > 0)
+                {
+                    string mess = "Chỉnh sửa thông tin khuyến mãi thành công";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                }
+                else
+                {
+                    string mess = "Chỉnh sửa thông tin khuyến mãi thất bại";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            DateTime starDay = dtpTimeStart.Value;
-            //int thoiHan = CaculatorDayComboBox((int)num_CountTime.Value, cbb_UnitTime.SelectedItem.ToString());
-            int thoiHan = (int)num_CountTime.Value;
-            string donViThoiHan = cbb_UnitTime.SelectedItem.ToString();
-            DateTime endDay = CalculateEndDate(starDay, thoiHan, donViThoiHan);
-            bool isEmpty = IsEmptytTextBox(id, nameDiscount, priceDiscount);
-
-            if (isEmpty)
+            catch (Exception err)
             {
-                return;
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            DTO_Discount discount = new DTO_Discount(id, nameDiscount, priceDiscount, starDay, endDay);
-            int numOfRows = dataDiscount.UpdateDiscount(discount);
-            if (numOfRows > 0)
-            {
-                string mess = "Chỉnh sửa thông tin khuyến mãi thành công";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
-            }
-            else
-            {
-                string mess = "Chỉnh sửa thông tin khuyến mãi thất bại";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
 
 
         }
@@ -311,34 +323,42 @@ namespace ManagementSupermarket.Manager
 
         private void dgv_ListDiscount_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewCellCollection rowSelected = dgv_ListDiscount.SelectedRows[0].Cells;
-            if (rowSelected.Count > 0)
+            try
             {
-                txt_ID.Text = rowSelected["MaKM"].Value.ToString();
-                txt_NameDiscount.Text = rowSelected["TenKM"].Value.ToString();
-                txt_PriceDiscount.Text = rowSelected["GiaKhuyenMai"].Value.ToString();
-                dtpTimeStart.Value = DateTime.Parse(rowSelected["NgayBatDau"].Value.ToString());
+                DataGridViewCellCollection rowSelected = dgv_ListDiscount.SelectedRows[0].Cells;
+                if (rowSelected.Count > 0)
+                {
+                    txt_ID.Text = rowSelected["MaKM"].Value.ToString();
+                    txt_NameDiscount.Text = rowSelected["TenKM"].Value.ToString();
+                    txt_PriceDiscount.Text = rowSelected["GiaKhuyenMai"].Value.ToString();
+                    dtpTimeStart.Value = DateTime.Parse(rowSelected["NgayBatDau"].Value.ToString());
 
-                DateTime endDate = DateTime.Parse(rowSelected["NgayKetThuc"].Value.ToString());
-                TimeSpan duration = endDate - dtpTimeStart.Value;
-                int days = (int)duration.TotalDays;
+                    DateTime endDate = DateTime.Parse(rowSelected["NgayKetThuc"].Value.ToString());
+                    TimeSpan duration = endDate - dtpTimeStart.Value;
+                    int days = (int)duration.TotalDays;
 
-                if (days > 365)
-                {
-                    cbb_UnitTime.SelectedItem = "Năm";
-                    num_CountTime.Value = days / 365;
-                }
-                else if (days > 30)
-                {
-                    cbb_UnitTime.SelectedItem = "Tháng";
-                    num_CountTime.Value = days / 30;
-                }
-                else
-                {
-                    cbb_UnitTime.SelectedItem = "Ngày";
-                    num_CountTime.Value = days;
+                    if (days > 365)
+                    {
+                        cbb_UnitTime.SelectedItem = "Năm";
+                        num_CountTime.Value = days / 365;
+                    }
+                    else if (days > 30)
+                    {
+                        cbb_UnitTime.SelectedItem = "Tháng";
+                        num_CountTime.Value = days / 30;
+                    }
+                    else
+                    {
+                        cbb_UnitTime.SelectedItem = "Ngày";
+                        num_CountTime.Value = days;
+                    }
                 }
             }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
 
         }
 

@@ -68,95 +68,125 @@ namespace ManagementSupermarket.Manager
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
-            On_OffLabelError(0);
-            string nameType=txt_NameType.Text.Trim();
-            string desc= txt_Desc.Text.Trim();
-            bool isEmpty =IsEmptytTextBox(nameType, desc);
-            if (isEmpty)
+            try
             {
-                return;
+                On_OffLabelError(0);
+                string nameType = txt_NameType.Text.Trim();
+                string desc = txt_Desc.Text.Trim();
+                bool isEmpty = IsEmptytTextBox(nameType, desc);
+                if (isEmpty)
+                {
+                    return;
+                }
+                DTO_TypeProduct typeProduct = new DTO_TypeProduct(nameType, desc);
+                int numOfRows = dataTypeProduct.InsertTypeProduct(typeProduct);
+                if (numOfRows > 0)
+                {
+                    string mess = "Thêm loại sản phẩm thành công";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    string mess = "Thêm loại sản phẩm thất bại";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            DTO_TypeProduct typeProduct = new DTO_TypeProduct(nameType, desc);
-            int numOfRows = dataTypeProduct.InsertTypeProduct(typeProduct);
-            if (numOfRows > 0)
+            catch (Exception err)
             {
-                string mess = "Thêm loại sản phẩm thành công";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
-            {
-                string mess = "Thêm loại sản phẩm thất bại";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            
         }
 
         private void dgv_TypeProduct_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewCellCollection rowSelected = dgv_TypeProduct.SelectedRows[0].Cells;
-            if(rowSelected.Count > 0)
+            try
             {
-                txt_ID.Text = rowSelected["MaLoaiSP"].Value.ToString();
-                txt_NameType.Text = rowSelected["TenLoai"].Value.ToString();
-                txt_Desc.Text = rowSelected["MoTa"].Value.ToString();
+                DataGridViewCellCollection rowSelected = dgv_TypeProduct.SelectedRows[0].Cells;
+                if (rowSelected.Count > 0)
+                {
+                    txt_ID.Text = rowSelected["MaLoaiSP"].Value.ToString();
+                    txt_NameType.Text = rowSelected["TenLoai"].Value.ToString();
+                    txt_Desc.Text = rowSelected["MoTa"].Value.ToString();
+                }
             }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+          
         }
 
         private void btn_Alter_Click(object sender, EventArgs e)
         {
-            On_OffLabelError(0);
-            string id = txt_ID.Text.Trim();
-            if (string.IsNullOrEmpty(id))
+            try
             {
-                string mess = "Vui lòng chọn loại sản phẩm muốn chỉnh sửa";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            string nameType = txt_NameType.Text.Trim();
-            string desc= txt_Desc.Text.Trim();
+                On_OffLabelError(0);
+                string id = txt_ID.Text.Trim();
+                if (string.IsNullOrEmpty(id))
+                {
+                    string mess = "Vui lòng chọn loại sản phẩm muốn chỉnh sửa";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                string nameType = txt_NameType.Text.Trim();
+                string desc = txt_Desc.Text.Trim();
 
-            bool isEmpty = IsEmptytTextBox(nameType, desc);
-            if (isEmpty)
-            {
-                return;
+                bool isEmpty = IsEmptytTextBox(nameType, desc);
+                if (isEmpty)
+                {
+                    return;
+
+                }
+                DTO_TypeProduct typeProduct = new DTO_TypeProduct(nameType, desc, id);
+                int numOfRows = dataTypeProduct.UpdateTypeProduct(typeProduct);
+                if (numOfRows > 0)
+                {
+                    string mess = "Chỉnh sửa thông tin loại sản phẩm thành công";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                }
+                else
+                {
+                    string mess = "Chỉnh sửa thông tin loại sản phẩm thất bại";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
 
             }
-            DTO_TypeProduct typeProduct=new DTO_TypeProduct(nameType, desc,id);
-            int numOfRows=dataTypeProduct.UpdateTypeProduct(typeProduct);
-            if (numOfRows > 0)
+            catch (Exception err)
             {
-                string mess = "Chỉnh sửa thông tin loại sản phẩm thành công";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
-            {
-                string mess = "Chỉnh sửa thông tin loại sản phẩm thất bại";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        
-    }
+        }
 
         private void btn_Delete_Click(object sender, EventArgs e)
         {
-            string id = txt_ID.Text.Trim();
-            if (string.IsNullOrEmpty(id))
+            try
             {
-                string mess = "Vui lòng chọn loại sản phẩm muốn chỉnh sửa";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                string id = txt_ID.Text.Trim();
+                if (string.IsNullOrEmpty(id))
+                {
+                    string mess = "Vui lòng chọn loại sản phẩm muốn chỉnh sửa";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                int numOfRows = dataTypeProduct.UpdateStatusTypeProduct(id);
+                if (numOfRows > 0)
+                {
+                    string mess = "Xoá thông tin loại sản phẩm thành công";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                }
+                else
+                {
+                    string mess = "Xoá thông tin loại sản phẩm thất bại";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            int numOfRows = dataTypeProduct.UpdateStatusTypeProduct(id);
-            if (numOfRows > 0)
+            catch (Exception err)
             {
-                string mess = "Xoá thông tin loại sản phẩm thành công";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
-            }
-            else
-            {
-                string mess = "Xoá thông tin loại sản phẩm thất bại";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }  
         }
 
         private void btn_Refresh_Click(object sender, EventArgs e)
@@ -170,9 +200,17 @@ namespace ManagementSupermarket.Manager
 
         private void btn_Search_Click(object sender, EventArgs e)
         {
-            string text = string.IsNullOrEmpty(txt_Search.Text) ? null : txt_Search.Text;
-            dgv_TypeProduct.DataSource = dataTypeProduct.GetTypeProduct(cbb_SearchRole.Text,text);
-            dgv_TypeProduct.Refresh();
+            try
+            {
+                string text = string.IsNullOrEmpty(txt_Search.Text) ? null : txt_Search.Text;
+                dgv_TypeProduct.DataSource = dataTypeProduct.GetTypeProduct(cbb_SearchRole.Text, text);
+                dgv_TypeProduct.Refresh();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
     }
 }

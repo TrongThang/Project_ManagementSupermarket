@@ -107,19 +107,25 @@ namespace ManagementSupermarket
             {
                 return;
             }
-            DTO_Customer customer = new DTO_Customer(fullName, CCCD, phone, gender, address, createdTime, status);
-            int numOfRows = dataCustomer.InsertCustomer(customer);
-            if (numOfRows > 0)
+            try
             {
-                string mess = "Thêm khách hàng thành công";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DTO_Customer customer = new DTO_Customer(fullName, CCCD, phone, gender, address, createdTime, status);
+                int numOfRows = dataCustomer.InsertCustomer(customer);
+                if (numOfRows > 0)
+                {
+                    string mess = "Thêm khách hàng thành công";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    string mess = "Thêm khách hàng thất bại";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
+            catch (Exception err)
             {
-                string mess = "Thêm khách hàng thất bại";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
         private void dgv_ListCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -156,25 +162,33 @@ namespace ManagementSupermarket
             string gender = rad_Male.Checked ? "Nam" : "Nữ";
             byte status = (byte)(chk_Status.Checked ? 1 : 0);
 
-
-            bool isEmpty = IsEmptytTextBox(fullName, CCCD, phone, address);
-            if (isEmpty)
+            try
             {
-                return;
+                bool isEmpty = IsEmptytTextBox(fullName, CCCD, phone, address);
+                if (isEmpty)
+                {
+                    return;
+                }
+                DTO_Customer customer = new DTO_Customer(fullName, CCCD, phone, gender, address, createdTime, status, id);
+                int numOfRows = dataCustomer.UpdateCustomer(customer);
+                if (numOfRows > 0)
+                {
+                    string mess = "Chỉnh sửa thông tin khách hàng thành công";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                }
+                else
+                {
+                    string mess = "Chỉnh sửa thông tin khách hàng thất bại";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            DTO_Customer customer=new DTO_Customer(fullName,CCCD,phone,gender,address,createdTime,status,id);
-            int numOfRows = dataCustomer.UpdateCustomer(customer);
-            if(numOfRows > 0)
+            catch (Exception err)
             {
-                string mess = "Chỉnh sửa thông tin khách hàng thành công";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
-            {
-                string mess = "Chỉnh sửa thông tin khách hàng thất bại";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+           
+           
         }
 
         private void btn_Delete_Click(object sender, EventArgs e)
@@ -186,18 +200,27 @@ namespace ManagementSupermarket
                 MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            int numOfRows = dataCustomer.UpdateStatusCustomer(id);
-            if (numOfRows > 0)
+
+            try
             {
-                string mess = "Xoá thông tin khách hàng thành công";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
+                int numOfRows = dataCustomer.UpdateStatusCustomer(id);
+                if (numOfRows > 0)
+                {
+                    string mess = "Xoá thông tin khách hàng thành công";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                }
+                else
+                {
+                    string mess = "Xoá thông tin khách hàng thất bại";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
+            catch (Exception err)
             {
-                string mess = "Xoá thông tin khách hàng thất bại";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+          
         }
 
         private void btn_Refresh_Click(object sender, EventArgs e)
@@ -225,9 +248,17 @@ namespace ManagementSupermarket
 
         private void btn_ExportExcel_Click(object sender, EventArgs e)
         {
-            DataTable tblCustomer = (DataTable)dgv_ListCustomer.DataSource;
-            ConfigExcel_PDF.ExportToExcel(tblCustomer, "Customer");
-            return;
+            try
+            {
+                DataTable tblCustomer = (DataTable)dgv_ListCustomer.DataSource;
+                ConfigExcel_PDF.ExportToExcel(tblCustomer, "Customer");
+                return;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

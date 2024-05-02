@@ -92,111 +92,133 @@ namespace ManagementSupermarket
         }
         private void btn_Add_Click(object sender, EventArgs e)
         {
-            HideLabel();
-            string nameSupplier, phone, address;
-            nameSupplier = txt_NameSupplier.Text.Trim();
-            phone = txt_Phone.Text.Trim();
-            address = txt_Address.Text.Trim();
-            bool status = chk_Status.Checked;
-
-            if (TextboxSupplierIsEmptyOrNull())
+            try
             {
-                return;
+                HideLabel();
+                string nameSupplier, phone, address;
+                nameSupplier = txt_NameSupplier.Text.Trim();
+                phone = txt_Phone.Text.Trim();
+                address = txt_Address.Text.Trim();
+                bool status = chk_Status.Checked;
+
+                if (TextboxSupplierIsEmptyOrNull())
+                {
+                    return;
+                }
+
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thêm thông tin nhà cung cấp?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    DTO_Supplier supplier = new DTO_Supplier(nameSupplier, phone, address, status);
+
+                    int numOfRows = datasupplier.InsertSupplier(supplier);
+                    if (numOfRows > 0)
+                    {
+                        MessageBox.Show("Thêm thông tin Nhà cung cấp thành công!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadData();
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm thông tin Nhà cung cấp thất bại!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
             }
-
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thêm thông tin nhà cung cấp?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
+            catch (Exception err)
             {
-                DTO_Supplier supplier = new DTO_Supplier(nameSupplier, phone, address, status);
-
-                int numOfRows = datasupplier.InsertSupplier(supplier);
-                if (numOfRows > 0)
-                {
-                    MessageBox.Show("Thêm thông tin Nhà cung cấp thành công!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadData();
-                    return;
-                }
-                else
-                {
-                    MessageBox.Show("Thêm thông tin Nhà cung cấp thất bại!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btn_Alter_Click(object sender, EventArgs e)
         {
-            HideLabel();
-            string id = txt_ID.Text.Trim();
-            string nameSupplier, phone, address;
-            nameSupplier = txt_NameSupplier.Text.Trim();
-            phone = txt_Phone.Text.Trim();
-            address = txt_Address.Text.Trim();
-            bool status = chk_Status.Checked;
-
-            if (TextboxSupplierIsEmptyOrNull())
+            try
             {
-                return;
-            }
+                HideLabel();
+                string id = txt_ID.Text.Trim();
+                string nameSupplier, phone, address;
+                nameSupplier = txt_NameSupplier.Text.Trim();
+                phone = txt_Phone.Text.Trim();
+                address = txt_Address.Text.Trim();
+                bool status = chk_Status.Checked;
 
-            if (dgv_Supplier.SelectedRows.Count <= 0)
+                if (TextboxSupplierIsEmptyOrNull())
+                {
+                    return;
+                }
+
+                if (dgv_Supplier.SelectedRows.Count <= 0)
+                {
+                    MessageBox.Show("Vui lòng chọn một NCC trước khi thao tác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn chỉnh sửa thông tin nhà cung cấp?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    DTO_Supplier supplier = new DTO_Supplier(nameSupplier, phone, address, status, id);
+
+                    int numOfRows = datasupplier.UpdateSupplier(supplier);
+                    if (numOfRows > 0)
+                    {
+                        MessageBox.Show("Chỉnh sửa thông tin Nhà cung cấp thành công!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadData();
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Chỉnh sửa thông tin Nhà cung cấp thất bại!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
+            }
+            catch (Exception err)
             {
-                MessageBox.Show("Vui lòng chọn một NCC trước khi thao tác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn chỉnh sửa thông tin nhà cung cấp?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             
-            if(result == DialogResult.Yes)
-            {
-                DTO_Supplier supplier = new DTO_Supplier(nameSupplier, phone, address, status, id);
-
-                int numOfRows = datasupplier.UpdateSupplier(supplier);
-                if(numOfRows > 0)
-                {
-                    MessageBox.Show("Chỉnh sửa thông tin Nhà cung cấp thành công!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadData();
-                    return;
-                }
-                else
-                {
-                    MessageBox.Show("Chỉnh sửa thông tin Nhà cung cấp thất bại!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
-            }
         }
       
         private void btn_Delete_Click(object sender, EventArgs e)
         {
-            HideLabel();
-            string id = txt_ID.Text.Trim();
-
-            if (TextboxSupplierIsEmptyOrNull())
+            try
             {
-                return;
-            }
-            if(dgv_Supplier.SelectedRows.Count <= 0)
-            {
-                MessageBox.Show("Vui lòng chọn một NCC trước khi thao tác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn Xoá thông tin nhà cung cấp?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                HideLabel();
+                string id = txt_ID.Text.Trim();
 
-            if (result == DialogResult.Yes)
-            {
-
-                int numOfRows = datasupplier.UpdateStatusSupplier(id  );
-                if (numOfRows > 0)
+                if (TextboxSupplierIsEmptyOrNull())
                 {
-                    MessageBox.Show("Xoá thông tin Nhà cung cấp thành công!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadData();
                     return;
                 }
-                else
+                if (dgv_Supplier.SelectedRows.Count <= 0)
                 {
-                    MessageBox.Show("Xoá thông tin Nhà cung cấp thất bại!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Vui lòng chọn một NCC trước khi thao tác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn Xoá thông tin nhà cung cấp?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+
+                    int numOfRows = datasupplier.UpdateStatusSupplier(id);
+                    if (numOfRows > 0)
+                    {
+                        MessageBox.Show("Xoá thông tin Nhà cung cấp thành công!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadData();
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xoá thông tin Nhà cung cấp thất bại!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btn_Refresh_Click(object sender, EventArgs e)

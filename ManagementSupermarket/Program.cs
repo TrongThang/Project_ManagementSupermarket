@@ -18,7 +18,7 @@ namespace ManagementSupermarket
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new frmRevenue());
+            Application.Run(new frmLogin());
 
         }
     }
