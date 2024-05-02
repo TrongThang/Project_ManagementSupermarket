@@ -32,9 +32,25 @@ namespace ManagementSupermarket
                 btnShowHidePassword.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
             }
         }
-
+        private bool AutoLogin()
+        {
+            if(txt_Username.Text == "" && txt_Password.Text == "")
+            {
+                string role = "QL";
+                string idEmployee = "NV001";
+                frmHomeOfManager frmHomeOfManager = new frmHomeOfManager(idEmployee, role);
+                this.Hide();
+                frmHomeOfManager.Show();
+                return true;
+            }
+            return false;
+        }
         private void btn_Login_Click(object sender, EventArgs e)
         {
+            if (AutoLogin())
+            {
+                return;
+            }
             string username = txt_Username.Text.Trim(), password = txt_Password.Text.Trim();
 
             //Process if username or password empty
@@ -55,7 +71,8 @@ namespace ManagementSupermarket
             else
             {
                 string role = tblAccount.Rows[0][1].ToString();
-                frmHomeOfManager frmHomeOfManager = new frmHomeOfManager(role);
+                string idEmployee = txt_Username.Text.Trim();
+                frmHomeOfManager frmHomeOfManager = new frmHomeOfManager(idEmployee, role);
                 this.Hide();
                 frmHomeOfManager.Show();
             }

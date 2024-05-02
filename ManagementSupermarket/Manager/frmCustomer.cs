@@ -223,6 +223,11 @@ namespace ManagementSupermarket
             dgv_ListCustomer.Refresh();
         }
 
-       
+        private void btn_ExportExcel_Click(object sender, EventArgs e)
+        {
+            DataTable tblCustomer = (DataTable)dgv_ListCustomer.DataSource;
+            ConfigExcel_PDF.ExportToExcel(tblCustomer, "Customer");
+            return;
+        }
     }
 }

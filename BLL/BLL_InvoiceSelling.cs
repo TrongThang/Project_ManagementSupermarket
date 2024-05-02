@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DocumentFormat.OpenXml.Wordprocessing;
 using DTO;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,12 @@ namespace BLL
         public DataTable GetInvoiceSelling(string keySearch, string value = null)
         {
             return dataInvoice.GetInvoiceSelling(keySearch, value);
+        }
+
+        public DataTable GetRevenue(string criteria, int value = 0)
+        {
+
+            return (new DAL_InvoiceSelling()).GetRevenue(criteria, value);
         }
 
         public DataTable InsertInvoiceSelling(DTO_InvoiceSelling invoice)

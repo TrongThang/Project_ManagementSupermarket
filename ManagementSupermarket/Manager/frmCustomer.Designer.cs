@@ -58,6 +58,7 @@
             this.btn_Alter = new FontAwesome.Sharp.IconButton();
             this.chk_CustomerStatus = new System.Windows.Forms.CheckBox();
             this.cbb_SearchRole = new System.Windows.Forms.ComboBox();
+            this.btn_ExportExcel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ListCustomer)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -85,14 +86,14 @@
             this.dgv_ListCustomer.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.dgv_ListCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_ListCustomer.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgv_ListCustomer.Location = new System.Drawing.Point(5, 353);
+            this.dgv_ListCustomer.Location = new System.Drawing.Point(6, 355);
             this.dgv_ListCustomer.MultiSelect = false;
             this.dgv_ListCustomer.Name = "dgv_ListCustomer";
             this.dgv_ListCustomer.ReadOnly = true;
             this.dgv_ListCustomer.RowHeadersWidth = 51;
             this.dgv_ListCustomer.RowTemplate.Height = 24;
             this.dgv_ListCustomer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_ListCustomer.Size = new System.Drawing.Size(1230, 375);
+            this.dgv_ListCustomer.Size = new System.Drawing.Size(1228, 368);
             this.dgv_ListCustomer.TabIndex = 9;
             this.dgv_ListCustomer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ListCustomer_CellClick);
             // 
@@ -375,7 +376,7 @@
             this.btn_Delete.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Delete.IconColor = System.Drawing.Color.Black;
             this.btn_Delete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Delete.Location = new System.Drawing.Point(264, 283);
+            this.btn_Delete.Location = new System.Drawing.Point(203, 283);
             this.btn_Delete.Name = "btn_Delete";
             this.btn_Delete.Size = new System.Drawing.Size(79, 64);
             this.btn_Delete.TabIndex = 12;
@@ -403,7 +404,7 @@
             this.btn_Alter.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Alter.IconColor = System.Drawing.Color.Black;
             this.btn_Alter.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Alter.Location = new System.Drawing.Point(151, 283);
+            this.btn_Alter.Location = new System.Drawing.Point(118, 283);
             this.btn_Alter.Name = "btn_Alter";
             this.btn_Alter.Size = new System.Drawing.Size(79, 64);
             this.btn_Alter.TabIndex = 11;
@@ -442,12 +443,24 @@
             this.cbb_SearchRole.Size = new System.Drawing.Size(131, 34);
             this.cbb_SearchRole.TabIndex = 18;
             // 
+            // btn_ExportExcel
+            // 
+            this.btn_ExportExcel.BackgroundImage = global::ManagementSupermarket.Properties.Resources.png_clipart_microsoft_excel_logo_microsoft_excel_computer_icons_xls_microsoft_angle_text;
+            this.btn_ExportExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_ExportExcel.Location = new System.Drawing.Point(288, 283);
+            this.btn_ExportExcel.Name = "btn_ExportExcel";
+            this.btn_ExportExcel.Size = new System.Drawing.Size(82, 64);
+            this.btn_ExportExcel.TabIndex = 29;
+            this.btn_ExportExcel.UseVisualStyleBackColor = true;
+            this.btn_ExportExcel.Click += new System.EventHandler(this.btn_ExportExcel_Click);
+            // 
             // frmCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
             this.ClientSize = new System.Drawing.Size(1240, 735);
+            this.Controls.Add(this.btn_ExportExcel);
             this.Controls.Add(this.cbb_SearchRole);
             this.Controls.Add(this.chk_CustomerStatus);
             this.Controls.Add(this.txt_Search);
@@ -459,8 +472,10 @@
             this.Controls.Add(this.btn_Alter);
             this.Controls.Add(this.grpInfo);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmCustomer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmCustomer";
             this.Load += new System.EventHandler(this.frmCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ListCustomer)).EndInit();
@@ -506,5 +521,6 @@
         private System.Windows.Forms.Label lbl_ErrorName;
         private System.Windows.Forms.CheckBox chk_CustomerStatus;
         private System.Windows.Forms.ComboBox cbb_SearchRole;
+        private System.Windows.Forms.Button btn_ExportExcel;
     }
 }

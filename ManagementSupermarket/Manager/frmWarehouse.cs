@@ -45,20 +45,19 @@ namespace ManagementSupermarket.Manager
                 
             
         }
-        private void LoadDataComboBox_CreateProduct(string idSupllier = null)
+        private void LoadDataComboBox_CreateProduct(string nameSupllier = null)
         {
-            cbb_ProductImportWarehouse.DataSource = (new BLL_Product()).GetProduct("MaNCC", idSupllier);
+            cbb_ProductImportWarehouse.DataSource = (new BLL_Product()).GetProduct("TenNCC", nameSupllier);
             cbb_ProductImportWarehouse.DisplayMember = "TenSP";
             cbb_ProductImportWarehouse.ValueMember = "MaSP";
         }
         private void cbb_NameSupplierCreate_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //string idSupplier = cbb_NameSupplierCreate.SelectedValue.ToString();
             //LoadDataComboBox_CreateProduct(idSupplier);
             if (cbb_NameSupplierCreate.SelectedItem != null)
             {
-                string idSupplier = cbb_NameSupplierCreate.SelectedValue.ToString();
-                LoadDataComboBox_CreateProduct(idSupplier);
+                string nameSupplier = cbb_NameSupplierCreate.Text;
+                LoadDataComboBox_CreateProduct(nameSupplier);
             }
 
 
@@ -307,9 +306,6 @@ namespace ManagementSupermarket.Manager
 
             // Sau khi hoàn thành vòng lặp, cập nhật giao diện người dùng
             LoadDataGridView_InvoiceWarehouse();
-
-
-
         }
 
 
@@ -410,6 +406,13 @@ namespace ManagementSupermarket.Manager
             string text = string.IsNullOrEmpty(txt_SearchOrderToReceive.Text) ? null : txt_SearchOrderToReceive.Text;
             dgv_ListOrder.DataSource = dataWarehouse.GetInvoiceImportWareHouse(cbb_SearchRole.Text, text);
             dgv_ListOrder.Refresh();
+        }
+
+        private void btn_ExportExcel_Click(object sender, EventArgs e)
+        {
+            DataTable tblInvoiceWareHouse = (DataTable)dgv_ListOrder.DataSource;
+            ConfigExcel_PDF.ExportToExcel(tblInvoiceWareHouse, $"Invoice Import WareHouse");
+            return;
         }
     }
 }

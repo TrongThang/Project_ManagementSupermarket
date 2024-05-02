@@ -31,30 +31,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManagementEmployees));
             this.dgv_ListEmployee = new System.Windows.Forms.DataGridView();
             this.txt_Search = new System.Windows.Forms.TextBox();
-            this.btn_Search = new FontAwesome.Sharp.IconButton();
-            this.btn_Refresh = new FontAwesome.Sharp.IconButton();
-            this.btn_Delete = new FontAwesome.Sharp.IconButton();
-            this.btn_Alter = new FontAwesome.Sharp.IconButton();
-            this.btn_Add = new FontAwesome.Sharp.IconButton();
-            this.iconDropDownButton1 = new FontAwesome.Sharp.IconDropDownButton();
             this.cbb_SearchRole = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rad_Female = new System.Windows.Forms.RadioButton();
             this.rad_Male = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtp_CreatedTime = new System.Windows.Forms.DateTimePicker();
-            this.txt_Salary = new System.Windows.Forms.TextBox();
             this.txt_FullName = new System.Windows.Forms.TextBox();
             this.txt_CCCD = new System.Windows.Forms.TextBox();
             this.txt_Phone = new System.Windows.Forms.TextBox();
             this.txt_Address = new System.Windows.Forms.TextBox();
             this.chk_Status = new System.Windows.Forms.CheckBox();
-            this.pic_Avatar = new FontAwesome.Sharp.IconPictureBox();
             this.cbb_Role = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.lbl_ErrorName = new System.Windows.Forms.Label();
@@ -62,14 +53,22 @@
             this.lbl_ErrorPhone = new System.Windows.Forms.Label();
             this.lbl_ErrorAddress = new System.Windows.Forms.Label();
             this.grpInfo = new System.Windows.Forms.GroupBox();
+            this.pic_Avatar = new FontAwesome.Sharp.IconPictureBox();
             this.txt_Id = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.chk_EmployeeStatus = new System.Windows.Forms.CheckBox();
+            this.btn_ExportExcel = new System.Windows.Forms.Button();
+            this.btn_Search = new FontAwesome.Sharp.IconButton();
+            this.btn_Refresh = new FontAwesome.Sharp.IconButton();
+            this.btn_Delete = new FontAwesome.Sharp.IconButton();
+            this.btn_Alter = new FontAwesome.Sharp.IconButton();
+            this.btn_Add = new FontAwesome.Sharp.IconButton();
+            this.iconDropDownButton1 = new FontAwesome.Sharp.IconDropDownButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ListEmployee)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Avatar)).BeginInit();
             this.grpInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Avatar)).BeginInit();
             this.SuspendLayout();
             // 
             // dgv_ListEmployee
@@ -85,103 +84,24 @@
             this.dgv_ListEmployee.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.dgv_ListEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_ListEmployee.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgv_ListEmployee.Location = new System.Drawing.Point(12, 360);
+            this.dgv_ListEmployee.Location = new System.Drawing.Point(15, 360);
             this.dgv_ListEmployee.MultiSelect = false;
             this.dgv_ListEmployee.Name = "dgv_ListEmployee";
             this.dgv_ListEmployee.ReadOnly = true;
             this.dgv_ListEmployee.RowHeadersWidth = 51;
             this.dgv_ListEmployee.RowTemplate.Height = 24;
             this.dgv_ListEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_ListEmployee.Size = new System.Drawing.Size(1230, 373);
+            this.dgv_ListEmployee.Size = new System.Drawing.Size(1223, 373);
             this.dgv_ListEmployee.TabIndex = 1;
             this.dgv_ListEmployee.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ListEmployee_CellClick);
             // 
             // txt_Search
             // 
             this.txt_Search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_Search.Location = new System.Drawing.Point(958, 320);
+            this.txt_Search.Location = new System.Drawing.Point(990, 320);
             this.txt_Search.Name = "txt_Search";
-            this.txt_Search.Size = new System.Drawing.Size(212, 32);
+            this.txt_Search.Size = new System.Drawing.Size(180, 32);
             this.txt_Search.TabIndex = 7;
-            // 
-            // btn_Search
-            // 
-            this.btn_Search.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconSearch;
-            this.btn_Search.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Search.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btn_Search.IconColor = System.Drawing.Color.Black;
-            this.btn_Search.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Search.Location = new System.Drawing.Point(1176, 318);
-            this.btn_Search.Name = "btn_Search";
-            this.btn_Search.Size = new System.Drawing.Size(65, 36);
-            this.btn_Search.TabIndex = 6;
-            this.btn_Search.UseVisualStyleBackColor = true;
-            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
-            // 
-            // btn_Refresh
-            // 
-            this.btn_Refresh.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconReload;
-            this.btn_Refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Refresh.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btn_Refresh.IconColor = System.Drawing.Color.Black;
-            this.btn_Refresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Refresh.Location = new System.Drawing.Point(725, 288);
-            this.btn_Refresh.Name = "btn_Refresh";
-            this.btn_Refresh.Size = new System.Drawing.Size(79, 64);
-            this.btn_Refresh.TabIndex = 5;
-            this.btn_Refresh.UseVisualStyleBackColor = true;
-            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
-            // 
-            // btn_Delete
-            // 
-            this.btn_Delete.BackgroundImage = global::ManagementSupermarket.Properties.Resources.pngtree_vector_trash_icon_png_image_865284;
-            this.btn_Delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Delete.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btn_Delete.IconColor = System.Drawing.Color.Black;
-            this.btn_Delete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Delete.Location = new System.Drawing.Point(601, 288);
-            this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(79, 64);
-            this.btn_Delete.TabIndex = 4;
-            this.btn_Delete.UseVisualStyleBackColor = true;
-            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
-            // 
-            // btn_Alter
-            // 
-            this.btn_Alter.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconPencil;
-            this.btn_Alter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Alter.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btn_Alter.IconColor = System.Drawing.Color.Black;
-            this.btn_Alter.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Alter.Location = new System.Drawing.Point(488, 288);
-            this.btn_Alter.Name = "btn_Alter";
-            this.btn_Alter.Size = new System.Drawing.Size(79, 64);
-            this.btn_Alter.TabIndex = 3;
-            this.btn_Alter.UseVisualStyleBackColor = true;
-            this.btn_Alter.Click += new System.EventHandler(this.btn_Alter_Click);
-            // 
-            // btn_Add
-            // 
-            this.btn_Add.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconPlus;
-            this.btn_Add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Add.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btn_Add.IconColor = System.Drawing.Color.Black;
-            this.btn_Add.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Add.Location = new System.Drawing.Point(370, 288);
-            this.btn_Add.Name = "btn_Add";
-            this.btn_Add.Size = new System.Drawing.Size(79, 64);
-            this.btn_Add.TabIndex = 2;
-            this.btn_Add.UseVisualStyleBackColor = true;
-            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
-            // 
-            // iconDropDownButton1
-            // 
-            this.iconDropDownButton1.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconDropDownButton1.IconColor = System.Drawing.Color.Black;
-            this.iconDropDownButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconDropDownButton1.Name = "iconDropDownButton1";
-            this.iconDropDownButton1.Size = new System.Drawing.Size(23, 23);
-            this.iconDropDownButton1.Text = "iconDropDownButton1";
             // 
             // cbb_SearchRole
             // 
@@ -196,9 +116,9 @@
             "SDT",
             "NgayTao",
             "MaChucVu"});
-            this.cbb_SearchRole.Location = new System.Drawing.Point(821, 320);
+            this.cbb_SearchRole.Location = new System.Drawing.Point(873, 319);
             this.cbb_SearchRole.Name = "cbb_SearchRole";
-            this.cbb_SearchRole.Size = new System.Drawing.Size(131, 34);
+            this.cbb_SearchRole.Size = new System.Drawing.Size(111, 34);
             this.cbb_SearchRole.TabIndex = 8;
             // 
             // label4
@@ -245,23 +165,12 @@
             this.label8.TabIndex = 8;
             this.label8.Text = "SĐT";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(418, 132);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(67, 25);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "Lương";
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.rad_Female);
             this.groupBox1.Controls.Add(this.rad_Male);
             this.groupBox1.ForeColor = System.Drawing.Color.Yellow;
-            this.groupBox1.Location = new System.Drawing.Point(570, 132);
+            this.groupBox1.Location = new System.Drawing.Point(415, 140);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(180, 76);
             this.groupBox1.TabIndex = 10;
@@ -296,7 +205,7 @@
             // 
             this.groupBox2.Controls.Add(this.dtp_CreatedTime);
             this.groupBox2.ForeColor = System.Drawing.Color.Yellow;
-            this.groupBox2.Location = new System.Drawing.Point(769, 132);
+            this.groupBox2.Location = new System.Drawing.Point(614, 140);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(196, 76);
             this.groupBox2.TabIndex = 11;
@@ -311,15 +220,6 @@
             this.dtp_CreatedTime.Name = "dtp_CreatedTime";
             this.dtp_CreatedTime.Size = new System.Drawing.Size(181, 32);
             this.dtp_CreatedTime.TabIndex = 11;
-            // 
-            // txt_Salary
-            // 
-            this.txt_Salary.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_Salary.Location = new System.Drawing.Point(415, 158);
-            this.txt_Salary.Name = "txt_Salary";
-            this.txt_Salary.Size = new System.Drawing.Size(149, 32);
-            this.txt_Salary.TabIndex = 16;
-            this.txt_Salary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PressNumber);
             // 
             // txt_FullName
             // 
@@ -362,37 +262,20 @@
             this.chk_Status.AutoSize = true;
             this.chk_Status.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chk_Status.ForeColor = System.Drawing.Color.White;
-            this.chk_Status.Location = new System.Drawing.Point(979, 220);
+            this.chk_Status.Location = new System.Drawing.Point(1013, 168);
             this.chk_Status.Name = "chk_Status";
             this.chk_Status.Size = new System.Drawing.Size(179, 40);
             this.chk_Status.TabIndex = 21;
             this.chk_Status.Text = "Hoạt Động";
             this.chk_Status.UseVisualStyleBackColor = true;
             // 
-            // pic_Avatar
-            // 
-            this.pic_Avatar.BackColor = System.Drawing.Color.SlateGray;
-            this.pic_Avatar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pic_Avatar.BackgroundImage")));
-            this.pic_Avatar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pic_Avatar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pic_Avatar.ForeColor = System.Drawing.Color.Yellow;
-            this.pic_Avatar.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.pic_Avatar.IconColor = System.Drawing.Color.Yellow;
-            this.pic_Avatar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.pic_Avatar.IconSize = 164;
-            this.pic_Avatar.Location = new System.Drawing.Point(20, 52);
-            this.pic_Avatar.Name = "pic_Avatar";
-            this.pic_Avatar.Size = new System.Drawing.Size(169, 164);
-            this.pic_Avatar.TabIndex = 22;
-            this.pic_Avatar.TabStop = false;
-            // 
             // cbb_Role
             // 
             this.cbb_Role.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_Role.FormattingEnabled = true;
-            this.cbb_Role.Location = new System.Drawing.Point(982, 161);
+            this.cbb_Role.Location = new System.Drawing.Point(827, 169);
             this.cbb_Role.Name = "cbb_Role";
-            this.cbb_Role.Size = new System.Drawing.Size(185, 34);
+            this.cbb_Role.Size = new System.Drawing.Size(168, 34);
             this.cbb_Role.TabIndex = 24;
             // 
             // label7
@@ -400,7 +283,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(982, 130);
+            this.label7.Location = new System.Drawing.Point(827, 138);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(89, 25);
             this.label7.TabIndex = 25;
@@ -470,10 +353,8 @@
             this.grpInfo.Controls.Add(this.txt_CCCD);
             this.grpInfo.Controls.Add(this.txt_Id);
             this.grpInfo.Controls.Add(this.txt_FullName);
-            this.grpInfo.Controls.Add(this.txt_Salary);
             this.grpInfo.Controls.Add(this.groupBox2);
             this.grpInfo.Controls.Add(this.groupBox1);
-            this.grpInfo.Controls.Add(this.label9);
             this.grpInfo.Controls.Add(this.label8);
             this.grpInfo.Controls.Add(this.label2);
             this.grpInfo.Controls.Add(this.label1);
@@ -486,6 +367,23 @@
             this.grpInfo.TabIndex = 0;
             this.grpInfo.TabStop = false;
             this.grpInfo.Text = "Thông tin";
+            // 
+            // pic_Avatar
+            // 
+            this.pic_Avatar.BackColor = System.Drawing.Color.SlateGray;
+            this.pic_Avatar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pic_Avatar.BackgroundImage")));
+            this.pic_Avatar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pic_Avatar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pic_Avatar.ForeColor = System.Drawing.Color.Yellow;
+            this.pic_Avatar.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.pic_Avatar.IconColor = System.Drawing.Color.Yellow;
+            this.pic_Avatar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.pic_Avatar.IconSize = 164;
+            this.pic_Avatar.Location = new System.Drawing.Point(20, 52);
+            this.pic_Avatar.Name = "pic_Avatar";
+            this.pic_Avatar.Size = new System.Drawing.Size(169, 164);
+            this.pic_Avatar.TabIndex = 22;
+            this.pic_Avatar.TabStop = false;
             // 
             // txt_Id
             // 
@@ -523,13 +421,106 @@
             this.chk_EmployeeStatus.UseVisualStyleBackColor = true;
             this.chk_EmployeeStatus.CheckedChanged += new System.EventHandler(this.chk_EmployeeStatus_CheckedChanged);
             // 
+            // btn_ExportExcel
+            // 
+            this.btn_ExportExcel.BackgroundImage = global::ManagementSupermarket.Properties.Resources.png_clipart_microsoft_excel_logo_microsoft_excel_computer_icons_xls_microsoft_angle_text;
+            this.btn_ExportExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_ExportExcel.Location = new System.Drawing.Point(623, 288);
+            this.btn_ExportExcel.Name = "btn_ExportExcel";
+            this.btn_ExportExcel.Size = new System.Drawing.Size(82, 64);
+            this.btn_ExportExcel.TabIndex = 28;
+            this.btn_ExportExcel.UseVisualStyleBackColor = true;
+            this.btn_ExportExcel.Click += new System.EventHandler(this.btn_ExportExcel_Click);
+            // 
+            // btn_Search
+            // 
+            this.btn_Search.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconSearch;
+            this.btn_Search.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Search.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btn_Search.IconColor = System.Drawing.Color.Black;
+            this.btn_Search.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Search.Location = new System.Drawing.Point(1176, 318);
+            this.btn_Search.Name = "btn_Search";
+            this.btn_Search.Size = new System.Drawing.Size(65, 36);
+            this.btn_Search.TabIndex = 6;
+            this.btn_Search.UseVisualStyleBackColor = true;
+            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
+            // 
+            // btn_Refresh
+            // 
+            this.btn_Refresh.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconReload;
+            this.btn_Refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Refresh.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btn_Refresh.IconColor = System.Drawing.Color.Black;
+            this.btn_Refresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Refresh.Location = new System.Drawing.Point(725, 288);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(79, 64);
+            this.btn_Refresh.TabIndex = 5;
+            this.btn_Refresh.UseVisualStyleBackColor = true;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
+            // 
+            // btn_Delete
+            // 
+            this.btn_Delete.BackgroundImage = global::ManagementSupermarket.Properties.Resources.pngtree_vector_trash_icon_png_image_865284;
+            this.btn_Delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Delete.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btn_Delete.IconColor = System.Drawing.Color.Black;
+            this.btn_Delete.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Delete.Location = new System.Drawing.Point(538, 288);
+            this.btn_Delete.Name = "btn_Delete";
+            this.btn_Delete.Size = new System.Drawing.Size(79, 64);
+            this.btn_Delete.TabIndex = 4;
+            this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
+            // 
+            // btn_Alter
+            // 
+            this.btn_Alter.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconPencil;
+            this.btn_Alter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Alter.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btn_Alter.IconColor = System.Drawing.Color.Black;
+            this.btn_Alter.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Alter.Location = new System.Drawing.Point(455, 288);
+            this.btn_Alter.Name = "btn_Alter";
+            this.btn_Alter.Size = new System.Drawing.Size(79, 64);
+            this.btn_Alter.TabIndex = 3;
+            this.btn_Alter.UseVisualStyleBackColor = true;
+            this.btn_Alter.Click += new System.EventHandler(this.btn_Alter_Click);
+            // 
+            // btn_Add
+            // 
+            this.btn_Add.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconPlus;
+            this.btn_Add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Add.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btn_Add.IconColor = System.Drawing.Color.Black;
+            this.btn_Add.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Add.Location = new System.Drawing.Point(370, 288);
+            this.btn_Add.Name = "btn_Add";
+            this.btn_Add.Size = new System.Drawing.Size(79, 64);
+            this.btn_Add.TabIndex = 2;
+            this.btn_Add.UseVisualStyleBackColor = true;
+            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
+            // 
+            // iconDropDownButton1
+            // 
+            this.iconDropDownButton1.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconDropDownButton1.IconColor = System.Drawing.Color.Black;
+            this.iconDropDownButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconDropDownButton1.Name = "iconDropDownButton1";
+            this.iconDropDownButton1.Size = new System.Drawing.Size(23, 23);
+            this.iconDropDownButton1.Text = "iconDropDownButton1";
+            // 
             // frmManagementEmployees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1254, 745);
+            this.ClientSize = new System.Drawing.Size(1251, 745);
+            this.Controls.Add(this.btn_ExportExcel);
             this.Controls.Add(this.chk_EmployeeStatus);
             this.Controls.Add(this.cbb_SearchRole);
             this.Controls.Add(this.txt_Search);
@@ -543,17 +534,19 @@
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmManagementEmployees";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmManagementEmployee";
             this.Load += new System.EventHandler(this.frmManagementEmployee_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ListEmployee)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Avatar)).EndInit();
             this.grpInfo.ResumeLayout(false);
             this.grpInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Avatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -573,13 +566,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rad_Female;
         private System.Windows.Forms.RadioButton rad_Male;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DateTimePicker dtp_CreatedTime;
-        private System.Windows.Forms.TextBox txt_Salary;
         private System.Windows.Forms.TextBox txt_FullName;
         private System.Windows.Forms.TextBox txt_CCCD;
         private System.Windows.Forms.TextBox txt_Phone;
@@ -596,5 +587,6 @@
         private System.Windows.Forms.TextBox txt_Id;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox chk_EmployeeStatus;
+        private System.Windows.Forms.Button btn_ExportExcel;
     }
 }

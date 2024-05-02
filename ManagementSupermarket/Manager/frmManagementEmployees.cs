@@ -9,6 +9,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Markup;
 using System.Windows.Media.Media3D;
 using BLL;
 using DTO;
@@ -17,10 +18,16 @@ namespace ManagementSupermarket
 {
     public partial class frmManagementEmployees : Form
     {
+        private string s_role = "QL";
         Event eventConfig = new Event();
         BLL_Employee dataEmployee = new BLL_Employee();
         public frmManagementEmployees()
         {
+            InitializeComponent();
+        }
+        public frmManagementEmployees(string role)
+        {
+            s_role = role;
             InitializeComponent();
         }
 
@@ -38,6 +45,24 @@ namespace ManagementSupermarket
             }
 
             dgv_ListEmployee.DataSource = dataEmployee.GetEmployeeTo("MaNV");
+        }
+        private bool IsMaster(string idEmployee)
+        {
+            bool isMaster = (new BLL_Employee()).GetEmployeeTo("MaNV", idEmployee).Rows[0]["MaChucVu"].ToString() == "QLCC";
+            if(isMaster )
+            {
+                return true;
+            }
+            return false;
+        }
+        private bool CanNotAddRole()
+        {
+            if (s_role == "QL")
+            {
+                MessageBox.Show("Bạn không có quyền tuỳ chỉnh chức vụ Quản lý cao cấp", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return true;
+            }
+            return false;
         }
         private void frmManagementEmployee_Load(object sender, EventArgs e)
         {
@@ -107,7 +132,6 @@ namespace ManagementSupermarket
                 txt_CCCD.Text = rowSelected["CCCD"].Value.ToString();
                 txt_Phone.Text = rowSelected["SDT"].Value.ToString();
                 txt_Address.Text = rowSelected["DiaChi"].Value.ToString();
-                txt_Salary.Text = rowSelected["Luong"].Value.ToString();
 
                 dtp_CreatedTime.Value = (DateTime)rowSelected["NgayTao"].Value;
 
@@ -123,15 +147,14 @@ namespace ManagementSupermarket
         private void btn_Add_Click(object sender, EventArgs e)
         {
             On_OffLabelError(0);
+            if (CanNotAddRole())
+            {
+                return;
+            }
             string fullName = txt_FullName.Text.Trim();
             string CCCD = txt_CCCD.Text.Trim();
             string phone = txt_Phone.Text.Trim();
             string address = txt_Address.Text.Trim();
-            DateTime createdTime = dtp_CreatedTime.Value;
-            string gender = rad_Male.Checked ? "Nam" : "Nữ";
-            string RoleName = cbb_Role.Text.Trim();
-            double salary = string.IsNullOrEmpty(txt_Salary.Text.Trim()) ? 0 : double.Parse(txt_Salary.Text.Trim());
-            byte status = (byte)(chk_Status.Checked ? 1 : 0);
 
             bool isEmpty = IsEmptytTextBox(fullName, CCCD, phone, address);
 
@@ -140,7 +163,14 @@ namespace ManagementSupermarket
                 return;
             }
 
-            DTO_Employee employee = new DTO_Employee(fullName, CCCD, gender, address, phone, createdTime, RoleName, salary, status);
+            DateTime createdTime = dtp_CreatedTime.Value;
+            string gender = rad_Male.Checked ? "Nam" : "Nữ";
+            string RoleName = cbb_Role.Text.Trim();
+            byte status = (byte)(chk_Status.Checked ? 1 : 0);
+
+           
+
+            DTO_Employee employee = new DTO_Employee(fullName, CCCD, gender, address, phone, createdTime, RoleName, status);
 
             int numOfRows = dataEmployee.InsertEmployee(employee);
             if (numOfRows > 0)
@@ -160,6 +190,10 @@ namespace ManagementSupermarket
         private void btn_Alter_Click(object sender, EventArgs e)
         {
             On_OffLabelError(0);
+            if (CanNotAddRole())
+            {
+                return;
+            }
             string id = txt_Id.Text.Trim();
             if (string.IsNullOrEmpty(id))
             {
@@ -171,11 +205,6 @@ namespace ManagementSupermarket
             string CCCD = txt_CCCD.Text.Trim();
             string phone = txt_Phone.Text.Trim();
             string address = txt_Address.Text.Trim();
-            DateTime createdTime = dtp_CreatedTime.Value;
-            string gender = rad_Male.Checked ? "Nam" : "Nữ";
-            string RoleName = cbb_Role.Text.Trim();
-            double salary = string.IsNullOrEmpty(txt_Salary.Text.Trim()) ? 0 : double.Parse(txt_Salary.Text.Trim());
-            byte status = (byte)(chk_Status.Checked ? 1 : 0);
 
             bool isEmpty = IsEmptytTextBox(fullName, CCCD, phone, address);
 
@@ -184,7 +213,12 @@ namespace ManagementSupermarket
                 return;
             }
 
-            DTO_Employee employee = new DTO_Employee(fullName, CCCD, gender, address, phone, createdTime, RoleName, salary, status, id);
+            DateTime createdTime = dtp_CreatedTime.Value;
+            string gender = rad_Male.Checked ? "Nam" : "Nữ";
+            string RoleName = cbb_Role.Text.Trim();
+            byte status = (byte)(chk_Status.Checked ? 1 : 0);
+
+            DTO_Employee employee = new DTO_Employee(fullName, CCCD, gender, address, phone, createdTime, RoleName, status, id);
 
             int numOfRows = dataEmployee.UpdateEmployee(employee);
             if (numOfRows > 0)
@@ -203,6 +237,11 @@ namespace ManagementSupermarket
         private void btn_Delete_Click(object sender, EventArgs e)
         {
             string id = txt_Id.Text.Trim();
+            if (IsMaster(id))
+            {
+                MessageBox.Show("Không thể xoá quản lý cao cấp", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (string.IsNullOrEmpty(id))
             {
                 string mess = "Vui lòng chọn nhân viên muốn chỉnh sửa";
@@ -232,7 +271,6 @@ namespace ManagementSupermarket
             txt_CCCD.Clear();
             txt_Id.Clear();
             txt_Phone.Clear();
-            txt_Salary.Clear();
             txt_Search.Clear();
             cbb_Role.SelectedItem = 0;
             rad_Male.Checked = true;
@@ -251,5 +289,11 @@ namespace ManagementSupermarket
             dgv_ListEmployee.Refresh();
         }
 
+        private void btn_ExportExcel_Click(object sender, EventArgs e)
+        {
+            DataTable tblEmployee = (DataTable)dgv_ListEmployee.DataSource;
+            ConfigExcel_PDF.ExportToExcel(tblEmployee, "Employee");
+            return;
+        }
     }
 }

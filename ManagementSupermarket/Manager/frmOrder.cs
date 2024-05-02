@@ -18,12 +18,17 @@ using System.Diagnostics;
 using System.Security.Permissions;
 using ComboBox = System.Windows.Forms.ComboBox;
 using ManagementSupermarket.Manager;
+using Button = System.Windows.Forms.Button;
+using Image = System.Drawing.Image;
+using System.IO;
+using System.Windows.Media.Media3D;
 
 namespace ManagementSupermarket
 {
     public partial class frmOrder : Form
     {
-        private string idEmployee = "NV002";
+        private string s_idEmployee = "NV002";
+        private string s_role = "NV";
         private float TotalMoney = 0;
         public frmOrder()
         {
@@ -31,11 +36,44 @@ namespace ManagementSupermarket
         }
         public frmOrder(string idEmployee)
         {
-            this.idEmployee = idEmployee;
+            this.s_idEmployee = idEmployee;
             InitializeComponent();
         }
 
         Event eventConfig = new Event();
+
+        private bool IsErrorInput()
+        {
+            string mess = "";
+            bool flag = false;
+            bool errName = string.IsNullOrEmpty(cbb_NameProductCreate.Text.Trim());
+            DataTable tblProduct = (new BLL_Product()).GetProduct("TenSP", cbb_NameProductCreate.Text);
+            bool isNotCountProduct = false;
+            if (tblProduct.Rows.Count > 0)
+            {
+                isNotCountProduct = int.Parse(tblProduct.Rows[0]["SoLuong"].ToString()) - num_CountProductCreate.Value < 0;
+            }
+
+            if (errName)
+            {
+                mess = "Vui lòng chọn một sản phẩm!";
+                flag = true;
+            }
+            else if (isNotCountProduct)
+            {
+                mess = $"Số lượng sản phẩm {cbb_NameProductCreate.Text} đã hết!";
+                flag = true;
+            }
+
+            if (flag)
+            {
+                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return true;
+            }
+
+            return false;
+        }
+
         //LOAD DATA COMBO BOX
         private void LoadDataComboBox_NameProduct(ComboBox cbbProduct)
         {
@@ -64,7 +102,37 @@ namespace ManagementSupermarket
         }
         private void LoadDataGridView_InvoiceSelling()
         {
-            dgv_InvoiceSelling.DataSource = (new BLL_InvoiceSelling()).GetInvoiceSelling("MaHD");
+            string idEmployee = null;
+            if (s_role == "NV")
+            {
+                idEmployee = this.s_idEmployee;
+            }
+            dgv_InvoiceSelling.DataSource = (new BLL_InvoiceSelling()).GetInvoiceSelling("MaNV", idEmployee);
+        }
+        private void LoadButtonProduct()
+        {
+            DataTable tblProduct = (new BLL_Product()).GetProduct("MaSP");
+
+            foreach (DataRow rows in tblProduct.Rows)
+            {
+                Button btn = new Button();
+                string imagePath = Path.Combine(Application.StartupPath, "..", "..","Image", "Products", rows["HinhAnh"].ToString());
+    
+                if (!File.Exists(imagePath))
+                {
+                    btn.BackgroundImage = Image.FromFile(imagePath);
+                    btn.BackgroundImageLayout = ImageLayout.Zoom;
+
+                }
+
+                btn.ImageAlign = ContentAlignment.MiddleLeft;
+                btn.TextAlign = ContentAlignment.MiddleCenter;
+                btn.Text = rows["TenSP"].ToString();
+                btn.Text += "\n\n";
+                btn.Text += rows["GiaBan"].ToString();
+                btn.Size = new Size(panel_Button.Width / 2 - 20, 150);
+                panel_Button.Controls.Add(btn);
+            }
         }
 
         private void frmOrder_Load(object sender, EventArgs e)
@@ -79,6 +147,12 @@ namespace ManagementSupermarket
             LoadDataGridView_InvoiceSelling();
             cbb_Search.SelectedIndex = 0;
 
+            LoadButtonProduct();
+            if (s_role == "NV")
+            {
+                int index = cbb_Search.FindString("MaNV");
+                cbb_Search.Items.RemoveAt(index);
+            }
         }
 
         private void lst_OrderCurrency_Click(object sender, EventArgs e)
@@ -317,18 +391,23 @@ namespace ManagementSupermarket
                 return;
             }
 
-            if(txt_CashCustomerCreate.Text == "0" && txt_CashCustomerCreate.Text.Count() == 1)
-            {
-                e.Handled = true;
-                txt_CashCustomerCreate.Text = e.KeyChar.ToString();
-            }else if(txt_CashCustomerCreate.Text.Count() >= 1 && char.IsDigit(e.KeyChar))
-            {
-                float moneyCash = float.Parse(txt_CashCustomerCreate.Text) - float.Parse(txt_TotalCashCreate.Text);
+            //txt_CashCustomerCreate.Text = eventConfig.ProcessMoney(txt_CashCustomerCreate.Text);
+        }
+        private void ErrorMoneyCashCustomer()
+        {
+            bool errMoney = double.Parse(txt_CashCustomerCreate.Text) < double.Parse(txt_TotalCashCreate.Text);
+            if(errMoney) {
+                lbl_ErrorCashCustomer.Text = "*Tiền của khách hàng phải hiện nhỏ hơn tổng đơn hàng!";
+                lbl_ErrorCashCustomer.Visible = true;
             }
         }
-
+        
         private void btn_FinishOrder_Click(object sender, EventArgs e)
         {
+            lbl_ErrorCashCustomer.Visible = false;
+            ErrorMoneyCashCustomer();
+
+
             string idInvoice, idProduct, idDiscount, idEmployee, idCustomer = null,nameProduct, phone;
             float price, discount, amount, totalMoney, cashCustomer;
             int countProduct;
@@ -339,7 +418,7 @@ namespace ManagementSupermarket
             //@MaKH varchar(10) = null,
             //@TongTien decimal,
             //@TienKhachDua decimal = 0
-            idEmployee = this.idEmployee;
+            idEmployee = this.s_idEmployee;
             if (chk_PhoneCustomer.Checked)
             {
                 phone = txt_PhoneCustomerCreate.Text.Trim();
@@ -353,7 +432,7 @@ namespace ManagementSupermarket
 
             totalMoney = this.TotalMoney;
             
-            cashCustomer = float.Parse(txt_CashCustomerCreate.Text);
+            cashCustomer = string.IsNullOrEmpty(txt_CashCustomerCreate.Text) ? 0 : float.Parse(txt_CashCustomerCreate.Text);
 
             DTO_InvoiceSelling invoiceSelling = new DTO_InvoiceSelling(idEmployee, totalMoney, cashCustomer, idCustomer);
             idInvoice = (new BLL_InvoiceSelling()).InsertInvoiceSelling(invoiceSelling).Rows[0][0].ToString();
@@ -470,6 +549,13 @@ namespace ManagementSupermarket
             cbb_Search.SelectedIndex = 0;
             txtSearch.Clear();
             LoadDataGridView_InvoiceSelling();
+        }
+
+        private void btn_ExportExcel_Click_1(object sender, EventArgs e)
+        {
+            DataTable tblInvoiceSelling = (DataTable)dgv_InvoiceSelling.DataSource;
+            ConfigExcel_PDF.ExportToExcel(tblInvoiceSelling, $"Invoice Selling");
+            return;
         }
     }
 }

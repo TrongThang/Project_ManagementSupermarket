@@ -18,7 +18,6 @@ namespace DTO
         private string s_Phone;
         private DateTime dt_CreatedTime;
         private string s_Role;
-        private double d_Salary;
         private byte s_Status;
 
         public DTO_Employee()
@@ -31,11 +30,10 @@ namespace DTO
             s_Phone = null;
             this.dt_CreatedTime = DateTime.Now;
             s_Role = null;
-            d_Salary = 0;
             s_Status = 0;
         }
 
-        public DTO_Employee(string fullName, string CCCD, string gender, string address, string phone, DateTime dt_CreatedTime, string role, double d_Salary,byte status, string iD = null)
+        public DTO_Employee(string fullName, string CCCD, string gender, string address, string phone, DateTime dt_CreatedTime, string role,byte status, string iD = null)
         {
             s_ID = iD;
             s_CCCD = CCCD ;
@@ -45,7 +43,6 @@ namespace DTO
             s_Phone = phone;
             this.dt_CreatedTime = dt_CreatedTime;
             s_Role = role;
-            d_Salary = 0;
             s_Status = status;
         }
 
@@ -57,7 +54,6 @@ namespace DTO
         public string S_Phone { get => s_Phone; set => s_Phone = value; }
         public DateTime Dt_CreatedTime { get => dt_CreatedTime; set => dt_CreatedTime = value; }
         public string S_Role { get => s_Role; set => s_Role = value; }
-        public double D_Salary { get => d_Salary; set => d_Salary = value; }
         public byte S_Status { get => s_Status; set => s_Status = value; }
     }
 }

@@ -163,6 +163,17 @@ namespace ManagementSupermarket.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap png_clipart_microsoft_excel_logo_microsoft_excel_computer_icons_xls_microsoft_angle_text {
+            get {
+                object obj = ResourceManager.GetObject("png-clipart-microsoft-excel-logo-microsoft-excel-computer-icons-xls-microsoft-ang" +
+                        "le-text", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pngtree_vector_trash_icon_png_image_865284 {
             get {
                 object obj = ResourceManager.GetObject("pngtree-vector-trash-icon-png-image_865284", resourceCulture);

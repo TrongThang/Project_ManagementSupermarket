@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,24 @@ namespace ManagementSupermarket
         {
             label.Text = "*" + key + error;
             label.Visible = true;
+        }
+        public void CheckTextboxError(TextBox textBox,string error)
+        {
+            bool isError = string.IsNullOrEmpty(textBox.Text.Trim());
+
+            if(isError)
+            {
+                MessageBox.Show(error, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public string ProcessMoney(string number)
+        {
+            if(string.IsNullOrEmpty(number) == false)
+            {
+                double money = double.Parse(number);
+                return money.ToString("N", CultureInfo.CreateSpecificCulture("vi-VN"));
+            }
+            return number;
         }
     }
 }

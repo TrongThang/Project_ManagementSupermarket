@@ -4,6 +4,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using ClosedXML.Excel;
 using DAL;
 using DTO;
 namespace BLL

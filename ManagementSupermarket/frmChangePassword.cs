@@ -13,13 +13,9 @@ namespace ManagementSupermarket
 {
     public partial class frmChangePassword : Form
     {
-        private string idEmployee = "NV001";
+        private string idEmployee;
         BLL_Account account = new BLL_Account();
         Event eventConfig = new Event();
-        public frmChangePassword()
-        {
-            InitializeComponent();
-        }
         public frmChangePassword(string id)
         {
             InitializeComponent();
