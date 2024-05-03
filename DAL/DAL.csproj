@@ -50,6 +50,7 @@
     <Compile Include="DAL_InvoiceSelling.cs" />
     <Compile Include="DAL_InvoiceWarehouse.cs" />
     <Compile Include="DAL_Product.cs" />
+    <Compile Include="DAL_Revenue.cs" />
     <Compile Include="DAL_Role.cs" />
     <Compile Include="DAL_Supplier.cs" />
     <Compile Include="DAL_TypeProduct.cs" />

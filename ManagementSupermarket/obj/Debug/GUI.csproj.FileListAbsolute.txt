@@ -125,7 +125,6 @@ D:\C#\Fix merge\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmLogin.r
 D:\C#\Fix merge\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmManagementEmployees.resources
 D:\C#\Fix merge\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmManagementProducts.resources
 D:\C#\Fix merge\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmOrder.resources
-D:\C#\Fix merge\ManagementSupermarket\obj\Debug\ManagementSupermarket.Manager.frmRevenue.resources
 D:\C#\Fix merge\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmSuppiler.resources
 D:\C#\Fix merge\ManagementSupermarket\obj\Debug\ManagementSupermarket.Manager.frmTypeProduct.resources
 D:\C#\Fix merge\ManagementSupermarket\obj\Debug\ManagementSupermarket.Manager.frmWarehouse.resources
@@ -135,3 +134,4 @@ D:\C#\Fix merge\ManagementSupermarket\obj\Debug\GUI.csproj.CoreCompileInputs.cac
 D:\C#\Fix merge\ManagementSupermarket\obj\Debug\GUI.csproj.Up2Date
 D:\C#\Fix merge\ManagementSupermarket\obj\Debug\ManagementSupermarket.exe
 D:\C#\Fix merge\ManagementSupermarket\obj\Debug\ManagementSupermarket.pdb
+D:\C#\Fix merge\ManagementSupermarket\obj\Debug\ManagementSupermarket.Manager.frm_Revenue.resources

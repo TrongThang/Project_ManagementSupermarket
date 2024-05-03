@@ -7,66 +7,54 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media.Media3D;
 using BLL;
 
 namespace ManagementSupermarket.Manager
 {
-    public partial class frmRevenue : Form
+    public partial class frm_Revenue : Form
     {
-        public frmRevenue()
+        public frm_Revenue()
         {
             InitializeComponent();
         }
-        private void LoadCriteria_Week()
+        private void LoadDataRevenue(DateTime date, string citeria = null)
         {
-        }
-        private string IsMoney(string key, int value)
-        {
-            DataTable res = (new BLL_InvoiceSelling()).GetRevenue(key, value);
+                //COUNT(DISTINCT HD.MaHD) AS SLHD_Ban,
+                //COUNT(DISTINCT NK.MaNK) AS SLHD_Nhap,
+                //COUNT(CTHD.MaSP) AS SLSP_Ban,
+                //COUNT(CTNK.MaSP) AS SLSP_Nhap,
+                //COUNT(DISTINCT KM.MaKM) AS SLKM,
+                //COUNT(DISTINCT NK.MaNCC) AS SLNCC,
+                //COUNT(DISTINCT HD.MaNV) AS SLNV
+            //COUNT REVENUE
+            DataTable tblRevenue = BLL_Revenue.GetRevenue(date, citeria);
 
-            string money = "0";
-            if(res.Rows.Count > 0)
-            {
-                money = res.Rows[0][0].ToString();
-            }
-            return money;
-        }
-        private void LoadCriteria_Month()
-        {
-            chart_Revenue.Series.Clear();
-            chart_Revenue.Series.Add("Lương");
-            for (int i = 0; i < 11; i++)
-            {
-                string money = IsMoney("Tháng", i + 1);
-              
-                chart_Revenue.Series["Lương"].Points.AddXY($"Tháng {i + 1}", money);
-            }
-        }
-        private void LoadCriteria_Quarter()
-        {
-            chart_Revenue.Series.Clear();
-            chart_Revenue.Series.Add("Lương");
-            for (int i = 0; i < 4; i++)
-            {
-                string money = IsMoney("Quý", i + 1);
+            if(tblRevenue.Rows.Count > 0) {
+                DataRow rowRevenue = tblRevenue.Rows[0];
 
-                chart_Revenue.Series["Lương"].Points.AddXY($"Quý {i + 1}", money);
+                lbl_Sell.Text = rowRevenue["SLHD_Ban"].ToString();
+                lbl_Import.Text = rowRevenue["SLHD_Nhap"].ToString();
+                lbl_ProductSell.Text = rowRevenue["SLSP_Ban"].ToString();
+                lbl_ProductImport.Text = rowRevenue["SLSP_Nhap"].ToString();
+                lbl_Discount.Text = rowRevenue["SLKM"].ToString();
+                lbl_Supplier.Text = rowRevenue["SLNCC"].ToString();
+                lbl_Employee.Text = rowRevenue["SLNV"].ToString();
             }
         }
+        private void dtp_Revenue_ValueChanged(object sender, EventArgs e)
+        {
+            LoadDataRevenue(dtp_Revenue.Value, cbb_Criteria.Text);
+        }
+
         private void cbb_Criteria_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbb_Criteria.Text == "Tháng")
-            {
-                LoadCriteria_Month();
-            }else if(cbb_Criteria.Text == "Quý")
-            {
-                LoadCriteria_Quarter();
-            }
+            LoadDataRevenue(dtp_Revenue.Value, cbb_Criteria.Text);
         }
 
         private void frmRevenue_Load(object sender, EventArgs e)
         {
-            LoadCriteria_Month();
+            LoadDataRevenue(DateTime.Now, "Ngày");
         }
     }
 }

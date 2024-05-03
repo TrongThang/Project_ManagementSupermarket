@@ -57,7 +57,6 @@ namespace ManagementSupermarket
             txt_Phone.Text = employee["SDT"].ToString();
 
             string salary = employee["Luong"].ToString();
-            lbl_Salary.Text = string.IsNullOrEmpty(salary) ? "0" : salary;
 
             rad_Male.Checked = employee["GioiTinh"].ToString() == "Nam" ? true : false;
             rad_Female.Checked = !rad_Male.Checked;
@@ -104,7 +103,6 @@ namespace ManagementSupermarket
             gender = rad_Male.Checked ? "Nam" : "Nữ";
             roleName = lbl_RoleName.Text;
 
-            double salary = double.Parse(lbl_Salary.Text);
 
 
             if (isEmpty)

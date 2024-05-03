@@ -126,6 +126,7 @@
     <Compile Include="BLL_InvoiceSelling.cs" />
     <Compile Include="BLL_InvoiceWarehouse.cs" />
     <Compile Include="BLL_Product.cs" />
+    <Compile Include="BLL_Revenue.cs" />
     <Compile Include="BLL_Role.cs" />
     <Compile Include="BLL_Supplier.cs" />
     <Compile Include="BLL_TypeProduct.cs" />
