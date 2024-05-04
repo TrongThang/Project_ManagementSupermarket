@@ -44,6 +44,9 @@
             this.txt_ID = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cbb_SearchRole = new System.Windows.Forms.ComboBox();
+            this.MaLoaiSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MoTa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_TypeProduct)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,6 +124,10 @@
             this.dgv_TypeProduct.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgv_TypeProduct.BackgroundColor = System.Drawing.Color.Azure;
             this.dgv_TypeProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_TypeProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaLoaiSP,
+            this.TenLoai,
+            this.MoTa});
             this.dgv_TypeProduct.Location = new System.Drawing.Point(12, 209);
             this.dgv_TypeProduct.MultiSelect = false;
             this.dgv_TypeProduct.Name = "dgv_TypeProduct";
@@ -246,6 +253,30 @@
             this.cbb_SearchRole.Size = new System.Drawing.Size(131, 37);
             this.cbb_SearchRole.TabIndex = 37;
             // 
+            // MaLoaiSP
+            // 
+            this.MaLoaiSP.DataPropertyName = "MaLoaiSP";
+            this.MaLoaiSP.HeaderText = "Mã Loại SP";
+            this.MaLoaiSP.MinimumWidth = 6;
+            this.MaLoaiSP.Name = "MaLoaiSP";
+            this.MaLoaiSP.ReadOnly = true;
+            // 
+            // TenLoai
+            // 
+            this.TenLoai.DataPropertyName = "TenLoai";
+            this.TenLoai.HeaderText = "Tên Loại";
+            this.TenLoai.MinimumWidth = 6;
+            this.TenLoai.Name = "TenLoai";
+            this.TenLoai.ReadOnly = true;
+            // 
+            // MoTa
+            // 
+            this.MoTa.DataPropertyName = "MoTa";
+            this.MoTa.HeaderText = "Mô Tả";
+            this.MoTa.MinimumWidth = 6;
+            this.MoTa.Name = "MoTa";
+            this.MoTa.ReadOnly = true;
+            // 
             // frmTypeProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 29F);
@@ -299,5 +330,8 @@
         private System.Windows.Forms.TextBox txt_ID;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbb_SearchRole;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaLoaiSP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenLoai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MoTa;
     }
 }

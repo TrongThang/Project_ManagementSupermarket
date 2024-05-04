@@ -77,6 +77,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.MaNK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayNhapKho = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.grpInfo.SuspendLayout();
@@ -427,7 +432,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 35);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1215, 682);
+            this.tabPage2.Size = new System.Drawing.Size(1284, 692);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Danh Sách Nhập Kho";
             // 
@@ -517,6 +522,12 @@
             // 
             this.dgv_ListOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_ListOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_ListOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaNK,
+            this.MaNV,
+            this.MaNCC,
+            this.NgayNhapKho,
+            this.TongTien});
             this.dgv_ListOrder.Location = new System.Drawing.Point(21, 306);
             this.dgv_ListOrder.Name = "dgv_ListOrder";
             this.dgv_ListOrder.ReadOnly = true;
@@ -646,6 +657,46 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "Tên Nhà Cung Cấp";
             // 
+            // MaNK
+            // 
+            this.MaNK.DataPropertyName = "MaNK";
+            this.MaNK.HeaderText = "Mã NK";
+            this.MaNK.MinimumWidth = 6;
+            this.MaNK.Name = "MaNK";
+            this.MaNK.ReadOnly = true;
+            // 
+            // MaNV
+            // 
+            this.MaNV.DataPropertyName = "MaNV";
+            this.MaNV.HeaderText = "Mã NV";
+            this.MaNV.MinimumWidth = 6;
+            this.MaNV.Name = "MaNV";
+            this.MaNV.ReadOnly = true;
+            // 
+            // MaNCC
+            // 
+            this.MaNCC.DataPropertyName = "MaNCC";
+            this.MaNCC.HeaderText = "Mã NCC";
+            this.MaNCC.MinimumWidth = 6;
+            this.MaNCC.Name = "MaNCC";
+            this.MaNCC.ReadOnly = true;
+            // 
+            // NgayNhapKho
+            // 
+            this.NgayNhapKho.DataPropertyName = "NgayNhapKho";
+            this.NgayNhapKho.HeaderText = "Ngày Nhập Kho";
+            this.NgayNhapKho.MinimumWidth = 6;
+            this.NgayNhapKho.Name = "NgayNhapKho";
+            this.NgayNhapKho.ReadOnly = true;
+            // 
+            // TongTien
+            // 
+            this.TongTien.DataPropertyName = "TongTien";
+            this.TongTien.HeaderText = "Tổng Tiền";
+            this.TongTien.MinimumWidth = 6;
+            this.TongTien.Name = "TongTien";
+            this.TongTien.ReadOnly = true;
+            // 
             // frmWarehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
@@ -725,5 +776,10 @@
         private System.Windows.Forms.ComboBox cbb_SearchRole;
         private System.Windows.Forms.Label lbl_ErrorCbbSuppiler;
         private System.Windows.Forms.Label lbl_ErrorPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaNK;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaNV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaNCC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayNhapKho;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TongTien;
     }
 }

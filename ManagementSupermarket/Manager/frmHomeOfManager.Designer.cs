@@ -50,6 +50,7 @@
             this.btn_LogOut = new FontAwesome.Sharp.IconButton();
             this.btn_Exit = new FontAwesome.Sharp.IconButton();
             this.panel_body = new System.Windows.Forms.Panel();
+            this.btn_Revenue = new FontAwesome.Sharp.IconButton();
             this.panel_Top.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel_Avatar.SuspendLayout();
@@ -88,7 +89,7 @@
             this.panel_Avatar.Controls.Add(this.btn_Info);
             this.panel_Avatar.Controls.Add(this.btn_ChangePassword);
             this.panel_Avatar.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.panel_Avatar.Location = new System.Drawing.Point(646, 15);
+            this.panel_Avatar.Location = new System.Drawing.Point(918, 15);
             this.panel_Avatar.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.panel_Avatar.Name = "panel_Avatar";
             this.panel_Avatar.Size = new System.Drawing.Size(204, 121);
@@ -179,6 +180,7 @@
             this.FlowPanel_Button.Controls.Add(this.btn_Supplier);
             this.FlowPanel_Button.Controls.Add(this.btn_Discount);
             this.FlowPanel_Button.Controls.Add(this.btn_WareHouse);
+            this.FlowPanel_Button.Controls.Add(this.btn_Revenue);
             this.FlowPanel_Button.Controls.Add(this.btn_LogOut);
             this.FlowPanel_Button.Controls.Add(this.btn_Exit);
             this.FlowPanel_Button.Dock = System.Windows.Forms.DockStyle.Left;
@@ -349,7 +351,7 @@
             this.btn_LogOut.IconColor = System.Drawing.Color.Black;
             this.btn_LogOut.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_LogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_LogOut.Location = new System.Drawing.Point(0, 712);
+            this.btn_LogOut.Location = new System.Drawing.Point(0, 801);
             this.btn_LogOut.Margin = new System.Windows.Forms.Padding(0);
             this.btn_LogOut.Name = "btn_LogOut";
             this.btn_LogOut.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
@@ -367,7 +369,7 @@
             this.btn_Exit.IconColor = System.Drawing.Color.Black;
             this.btn_Exit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Exit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Exit.Location = new System.Drawing.Point(0, 801);
+            this.btn_Exit.Location = new System.Drawing.Point(0, 890);
             this.btn_Exit.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
@@ -387,6 +389,25 @@
             this.panel_body.Name = "panel_body";
             this.panel_body.Size = new System.Drawing.Size(1292, 731);
             this.panel_body.TabIndex = 9;
+            // 
+            // btn_Revenue
+            // 
+            this.btn_Revenue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Revenue.IconChar = FontAwesome.Sharp.IconChar.BoxesAlt;
+            this.btn_Revenue.IconColor = System.Drawing.Color.Black;
+            this.btn_Revenue.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Revenue.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Revenue.Location = new System.Drawing.Point(0, 712);
+            this.btn_Revenue.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Revenue.Name = "btn_Revenue";
+            this.btn_Revenue.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btn_Revenue.Size = new System.Drawing.Size(227, 89);
+            this.btn_Revenue.TabIndex = 19;
+            this.btn_Revenue.Tag = "revenue";
+            this.btn_Revenue.Text = "Doanh Thu";
+            this.btn_Revenue.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_Revenue.UseVisualStyleBackColor = true;
+            this.btn_Revenue.Click += new System.EventHandler(this.btn_Revenue_Click);
             // 
             // frmHomeOfManager
             // 
@@ -438,5 +459,6 @@
         private FontAwesome.Sharp.IconButton btn_ChangePassword;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel_body;
+        private FontAwesome.Sharp.IconButton btn_Revenue;
     }
 }

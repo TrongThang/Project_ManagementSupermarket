@@ -57,7 +57,7 @@ namespace ManagementSupermarket
         }
         private bool CanNotAddRole()
         {
-            if (s_role == "QL")
+            if (string.Equals(s_role, "QL") && string.Equals(cbb_Role.SelectedValue, "QLCC"))
             {
                 MessageBox.Show("Bạn không có quyền tuỳ chỉnh chức vụ Quản lý cao cấp", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return true;
@@ -148,7 +148,15 @@ namespace ManagementSupermarket
                 MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        private bool ExistCCCD(string CCCD)
+        {
+            bool existCCCD = (new BLL_Customer()).GetCustomerTo("CCCD", CCCD).Rows.Count > 0;
+            if (existCCCD)
+            {
+                MessageBox.Show($"CCCD: {CCCD} đã tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            return existCCCD;
+        }
 
         //BUTTON
         private void btn_Add_Click(object sender, EventArgs e)
@@ -169,7 +177,11 @@ namespace ManagementSupermarket
             {
                 return;
             }
-            
+            else if (ExistCCCD(CCCD))
+            {
+                return;
+            }
+
             DateTime createdTime = dtp_CreatedTime.Value;
             string gender = rad_Male.Checked ? "Nam" : "Nữ";
             string RoleName = cbb_Role.Text.Trim();
@@ -262,25 +274,29 @@ namespace ManagementSupermarket
                 return;
             }
 
-            try
+            DialogResult res = MessageBox.Show($"Bạn chắc chắn muốn xoá nhân viên với mã số {id}?", "Cảnh Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if(res == DialogResult.Yes)
             {
-                int numOfRows = dataEmployee.UpdateStatusEmployee(id);
+                try
+                {
+                    int numOfRows = dataEmployee.UpdateStatusEmployee(id);
 
-                if (numOfRows > 0)
-                {
-                    string mess = "Xoá thông tin nhân viên thành công";
-                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadData();
+                    if (numOfRows > 0)
+                    {
+                        string mess = "Xoá thông tin nhân viên thành công";
+                        MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadData();
+                    }
+                    else
+                    {
+                        string mess = "Xoá thông tin nhân viên thất bại";
+                        MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
-                else
+                catch (Exception err)
                 {
-                    string mess = "Xoá thông tin nhân viên thất bại";
-                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

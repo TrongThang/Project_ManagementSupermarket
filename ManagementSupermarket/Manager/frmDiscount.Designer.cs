@@ -51,6 +51,11 @@
             this.chk_DiscountStatus = new System.Windows.Forms.CheckBox();
             this.num_CountTime = new System.Windows.Forms.NumericUpDown();
             this.cbb_SearchRole = new System.Windows.Forms.ComboBox();
+            this.MaKM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenKM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaKhuyenMai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayKetThuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ListDiscount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_CountTime)).BeginInit();
             this.SuspendLayout();
@@ -209,10 +214,19 @@
             this.dgv_ListDiscount.AllowUserToAddRows = false;
             this.dgv_ListDiscount.AllowUserToDeleteRows = false;
             this.dgv_ListDiscount.AllowUserToOrderColumns = true;
+            this.dgv_ListDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_ListDiscount.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_ListDiscount.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgv_ListDiscount.BackgroundColor = System.Drawing.Color.Azure;
             this.dgv_ListDiscount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_ListDiscount.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaKM,
+            this.TenKM,
+            this.GiaKhuyenMai,
+            this.NgayBatDau,
+            this.NgayKetThuc});
             this.dgv_ListDiscount.Location = new System.Drawing.Point(401, 78);
             this.dgv_ListDiscount.MultiSelect = false;
             this.dgv_ListDiscount.Name = "dgv_ListDiscount";
@@ -325,6 +339,55 @@
             this.cbb_SearchRole.Size = new System.Drawing.Size(131, 37);
             this.cbb_SearchRole.TabIndex = 42;
             // 
+            // MaKM
+            // 
+            this.MaKM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.MaKM.DataPropertyName = "MaKM";
+            this.MaKM.Frozen = true;
+            this.MaKM.HeaderText = "Mã KM";
+            this.MaKM.MinimumWidth = 6;
+            this.MaKM.Name = "MaKM";
+            this.MaKM.ReadOnly = true;
+            this.MaKM.Width = 125;
+            // 
+            // TenKM
+            // 
+            this.TenKM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TenKM.DataPropertyName = "TenKM";
+            this.TenKM.Frozen = true;
+            this.TenKM.HeaderText = "Tên KM";
+            this.TenKM.MinimumWidth = 6;
+            this.TenKM.Name = "TenKM";
+            this.TenKM.ReadOnly = true;
+            this.TenKM.Width = 125;
+            // 
+            // GiaKhuyenMai
+            // 
+            this.GiaKhuyenMai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.GiaKhuyenMai.DataPropertyName = "GiaKhuyenMai";
+            this.GiaKhuyenMai.Frozen = true;
+            this.GiaKhuyenMai.HeaderText = "Giá KM";
+            this.GiaKhuyenMai.MinimumWidth = 6;
+            this.GiaKhuyenMai.Name = "GiaKhuyenMai";
+            this.GiaKhuyenMai.ReadOnly = true;
+            this.GiaKhuyenMai.Width = 125;
+            // 
+            // NgayBatDau
+            // 
+            this.NgayBatDau.DataPropertyName = "NgayBatDau";
+            this.NgayBatDau.HeaderText = "Ngày Bắt Đầu";
+            this.NgayBatDau.MinimumWidth = 6;
+            this.NgayBatDau.Name = "NgayBatDau";
+            this.NgayBatDau.ReadOnly = true;
+            // 
+            // NgayKetThuc
+            // 
+            this.NgayKetThuc.DataPropertyName = "NgayKetThuc";
+            this.NgayKetThuc.HeaderText = "Ngày Kết Thúc";
+            this.NgayKetThuc.MinimumWidth = 6;
+            this.NgayKetThuc.Name = "NgayKetThuc";
+            this.NgayKetThuc.ReadOnly = true;
+            // 
             // frmDiscount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 29F);
@@ -393,5 +456,10 @@
         private System.Windows.Forms.CheckBox chk_DiscountStatus;
         private System.Windows.Forms.NumericUpDown num_CountTime;
         private System.Windows.Forms.ComboBox cbb_SearchRole;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaKM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenKM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GiaKhuyenMai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayBatDau;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayKetThuc;
     }
 }

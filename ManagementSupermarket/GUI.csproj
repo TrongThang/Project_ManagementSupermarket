@@ -263,6 +263,7 @@
     <Content Include="Image\Products\suavinamilk.jpg" />
     <Content Include="Image\Products\tainghebluetooth.jpg" />
     <Content Include="Image\Products\tieuxanh.jpg" />
+    <None Include="Resources\Fonts\SEGOEUI.TTF" />
     <None Include="Resources\png-clipart-microsoft-excel-logo-microsoft-excel-computer-icons-xls-microsoft-angle-text.png" />
   </ItemGroup>
   <ItemGroup>

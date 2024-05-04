@@ -170,5 +170,11 @@ namespace ManagementSupermarket
             IconButton btn = sender as IconButton;
             OpenfrmChild(new frmChangePassword(this.s_idEmployee), btn);
         }
+
+        private void btn_Revenue_Click(object sender, EventArgs e)
+        {
+            IconButton btn = sender as IconButton;
+            OpenfrmChild(new frm_Revenue(), btn);
+        }
     }
 }
