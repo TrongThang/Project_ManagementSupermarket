@@ -58,6 +58,7 @@
             // 
             // cbb_Criteria
             // 
+            this.cbb_Criteria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_Criteria.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.cbb_Criteria.FormattingEnabled = true;
             this.cbb_Criteria.Items.AddRange(new object[] {
@@ -173,7 +174,7 @@
             this.iconButton1.IconColor = System.Drawing.Color.Black;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 90;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.iconButton1.Location = new System.Drawing.Point(97, 60);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
@@ -191,7 +192,7 @@
             this.iconButton2.IconColor = System.Drawing.Color.Black;
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.IconSize = 90;
-            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.iconButton2.Location = new System.Drawing.Point(95, 219);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
@@ -209,7 +210,7 @@
             this.iconButton3.IconColor = System.Drawing.Color.Black;
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton3.IconSize = 90;
-            this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.iconButton3.Location = new System.Drawing.Point(455, 219);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
@@ -227,7 +228,7 @@
             this.iconButton4.IconColor = System.Drawing.Color.Black;
             this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton4.IconSize = 90;
-            this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.iconButton4.Location = new System.Drawing.Point(815, 378);
             this.iconButton4.Name = "iconButton4";
             this.iconButton4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
@@ -245,7 +246,7 @@
             this.iconButton5.IconColor = System.Drawing.Color.Black;
             this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton5.IconSize = 90;
-            this.iconButton5.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.iconButton5.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.iconButton5.Location = new System.Drawing.Point(95, 378);
             this.iconButton5.Name = "iconButton5";
             this.iconButton5.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
@@ -263,7 +264,7 @@
             this.iconButton6.IconColor = System.Drawing.Color.Black;
             this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton6.IconSize = 90;
-            this.iconButton6.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.iconButton6.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.iconButton6.Location = new System.Drawing.Point(455, 378);
             this.iconButton6.Name = "iconButton6";
             this.iconButton6.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
@@ -281,7 +282,7 @@
             this.iconButton7.IconColor = System.Drawing.Color.Black;
             this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton7.IconSize = 90;
-            this.iconButton7.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.iconButton7.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.iconButton7.Location = new System.Drawing.Point(815, 219);
             this.iconButton7.Name = "iconButton7";
             this.iconButton7.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
@@ -299,7 +300,7 @@
             this.iconButton8.IconColor = System.Drawing.Color.Black;
             this.iconButton8.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton8.IconSize = 90;
-            this.iconButton8.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.iconButton8.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.iconButton8.Location = new System.Drawing.Point(95, 552);
             this.iconButton8.Name = "iconButton8";
             this.iconButton8.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
@@ -345,6 +346,7 @@
             // lbl_Total
             // 
             this.lbl_Total.AutoSize = true;
+            this.lbl_Total.BackColor = System.Drawing.Color.LightGreen;
             this.lbl_Total.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Total.Location = new System.Drawing.Point(148, 611);
             this.lbl_Total.Name = "lbl_Total";
