@@ -37,7 +37,7 @@ namespace ManagementSupermarket.Manager
                 lbl_idEmployee.Text = s_NameEmployee;
                 lbl_NameCustomer.Text = "";
 
-                if (string.IsNullOrEmpty(s_NameCustomer))
+                if (!string.IsNullOrEmpty(s_NameCustomer))
                 {
                     lbl_NameCustomer.Text = s_NameCustomer;
                 }

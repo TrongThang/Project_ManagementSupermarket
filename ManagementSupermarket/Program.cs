@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BLL;
+using DTO;
 namespace ManagementSupermarket
 {
     internal static class Program
@@ -18,7 +19,7 @@ namespace ManagementSupermarket
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new frm_Revenue());
+            Application.Run(new frmLogin());
 
         }
     }
