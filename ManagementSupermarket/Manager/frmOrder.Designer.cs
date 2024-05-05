@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrder));
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btn_ExportExcel = new System.Windows.Forms.Button();
             this.cbb_Search = new System.Windows.Forms.ComboBox();
@@ -80,6 +81,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tab_HomeInvoiceSelling = new System.Windows.Forms.TabControl();
+            this.btn_ExportPDF = new System.Windows.Forms.Button();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_InvoiceSelling)).BeginInit();
             this.tab_FormCreateInvoice.SuspendLayout();
@@ -91,6 +93,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
+            this.tabPage2.Controls.Add(this.btn_ExportPDF);
             this.tabPage2.Controls.Add(this.btn_ExportExcel);
             this.tabPage2.Controls.Add(this.cbb_Search);
             this.tabPage2.Controls.Add(this.btn_ShowDetailInvoice);
@@ -109,7 +112,7 @@
             // btn_ExportExcel
             // 
             this.btn_ExportExcel.BackgroundImage = global::ManagementSupermarket.Properties.Resources.png_clipart_microsoft_excel_logo_microsoft_excel_computer_icons_xls_microsoft_angle_text;
-            this.btn_ExportExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_ExportExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_ExportExcel.Location = new System.Drawing.Point(7, 8);
             this.btn_ExportExcel.Name = "btn_ExportExcel";
             this.btn_ExportExcel.Size = new System.Drawing.Size(98, 70);
@@ -172,7 +175,7 @@
             this.btn_Refresh.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Refresh.IconColor = System.Drawing.Color.Black;
             this.btn_Refresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Refresh.Location = new System.Drawing.Point(115, 8);
+            this.btn_Refresh.Location = new System.Drawing.Point(215, 8);
             this.btn_Refresh.Name = "btn_Refresh";
             this.btn_Refresh.Size = new System.Drawing.Size(95, 71);
             this.btn_Refresh.TabIndex = 19;
@@ -689,6 +692,17 @@
             this.tab_HomeInvoiceSelling.Size = new System.Drawing.Size(1292, 731);
             this.tab_HomeInvoiceSelling.TabIndex = 0;
             // 
+            // btn_ExportPDF
+            // 
+            this.btn_ExportPDF.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_ExportPDF.BackgroundImage")));
+            this.btn_ExportPDF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_ExportPDF.Location = new System.Drawing.Point(111, 9);
+            this.btn_ExportPDF.Name = "btn_ExportPDF";
+            this.btn_ExportPDF.Size = new System.Drawing.Size(98, 70);
+            this.btn_ExportPDF.TabIndex = 31;
+            this.btn_ExportPDF.UseVisualStyleBackColor = true;
+            this.btn_ExportPDF.Click += new System.EventHandler(this.btn_ExportPDF_Click);
+            // 
             // frmOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
@@ -771,5 +785,6 @@
         private System.Windows.Forms.TextBox txt_ProductInWarehouse;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lbl_ErrorPhone;
+        private System.Windows.Forms.Button btn_ExportPDF;
     }
 }

@@ -76,8 +76,8 @@ namespace ManagementSupermarket.Manager
 
         private void frmRevenue_Load(object sender, EventArgs e)
         {
-            cbb_Criteria.SelectedItem = 0;
             LoadDataRevenue(DateTime.Now, "Ngày");
+            cbb_Criteria.SelectedIndex = 0;
         }
     }
 }

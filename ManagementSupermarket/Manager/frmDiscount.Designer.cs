@@ -43,6 +43,11 @@
             this.lbl_ErrorTimeEnd = new System.Windows.Forms.Label();
             this.cbb_UnitTime = new System.Windows.Forms.ComboBox();
             this.dgv_ListDiscount = new System.Windows.Forms.DataGridView();
+            this.MaKM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenKM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaKhuyenMai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayKetThuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_Alter = new FontAwesome.Sharp.IconButton();
             this.btn_Add = new FontAwesome.Sharp.IconButton();
             this.btn_Refresh = new FontAwesome.Sharp.IconButton();
@@ -51,11 +56,6 @@
             this.chk_DiscountStatus = new System.Windows.Forms.CheckBox();
             this.num_CountTime = new System.Windows.Forms.NumericUpDown();
             this.cbb_SearchRole = new System.Windows.Forms.ComboBox();
-            this.MaKM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenKM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiaKhuyenMai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayKetThuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ListDiscount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_CountTime)).BeginInit();
             this.SuspendLayout();
@@ -238,6 +238,55 @@
             this.dgv_ListDiscount.TabIndex = 32;
             this.dgv_ListDiscount.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ListDiscount_CellClick);
             // 
+            // MaKM
+            // 
+            this.MaKM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.MaKM.DataPropertyName = "MaKM";
+            this.MaKM.Frozen = true;
+            this.MaKM.HeaderText = "Mã KM";
+            this.MaKM.MinimumWidth = 6;
+            this.MaKM.Name = "MaKM";
+            this.MaKM.ReadOnly = true;
+            this.MaKM.Width = 125;
+            // 
+            // TenKM
+            // 
+            this.TenKM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TenKM.DataPropertyName = "TenKM";
+            this.TenKM.Frozen = true;
+            this.TenKM.HeaderText = "Tên KM";
+            this.TenKM.MinimumWidth = 6;
+            this.TenKM.Name = "TenKM";
+            this.TenKM.ReadOnly = true;
+            this.TenKM.Width = 125;
+            // 
+            // GiaKhuyenMai
+            // 
+            this.GiaKhuyenMai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.GiaKhuyenMai.DataPropertyName = "GiaKhuyenMai";
+            this.GiaKhuyenMai.Frozen = true;
+            this.GiaKhuyenMai.HeaderText = "Giá KM";
+            this.GiaKhuyenMai.MinimumWidth = 6;
+            this.GiaKhuyenMai.Name = "GiaKhuyenMai";
+            this.GiaKhuyenMai.ReadOnly = true;
+            this.GiaKhuyenMai.Width = 125;
+            // 
+            // NgayBatDau
+            // 
+            this.NgayBatDau.DataPropertyName = "NgayBatDau";
+            this.NgayBatDau.HeaderText = "Ngày Bắt Đầu";
+            this.NgayBatDau.MinimumWidth = 6;
+            this.NgayBatDau.Name = "NgayBatDau";
+            this.NgayBatDau.ReadOnly = true;
+            // 
+            // NgayKetThuc
+            // 
+            this.NgayKetThuc.DataPropertyName = "NgayKetThuc";
+            this.NgayKetThuc.HeaderText = "Ngày Kết Thúc";
+            this.NgayKetThuc.MinimumWidth = 6;
+            this.NgayKetThuc.Name = "NgayKetThuc";
+            this.NgayKetThuc.ReadOnly = true;
+            // 
             // btn_Alter
             // 
             this.btn_Alter.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconPencil;
@@ -334,59 +383,10 @@
             this.cbb_SearchRole.Items.AddRange(new object[] {
             "MaKM",
             "TenKM"});
-            this.cbb_SearchRole.Location = new System.Drawing.Point(834, 35);
+            this.cbb_SearchRole.Location = new System.Drawing.Point(834, 38);
             this.cbb_SearchRole.Name = "cbb_SearchRole";
             this.cbb_SearchRole.Size = new System.Drawing.Size(131, 37);
             this.cbb_SearchRole.TabIndex = 42;
-            // 
-            // MaKM
-            // 
-            this.MaKM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.MaKM.DataPropertyName = "MaKM";
-            this.MaKM.Frozen = true;
-            this.MaKM.HeaderText = "Mã KM";
-            this.MaKM.MinimumWidth = 6;
-            this.MaKM.Name = "MaKM";
-            this.MaKM.ReadOnly = true;
-            this.MaKM.Width = 125;
-            // 
-            // TenKM
-            // 
-            this.TenKM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.TenKM.DataPropertyName = "TenKM";
-            this.TenKM.Frozen = true;
-            this.TenKM.HeaderText = "Tên KM";
-            this.TenKM.MinimumWidth = 6;
-            this.TenKM.Name = "TenKM";
-            this.TenKM.ReadOnly = true;
-            this.TenKM.Width = 125;
-            // 
-            // GiaKhuyenMai
-            // 
-            this.GiaKhuyenMai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.GiaKhuyenMai.DataPropertyName = "GiaKhuyenMai";
-            this.GiaKhuyenMai.Frozen = true;
-            this.GiaKhuyenMai.HeaderText = "Giá KM";
-            this.GiaKhuyenMai.MinimumWidth = 6;
-            this.GiaKhuyenMai.Name = "GiaKhuyenMai";
-            this.GiaKhuyenMai.ReadOnly = true;
-            this.GiaKhuyenMai.Width = 125;
-            // 
-            // NgayBatDau
-            // 
-            this.NgayBatDau.DataPropertyName = "NgayBatDau";
-            this.NgayBatDau.HeaderText = "Ngày Bắt Đầu";
-            this.NgayBatDau.MinimumWidth = 6;
-            this.NgayBatDau.Name = "NgayBatDau";
-            this.NgayBatDau.ReadOnly = true;
-            // 
-            // NgayKetThuc
-            // 
-            this.NgayKetThuc.DataPropertyName = "NgayKetThuc";
-            this.NgayKetThuc.HeaderText = "Ngày Kết Thúc";
-            this.NgayKetThuc.MinimumWidth = 6;
-            this.NgayKetThuc.Name = "NgayKetThuc";
-            this.NgayKetThuc.ReadOnly = true;
             // 
             // frmDiscount
             // 

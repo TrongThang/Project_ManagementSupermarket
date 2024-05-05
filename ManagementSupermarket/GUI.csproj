@@ -225,11 +225,13 @@
     <Content Include="Image\Background\bgMain2.png" />
     <Content Include="Image\Icon\avatarDefaultFemale.png" />
     <Content Include="Image\Icon\avatarDefaultMale.png" />
+    <Content Include="Image\Icon\excel-icon.png" />
     <Content Include="Image\Icon\iconPencil.png" />
     <Content Include="Image\Icon\iconPlus.png" />
     <Content Include="Image\Icon\iconReload.png" />
     <Content Include="Image\Icon\iconSearch.png" />
     <Content Include="Image\Icon\iconStudent.png" />
+    <Content Include="Image\Icon\pdf-icon.png" />
     <Content Include="Image\Icon\png-clipart-microsoft-excel-logo-microsoft-excel-computer-icons-xls-microsoft-angle-text.png" />
     <Content Include="Image\Icon\pngtree-vector-trash-icon-png-image_865284.jpg" />
     <Content Include="Image\Logo Project C#\avartaNam.png" />

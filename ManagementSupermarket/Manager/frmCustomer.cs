@@ -38,10 +38,30 @@ namespace ManagementSupermarket
             
             dgv_ListCustomer.DataSource = dataCustomer.GetCustomerTo("MaKH");
         }
+        private void LoadComboBoxSearch()
+        {
+            object[] nameSearch = { "Mã KH", "CCCD", "Họ Tên", "Địa Chỉ", "SĐT" };
+            object[] idSearch = { "MaKH", "CCCD", "HoTen", "DiaChi", "SDT" };
+            DataTable tblSearch = new DataTable();
+            tblSearch.Columns.Add("NoiDungTimKiem");
+            tblSearch.Columns.Add("MaTimKiem");
 
+            for (int i = 0; i < nameSearch.Length; i++)
+            {
+                DataRow newRow = tblSearch.NewRow();
+                newRow["NoiDungTimKiem"] = nameSearch[i];
+                newRow["MaTimKiem"] = idSearch[i];
+                tblSearch.Rows.Add(newRow);
+            }
+
+            cbb_SearchRole.DataSource = tblSearch;
+            cbb_SearchRole.ValueMember = "MaTimKiem";
+            cbb_SearchRole.DisplayMember = "NoiDungTimKiem";
+        }
         private void frmCustomer_Load(object sender, EventArgs e)
         {
             LoadData();
+            LoadComboBoxSearch();
             cbb_SearchRole.SelectedIndex = 0;
         }
         private bool IsEmptytTextBox(string fullName, string CCCD, string phone , string address)
@@ -242,7 +262,7 @@ namespace ManagementSupermarket
         private void btn_Search_Click(object sender, EventArgs e)
         {
             string text= string.IsNullOrEmpty(txt_Search.Text) ? null : txt_Search.Text;
-            dgv_ListCustomer.DataSource = dataCustomer.GetCustomerTo(cbb_SearchRole.Text,text);
+            dgv_ListCustomer.DataSource = dataCustomer.GetCustomerTo(cbb_SearchRole.SelectedValue.ToString(),text);
             dgv_ListCustomer.Refresh();
         }
 

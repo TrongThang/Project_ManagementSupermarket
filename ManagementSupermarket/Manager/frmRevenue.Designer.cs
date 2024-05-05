@@ -62,11 +62,12 @@
             this.cbb_Criteria.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.cbb_Criteria.FormattingEnabled = true;
             this.cbb_Criteria.Items.AddRange(new object[] {
+            "Ngày",
             "Tuần",
             "Tháng",
             "Quý",
             "Năm"});
-            this.cbb_Criteria.Location = new System.Drawing.Point(841, 12);
+            this.cbb_Criteria.Location = new System.Drawing.Point(841, 13);
             this.cbb_Criteria.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.cbb_Criteria.Name = "cbb_Criteria";
             this.cbb_Criteria.Size = new System.Drawing.Size(106, 37);

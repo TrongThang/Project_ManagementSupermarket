@@ -587,6 +587,11 @@ namespace ManagementSupermarket
                     frmDetailInvoiceSelling frmDetail = new frmDetailInvoiceSelling(idInvoice, nameEmployee, createdTime, nameCustomer, totalCash);
                     frmDetail.ShowDialog();
                 }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn ít nhất một hàng trong danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    return;
+                }
             }
             catch (Exception err)
             {
@@ -621,6 +626,45 @@ namespace ManagementSupermarket
             
         }
 
-       
+        private void btn_ExportPDF_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(dgv_InvoiceSelling.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow rowSelected = dgv_InvoiceSelling.SelectedRows[0];
+                    
+                    string idInvoice, idEmployee, idCustomer;
+                    double total, cash;
+
+                    idInvoice = rowSelected.Cells["MaHD"].Value.ToString();
+                    idEmployee = rowSelected.Cells["MaNV"].Value.ToString();
+                    idCustomer = rowSelected.Cells["MaKH"].Value.ToString();
+                    total = double.Parse(rowSelected.Cells["TongTien"].Value.ToString());
+                    cash = double.Parse(rowSelected.Cells["TienKhachDua"].Value.ToString());
+
+                    DTO_InvoiceSelling bill = new DTO_InvoiceSelling(idEmployee, total, cash, idCustomer, idInvoice);
+                    if (ConfigExcel_PDF.PrintInvoicePDF(bill))
+                    {
+                        MessageBox.Show($"In hoá đơn {idInvoice} thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"In hoá đơn {idInvoice} thất bại, vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    }
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn ít nhất một hàng trong danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    return;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
     }
 }

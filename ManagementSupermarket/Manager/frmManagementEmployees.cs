@@ -35,6 +35,26 @@ namespace ManagementSupermarket
         private void PressNumber(object sender, KeyPressEventArgs e) {
             eventConfig.PressNumber(sender, e);
         }
+        private void LoadComboBoxSearch()
+        {
+            object[] nameSearch = { "Mã NV", "CCCD", "Họ Tên", "Địa Chỉ", "SĐT", "Chức Vụ" };
+            object[] idSearch = { "MaNV", "CCCD", "HoTen", "DiaChi", "SDT", "MaChucVu" };
+            DataTable tblSearch = new DataTable();
+            tblSearch.Columns.Add("NoiDungTimKiem");
+            tblSearch.Columns.Add("MaTimKiem");
+
+            for (int i = 0; i < nameSearch.Length; i++)
+            {
+                DataRow newRow = tblSearch.NewRow();
+                newRow["NoiDungTimKiem"] = nameSearch[i];
+                newRow["MaTimKiem"] = idSearch[i];
+                tblSearch.Rows.Add(newRow);
+            }
+
+            cbb_SearchRole.DataSource = tblSearch;
+            cbb_SearchRole.ValueMember = "MaTimKiem";
+            cbb_SearchRole.DisplayMember = "NoiDungTimKiem";
+        }
 
         private void LoadData()
         {
@@ -67,6 +87,7 @@ namespace ManagementSupermarket
         private void frmManagementEmployee_Load(object sender, EventArgs e)
         {
             LoadData();
+            LoadComboBoxSearch();
             cbb_SearchRole.SelectedIndex = 0;
 
             DataTable tblRole = (new BLL_Role()).GetRole("MaChucVu");
@@ -321,7 +342,7 @@ namespace ManagementSupermarket
         {
             string text = string.IsNullOrEmpty(txt_Search.Text) ? null : txt_Search.Text;
 
-            dgv_ListEmployee.DataSource = dataEmployee.GetEmployeeTo(cbb_SearchRole.Text, text);
+            dgv_ListEmployee.DataSource = dataEmployee.GetEmployeeTo(cbb_SearchRole.SelectedValue.ToString(), text);
             dgv_ListEmployee.Refresh();
         }
 

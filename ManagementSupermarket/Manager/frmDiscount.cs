@@ -61,7 +61,26 @@ namespace ManagementSupermarket.Manager
             
                 dgv_ListDiscount.DataSource = dataDiscount.GetDiscount("MaKM");
         }
+        private void LoadComboBoxSearch()
+        {
+            object[] nameSearch = { "Mã K.Mãi", "Tên K.Mãi"};
+            object[] idSearch = { "MaKM", "TenKM"};
+            DataTable tblSearch = new DataTable();
+            tblSearch.Columns.Add("NoiDungTimKiem");
+            tblSearch.Columns.Add("MaTimKiem");
 
+            for (int i = 0; i < nameSearch.Length; i++)
+            {
+                DataRow newRow = tblSearch.NewRow();
+                newRow["NoiDungTimKiem"] = nameSearch[i];
+                newRow["MaTimKiem"] = idSearch[i];
+                tblSearch.Rows.Add(newRow);
+            }
+
+            cbb_SearchRole.DataSource = tblSearch;
+            cbb_SearchRole.ValueMember = "MaTimKiem";
+            cbb_SearchRole.DisplayMember = "NoiDungTimKiem";
+        }
         private int getDayWithTime(int month, int year)
         {
             switch (month)
@@ -135,6 +154,7 @@ namespace ManagementSupermarket.Manager
         private void frmDiscount_Load(object sender, EventArgs e)
         {
             LoadData();
+            LoadComboBoxSearch();
             cbb_SearchRole.SelectedIndex = 0;
             cbb_UnitTime.SelectedIndex = 0;
         }
@@ -317,7 +337,7 @@ namespace ManagementSupermarket.Manager
         private void btn_Search_Click(object sender, EventArgs e)
         {
             string text =string.IsNullOrEmpty(txt_Search.Text)?null:txt_Search.Text;
-            dgv_ListDiscount.DataSource = dataDiscount.GetDiscount(cbb_SearchRole.Text, text);
+            dgv_ListDiscount.DataSource = dataDiscount.GetDiscount(cbb_SearchRole.SelectedValue.ToString(), text);
             dgv_ListDiscount.Refresh();
         }
 

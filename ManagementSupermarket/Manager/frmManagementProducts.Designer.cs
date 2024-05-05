@@ -57,8 +57,6 @@
             this.btn_Upload = new FontAwesome.Sharp.IconButton();
             this.pic_Product = new System.Windows.Forms.PictureBox();
             this.dgv_ListProduct = new System.Windows.Forms.DataGridView();
-            this.txt_Search = new System.Windows.Forms.TextBox();
-            this.btn_Search = new FontAwesome.Sharp.IconButton();
             this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HinhAnh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,6 +67,8 @@
             this.HanSuDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DonViTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrangThai = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.txt_Search = new System.Windows.Forms.TextBox();
+            this.btn_Search = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_ShelfLife)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_Count)).BeginInit();
@@ -116,7 +116,7 @@
             // 
             this.btn_ExportExcel.BackgroundImage = global::ManagementSupermarket.Properties.Resources.png_clipart_microsoft_excel_logo_microsoft_excel_computer_icons_xls_microsoft_angle_text;
             this.btn_ExportExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_ExportExcel.Location = new System.Drawing.Point(410, 7);
+            this.btn_ExportExcel.Location = new System.Drawing.Point(392, 7);
             this.btn_ExportExcel.Name = "btn_ExportExcel";
             this.btn_ExportExcel.Size = new System.Drawing.Size(82, 64);
             this.btn_ExportExcel.TabIndex = 30;
@@ -450,30 +450,6 @@
             this.dgv_ListProduct.TabIndex = 1;
             this.dgv_ListProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ListProduct_CellClick);
             // 
-            // txt_Search
-            // 
-            this.txt_Search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Search.Location = new System.Drawing.Point(971, 16);
-            this.txt_Search.Name = "txt_Search";
-            this.txt_Search.Size = new System.Drawing.Size(238, 45);
-            this.txt_Search.TabIndex = 11;
-            // 
-            // btn_Search
-            // 
-            this.btn_Search.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconSearch;
-            this.btn_Search.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Search.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btn_Search.IconColor = System.Drawing.Color.Black;
-            this.btn_Search.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Search.Location = new System.Drawing.Point(1215, 16);
-            this.btn_Search.Name = "btn_Search";
-            this.btn_Search.Size = new System.Drawing.Size(65, 47);
-            this.btn_Search.TabIndex = 10;
-            this.btn_Search.UseVisualStyleBackColor = true;
-            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
-            // 
             // MaSP
             // 
             this.MaSP.DataPropertyName = "MaSP";
@@ -553,6 +529,30 @@
             this.TrangThai.MinimumWidth = 6;
             this.TrangThai.Name = "TrangThai";
             this.TrangThai.ReadOnly = true;
+            // 
+            // txt_Search
+            // 
+            this.txt_Search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Search.Location = new System.Drawing.Point(971, 16);
+            this.txt_Search.Name = "txt_Search";
+            this.txt_Search.Size = new System.Drawing.Size(238, 45);
+            this.txt_Search.TabIndex = 11;
+            // 
+            // btn_Search
+            // 
+            this.btn_Search.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconSearch;
+            this.btn_Search.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Search.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btn_Search.IconColor = System.Drawing.Color.Black;
+            this.btn_Search.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Search.Location = new System.Drawing.Point(1215, 16);
+            this.btn_Search.Name = "btn_Search";
+            this.btn_Search.Size = new System.Drawing.Size(65, 47);
+            this.btn_Search.TabIndex = 10;
+            this.btn_Search.UseVisualStyleBackColor = true;
+            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
             // 
             // frmManagementProducts
             // 

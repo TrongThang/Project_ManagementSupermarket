@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DAL
 {
@@ -83,7 +84,8 @@ namespace DAL
             }
             catch (Exception e)
             {
-                throw e;
+                MessageBox.Show($"Lỗi Data: {e.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
         }
     }

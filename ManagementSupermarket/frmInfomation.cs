@@ -56,7 +56,6 @@ namespace ManagementSupermarket
             txt_Address.Text = employee["DiaChi"].ToString();
             txt_Phone.Text = employee["SDT"].ToString();
 
-            string salary = employee["Luong"].ToString();
 
             rad_Male.Checked = employee["GioiTinh"].ToString() == "Nam" ? true : false;
             rad_Female.Checked = !rad_Male.Checked;

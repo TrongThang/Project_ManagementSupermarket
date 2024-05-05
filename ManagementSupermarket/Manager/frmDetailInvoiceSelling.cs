@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
 using BLL;
+using System.Globalization;
 
 namespace ManagementSupermarket.Manager
 {
@@ -28,6 +29,14 @@ namespace ManagementSupermarket.Manager
             this .dt_CreatedTime = createdTime;
             this.d_TotalCash = totalCash;
         }
+        public static string formatPrice(decimal price, string unit = "VNĐ")
+        {
+            if (price >= 1000)
+                return price.ToString("#,##0", new CultureInfo("vi-VN")) + $" {unit}";
+            else if (price <= 1000)
+                return price.ToString("#,##0", new CultureInfo("vi-VN")) + $" {unit}";
+            return Convert.ToInt64(price).ToString() + $" {unit}";
+        }
 
         private void frmDetailInvoiceSelling_Load(object sender, EventArgs e)
         {
@@ -43,7 +52,7 @@ namespace ManagementSupermarket.Manager
                 }
 
                 lbl_CreateTime.Text = dt_CreatedTime.ToString("dd/mm/yyyy HH:mm:ss");
-                lbl_TotalCash.Text = d_TotalCash.ToString();
+                lbl_TotalCash.Text = formatPrice((decimal)d_TotalCash);
                 DataTable tblDetailInvoice = (new BLL_Detail_InvoiceSelling()).GetDetailInvoiceSelling("MaHD", s_IdInvoice);
                 dgv_Detail_InvoiceSelling.DataSource = tblDetailInvoice;
             }
