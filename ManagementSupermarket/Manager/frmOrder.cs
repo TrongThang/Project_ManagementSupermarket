@@ -120,10 +120,18 @@ namespace ManagementSupermarket
         }
         private void UpdateChangeMoney()
         {
-            decimal cashCustomer = decimal.Parse(txt_CashCustomerCreate.Text == "" ? "0" : txt_CashCustomerCreate.Text);
-            decimal total = decimal.Parse(moneyToNumber(txt_TotalCashCreate.Text));
-            decimal changeMoney = cashCustomer - total;
-            txt_ChangeCreate.Text = formatPrice(changeMoney);
+            try
+            {
+                decimal cashCustomer = decimal.Parse(txt_CashCustomerCreate.Text == "" ? "0" : txt_CashCustomerCreate.Text);
+                decimal total = decimal.Parse(moneyToNumber(txt_TotalCashCreate.Text));
+                decimal changeMoney = cashCustomer - total;
+                txt_ChangeCreate.Text = formatPrice(changeMoney);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
         //LOAD DATA COMBO BOX
         private void LoadDataComboBox_NameProduct(ComboBox cbbProduct)
