@@ -36,8 +36,16 @@
             this.btn_Search = new System.Windows.Forms.Button();
             this.btn_Refresh = new FontAwesome.Sharp.IconButton();
             this.dgv_InvoiceSelling = new System.Windows.Forms.DataGridView();
+            this.MaHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayLapHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TienKhachDua = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TienTraKhach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tab_FormCreateInvoice = new System.Windows.Forms.TabPage();
             this.chk_PhoneCustomer = new System.Windows.Forms.CheckBox();
+            this.lbl_ErrorPhone = new System.Windows.Forms.Label();
             this.lbl_ErrorCashCustomer = new System.Windows.Forms.Label();
             this.btn_RefreshCreate = new FontAwesome.Sharp.IconButton();
             this.txt_ChangeCreate = new System.Windows.Forms.TextBox();
@@ -63,20 +71,15 @@
             this.cbb_NameProductCreate = new System.Windows.Forms.ComboBox();
             this.num_CountProductCreate = new System.Windows.Forms.NumericUpDown();
             this.btn_Add = new FontAwesome.Sharp.IconButton();
+            this.txt_ProductInWarehouse = new System.Windows.Forms.TextBox();
             this.txt_PriceCreate = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tab_HomeInvoiceSelling = new System.Windows.Forms.TabControl();
-            this.MaHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayLapHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TienKhachDua = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TienTraKhach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_InvoiceSelling)).BeginInit();
             this.tab_FormCreateInvoice.SuspendLayout();
@@ -204,10 +207,67 @@
             this.dgv_InvoiceSelling.Size = new System.Drawing.Size(1275, 601);
             this.dgv_InvoiceSelling.TabIndex = 5;
             // 
+            // MaHD
+            // 
+            this.MaHD.DataPropertyName = "MaHD";
+            this.MaHD.HeaderText = "Mã HD";
+            this.MaHD.MinimumWidth = 6;
+            this.MaHD.Name = "MaHD";
+            this.MaHD.ReadOnly = true;
+            // 
+            // MaNV
+            // 
+            this.MaNV.DataPropertyName = "MaNV";
+            this.MaNV.HeaderText = "Mã NV";
+            this.MaNV.MinimumWidth = 6;
+            this.MaNV.Name = "MaNV";
+            this.MaNV.ReadOnly = true;
+            // 
+            // MaKH
+            // 
+            this.MaKH.DataPropertyName = "MaKH";
+            this.MaKH.HeaderText = "Mã KH";
+            this.MaKH.MinimumWidth = 6;
+            this.MaKH.Name = "MaKH";
+            this.MaKH.ReadOnly = true;
+            // 
+            // NgayLapHD
+            // 
+            this.NgayLapHD.DataPropertyName = "NgayLapHD";
+            this.NgayLapHD.HeaderText = "Ngày Lập HD";
+            this.NgayLapHD.MinimumWidth = 6;
+            this.NgayLapHD.Name = "NgayLapHD";
+            this.NgayLapHD.ReadOnly = true;
+            // 
+            // TongTien
+            // 
+            this.TongTien.DataPropertyName = "TongTien";
+            this.TongTien.HeaderText = "Tổng Tiền";
+            this.TongTien.MinimumWidth = 6;
+            this.TongTien.Name = "TongTien";
+            this.TongTien.ReadOnly = true;
+            // 
+            // TienKhachDua
+            // 
+            this.TienKhachDua.DataPropertyName = "TienKhachDua";
+            this.TienKhachDua.HeaderText = "Tiền Trả";
+            this.TienKhachDua.MinimumWidth = 6;
+            this.TienKhachDua.Name = "TienKhachDua";
+            this.TienKhachDua.ReadOnly = true;
+            // 
+            // TienTraKhach
+            // 
+            this.TienTraKhach.DataPropertyName = "TienTraKhach";
+            this.TienTraKhach.HeaderText = "Tiền Thừa";
+            this.TienTraKhach.MinimumWidth = 6;
+            this.TienTraKhach.Name = "TienTraKhach";
+            this.TienTraKhach.ReadOnly = true;
+            // 
             // tab_FormCreateInvoice
             // 
             this.tab_FormCreateInvoice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
             this.tab_FormCreateInvoice.Controls.Add(this.chk_PhoneCustomer);
+            this.tab_FormCreateInvoice.Controls.Add(this.lbl_ErrorPhone);
             this.tab_FormCreateInvoice.Controls.Add(this.lbl_ErrorCashCustomer);
             this.tab_FormCreateInvoice.Controls.Add(this.btn_RefreshCreate);
             this.tab_FormCreateInvoice.Controls.Add(this.txt_ChangeCreate);
@@ -242,11 +302,22 @@
             this.chk_PhoneCustomer.UseVisualStyleBackColor = false;
             this.chk_PhoneCustomer.CheckedChanged += new System.EventHandler(this.chk_PhoneCustomer_CheckedChanged);
             // 
+            // lbl_ErrorPhone
+            // 
+            this.lbl_ErrorPhone.AutoSize = true;
+            this.lbl_ErrorPhone.ForeColor = System.Drawing.Color.Red;
+            this.lbl_ErrorPhone.Location = new System.Drawing.Point(722, 304);
+            this.lbl_ErrorPhone.Name = "lbl_ErrorPhone";
+            this.lbl_ErrorPhone.Size = new System.Drawing.Size(82, 26);
+            this.lbl_ErrorPhone.TabIndex = 33;
+            this.lbl_ErrorPhone.Text = "label18";
+            this.lbl_ErrorPhone.Visible = false;
+            // 
             // lbl_ErrorCashCustomer
             // 
             this.lbl_ErrorCashCustomer.AutoSize = true;
             this.lbl_ErrorCashCustomer.ForeColor = System.Drawing.Color.Red;
-            this.lbl_ErrorCashCustomer.Location = new System.Drawing.Point(722, 406);
+            this.lbl_ErrorCashCustomer.Location = new System.Drawing.Point(722, 414);
             this.lbl_ErrorCashCustomer.Name = "lbl_ErrorCashCustomer";
             this.lbl_ErrorCashCustomer.Size = new System.Drawing.Size(82, 26);
             this.lbl_ErrorCashCustomer.TabIndex = 33;
@@ -273,7 +344,7 @@
             this.txt_ChangeCreate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_ChangeCreate.Enabled = false;
             this.txt_ChangeCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.txt_ChangeCreate.Location = new System.Drawing.Point(727, 465);
+            this.txt_ChangeCreate.Location = new System.Drawing.Point(727, 476);
             this.txt_ChangeCreate.Name = "txt_ChangeCreate";
             this.txt_ChangeCreate.ReadOnly = true;
             this.txt_ChangeCreate.Size = new System.Drawing.Size(273, 45);
@@ -295,10 +366,11 @@
             // 
             this.txt_CashCustomerCreate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_CashCustomerCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.txt_CashCustomerCreate.Location = new System.Drawing.Point(727, 358);
+            this.txt_CashCustomerCreate.Location = new System.Drawing.Point(727, 366);
             this.txt_CashCustomerCreate.Name = "txt_CashCustomerCreate";
             this.txt_CashCustomerCreate.Size = new System.Drawing.Size(273, 45);
             this.txt_CashCustomerCreate.TabIndex = 32;
+            this.txt_CashCustomerCreate.TextChanged += new System.EventHandler(this.txt_CashCustomerCreate_TextChanged);
             this.txt_CashCustomerCreate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CashCustomerCreate_KeyPress);
             // 
             // txt_TotalCashCreate
@@ -317,7 +389,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(722, 437);
+            this.label4.Location = new System.Drawing.Point(722, 448);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(95, 25);
             this.label4.TabIndex = 27;
@@ -329,7 +401,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(722, 330);
+            this.label1.Location = new System.Drawing.Point(722, 338);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 25);
             this.label1.TabIndex = 28;
@@ -445,16 +517,18 @@
             this.grpInfo.Controls.Add(this.cbb_NameProductCreate);
             this.grpInfo.Controls.Add(this.num_CountProductCreate);
             this.grpInfo.Controls.Add(this.btn_Add);
+            this.grpInfo.Controls.Add(this.txt_ProductInWarehouse);
             this.grpInfo.Controls.Add(this.txt_PriceCreate);
             this.grpInfo.Controls.Add(this.label6);
             this.grpInfo.Controls.Add(this.label12);
+            this.grpInfo.Controls.Add(this.label7);
             this.grpInfo.Controls.Add(this.label5);
             this.grpInfo.Controls.Add(this.label3);
             this.grpInfo.Controls.Add(this.label2);
             this.grpInfo.ForeColor = System.Drawing.Color.Yellow;
-            this.grpInfo.Location = new System.Drawing.Point(19, -1);
+            this.grpInfo.Location = new System.Drawing.Point(6, -1);
             this.grpInfo.Name = "grpInfo";
-            this.grpInfo.Size = new System.Drawing.Size(1146, 141);
+            this.grpInfo.Size = new System.Drawing.Size(1271, 141);
             this.grpInfo.TabIndex = 20;
             this.grpInfo.TabStop = false;
             this.grpInfo.Text = "Thông tin";
@@ -463,7 +537,7 @@
             // 
             this.txt_AmountCreate.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.txt_AmountCreate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_AmountCreate.Location = new System.Drawing.Point(767, 75);
+            this.txt_AmountCreate.Location = new System.Drawing.Point(949, 73);
             this.txt_AmountCreate.Name = "txt_AmountCreate";
             this.txt_AmountCreate.ReadOnly = true;
             this.txt_AmountCreate.Size = new System.Drawing.Size(210, 32);
@@ -474,15 +548,16 @@
             this.cbb_DiscountCreate.DisplayMember = " ";
             this.cbb_DiscountCreate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_DiscountCreate.FormattingEnabled = true;
-            this.cbb_DiscountCreate.Location = new System.Drawing.Point(574, 74);
+            this.cbb_DiscountCreate.Location = new System.Drawing.Point(756, 72);
             this.cbb_DiscountCreate.Name = "cbb_DiscountCreate";
             this.cbb_DiscountCreate.Size = new System.Drawing.Size(154, 34);
             this.cbb_DiscountCreate.TabIndex = 33;
             // 
             // cbb_NameProductCreate
             // 
+            this.cbb_NameProductCreate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_NameProductCreate.FormattingEnabled = true;
-            this.cbb_NameProductCreate.Location = new System.Drawing.Point(27, 74);
+            this.cbb_NameProductCreate.Location = new System.Drawing.Point(15, 74);
             this.cbb_NameProductCreate.Name = "cbb_NameProductCreate";
             this.cbb_NameProductCreate.Size = new System.Drawing.Size(207, 34);
             this.cbb_NameProductCreate.TabIndex = 33;
@@ -490,7 +565,7 @@
             // 
             // num_CountProductCreate
             // 
-            this.num_CountProductCreate.Location = new System.Drawing.Point(253, 76);
+            this.num_CountProductCreate.Location = new System.Drawing.Point(435, 74);
             this.num_CountProductCreate.Name = "num_CountProductCreate";
             this.num_CountProductCreate.Size = new System.Drawing.Size(139, 32);
             this.num_CountProductCreate.TabIndex = 18;
@@ -509,17 +584,29 @@
             this.btn_Add.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Add.IconColor = System.Drawing.Color.Black;
             this.btn_Add.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Add.Location = new System.Drawing.Point(1032, 48);
+            this.btn_Add.Location = new System.Drawing.Point(1173, 50);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(79, 64);
             this.btn_Add.TabIndex = 3;
             this.btn_Add.UseVisualStyleBackColor = true;
             this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
+            // txt_ProductInWarehouse
+            // 
+            this.txt_ProductInWarehouse.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txt_ProductInWarehouse.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_ProductInWarehouse.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txt_ProductInWarehouse.Location = new System.Drawing.Point(258, 74);
+            this.txt_ProductInWarehouse.Name = "txt_ProductInWarehouse";
+            this.txt_ProductInWarehouse.ReadOnly = true;
+            this.txt_ProductInWarehouse.Size = new System.Drawing.Size(139, 32);
+            this.txt_ProductInWarehouse.TabIndex = 14;
+            this.txt_ProductInWarehouse.Text = " 0";
+            // 
             // txt_PriceCreate
             // 
             this.txt_PriceCreate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_PriceCreate.Location = new System.Drawing.Point(413, 76);
+            this.txt_PriceCreate.Location = new System.Drawing.Point(595, 74);
             this.txt_PriceCreate.Name = "txt_PriceCreate";
             this.txt_PriceCreate.ReadOnly = true;
             this.txt_PriceCreate.Size = new System.Drawing.Size(139, 32);
@@ -531,7 +618,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(22, 50);
+            this.label6.Location = new System.Drawing.Point(10, 50);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(144, 25);
             this.label6.TabIndex = 5;
@@ -542,18 +629,29 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(762, 45);
+            this.label12.Location = new System.Drawing.Point(944, 43);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(113, 25);
             this.label12.TabIndex = 2;
             this.label12.Text = "Thành Tiền";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(255, 44);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(88, 25);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Tồn Kho";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(248, 48);
+            this.label5.Location = new System.Drawing.Point(430, 46);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(97, 25);
             this.label5.TabIndex = 4;
@@ -564,7 +662,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(569, 46);
+            this.label3.Location = new System.Drawing.Point(751, 44);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(117, 25);
             this.label3.TabIndex = 2;
@@ -575,7 +673,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(408, 48);
+            this.label2.Location = new System.Drawing.Point(590, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 25);
             this.label2.TabIndex = 1;
@@ -590,62 +688,6 @@
             this.tab_HomeInvoiceSelling.SelectedIndex = 0;
             this.tab_HomeInvoiceSelling.Size = new System.Drawing.Size(1292, 731);
             this.tab_HomeInvoiceSelling.TabIndex = 0;
-            // 
-            // MaHD
-            // 
-            this.MaHD.DataPropertyName = "MaHD";
-            this.MaHD.HeaderText = "Mã HD";
-            this.MaHD.MinimumWidth = 6;
-            this.MaHD.Name = "MaHD";
-            this.MaHD.ReadOnly = true;
-            // 
-            // MaNV
-            // 
-            this.MaNV.DataPropertyName = "MaNV";
-            this.MaNV.HeaderText = "Mã NV";
-            this.MaNV.MinimumWidth = 6;
-            this.MaNV.Name = "MaNV";
-            this.MaNV.ReadOnly = true;
-            // 
-            // MaKH
-            // 
-            this.MaKH.DataPropertyName = "MaKH";
-            this.MaKH.HeaderText = "Mã KH";
-            this.MaKH.MinimumWidth = 6;
-            this.MaKH.Name = "MaKH";
-            this.MaKH.ReadOnly = true;
-            // 
-            // NgayLapHD
-            // 
-            this.NgayLapHD.DataPropertyName = "NgayLapHD";
-            this.NgayLapHD.HeaderText = "Ngày Lập HD";
-            this.NgayLapHD.MinimumWidth = 6;
-            this.NgayLapHD.Name = "NgayLapHD";
-            this.NgayLapHD.ReadOnly = true;
-            // 
-            // TongTien
-            // 
-            this.TongTien.DataPropertyName = "TongTien";
-            this.TongTien.HeaderText = "Tổng Tiền";
-            this.TongTien.MinimumWidth = 6;
-            this.TongTien.Name = "TongTien";
-            this.TongTien.ReadOnly = true;
-            // 
-            // TienKhachDua
-            // 
-            this.TienKhachDua.DataPropertyName = "TienKhachDua";
-            this.TienKhachDua.HeaderText = "Tiền Trả";
-            this.TienKhachDua.MinimumWidth = 6;
-            this.TienKhachDua.Name = "TienKhachDua";
-            this.TienKhachDua.ReadOnly = true;
-            // 
-            // TienTraKhach
-            // 
-            this.TienTraKhach.DataPropertyName = "TienTraKhach";
-            this.TienTraKhach.HeaderText = "Tiền Thừa";
-            this.TienTraKhach.MinimumWidth = 6;
-            this.TienTraKhach.Name = "TienTraKhach";
-            this.TienTraKhach.ReadOnly = true;
             // 
             // frmOrder
             // 
@@ -726,5 +768,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TongTien;
         private System.Windows.Forms.DataGridViewTextBoxColumn TienKhachDua;
         private System.Windows.Forms.DataGridViewTextBoxColumn TienTraKhach;
+        private System.Windows.Forms.TextBox txt_ProductInWarehouse;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbl_ErrorPhone;
     }
 }

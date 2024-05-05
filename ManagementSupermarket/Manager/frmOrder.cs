@@ -51,6 +51,42 @@ namespace ManagementSupermarket
                 return price.ToString("#,##0", new CultureInfo("vi-VN")) + $" {unit}";
             return Convert.ToInt64(price).ToString() + $" {unit}";
         }
+        private void txt_CashCustomerCreate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool IsNotNumber = !char.IsDigit(e.KeyChar)
+                               && !char.IsControl(e.KeyChar);
+            if (IsNotNumber)
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+        private string moneyToNumber(string money)
+        {
+            return Regex.Replace(money, @"[^0-9]", "");
+        }
+        private bool ErrorMoneyCashCustomer()
+        {
+            bool cashEmpty = string.IsNullOrEmpty(txt_CashCustomerCreate.Text);
+            bool errMoney = double.Parse(txt_CashCustomerCreate.Text) < double.Parse(moneyToNumber(txt_TotalCashCreate.Text));
+            if (cashEmpty)
+            {
+                lbl_ErrorCashCustomer.Text = "*Vui lòng nhập tiền của khách hàng!";
+                lbl_ErrorCashCustomer.Visible = true;
+                return true;
+            }
+            else if (errMoney)
+            {
+                lbl_ErrorCashCustomer.Text = "*Tiền của khách hàng phải hiện nhỏ hơn tổng đơn hàng!";
+                lbl_ErrorCashCustomer.Visible = true;
+                return true;
+            }
+            return false;
+        }
+        private void txt_CashCustomerCreate_TextChanged(object sender, EventArgs e)
+        {
+            UpdateChangeMoney();
+        }
         private bool IsErrorInput()
         {
             string mess = "";
@@ -82,7 +118,13 @@ namespace ManagementSupermarket
 
             return false;
         }
-
+        private void UpdateChangeMoney()
+        {
+            decimal cashCustomer = decimal.Parse(txt_CashCustomerCreate.Text == "" ? "0" : txt_CashCustomerCreate.Text);
+            decimal total = decimal.Parse(moneyToNumber(txt_TotalCashCreate.Text));
+            decimal changeMoney = cashCustomer - total;
+            txt_ChangeCreate.Text = formatPrice(changeMoney);
+        }
         //LOAD DATA COMBO BOX
         private void LoadDataComboBox_NameProduct(ComboBox cbbProduct)
         {
@@ -97,6 +139,7 @@ namespace ManagementSupermarket
                 cbbProduct.SelectedIndex = 0;
             }
         }
+
         private void LoadDataComboBox_Discount(ComboBox cbbDiscount)
         {
             cbbDiscount.DataSource = (new BLL_Discount()).GetDiscountToday();
@@ -180,17 +223,29 @@ namespace ManagementSupermarket
             txt_TotalCashCreate.Text = "0";
             lst_OrderCurrency.Items.Clear();
         }
+
         private void cbb_NameProductCreate_SelectionChangeCommitted(object sender, EventArgs e)
         {
             try
             {
                 string idProduct = cbb_NameProductCreate.SelectedValue.ToString();
                 txt_PriceCreate.Text = (new BLL_Product()).GetProduct("MaSP", idProduct).Rows[0]["GiaBan"].ToString();
+                txt_ProductInWarehouse.Text = (new BLL_Product()).GetProduct("MaSP", idProduct).Rows[0]["SoLuong"].ToString()??"0";
             }
             catch (Exception err)
             {
                 MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }   
+        }
+        private bool ErrorProductInWarehouse()
+        {
+            if(num_CountProductCreate.Value > decimal.Parse(txt_ProductInWarehouse.Text))
+            {
+                string mess = $"Số lượng sản phẩm {cbb_NameProductCreate.Text} trong kho ít hơn số lượng khách hàng mua!";
+                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return true;
+            }
+            return false;
         }
         private void btn_Add_Click(object sender, EventArgs e)
         {
@@ -200,6 +255,9 @@ namespace ManagementSupermarket
                 if (count <= 0)
                 {
                     MessageBox.Show("Vui lòng chọn số lượng ít nhất là 1!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }else if (ErrorProductInWarehouse())
+                {
                     return;
                 }
 
@@ -253,9 +311,9 @@ namespace ManagementSupermarket
                 {
                     lst_OrderCurrency.Items.Add(item);
                 }
-
                 this.TotalMoney += (decimal)amount;
                 txt_TotalCashCreate.Text = formatPrice(this.TotalMoney);
+                UpdateChangeMoney();
             }
             catch (Exception err)
             {
@@ -324,7 +382,7 @@ namespace ManagementSupermarket
                     }
 
                     txt_TotalCashCreate.Text = formatPrice(this.TotalMoney);
-
+                    UpdateChangeMoney();
                 }
             }
             catch (Exception err)
@@ -361,6 +419,7 @@ namespace ManagementSupermarket
                 }
 
                 txt_TotalCashCreate.Text = formatPrice(this.TotalMoney);
+                UpdateChangeMoney();
             }
 
         }
@@ -369,45 +428,13 @@ namespace ManagementSupermarket
         {
             eventConfig.PressNumber(sender, e);
         }
-        private void txt_CashCustomerCreate_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            bool IsNotNumber = !char.IsDigit(e.KeyChar)
-                               && !char.IsControl(e.KeyChar);
-            if (IsNotNumber)
-            {
-                e.Handled = true;
-                return;
-            }
 
-            //txt_CashCustomerCreate.Text = eventConfig.ProcessMoney(txt_CashCustomerCreate.Text);
-        }
-        private string moneyToNumber(string money)
-        {
-            return Regex.Replace(money, @"[^0-9]", "");
-        }
-        private bool ErrorMoneyCashCustomer()
-        {
-            bool cashEmpty = string.IsNullOrEmpty(txt_CashCustomerCreate.Text);
-            bool errMoney = double.Parse(txt_CashCustomerCreate.Text) < double.Parse(moneyToNumber(txt_TotalCashCreate.Text));
-            if (cashEmpty)
-            {
-                lbl_ErrorCashCustomer.Text = "*Vui lòng nhập tiền của khách hàng!";
-                lbl_ErrorCashCustomer.Visible = true;
-                return true;
-            }
-            else if(errMoney) {
-                lbl_ErrorCashCustomer.Text = "*Tiền của khách hàng phải hiện nhỏ hơn tổng đơn hàng!";
-                lbl_ErrorCashCustomer.Visible = true;
-                return true;
-            }
-            return false;
-        }
-        
         private void btn_FinishOrder_Click(object sender, EventArgs e)
         {
             try
             {
                 lbl_ErrorCashCustomer.Visible = false;
+                lbl_ErrorPhone.Visible = false;
                 if(lst_OrderCurrency.Items.Count <= 0)
                 {
                     MessageBox.Show("Vui lòng thêm sản phẩm trước khi lập hoá đơn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -437,11 +464,12 @@ namespace ManagementSupermarket
                     if (tblCustomer.Rows.Count > 0)
                     {
                         idCustomer = tblCustomer.Rows[0]["MaKH"].ToString();
-
+                        
                     }
                     else
                     {
-                        MessageBox.Show("Số điện thoại khách hàng không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        lbl_ErrorPhone.Text = "*Số điện thoại khách hàng không tồn tại!";
+                        lbl_ErrorPhone.Visible = true;
                         return;
                     }
                 }
@@ -584,5 +612,7 @@ namespace ManagementSupermarket
             }
             
         }
+
+       
     }
 }
