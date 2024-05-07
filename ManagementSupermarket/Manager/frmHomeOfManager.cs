@@ -19,6 +19,7 @@ namespace ManagementSupermarket
         private string s_role;
         private string s_idEmployee;
         private Form frmChild;
+        private object buttonCurrency = "-1";
         private IconButton lastClickedButton;
         public frmHomeOfManager(string idEmployee, string role)
         {
@@ -40,6 +41,7 @@ namespace ManagementSupermarket
                 btn_Supplier.Visible = false;
                 btn_WareHouse.Visible = false;
                 btn_TypeProduct.Visible = false;
+                btn_Revenue.Visible = false;    
             }
         }
         private void frmHomeOfManager_Load(object sender, EventArgs e)
@@ -49,6 +51,13 @@ namespace ManagementSupermarket
         }
         private void OpenfrmChild(Form Child, IconButton btn)
         {
+            if(buttonCurrency == btn.Tag)
+            {
+                return;
+            }
+
+            buttonCurrency = btn.Tag;
+            
             if (frmChild != null)
             {
                 frmChild.Close();
@@ -175,6 +184,12 @@ namespace ManagementSupermarket
         {
             IconButton btn = sender as IconButton;
             OpenfrmChild(new frm_Revenue(), btn);
+        }
+
+        private void btnContact_Click(object sender, EventArgs e)
+        {
+            IconButton btn = sender as IconButton;
+            OpenfrmChild(new frmContact(), btn);
         }
     }
 }

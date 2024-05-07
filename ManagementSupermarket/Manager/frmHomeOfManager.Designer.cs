@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHomeOfManager));
             this.panel_Top = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_Home = new System.Windows.Forms.Label();
             this.panel_Avatar = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_Info = new FontAwesome.Sharp.IconButton();
             this.btn_ChangePassword = new FontAwesome.Sharp.IconButton();
@@ -47,10 +50,11 @@
             this.btn_Supplier = new FontAwesome.Sharp.IconButton();
             this.btn_Discount = new FontAwesome.Sharp.IconButton();
             this.btn_WareHouse = new FontAwesome.Sharp.IconButton();
+            this.btn_Revenue = new FontAwesome.Sharp.IconButton();
             this.btn_LogOut = new FontAwesome.Sharp.IconButton();
             this.btn_Exit = new FontAwesome.Sharp.IconButton();
             this.panel_body = new System.Windows.Forms.Panel();
-            this.btn_Revenue = new FontAwesome.Sharp.IconButton();
+            this.btnContact = new FontAwesome.Sharp.IconButton();
             this.panel_Top.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel_Avatar.SuspendLayout();
@@ -75,6 +79,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.lbl_Home);
             this.panel2.Controls.Add(this.panel_Avatar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Font = new System.Drawing.Font("Sitka Display", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -83,6 +89,28 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1122, 146);
             this.panel2.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Sitka Display", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Yellow;
+            this.label1.Location = new System.Drawing.Point(579, 65);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(302, 72);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Thắng - Quân";
+            // 
+            // lbl_Home
+            // 
+            this.lbl_Home.AutoSize = true;
+            this.lbl_Home.Font = new System.Drawing.Font("Sitka Display", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Home.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_Home.Location = new System.Drawing.Point(3, 16);
+            this.lbl_Home.Name = "lbl_Home";
+            this.lbl_Home.Size = new System.Drawing.Size(616, 121);
+            this.lbl_Home.TabIndex = 7;
+            this.lbl_Home.Text = "Siêu thị Mini TQ ";
             // 
             // panel_Avatar
             // 
@@ -106,6 +134,7 @@
             this.btn_Info.Name = "btn_Info";
             this.btn_Info.Size = new System.Drawing.Size(182, 53);
             this.btn_Info.TabIndex = 0;
+            this.btn_Info.Tag = "Info";
             this.btn_Info.Text = "Thông tin";
             this.btn_Info.UseVisualStyleBackColor = true;
             this.btn_Info.Click += new System.EventHandler(this.btn_Info_Click);
@@ -120,6 +149,7 @@
             this.btn_ChangePassword.Name = "btn_ChangePassword";
             this.btn_ChangePassword.Size = new System.Drawing.Size(182, 53);
             this.btn_ChangePassword.TabIndex = 1;
+            this.btn_ChangePassword.Tag = "ChangePass";
             this.btn_ChangePassword.Text = "Đổi mật khẩu";
             this.btn_ChangePassword.UseVisualStyleBackColor = true;
             this.btn_ChangePassword.Click += new System.EventHandler(this.btn_ChangePassword_Click);
@@ -159,8 +189,9 @@
             // 
             // pic_Logo
             // 
+            this.pic_Logo.BackColor = System.Drawing.Color.Gainsboro;
             this.pic_Logo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pic_Logo.Image = global::ManagementSupermarket.Properties.Resources.banhang;
+            this.pic_Logo.Image = ((System.Drawing.Image)(resources.GetObject("pic_Logo.Image")));
             this.pic_Logo.Location = new System.Drawing.Point(0, 0);
             this.pic_Logo.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.pic_Logo.Name = "pic_Logo";
@@ -183,6 +214,7 @@
             this.FlowPanel_Button.Controls.Add(this.btn_Revenue);
             this.FlowPanel_Button.Controls.Add(this.btn_LogOut);
             this.FlowPanel_Button.Controls.Add(this.btn_Exit);
+            this.FlowPanel_Button.Controls.Add(this.btnContact);
             this.FlowPanel_Button.Dock = System.Windows.Forms.DockStyle.Left;
             this.FlowPanel_Button.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.FlowPanel_Button.Location = new System.Drawing.Point(0, 146);
@@ -344,6 +376,25 @@
             this.btn_WareHouse.UseVisualStyleBackColor = true;
             this.btn_WareHouse.Click += new System.EventHandler(this.btn_WareHouse_Click);
             // 
+            // btn_Revenue
+            // 
+            this.btn_Revenue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Revenue.IconChar = FontAwesome.Sharp.IconChar.BoxesAlt;
+            this.btn_Revenue.IconColor = System.Drawing.Color.Black;
+            this.btn_Revenue.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_Revenue.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Revenue.Location = new System.Drawing.Point(0, 712);
+            this.btn_Revenue.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Revenue.Name = "btn_Revenue";
+            this.btn_Revenue.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btn_Revenue.Size = new System.Drawing.Size(227, 89);
+            this.btn_Revenue.TabIndex = 19;
+            this.btn_Revenue.Tag = "revenue";
+            this.btn_Revenue.Text = "Thống Kê";
+            this.btn_Revenue.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_Revenue.UseVisualStyleBackColor = true;
+            this.btn_Revenue.Click += new System.EventHandler(this.btn_Revenue_Click);
+            // 
             // btn_LogOut
             // 
             this.btn_LogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -390,24 +441,24 @@
             this.panel_body.Size = new System.Drawing.Size(1292, 731);
             this.panel_body.TabIndex = 9;
             // 
-            // btn_Revenue
+            // btnContact
             // 
-            this.btn_Revenue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Revenue.IconChar = FontAwesome.Sharp.IconChar.BoxesAlt;
-            this.btn_Revenue.IconColor = System.Drawing.Color.Black;
-            this.btn_Revenue.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Revenue.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Revenue.Location = new System.Drawing.Point(0, 712);
-            this.btn_Revenue.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_Revenue.Name = "btn_Revenue";
-            this.btn_Revenue.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.btn_Revenue.Size = new System.Drawing.Size(227, 89);
-            this.btn_Revenue.TabIndex = 19;
-            this.btn_Revenue.Tag = "revenue";
-            this.btn_Revenue.Text = "Doanh Thu";
-            this.btn_Revenue.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_Revenue.UseVisualStyleBackColor = true;
-            this.btn_Revenue.Click += new System.EventHandler(this.btn_Revenue_Click);
+            this.btnContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnContact.IconChar = FontAwesome.Sharp.IconChar.BoxesAlt;
+            this.btnContact.IconColor = System.Drawing.Color.Black;
+            this.btnContact.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnContact.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnContact.Location = new System.Drawing.Point(0, 979);
+            this.btnContact.Margin = new System.Windows.Forms.Padding(0);
+            this.btnContact.Name = "btnContact";
+            this.btnContact.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btnContact.Size = new System.Drawing.Size(227, 89);
+            this.btnContact.TabIndex = 20;
+            this.btnContact.Tag = "revenue";
+            this.btnContact.Text = "TTLiên Hệ";
+            this.btnContact.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnContact.UseVisualStyleBackColor = true;
+            this.btnContact.Click += new System.EventHandler(this.btnContact_Click);
             // 
             // frmHomeOfManager
             // 
@@ -426,6 +477,7 @@
             this.Load += new System.EventHandler(this.frmHomeOfManager_Load);
             this.panel_Top.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel_Avatar.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -460,5 +512,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel_body;
         private FontAwesome.Sharp.IconButton btn_Revenue;
+        private System.Windows.Forms.Label lbl_Home;
+        private System.Windows.Forms.Label label1;
+        private FontAwesome.Sharp.IconButton btnContact;
     }
 }

@@ -69,6 +69,12 @@
     <Compile Include="frmInfomation.Designer.cs">
       <DependentUpon>frmInfomation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manager\frmContact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\frmContact.Designer.cs">
+      <DependentUpon>frmContact.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manager\frmCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     <EmbeddedResource Include="frmInfomation.resx">
       <DependentUpon>frmInfomation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Manager\frmContact.resx">
+      <DependentUpon>frmContact.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Manager\frmCustomer.resx">
       <DependentUpon>frmCustomer.cs</DependentUpon>
     </EmbeddedResource>
@@ -231,9 +240,13 @@
     <Content Include="Image\Icon\iconReload.png" />
     <Content Include="Image\Icon\iconSearch.png" />
     <Content Include="Image\Icon\iconStudent.png" />
+    <Content Include="Image\Icon\Link Github phần mềm quản lý siêu thị mini.png" />
     <Content Include="Image\Icon\pdf-icon.png" />
     <Content Include="Image\Icon\png-clipart-microsoft-excel-logo-microsoft-excel-computer-icons-xls-microsoft-angle-text.png" />
     <Content Include="Image\Icon\pngtree-vector-trash-icon-png-image_865284.jpg" />
+    <Content Include="Image\Icon\shop.png" />
+    <Content Include="Image\Icon\store.png" />
+    <Content Include="Image\Icon\supermarkets.png" />
     <Content Include="Image\Logo Project C#\avartaNam.png" />
     <Content Include="Image\Logo Project C#\avatarNu.png" />
     <Content Include="Image\Logo Project C#\banhang.png" />

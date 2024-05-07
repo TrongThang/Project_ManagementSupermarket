@@ -66,6 +66,11 @@
             this.txt_SearchOrderToReceive = new System.Windows.Forms.TextBox();
             this.btn_SearchOrderToReceive = new FontAwesome.Sharp.IconButton();
             this.dgv_ListOrder = new System.Windows.Forms.DataGridView();
+            this.MaNK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayNhapKho = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cbb_NameSuplier = new System.Windows.Forms.ComboBox();
@@ -77,11 +82,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.MaNK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayNhapKho = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.grpInfo.SuspendLayout();
@@ -106,7 +106,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.Teal;
+            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
             this.tabPage1.Controls.Add(this.grpInfo);
             this.tabPage1.Controls.Add(this.btn_Finish);
             this.tabPage1.Controls.Add(this.lst_ToReceive);
@@ -169,6 +169,7 @@
             // 
             // cbb_ProductImportWarehouse
             // 
+            this.cbb_ProductImportWarehouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_ProductImportWarehouse.FormattingEnabled = true;
             this.cbb_ProductImportWarehouse.Location = new System.Drawing.Point(23, 165);
             this.cbb_ProductImportWarehouse.Name = "cbb_ProductImportWarehouse";
@@ -178,6 +179,7 @@
             // 
             // cbb_NameSupplierCreate
             // 
+            this.cbb_NameSupplierCreate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_NameSupplierCreate.FormattingEnabled = true;
             this.cbb_NameSupplierCreate.Location = new System.Drawing.Point(23, 79);
             this.cbb_NameSupplierCreate.Name = "cbb_NameSupplierCreate";
@@ -189,7 +191,7 @@
             // 
             this.groupBox2.Controls.Add(this.dtp_CreatedTime);
             this.groupBox2.ForeColor = System.Drawing.Color.Yellow;
-            this.groupBox2.Location = new System.Drawing.Point(17, 408);
+            this.groupBox2.Location = new System.Drawing.Point(17, 395);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(289, 76);
             this.groupBox2.TabIndex = 17;
@@ -258,13 +260,14 @@
             // txt_IntoMoney
             // 
             this.txt_IntoMoney.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_IntoMoney.Location = new System.Drawing.Point(17, 533);
+            this.txt_IntoMoney.Location = new System.Drawing.Point(17, 520);
             this.txt_IntoMoney.Name = "txt_IntoMoney";
             this.txt_IntoMoney.Size = new System.Drawing.Size(203, 32);
             this.txt_IntoMoney.TabIndex = 15;
             // 
             // txt_PriceCreate
             // 
+            this.txt_PriceCreate.BackColor = System.Drawing.SystemColors.ControlDark;
             this.txt_PriceCreate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_PriceCreate.Location = new System.Drawing.Point(23, 314);
             this.txt_PriceCreate.Name = "txt_PriceCreate";
@@ -310,7 +313,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(15, 505);
+            this.label3.Location = new System.Drawing.Point(15, 492);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 25);
             this.label3.TabIndex = 2;
@@ -372,7 +375,7 @@
             this.lst_ToReceive.HideSelection = false;
             this.lst_ToReceive.Location = new System.Drawing.Point(437, 26);
             this.lst_ToReceive.Name = "lst_ToReceive";
-            this.lst_ToReceive.Size = new System.Drawing.Size(759, 544);
+            this.lst_ToReceive.Size = new System.Drawing.Size(821, 544);
             this.lst_ToReceive.TabIndex = 34;
             this.lst_ToReceive.UseCompatibleStateImageBehavior = false;
             this.lst_ToReceive.View = System.Windows.Forms.View.Details;
@@ -420,7 +423,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.SteelBlue;
+            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
             this.tabPage2.Controls.Add(this.cbb_SearchRole);
             this.tabPage2.Controls.Add(this.btn_SeeDetailWarehouse);
             this.tabPage2.Controls.Add(this.btn_Refresh);
@@ -473,7 +476,7 @@
             this.btn_Refresh.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Refresh.IconColor = System.Drawing.Color.Black;
             this.btn_Refresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Refresh.Location = new System.Drawing.Point(100, 246);
+            this.btn_Refresh.Location = new System.Drawing.Point(83, 246);
             this.btn_Refresh.Name = "btn_Refresh";
             this.btn_Refresh.Size = new System.Drawing.Size(55, 55);
             this.btn_Refresh.TabIndex = 19;
@@ -487,7 +490,7 @@
             this.btn_Delete.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Delete.IconColor = System.Drawing.Color.Black;
             this.btn_Delete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Delete.Location = new System.Drawing.Point(39, 245);
+            this.btn_Delete.Location = new System.Drawing.Point(24, 247);
             this.btn_Delete.Name = "btn_Delete";
             this.btn_Delete.Size = new System.Drawing.Size(55, 55);
             this.btn_Delete.TabIndex = 18;
@@ -520,7 +523,13 @@
             // 
             // dgv_ListOrder
             // 
+            this.dgv_ListOrder.AllowUserToAddRows = false;
+            this.dgv_ListOrder.AllowUserToDeleteRows = false;
+            this.dgv_ListOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_ListOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_ListOrder.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgv_ListOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_ListOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaNK,
@@ -537,6 +546,46 @@
             this.dgv_ListOrder.Size = new System.Drawing.Size(1175, 370);
             this.dgv_ListOrder.TabIndex = 23;
             this.dgv_ListOrder.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ListOrder_CellClick);
+            // 
+            // MaNK
+            // 
+            this.MaNK.DataPropertyName = "MaNK";
+            this.MaNK.HeaderText = "Mã NK";
+            this.MaNK.MinimumWidth = 6;
+            this.MaNK.Name = "MaNK";
+            this.MaNK.ReadOnly = true;
+            // 
+            // MaNV
+            // 
+            this.MaNV.DataPropertyName = "MaNV";
+            this.MaNV.HeaderText = "Mã NV";
+            this.MaNV.MinimumWidth = 6;
+            this.MaNV.Name = "MaNV";
+            this.MaNV.ReadOnly = true;
+            // 
+            // MaNCC
+            // 
+            this.MaNCC.DataPropertyName = "MaNCC";
+            this.MaNCC.HeaderText = "Mã NCC";
+            this.MaNCC.MinimumWidth = 6;
+            this.MaNCC.Name = "MaNCC";
+            this.MaNCC.ReadOnly = true;
+            // 
+            // NgayNhapKho
+            // 
+            this.NgayNhapKho.DataPropertyName = "NgayNhapKho";
+            this.NgayNhapKho.HeaderText = "Ngày Nhập Kho";
+            this.NgayNhapKho.MinimumWidth = 6;
+            this.NgayNhapKho.Name = "NgayNhapKho";
+            this.NgayNhapKho.ReadOnly = true;
+            // 
+            // TongTien
+            // 
+            this.TongTien.DataPropertyName = "TongTien";
+            this.TongTien.HeaderText = "Tổng Tiền";
+            this.TongTien.MinimumWidth = 6;
+            this.TongTien.Name = "TongTien";
+            this.TongTien.ReadOnly = true;
             // 
             // groupBox3
             // 
@@ -561,8 +610,8 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(743, 88);
+            this.label7.ForeColor = System.Drawing.Color.Transparent;
+            this.label7.Location = new System.Drawing.Point(742, 88);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(107, 26);
             this.label7.TabIndex = 29;
@@ -570,6 +619,7 @@
             // 
             // cbb_NameSuplier
             // 
+            this.cbb_NameSuplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_NameSuplier.FormattingEnabled = true;
             this.cbb_NameSuplier.Location = new System.Drawing.Point(60, 160);
             this.cbb_NameSuplier.Name = "cbb_NameSuplier";
@@ -628,8 +678,8 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(64, 45);
+            this.label4.ForeColor = System.Drawing.Color.Transparent;
+            this.label4.Location = new System.Drawing.Point(63, 45);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(133, 25);
             this.label4.TabIndex = 5;
@@ -639,8 +689,8 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(406, 45);
+            this.label9.ForeColor = System.Drawing.Color.Transparent;
+            this.label9.Location = new System.Drawing.Point(405, 45);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(137, 25);
             this.label9.TabIndex = 4;
@@ -650,52 +700,12 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(55, 131);
+            this.label11.ForeColor = System.Drawing.Color.Transparent;
+            this.label11.Location = new System.Drawing.Point(54, 131);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(183, 25);
             this.label11.TabIndex = 1;
             this.label11.Text = "Tên Nhà Cung Cấp";
-            // 
-            // MaNK
-            // 
-            this.MaNK.DataPropertyName = "MaNK";
-            this.MaNK.HeaderText = "Mã NK";
-            this.MaNK.MinimumWidth = 6;
-            this.MaNK.Name = "MaNK";
-            this.MaNK.ReadOnly = true;
-            // 
-            // MaNV
-            // 
-            this.MaNV.DataPropertyName = "MaNV";
-            this.MaNV.HeaderText = "Mã NV";
-            this.MaNV.MinimumWidth = 6;
-            this.MaNV.Name = "MaNV";
-            this.MaNV.ReadOnly = true;
-            // 
-            // MaNCC
-            // 
-            this.MaNCC.DataPropertyName = "MaNCC";
-            this.MaNCC.HeaderText = "Mã NCC";
-            this.MaNCC.MinimumWidth = 6;
-            this.MaNCC.Name = "MaNCC";
-            this.MaNCC.ReadOnly = true;
-            // 
-            // NgayNhapKho
-            // 
-            this.NgayNhapKho.DataPropertyName = "NgayNhapKho";
-            this.NgayNhapKho.HeaderText = "Ngày Nhập Kho";
-            this.NgayNhapKho.MinimumWidth = 6;
-            this.NgayNhapKho.Name = "NgayNhapKho";
-            this.NgayNhapKho.ReadOnly = true;
-            // 
-            // TongTien
-            // 
-            this.TongTien.DataPropertyName = "TongTien";
-            this.TongTien.HeaderText = "Tổng Tiền";
-            this.TongTien.MinimumWidth = 6;
-            this.TongTien.Name = "TongTien";
-            this.TongTien.ReadOnly = true;
             // 
             // frmWarehouse
             // 

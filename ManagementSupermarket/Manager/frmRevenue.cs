@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Media.Media3D;
 using BLL;
+using FontAwesome.Sharp;
 
 namespace ManagementSupermarket.Manager
 {
@@ -28,15 +29,31 @@ namespace ManagementSupermarket.Manager
             return Convert.ToInt64(price).ToString() + $" {unit}";
         }
 
+        private string TextIsNullOrEmpty(string str)
+        {
+            if (string.IsNullOrEmpty(str))
+            {
+                return "0";
+            }
+            return str;
+        }
+        private void ChangedIconChar(decimal dec)
+        {
+            if (dec < 0)
+            {
+                btn_Revenue.IconChar = IconChar.CaretDown;
+            }else if(dec == 0) { 
+                btn_Revenue.IconChar = IconChar.Buffer;
+            }
+            else
+            {
+                btn_Revenue.IconChar= IconChar.CaretUp;
+            }
+            
+        }
         private void LoadDataRevenue(DateTime date, string citeria = null)
         {
-            //COUNT(DISTINCT HD.MaHD) AS SLHD_Ban,
-            //COUNT(DISTINCT NK.MaNK) AS SLHD_Nhap,
-            //COUNT(CTHD.MaSP) AS SLSP_Ban,
-            //COUNT(CTNK.MaSP) AS SLSP_Nhap,
-            //COUNT(DISTINCT KM.MaKM) AS SLKM,
-            //COUNT(DISTINCT NK.MaNCC) AS SLNCC,
-            //COUNT(DISTINCT HD.MaNV) AS SLNV
+            //DoanhThu, TienBanSP, TienNhapSPSLHD_Ban, SLHD_Nhap, SLSP_Ban, SLSP_Nhap, SLKM, SLNCC, SLNV
             //COUNT REVENUE
             try
             {
@@ -54,9 +71,15 @@ namespace ManagementSupermarket.Manager
                     lbl_Supplier.Text = (rowRevenue["SLNCC"] != null ? rowRevenue["SLNCC"] : 0).ToString();
                     lbl_Employee.Text = (rowRevenue["SLNV"] != null ? rowRevenue["SLNV"] : 0).ToString();
 
-                    string revenue = (string.IsNullOrEmpty(rowRevenue["DoanhThu"].ToString()) ? 0 : rowRevenue["DoanhThu"]).ToString();
+                    decimal totalSell = decimal.Parse(TextIsNullOrEmpty(rowRevenue["TienBanSP"].ToString()));
+                    decimal totalImport = decimal.Parse(TextIsNullOrEmpty(rowRevenue["TienNhapSP"] .ToString()));
+                    decimal revenue = totalSell - totalImport;
 
-                    lbl_Total.Text = formatPrice(decimal.Parse(revenue));
+                    lbl_Total.Text = formatPrice(revenue);
+                    lbl_MoneySell.Text = formatPrice(totalSell);
+                    lbl_MoneyImort.Text = formatPrice(totalImport);
+
+                    ChangedIconChar(revenue);
                 }
             }
             catch (Exception err)

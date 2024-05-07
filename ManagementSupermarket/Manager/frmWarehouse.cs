@@ -23,7 +23,7 @@ namespace ManagementSupermarket.Manager
     public partial class frmWarehouse : Form
     {
         private string idEmployee = "NV002";
-        private float TotalMoney = 0;
+        private double TotalMoney = 0;
         public frmWarehouse()
         {
             InitializeComponent();
@@ -178,7 +178,15 @@ namespace ManagementSupermarket.Manager
             }
 
         }
-
+        private bool IsNotClick()
+        {
+            if(dgv_ListOrder.SelectedRows.Count < 0)
+            {
+                MessageBox.Show("Vui lòng chọn một sản phẩm trước khi thao tác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return true;
+            }
+            return false;
+        }
         private bool IsNullPrice()
         {
             try
@@ -220,17 +228,16 @@ namespace ManagementSupermarket.Manager
             {
                 MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
-
-
         }
 
         private void btn_AddCreate_Click(object sender, EventArgs e)
         {
             try
             {
-                if (IsNullPrice())
+                if (IsNotClick())
+                {
+                    return;
+                }else if (IsNullPrice())
                 {
                     return;
                 }
@@ -242,12 +249,12 @@ namespace ManagementSupermarket.Manager
                     return;
                 }
                 string nameSuppiler, nameProduct;
-                float price, amount;
+                double price, amount;
                 DateTime createTime;
                 nameSuppiler = cbb_NameSupplierCreate.SelectedValue.ToString();
-                nameProduct = cbb_ProductImportWarehouse.SelectedValue.ToString();
+                nameProduct = cbb_ProductImportWarehouse.Text;
 
-                price = float.Parse(txt_PriceCreate.Text);
+                price = double.Parse(txt_PriceCreate.Text);
                 if (string.IsNullOrEmpty(txt_PriceCreate.Text))
                 {
                     IsNullPrice();
@@ -272,13 +279,11 @@ namespace ManagementSupermarket.Manager
                     ListViewSubItemCollection subItem = lst_ToReceive.Items[indexItemExist].SubItems;
                     int newCount = int.Parse(subItem[2].Text) + count;
                     //float newPrice =float.Parse(subItem[3].Text)+price;
-                    float newAmout = float.Parse(subItem[5].Text) + amount;
+                    double newAmout = double.Parse(subItem[5].Text) + amount;
 
                     lst_ToReceive.Items[indexItemExist].SubItems[2].Text = newCount.ToString();
                     //lst_ToReceive.Items[indexItemExist].SubItems[3].Text = newPrice.ToString();
                     lst_ToReceive.Items[indexItemExist].SubItems[5].Text = newAmout.ToString();
-
-
                 }
                 else
                 {
@@ -291,28 +296,30 @@ namespace ManagementSupermarket.Manager
             {
                 MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
-
         }
 
         private void btn_AlterCreate_Click(object sender, EventArgs e)
         {
             try
             {
+                if (IsNotClick())
+                {
+                    return;
+                }
+
                 int count = (int)num_CountProductCreate.Value;
                 if (count < 1)
                 {
                     btn_DeleteCreate_Click(sender, e);
                 }
                 string nameSuppiler, nameProduct;
-                float price, amount;
+                double price, amount;
                 DateTime createTime;
 
 
                 nameSuppiler = cbb_NameSupplierCreate.SelectedValue.ToString();
                 nameProduct = cbb_ProductImportWarehouse.Text;
-                price = float.Parse(txt_PriceCreate.Text);
+                price = double.Parse(txt_PriceCreate.Text);
                 createTime = dtp_CreatedTime.Value;
                 amount = price * count;
 
@@ -324,11 +331,6 @@ namespace ManagementSupermarket.Manager
                     if (indexItemExist >= 0)
                     {
                         ListViewSubItemCollection subItem = lst_ToReceive.Items[indexItemExist].SubItems;
-                        //lst_ToReceive.Items[indexItemExist].SubItems[3].Text=count.ToString();
-                        //lst_ToReceive.Items[indexItemExist].SubItems[4].Text = price.ToString();
-                        //lst_ToReceive.Items[indexItemExist].SubItems[6].Text = amount.ToString();
-
-                        //this.TotalMoney = TotalMoney + (float.Parse(lst_ToReceive.Items[indexItemExist].SubItems[6].Text) - amount);
                         this.TotalMoney = TotalMoney - (int.Parse(subItem[2].Text) - count) * price;
                         subItem[2].Text = count.ToString();
                         subItem[3].Text = price.ToString();
@@ -362,6 +364,11 @@ namespace ManagementSupermarket.Manager
         {
             try
             {
+                if (IsNotClick())
+                {
+                    return;
+                }
+
                 string nameProduct = cbb_ProductImportWarehouse.Text;
                 string nameSuppiler = cbb_NameSupplierCreate.SelectedValue.ToString();
 
@@ -371,7 +378,7 @@ namespace ManagementSupermarket.Manager
                     int indexItemExist = lst_ToReceive.Items.IndexOfKey(nameProduct);
                     if (indexItemExist >= 0)
                     {
-                        this.TotalMoney = this.TotalMoney - float.Parse(lst_ToReceive.Items[indexItemExist].SubItems[5].Text);
+                        this.TotalMoney = this.TotalMoney - double.Parse(lst_ToReceive.Items[indexItemExist].SubItems[5].Text);
                         lst_ToReceive.Items.RemoveAt(indexItemExist);
                         MessageBox.Show($"Xoá nhập kho {nameProduct} khỏi hóa đơn thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -395,7 +402,7 @@ namespace ManagementSupermarket.Manager
             try
             {
                 string idReceive, idEmployee, idSuppiler, idProduct;
-                float totalMoney, price, amount;
+                double totalMoney, price, amount;
                 int countProduct;
                 DateTime createTime;
 
@@ -408,13 +415,15 @@ namespace ManagementSupermarket.Manager
 
                 DTO_InvoiceWarehouse invoiceWarehouse = new DTO_InvoiceWarehouse(idEmployee, idSuppiler, createTime, totalMoney);
                 idReceive = (new BLL_InvoiceWarehouse()).InsertInvoiceImportWareHouse(invoiceWarehouse).Rows[0][0].ToString();
-                foreach (ListViewItem row in lst_ToReceive.Items)
+                if (!string.IsNullOrEmpty(idReceive))
                 {
-
-                    if (!string.IsNullOrEmpty(idReceive))
+                    foreach (ListViewItem row in lst_ToReceive.Items)
                     {
+
+                   
                         // Nếu thông tin hóa đơn đã được thêm thành công, thêm các chi tiết hóa đơn
-                        idProduct = row.SubItems[1].Text;
+                        string nameProduct = row.SubItems[1].Text;
+                        idProduct =  (new BLL_Product()).GetProduct("TenSP", nameProduct).Rows[0][0].ToString();
                         countProduct = int.Parse(row.SubItems[2].Text);
                         price = int.Parse(row.SubItems[3].Text);
                         amount = int.Parse(row.SubItems[5].Text);
@@ -425,15 +434,13 @@ namespace ManagementSupermarket.Manager
                         // Lưu ý rằng bạn cần thay đổi phương thức InsertInvoiceImportWareHouse để chấp nhận chi tiết hóa đơn.
                         int numOfRows = (new BLL_Detail_InvoiceWarehouse()).InsertDetailInvoiceImportWareHouse(detailInvoice);
 
-
-
-                        MessageBox.Show("Thêm dữ liệu hóa đơn thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                     }
-                    else
-                    {
-                        MessageBox.Show("Có lỗi xảy ra khi cập nhật dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    MessageBox.Show("Thêm dữ liệu hóa đơn thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi xảy ra khi cập nhật dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 // Sau khi hoàn thành vòng lặp, cập nhật giao diện người dùng

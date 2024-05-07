@@ -143,6 +143,7 @@
             // 
             // cbb_UnitTime
             // 
+            this.cbb_UnitTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_UnitTime.FormattingEnabled = true;
             this.cbb_UnitTime.Location = new System.Drawing.Point(159, 505);
             this.cbb_UnitTime.Name = "cbb_UnitTime";
@@ -202,6 +203,7 @@
             // 
             // cbb_UnitCaculator
             // 
+            this.cbb_UnitCaculator.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_UnitCaculator.FormattingEnabled = true;
             this.cbb_UnitCaculator.Location = new System.Drawing.Point(210, 361);
             this.cbb_UnitCaculator.Name = "cbb_UnitCaculator";

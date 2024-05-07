@@ -138,3 +138,4 @@ D:\C#\Fix merge\ManagementSupermarket\obj\Debug\ManagementSupermarket.Manager.fr
 D:\C#\Fix merge\ManagementSupermarket\bin\Debug\itextsharp.dll
 D:\C#\Fix merge\ManagementSupermarket\bin\Debug\BouncyCastle.Crypto.dll
 D:\C#\Fix merge\ManagementSupermarket\bin\Debug\itextsharp.xml
+D:\C#\Fix merge\ManagementSupermarket\obj\Debug\ManagementSupermarket.Manager.frmContact.resources

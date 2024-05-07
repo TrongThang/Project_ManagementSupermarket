@@ -134,6 +134,26 @@ namespace ManagementSupermarket
             }
         }
         //LOAD DATA COMBO BOX
+        private void LoadComboBoxSearch()
+        {
+            object[] nameSearch = { "Mã NV", "Mã HD"};
+            object[] idSearch = { "MaNV", "MaHD" };
+            DataTable tblSearch = new DataTable();
+            tblSearch.Columns.Add("NoiDungTimKiem");
+            tblSearch.Columns.Add("MaTimKiem");
+
+            for (int i = 0; i < nameSearch.Length; i++)
+            {
+                DataRow newRow = tblSearch.NewRow();
+                newRow["NoiDungTimKiem"] = nameSearch[i];
+                newRow["MaTimKiem"] = idSearch[i];
+                tblSearch.Rows.Add(newRow);
+            }
+
+            cbb_Search.DataSource = tblSearch;
+            cbb_Search.ValueMember = "MaTimKiem";
+            cbb_Search.DisplayMember = "NoiDungTimKiem";
+        }
         private void LoadDataComboBox_NameProduct(ComboBox cbbProduct)
         {
             cbbProduct.DataSource = (new BLL_Product()).GetProduct("MaSP");
@@ -172,19 +192,27 @@ namespace ManagementSupermarket
         private void frmOrder_Load(object sender, EventArgs e)
         {
             tab_HomeInvoiceSelling.SelectedIndex = 1;
-
-            //LOAD DATA TAB 1
-            LoadDataComboBox_NameProduct(cbb_NameProductCreate);
-            LoadDataComboBox_Discount(cbb_DiscountCreate);
-
-            //LOAD DATA TAB 2
-            LoadDataGridView_InvoiceSelling();
-            cbb_Search.SelectedIndex = 0;
-
-            if (s_role == "NV")
+            try
             {
-                int index = cbb_Search.FindString("MaNV");
-                cbb_Search.Items.RemoveAt(index);
+                //LOAD DATA TAB 1
+                LoadDataComboBox_NameProduct(cbb_NameProductCreate);
+                LoadDataComboBox_Discount(cbb_DiscountCreate);
+
+                //LOAD DATA TAB 2
+                LoadDataGridView_InvoiceSelling();
+                LoadComboBoxSearch();
+                cbb_Search.SelectedIndex = 0;
+
+                //if (s_role == "NV")
+                //{
+                //    int index = cbb_Search.FindString("Mã NV");
+                //    cbb_Search.Items.RemoveAt(index);
+                //}
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Lõi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
 
@@ -601,7 +629,7 @@ namespace ManagementSupermarket
 
         private void btn_Search_Click(object sender, EventArgs e)
         {
-            dgv_InvoiceSelling.DataSource = (new BLL_InvoiceSelling()).GetInvoiceSelling(cbb_Search.Text, txtSearch.Text);
+            dgv_InvoiceSelling.DataSource = (new BLL_InvoiceSelling()).GetInvoiceSelling(cbb_Search.SelectedValue.ToString(), txtSearch.Text);
         }
 
         private void btn_Refresh_Click(object sender, EventArgs e)

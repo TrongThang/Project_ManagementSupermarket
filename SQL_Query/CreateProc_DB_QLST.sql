@@ -1,134 +1,494 @@
 ﻿use QLST
 go
-------------------------------------------- GET AND SEARCH  -------------------------------------------
+--FUNCTION
 --REVENUE
-ALTER PROC sp_GetRevenue
+--CREATE PROC sp_GetRevenue
+--(
+--	@Ngay date,
+--	@TieuChi nvarchar(5)
+--)
+--as
+--BEGIN
+--	IF @TieuChi = N'Ngày'
+--		BEGIN
+--			SELECT 
+--				(SELECT SUM(TongTien) FROM HoaDonBanHang WHERE Day(NgayLapHD) = DAY(@Ngay) 
+--														AND MONTH(NgayLapHD) = MONTH(@Ngay) 
+--														AND YEAR(NgayLapHD) = YEAR(@Ngay))
+--				- (SELECT SUM(TongTien) FROM HoaDonNhapKho WHERE Day(NgayNhapKho) = DAY(@Ngay) 
+--														AND MONTH(NgayNhapKho) = MONTH(@Ngay) 
+--														AND YEAR(NgayNhapKho) = YEAR(@Ngay)) as DoanhThu,
+
+--				(SELECT COUNT(DISTINCT HD.MaHD) FROM HoaDonBanHang HD WHERE Day(HD.NgayLapHD) = DAY(@Ngay) 
+--														AND MONTH(HD.NgayLapHD) = MONTH(@Ngay) 
+--														AND YEAR(HD.NgayLapHD) = YEAR(@Ngay))AS SLHD_Ban,
+
+--				(SELECT COUNT(DISTINCT NK.MaNK) FROM HoaDonNhapKho NK WHERE Day(NK.NgayNhapKho) = DAY(@Ngay) 
+--																		AND MONTH(NK.NgayNhapKho) = MONTH(@Ngay) 
+--																		AND YEAR(NK.NgayNhapKho) = YEAR(@Ngay)) AS SLHD_Nhap,
+
+--				COALESCE(SUM(CTHD.SoLuong), 0) AS SLSP_Ban,
+--				COALESCE(SUM(CTNK.SoLuong), 0) AS SLSP_Nhap,
+
+--				(SELECT COUNT(DISTINCT KM.MaKM) 
+--				 FROM KhuyenMai KM 
+--				 WHERE @Ngay BETWEEN KM.NgayBatDau AND KM.NgayKetThuc) AS SLKM,
+
+--				COUNT(DISTINCT NK.MaNCC) AS SLNCC,
+--				COUNT(DISTINCT HD.MaNV) AS SLNV
+--			FROM
+--				HoaDonBanHang HD
+--			LEFT JOIN
+--				ChiTietHoaDonBanHang CTHD ON HD.MaHD = CTHD.MaHD
+--			LEFT JOIN
+--				HoaDonNhapKho NK ON NK.NgayNhapKho = @Ngay
+--			LEFT JOIN
+--				ChiTietHoaDonNhapKho CTNK ON NK.MaNK = CTNK.MaNK
+--			LEFT JOIN
+--				KhuyenMai KM ON @Ngay BETWEEN KM.NgayBatDau AND KM.NgayKetThuc
+--			WHERE
+--				(Day(HD.NgayLapHD) = DAY(@Ngay) 
+--				AND MONTH(HD.NgayLapHD) = MONTH(@Ngay) 
+--				AND YEAR(HD.NgayLapHD) = YEAR(@Ngay))
+--				OR
+--				(Day(NK.NgayNhapKho) = DAY(@Ngay) 
+--				AND MONTH(NK.NgayNhapKho) = MONTH(@Ngay) 
+--				AND YEAR(NK.NgayNhapKho) = YEAR(@Ngay))
+--		END
+--	ELSE IF @TieuChi = N'Tuần'
+--		BEGIN
+--			--Level: Hard -- Finish
+--			SELECT 
+--				COALESCE(SUM(HD.TongTien), 0) - COALESCE(SUM(NK.TongTien), 0) as DoanhThu,
+--				COUNT(DISTINCT HD.MaHD) AS SLHD_Ban,
+--				COUNT(DISTINCT NK.MaNK) AS SLHD_Nhap,
+--				COALESCE(SUM(CTHD.SoLuong), 0) AS SLSP_Ban,
+--				COALESCE(SUM(CTNK.SoLuong), 0) AS SLSP_Nhap,
+--				COUNT(DISTINCT KM.MaKM) AS SLKM,
+--				COUNT(DISTINCT NK.MaNCC) AS SLNCC,
+--				COUNT(DISTINCT HD.MaNV) AS SLNV
+--			FROM
+--				HoaDonBanHang HD
+--			LEFT JOIN
+--				ChiTietHoaDonBanHang CTHD ON HD.MaHD = CTHD.MaHD
+--			LEFT JOIN
+--				HoaDonNhapKho NK ON DATEPART(WW, NK.NgayNhapKho) = DATEPART(WW, @Ngay)
+--			LEFT JOIN
+--				ChiTietHoaDonNhapKho CTNK ON NK.MaNK = CTNK.MaNK
+--			LEFT JOIN
+--				KhuyenMai KM ON DATEPART(WW, @Ngay) BETWEEN DATEPART(WW, KM.NgayBatDau) AND DATEPART(WW, KM.NgayKetThuc)
+--			WHERE
+--				DATEPART(WW, @Ngay) = DATEPART(WW, NgayLapHD) AND YEAR(HD.NgayLapHD) = YEAR(@Ngay)
+--				OR
+--				DATEPART(WW, @Ngay) = DATEPART(WW, NgayNhapKho) AND YEAR(NK.NgayNhapKho) = YEAR(@Ngay)
+--		END
+--	ELSE IF @TieuChi = N'QUÝ'
+--		BEGIN
+--			SELECT 
+--				COALESCE(SUM(HD.TongTien), 0) - COALESCE(SUM(NK.TongTien), 0) as DoanhThu,
+--				COUNT(DISTINCT HD.MaHD) AS SLHD_Ban,
+--				COUNT(DISTINCT NK.MaNK) AS SLHD_Nhap,
+--				COALESCE(SUM(CTHD.SoLuong), 0) AS SLSP_Ban,
+--				COALESCE(SUM(CTNK.SoLuong), 0) AS SLSP_Nhap,
+--				COUNT(DISTINCT KM.MaKM) AS SLKM,
+--				COUNT(DISTINCT NK.MaNCC) AS SLNCC,
+--				COUNT(DISTINCT HD.MaNV) AS SLNV
+--			FROM
+--				HoaDonBanHang HD
+--			LEFT JOIN
+--				ChiTietHoaDonBanHang CTHD ON HD.MaHD = CTHD.MaHD
+--			LEFT JOIN
+--				HoaDonNhapKho NK ON DATEPART(qq, NK.NgayNhapKho) = DATEPART(qq, @Ngay)
+--			LEFT JOIN
+--				ChiTietHoaDonNhapKho CTNK ON NK.MaNK = CTNK.MaNK
+--			LEFT JOIN
+--				KhuyenMai KM ON DATEPART(qq, @Ngay) BETWEEN DATEPART(qq, KM.NgayBatDau) AND DATEPART(qq, KM.NgayKetThuc)
+--			WHERE
+--				DATEPART(qq, @Ngay) = DATEPART(qq, NgayLapHD) AND YEAR(HD.NgayLapHD) = YEAR(@Ngay)
+--				OR
+--				DATEPART(qq, @Ngay) = DATEPART(qq, NgayNhapKho) AND YEAR(NgayNhapKho) = YEAR(@Ngay)
+--		END
+--	ELSE IF @TieuChi = N'Tháng'
+--		BEGIN
+--			SELECT 
+--				COALESCE(SUM(HD.TongTien), 0) - COALESCE(SUM(NK.TongTien), 0) as DoanhThu,
+--				COUNT(DISTINCT HD.MaHD) AS SLHD_Ban,
+--				COUNT(DISTINCT NK.MaNK) AS SLHD_Nhap,
+--				COALESCE(SUM(CTHD.SoLuong), 0) AS SLSP_Ban,
+--				COALESCE(SUM(CTNK.SoLuong), 0) AS SLSP_Nhap,
+--				COUNT(DISTINCT KM.MaKM) AS SLKM,
+--				COUNT(DISTINCT NK.MaNCC) AS SLNCC,
+--				COUNT(DISTINCT HD.MaNV) AS SLNV
+--			FROM
+--				HoaDonBanHang HD
+--			LEFT JOIN
+--				ChiTietHoaDonBanHang CTHD ON HD.MaHD = CTHD.MaHD
+--			LEFT JOIN
+--				HoaDonNhapKho NK ON MONTH(NK.NgayNhapKho) = MONTH(@Ngay)
+--			LEFT JOIN
+--				ChiTietHoaDonNhapKho CTNK ON NK.MaNK = CTNK.MaNK
+--			LEFT JOIN
+--				KhuyenMai KM ON MONTH(@Ngay) BETWEEN MONTH(KM.NgayBatDau) AND MONTH(KM.NgayKetThuc)
+--			WHERE
+--				MONTH(HD.NgayLapHD) = MONTH(@Ngay) AND YEAR(HD.NgayLapHD) = YEAR(@Ngay)
+--				OR
+--				MONTH(NgayNhapKho) = MONTH(@Ngay) AND YEAR(NgayNhapKho) = YEAR(@Ngay)
+--		END
+--	ELSE IF @TieuChi = N'Năm'
+--		BEGIN
+--			SELECT 
+--				COALESCE(SUM(HD.TongTien), 0) - COALESCE(SUM(NK.TongTien), 0) as DoanhThu,
+--				COUNT(DISTINCT HD.MaHD) AS SLHD_Ban,
+--				COUNT(DISTINCT NK.MaNK) AS SLHD_Nhap,
+--				COALESCE(SUM(CTHD.SoLuong), 0) AS SLSP_Ban,
+--				COALESCE(SUM(CTNK.SoLuong), 0) AS SLSP_Nhap,
+--				COUNT(DISTINCT KM.MaKM) AS SLKM,
+--				COUNT(DISTINCT NK.MaNCC) AS SLNCC,
+--				COUNT(DISTINCT HD.MaNV) AS SLNV
+--			FROM
+--				HoaDonBanHang HD
+--			LEFT JOIN
+--				ChiTietHoaDonBanHang CTHD ON HD.MaHD = CTHD.MaHD
+--			LEFT JOIN
+--				HoaDonNhapKho NK ON YEAR(NK.NgayNhapKho) = YEAR(@Ngay)
+--			LEFT JOIN
+--				ChiTietHoaDonNhapKho CTNK ON NK.MaNK = CTNK.MaNK
+--			LEFT JOIN
+--				KhuyenMai KM ON YEAR(@Ngay) BETWEEN YEAR(KM.NgayBatDau) AND YEAR(KM.NgayKetThuc)
+--			WHERE
+--				YEAR(HD.NgayLapHD) = YEAR(@Ngay)
+--				OR
+--				YEAR(NgayNhapKho) = YEAR(@Ngay)
+--		END
+--END
+GO
+create function func_TienBanSP
 (
-	@Ngay date,
+	@Ngay datetime,
 	@TieuChi nvarchar(5)
 )
+returns decimal 
 as
 BEGIN
-declare @sellMoney money = 0;
-declare @importMoney money = 0;
-declare @Count_InvoiceSelling int = 0, @Count_InvoiceWarehouse int = 0, @Count_ProductSelling int = 0,  @Count_ProductImport int = 0, @Count_Discount int = 0, @Count_Supplier int = 0,	@Count_Employee int = 0
-	IF @TieuChi = N'Ngày'
+declare @TienBanSP decimal = 0
+	if @TieuChi = N'Ngày'
+		SET @TienBanSP = (SELECT SUM(TongTien) FROM HoaDonBanHang WHERE Day(NgayLapHD) = DAY(@Ngay) 
+											AND MONTH(NgayLapHD) = MONTH(@Ngay) 
+											AND YEAR(NgayLapHD) = YEAR(@Ngay))
+	else if @TieuChi = N'Tuần'
 		BEGIN
-			
-			SELECT @Count_InvoiceSelling = COUNT(MaHD), @sellMoney = SUM(TongTien) FROM HoaDonBanHang WHERE NgayLapHD = @Ngay
-
-			SELECT @Count_InvoiceWarehouse = COUNT(MaNK), @importMoney = SUM(TongTien)  FROM HoaDonNhapKho WHERE NgayNhapKho = @Ngay
-
-			SELECT @Count_ProductSelling = COUNT(MaSP) FROM ChiTietHoaDonBanHang CT JOIN HoaDonBanHang HD ON  HD.MaHD = CT.MaHD WHERE NgayLapHD = @Ngay
-			SELECT @Count_ProductImport = COUNT(MaSP) FROM ChiTietHoaDonNhapKho CT JOIN HoaDonNhapKho NK ON  NK.MaNK = CT.MaNK WHERE NgayNhapKho = @Ngay
-			
-			SELECT @Count_Discount = COUNT(MaKM) FROM KhuyenMai WHERE @Ngay BETWEEN NgayBatDau AND NgayKetThuc
-
-			SELECT DISTINCT @Count_Supplier = COUNT(MaNCC) FROM HoaDonNhapKho WHERE NgayNhapKho = @Ngay
-
-			SELECT DISTINCT  @Count_Employee = COUNT(MaNV) FROM HoaDonBanHang WHERE NgayLapHD = @Ngay
-
-			SELECT @sellMoney - @importMoney as DoanhThu, @Count_InvoiceSelling as SLHD_Ban, @Count_InvoiceWarehouse as SLHD_Nhap, @Count_ProductSelling as SLSP_Ban,  @Count_ProductImport as SLSP_Nhap, @Count_Discount as SLKM, @Count_Supplier as SLNCC,	@Count_Employee as SLNV;
+			SET @TienBanSP = (SELECT SUM(TongTien) FROM HoaDonBanHang WHERE DATEPART(WW, @Ngay) = DATEPART(WW, NgayLapHD) AND YEAR(NgayLapHD) = YEAR(@Ngay))
 		END
-	ELSE IF @TieuChi = N'Tuần'
+	else if @TieuChi = N'Tháng'
+		SET @TienBanSP = (SELECT SUM(TongTien) FROM HoaDonBanHang WHERE MONTH(NgayLapHD) = MONTH(@Ngay) AND YEAR(NgayLapHD) = YEAR(@Ngay))
+	else if @TieuChi = N'Quý'
 		BEGIN
-			--Level: Hard -- Don't
-			SELECT 
-				COALESCE(SUM(HD.TongTien), 0) - COALESCE(SUM(NK.TongTien), 0) as DoanhThu,
-				COUNT(DISTINCT HD.MaHD) AS SLHD_Ban,
-				COUNT(DISTINCT NK.MaNK) AS SLHD_Nhap,
-				COALESCE(SUM(CTHD.SoLuong), 0) AS SLSP_Ban,
-				COALESCE(SUM(CTNK.SoLuong), 0) AS SLSP_Nhap,
-				COUNT(DISTINCT KM.MaKM) AS SLKM,
-				COUNT(DISTINCT NK.MaNCC) AS SLNCC,
-				COUNT(DISTINCT HD.MaNV) AS SLNV
-			FROM
-				HoaDonBanHang HD
-			LEFT JOIN
-				ChiTietHoaDonBanHang CTHD ON HD.MaHD = CTHD.MaHD
-			LEFT JOIN
-				HoaDonNhapKho NK ON DATEPART(WW, NK.NgayNhapKho) = DATEPART(WW, @Ngay)
-			LEFT JOIN
-				ChiTietHoaDonNhapKho CTNK ON NK.MaNK = CTNK.MaNK
-			LEFT JOIN
-				KhuyenMai KM ON DATEPART(WW, @Ngay) BETWEEN DATEPART(WW, KM.NgayBatDau) AND DATEPART(WW, KM.NgayKetThuc)
-			WHERE
-				DATEPART(WW, @Ngay) = DATEPART(WW, NgayLapHD) AND YEAR(HD.NgayLapHD) = YEAR(@Ngay)
+			SET @TienBanSP = (SELECT SUM(TongTien) FROM HoaDonBanHang WHERE DATEPART(QQ, @Ngay) = DATEPART(QQ, NgayLapHD) AND YEAR(NgayLapHD) = YEAR(@Ngay))
 		END
-	ELSE IF @TieuChi = N'QUÝ'
+	else if @TieuChi = N'Năm'
 		BEGIN
-			SELECT 
-				COALESCE(SUM(HD.TongTien), 0) - COALESCE(SUM(NK.TongTien), 0) as DoanhThu,
-				COUNT(DISTINCT HD.MaHD) AS SLHD_Ban,
-				COUNT(DISTINCT NK.MaNK) AS SLHD_Nhap,
-				COALESCE(SUM(CTHD.SoLuong), 0) AS SLSP_Ban,
-				COALESCE(SUM(CTNK.SoLuong), 0) AS SLSP_Nhap,
-				COUNT(DISTINCT KM.MaKM) AS SLKM,
-				COUNT(DISTINCT NK.MaNCC) AS SLNCC,
-				COUNT(DISTINCT HD.MaNV) AS SLNV
-			FROM
-				HoaDonBanHang HD
-			LEFT JOIN
-				ChiTietHoaDonBanHang CTHD ON HD.MaHD = CTHD.MaHD
-			LEFT JOIN
-				HoaDonNhapKho NK ON DATEPART(qq, NK.NgayNhapKho) = DATEPART(qq, @Ngay)
-			LEFT JOIN
-				ChiTietHoaDonNhapKho CTNK ON NK.MaNK = CTNK.MaNK
-			LEFT JOIN
-				KhuyenMai KM ON DATEPART(qq, @Ngay) BETWEEN DATEPART(qq, KM.NgayBatDau) AND DATEPART(qq, KM.NgayKetThuc)
-			WHERE
-				DATEPART(qq, @Ngay) = DATEPART(qq, NgayLapHD) AND YEAR(HD.NgayLapHD) = YEAR(@Ngay)
+			SET @TienBanSP = (SELECT SUM(TongTien) FROM HoaDonBanHang WHERE YEAR(NgayLapHD) = YEAR(@Ngay))						
 		END
-	ELSE IF @TieuChi = N'Tháng'
+	return @TienBanSP
+END;
+GO
+
+create function func_TienNhapSP
+(
+	@Ngay datetime,
+	@TieuChi nvarchar(5)
+)
+returns decimal 
+as
+BEGIN
+declare @TienNhapSP decimal = 0
+	if @TieuChi = N'Ngày'
+		SET @TienNhapSP = (SELECT SUM(TongTien) FROM HoaDonNhapKho WHERE Day(NgayNhapKho) = DAY(@Ngay) 
+													AND MONTH(NgayNhapKho) = MONTH(@Ngay) 
+													AND YEAR(NgayNhapKho) = YEAR(@Ngay))
+	else if @TieuChi = N'Tuần'
 		BEGIN
-			SELECT 
-				COALESCE(SUM(HD.TongTien), 0) - COALESCE(SUM(NK.TongTien), 0) as DoanhThu,
-				COUNT(DISTINCT HD.MaHD) AS SLHD_Ban,
-				COUNT(DISTINCT NK.MaNK) AS SLHD_Nhap,
-				COALESCE(SUM(CTHD.SoLuong), 0) AS SLSP_Ban,
-				COALESCE(SUM(CTNK.SoLuong), 0) AS SLSP_Nhap,
-				COUNT(DISTINCT KM.MaKM) AS SLKM,
-				COUNT(DISTINCT NK.MaNCC) AS SLNCC,
-				COUNT(DISTINCT HD.MaNV) AS SLNV
-			FROM
-				HoaDonBanHang HD
-			LEFT JOIN
-				ChiTietHoaDonBanHang CTHD ON HD.MaHD = CTHD.MaHD
-			LEFT JOIN
-				HoaDonNhapKho NK ON MONTH(NK.NgayNhapKho) = MONTH(@Ngay)
-			LEFT JOIN
-				ChiTietHoaDonNhapKho CTNK ON NK.MaNK = CTNK.MaNK
-			LEFT JOIN
-				KhuyenMai KM ON MONTH(@Ngay) BETWEEN MONTH(KM.NgayBatDau) AND MONTH(KM.NgayKetThuc)
-			WHERE
-				MONTH(HD.NgayLapHD) = MONTH(@Ngay) AND YEAR(HD.NgayLapHD) = YEAR(@Ngay)
+			SET @TienNhapSP = (SELECT SUM(TongTien) FROM HoaDonNhapKho WHERE DATEPART(WW, @Ngay) = DATEPART(WW, NgayNhapKho) AND YEAR(NgayNhapKho) = YEAR(@Ngay))
 		END
-	ELSE IF @TieuChi = N'Năm'
+	else if @TieuChi = N'Tháng'
+		SET @TienNhapSP = (SELECT SUM(TongTien) FROM HoaDonNhapKho WHERE MONTH(NgayNhapKho) = MONTH(@Ngay) AND YEAR(NgayNhapKho) = YEAR(@Ngay))
+	else if @TieuChi = N'Quý'
 		BEGIN
-			SELECT 
-				COALESCE(SUM(HD.TongTien), 0) - COALESCE(SUM(NK.TongTien), 0) as DoanhThu,
-				COUNT(DISTINCT HD.MaHD) AS SLHD_Ban,
-				COUNT(DISTINCT NK.MaNK) AS SLHD_Nhap,
-				COALESCE(SUM(CTHD.SoLuong), 0) AS SLSP_Ban,
-				COALESCE(SUM(CTNK.SoLuong), 0) AS SLSP_Nhap,
-				COUNT(DISTINCT KM.MaKM) AS SLKM,
-				COUNT(DISTINCT NK.MaNCC) AS SLNCC,
-				COUNT(DISTINCT HD.MaNV) AS SLNV
-			FROM
-				HoaDonBanHang HD
-			LEFT JOIN
-				ChiTietHoaDonBanHang CTHD ON HD.MaHD = CTHD.MaHD
-			LEFT JOIN
-				HoaDonNhapKho NK ON YEAR(NK.NgayNhapKho) = YEAR(@Ngay)
-			LEFT JOIN
-				ChiTietHoaDonNhapKho CTNK ON NK.MaNK = CTNK.MaNK
-			LEFT JOIN
-				KhuyenMai KM ON YEAR(@Ngay) BETWEEN YEAR(KM.NgayBatDau) AND YEAR(KM.NgayKetThuc)
-			WHERE
-				YEAR(HD.NgayLapHD) = YEAR(@Ngay)
+			SET @TienNhapSP = (SELECT SUM(TongTien) FROM HoaDonNhapKho WHERE DATEPART(QQ, @Ngay) = DATEPART(QQ, NgayNhapKho) AND YEAR(NgayNhapKho) = YEAR(@Ngay))
 		END
+	else if @TieuChi = N'Năm'
+		BEGIN
+			SET @TienNhapSP = (SELECT SUM(TongTien) FROM HoaDonNhapKho WHERE YEAR(NgayNhapKho) = YEAR(@Ngay))
+		END
+	return @TienNhapSP
 END
 GO
+
+--SLHD BAN
+create function func_SLHD_Ban
+(
+	@Ngay datetime,
+	@TieuChi nvarchar(5)
+)
+returns int 
+as
+BEGIN
+declare @SLHD_Ban int = 0
+	if @TieuChi = N'Ngày'
+		SET @SLHD_Ban = (SELECT COUNT(MaHD) FROM HoaDonBanHang WHERE Day(NgayLapHD) = DAY(@Ngay) 
+											AND MONTH(NgayLapHD) = MONTH(@Ngay) 
+											AND YEAR(NgayLapHD) = YEAR(@Ngay))
+	else if @TieuChi = N'Tuần'
+		BEGIN
+			SET @SLHD_Ban = (SELECT COUNT(MaHD) FROM HoaDonBanHang WHERE DATEPART(WW, @Ngay) = DATEPART(WW, NgayLapHD) AND YEAR(NgayLapHD) = YEAR(@Ngay))							
+		END
+	else if @TieuChi = N'Tháng'
+		SET @SLHD_Ban = (SELECT COUNT(MaHD) FROM HoaDonBanHang WHERE MONTH(NgayLapHD) = MONTH(@Ngay) AND YEAR(NgayLapHD) = YEAR(@Ngay))
+	else if @TieuChi = N'Quý'
+		BEGIN
+			SET @SLHD_Ban = (SELECT COUNT(MaHD) FROM HoaDonBanHang WHERE DATEPART(QQ, @Ngay) = DATEPART(QQ, NgayLapHD) AND YEAR(NgayLapHD) = YEAR(@Ngay))
+		END
+	else if @TieuChi = N'Năm'
+	BEGIN
+		SET @SLHD_Ban = (SELECT COUNT(MaHD) FROM HoaDonBanHang WHERE YEAR(NgayLapHD) = YEAR(@Ngay))
+	END
+	return @SLHD_Ban
+END
+GO
+
+--SLHD Nhap
+create function func_SLHD_Nhap
+(
+	@Ngay datetime,
+	@TieuChi nvarchar(5)
+)
+returns int 
+as
+BEGIN
+declare @SLHD_Nhap int = 0
+	if @TieuChi = N'Ngày'
+		SET @SLHD_Nhap = (SELECT COUNT(MaNK) FROM HoaDonNhapKho WHERE Day(NgayNhapKho) = DAY(@Ngay) 
+											AND MONTH(NgayNhapKho) = MONTH(@Ngay) 
+											AND YEAR(NgayNhapKho) = YEAR(@Ngay))
+	else if @TieuChi = N'Tuần'
+		BEGIN
+			SET @SLHD_Nhap = (SELECT COUNT(MaNK) FROM HoaDonNhapKho WHERE DATEPART(WW, @Ngay) = DATEPART(WW, NgayNhapKho) AND YEAR(NgayNhapKho) = YEAR(@Ngay))							
+		END
+	else if @TieuChi = N'Tháng'
+		SET @SLHD_Nhap = (SELECT COUNT(MaNK) FROM HoaDonNhapKho WHERE MONTH(NgayNhapKho) = MONTH(@Ngay) AND YEAR(NgayNhapKho) = YEAR(@Ngay))
+	else if @TieuChi = N'Quý'
+		BEGIN
+			SET @SLHD_Nhap = (SELECT COUNT(MaNK) FROM HoaDonNhapKho WHERE DATEPART(QQ, @Ngay) = DATEPART(QQ, NgayNhapKho) AND YEAR(NgayNhapKho) = YEAR(@Ngay))
+		END
+	else if @TieuChi = N'Năm'
+	BEGIN
+		SET @SLHD_Nhap = (SELECT COUNT(MaNK) FROM HoaDonNhapKho WHERE YEAR(NgayNhapKho) = YEAR(@Ngay))
+	END
+	return @SLHD_Nhap
+END
+GO
+
+--SLHD Ban
+create function func_SLSP_Ban
+(
+	@Ngay datetime,
+	@TieuChi nvarchar(5)
+)
+returns int 
+as
+BEGIN
+declare @SLSP_Ban int = 0
+	if @TieuChi = N'Ngày'
+		SET @SLSP_Ban = (SELECT Sum(SoLuong) FROM ChiTietHoaDonBanHang CT JOIN HoaDonBanHang HD ON  CT.MaHD = HD.MaHD
+						WHERE Day(NgayLapHD) = DAY(@Ngay) 
+							AND MONTH(NgayLapHD) = MONTH(@Ngay) 
+							AND YEAR(NgayLapHD) = YEAR(@Ngay)
+						)
+	else if @TieuChi = N'Tuần'
+		BEGIN
+			SET @SLSP_Ban = (SELECT Sum(SoLuong) FROM ChiTietHoaDonBanHang CT JOIN HoaDonBanHang HD ON  CT.MaHD = HD.MaHD
+							WHERE DATEPART(WW, @Ngay) = DATEPART(WW, NgayLapHD) AND YEAR(NgayLapHD) = YEAR(@Ngay))							
+		END
+	else if @TieuChi = N'Tháng'
+		SET @SLSP_Ban = (SELECT Sum(SoLuong) FROM ChiTietHoaDonBanHang CT JOIN HoaDonBanHang HD ON  CT.MaHD = HD.MaHD 
+						WHERE MONTH(NgayLapHD) = MONTH(@Ngay) AND YEAR(NgayLapHD) = YEAR(@Ngay))
+	else if @TieuChi = N'Quý'
+		BEGIN
+			SET @SLSP_Ban = (SELECT Sum(SoLuong) FROM ChiTietHoaDonBanHang CT JOIN HoaDonBanHang HD ON  CT.MaHD = HD.MaHD
+							WHERE DATEPART(QQ, @Ngay) = DATEPART(QQ, NgayLapHD) AND YEAR(NgayLapHD) = YEAR(@Ngay))
+		END
+	else if @TieuChi = N'Năm'
+	BEGIN
+		SET @SLSP_Ban = (SELECT Sum(SoLuong) FROM ChiTietHoaDonBanHang CT JOIN HoaDonBanHang HD ON  CT.MaHD = HD.MaHD
+						WHERE YEAR(NgayLapHD) = YEAR(@Ngay))
+	END
+	return @SLSP_Ban
+END
+GO
+
+--SLSP_Nhap
+create function func_SLSP_Nhap
+(
+	@Ngay datetime,
+	@TieuChi nvarchar(5)
+)
+returns int 
+as
+BEGIN
+declare @SLSP_Nhap int = 0
+	if @TieuChi = N'Ngày'
+		SET @SLSP_Nhap = (SELECT Sum(SoLuong) FROM ChiTietHoaDonNhapKho CT JOIN HoaDonNhapKho NK ON  CT.MaNK = NK.MaNK
+						WHERE Day(NgayNhapKho) = DAY(@Ngay) 
+							AND MONTH(NgayNhapKho) = MONTH(@Ngay) 
+							AND YEAR(NgayNhapKho) = YEAR(@Ngay)
+						)
+	else if @TieuChi = N'Tuần'
+		BEGIN
+			SET @SLSP_Nhap = (SELECT Sum(SoLuong) FROM ChiTietHoaDonNhapKho CT JOIN HoaDonNhapKho NK ON  CT.MaNK = NK.MaNK
+							WHERE DATEPART(WW, @Ngay) = DATEPART(WW, NgayNhapKho) AND YEAR(NgayNhapKho) = YEAR(@Ngay))							
+		END
+	else if @TieuChi = N'Tháng'
+		SET @SLSP_Nhap = (SELECT Sum(SoLuong) FROM ChiTietHoaDonNhapKho CT JOIN HoaDonNhapKho NK ON  CT.MaNK = NK.MaNK
+						WHERE MONTH(NgayNhapKho) = MONTH(@Ngay) AND YEAR(NgayNhapKho) = YEAR(@Ngay))
+	else if @TieuChi = N'Quý'
+		BEGIN
+			SET @SLSP_Nhap = (SELECT Sum(SoLuong) FROM ChiTietHoaDonNhapKho CT JOIN HoaDonNhapKho NK ON  CT.MaNK = NK.MaNK
+							WHERE DATEPART(QQ, @Ngay) = DATEPART(QQ, NgayNhapKho) AND YEAR(NgayNhapKho) = YEAR(@Ngay))
+		END
+	else if @TieuChi = N'Năm'
+	BEGIN
+		SET @SLSP_Nhap = (SELECT Sum(SoLuong) FROM ChiTietHoaDonNhapKho CT JOIN HoaDonNhapKho NK ON  CT.MaNK = NK.MaNK
+						WHERE YEAR(NgayNhapKho) = YEAR(@Ngay))
+	END
+	return @SLSP_Nhap
+END
+GO
+
+--SLKM
+create function func_SLKM
+(
+	@Ngay datetime,
+	@TieuChi nvarchar(5)
+)
+returns int 
+as
+BEGIN
+declare @SLKM int = 0
+	if @TieuChi = N'Ngày'
+		SET @SLKM = (SELECT COUNT(MaKM) FROM KhuyenMai WHERE @Ngay BETWEEN NgayBatDau AND NgayKetThuc)
+	else if @TieuChi = N'Tuần'
+		BEGIN
+			SET @SLKM = (SELECT COUNT(MaKM) FROM KhuyenMai WHERE DATEPART(WW, @Ngay) BETWEEN DATEPART(WW, NgayBatDau) AND DATEPART(WW, NgayKetThuc))							
+		END
+	else if @TieuChi = N'Tháng'
+		SET @SLKM = (SELECT COUNT(MaKM) FROM KhuyenMai WHERE MONTH(@Ngay) BETWEEN MONTH(NgayBatDau) AND MONTH(NgayKetThuc))
+	else if @TieuChi = N'Quý'
+		BEGIN
+			SET @SLKM = (SELECT COUNT(MaKM) FROM KhuyenMai WHERE DATEPART(QQ, @Ngay) BETWEEN DATEPART(QQ, NgayBatDau) AND DATEPART(QQ, NgayKetThuc))
+		END
+	else if @TieuChi = N'Năm'
+	BEGIN
+		SET @SLKM = (SELECT COUNT(MaKM) FROM KhuyenMai WHERE YEAR(@Ngay) BETWEEN YEAR(NgayBatDau) AND YEAR(NgayKetThuc))
+	END
+	return @SLKM
+END
+GO
+
+--SL_NCC
+create function func_SLNCC
+(
+	@Ngay datetime,
+	@TieuChi nvarchar(5)
+)
+returns int 
+as
+BEGIN
+declare @SLNCC int = 0
+	if @TieuChi = N'Ngày'
+		SET @SLNCC = (SELECT DISTINCT COUNT(MaNCC) FROM HoaDonNhapKho WHERE Day(NgayNhapKho) = DAY(@Ngay) 
+																	AND MONTH(NgayNhapKho) = MONTH(@Ngay) 
+																	AND YEAR(NgayNhapKho) = YEAR(@Ngay))
+	else if @TieuChi = N'Tuần'
+		BEGIN
+			SET @SLNCC = (SELECT DISTINCT COUNT(MaNCC) FROM HoaDonNhapKho 
+							WHERE DATEPART(WW, @Ngay) = DATEPART(WW, NgayNhapKho) AND YEAR(NgayNhapKho) = YEAR(@Ngay))							
+		END
+	else if @TieuChi = N'Tháng'
+		SET @SLNCC = (SELECT DISTINCT COUNT(MaNCC) FROM HoaDonNhapKho 
+						WHERE MONTH(NgayNhapKho) = MONTH(@Ngay) AND YEAR(NgayNhapKho) = YEAR(@Ngay))
+	else if @TieuChi = N'Quý'
+		BEGIN
+			SET @SLNCC = (SELECT DISTINCT COUNT(MaNCC) FROM HoaDonNhapKho 
+							WHERE DATEPART(QQ, @Ngay) = DATEPART(QQ, NgayNhapKho) AND YEAR(NgayNhapKho) = YEAR(@Ngay))
+		END
+	else if @TieuChi = N'Năm'
+	BEGIN
+		SET @SLNCC = (SELECT DISTINCT COUNT(MaNCC) FROM HoaDonNhapKho 
+						WHERE YEAR(NgayNhapKho) = YEAR(@Ngay))
+	END
+	return @SLNCC
+END
+GO
+
+--SL_NV
+create function func_SLNV
+(
+	@Ngay datetime,
+	@TieuChi nvarchar(5)
+)
+returns int 
+as
+BEGIN
+declare @SLNV int = 0
+	if @TieuChi = N'Ngày'
+		SET @SLNV = (SELECT DISTINCT COUNT(MaNV) FROM HoaDonBanHang	WHERE Day(NgayLapHD) = DAY(@Ngay) 
+															AND MONTH(NgayLapHD) = MONTH(@Ngay) 
+															AND YEAR(NgayLapHD) = YEAR(@Ngay))
+	else if @TieuChi = N'Tuần'
+		BEGIN
+			SET @SLNV = (SELECT DISTINCT COUNT(MaNV) FROM HoaDonBanHang
+							WHERE DATEPART(WW, @Ngay) = DATEPART(WW, NgayLapHD) AND YEAR(NgayLapHD) = YEAR(@Ngay))							
+		END
+	else if @TieuChi = N'Tháng'
+		SET @SLNV = (SELECT DISTINCT COUNT(MaNV) FROM HoaDonBanHang
+						WHERE MONTH(NgayLapHD) = MONTH(@Ngay) AND YEAR(NgayLapHD) = YEAR(@Ngay))
+	else if @TieuChi = N'Quý'
+		BEGIN
+			SET @SLNV = (SELECT DISTINCT COUNT(MaNV) FROM HoaDonBanHang
+							WHERE DATEPART(QQ, @Ngay) = DATEPART(QQ, NgayLapHD) AND YEAR(NgayLapHD) = YEAR(@Ngay))
+		END
+	else if @TieuChi = N'Năm'
+	BEGIN
+		SET @SLNV = (SELECT DISTINCT COUNT(MaNV) FROM HoaDonBanHang
+						WHERE YEAR(NgayLapHD) = YEAR(@Ngay))
+	END
+	return @SLNV
+END
+GO
+
+ALTER PROC sp_GetRevenue
+(
+	@Ngay datetime,
+	@TieuChi nvarchar(5)
+)
+AS
+BEGIN
+SELECT
+	dbo.func_TienBanSP(@Ngay, @TieuChi) - dbo.func_TienNhapSP(@Ngay, @TieuChi) AS DoanhThu,
+	dbo.func_TienBanSP(@Ngay, @TieuChi) AS TienBanSP,
+	dbo.func_TienNhapSP(@Ngay, @TieuChi) AS TienNhapSP,
+	dbo.func_SLHD_Ban(@Ngay, @TieuChi) AS SLHD_Ban,
+	dbo.func_SLHD_Nhap(@Ngay, @TieuChi) AS SLHD_Nhap,
+	dbo.func_SLSP_Ban(@Ngay, @TieuChi) AS SLSP_Ban,
+	dbo.func_SLSP_Nhap(@Ngay, @TieuChi) AS SLSP_Nhap,
+	dbo.func_SLKM(@Ngay, @TieuChi) AS SLKM,
+	dbo.func_SLNCC(@Ngay, @TieuChi) AS SLNCC,
+	dbo.func_SLNV(@Ngay, @TieuChi) AS SLNV
+END
+
+--PROC
+------------------------------------------- GET AND SEARCH  -------------------------------------------
+
 --Account
 CREATE PROC sp_checkAccount
 (
@@ -159,7 +519,7 @@ begin
 end
 GO
 --Employee
-ALTER PROC sp_getEmployeeTo
+CREATE PROC sp_getEmployeeTo
 (
 	@MaNV varchar(10) = null,
 	@CCCD varchar(12) = null,
@@ -175,7 +535,7 @@ as
 begin 
 	IF @TrangThai is null
 	BEGIN
-		SELECT MaNV, CCCD, HoTen, GioiTinh, DiaChi, SDT, NgayTao, MaChucVu, Luong, TrangThai
+		SELECT MaNV, CCCD, HoTen, GioiTinh, DiaChi, SDT, NgayTao, MaChucVu, TrangThai
 		FROM NhanVien
 		WHERE (MaNV LIKE '%' + ISNULL(@MaNV, '') + '%')
 			AND (HoTen LIKE '%' + ISNULL(@HoTen, '') + '%')
@@ -188,7 +548,7 @@ begin
 	END
 	ELSE
 	BEGIN
-		SELECT MaNV, CCCD, HoTen, GioiTinh, DiaChi, SDT, NgayTao, MaChucVu, Luong, TrangThai
+		SELECT MaNV, CCCD, HoTen, GioiTinh, DiaChi, SDT, NgayTao, MaChucVu, TrangThai
 		FROM NhanVien
 		WHERE (MaNV LIKE '%' + ISNULL(@MaNV, '') + '%')
 			AND (HoTen LIKE '%' + ISNULL(@HoTen, '') + '%')
@@ -253,18 +613,17 @@ CREATE PROC sp_getSupplier
 	@TenNCC nvarchar(255) = null,
 	@SDT varchar(12) = null,
 	@DiaChi nvarchar(255) = null,
-	@TrangThai bit = -1
+	@TrangThai bit = null
 )
 as
 begin
-	IF @TrangThai < 0
+	IF @TrangThai is null
 		SELECT MaNCC, TenNCC, SDT, DiaChi, TrangThai
 		FROM NhaCungCap
 		WHERE (MaNCC LIKE '%' + ISNULL(@MaNCC, '') + '%')
 			AND (TenNCC LIKE '%' + ISNULL(@TenNCC, '') + '%')
 			AND (SDT LIKE '%' + ISNULL(@SDT, '') + '%')
 			AND (DiaChi LIKE '%' + ISNULL(@DiaChi, '') + '%')
-			AND (TrangThai = @TrangThai)
 	ELSE
 		SELECT MaNCC, TenNCC, SDT, DiaChi, TrangThai
 		FROM NhaCungCap
@@ -292,11 +651,11 @@ begin
 end
 GO
 --Product
-CREATE PROC sp_getProduct
+ALTER PROC sp_getProduct
 (
 	@MaSP varchar(20) = null,
 	@TenSP nvarchar(50) = null,
-	@TenNCC varchar(10) = null,
+	@TenNCC nvarchar(255) = null,
 	@TenLoai varchar(10) = null,
 	@DonViTinh nvarchar(20) = null,
 	@TrangThai bit = null
@@ -359,7 +718,7 @@ begin
 end
 GO
 --Invoice Selling
-CREATE PROC sp_getInvoiceSelling
+ALTER PROC sp_getInvoiceSelling
 (
 	@MaHD varchar(10) = null,
 	@MaNV varchar(10) = null,
@@ -370,8 +729,8 @@ as
 begin
 	IF @MaKH IS NULL
 		BEGIN
-			SELECT MaHD, MaNV, MaKH, NgayLapHD, TongTien, TienKhachDua, TienTraKhach
-			FROM HoaDonBanHang
+			SELECT MaHD, MaNV, MaKH,NgayLapHD, TongTien, TienKhachDua, TienTraKhach
+			FROM HoaDonBanHang HD
 			WHERE (MaHD LIKE '%' + ISNULL(@MaHD, '') + '%')
 				AND (MaNV LIKE '%' + ISNULL(@MaNV, '') + '%')
 				AND (NgayLapHD = ISNULL(@NgayLapHD, NgayLapHD))
@@ -389,7 +748,7 @@ end
 GO
 
 --Detail Invoice Selling
-CREATE PROC sp_GetDetailInvoiceSelling
+ALTER PROC sp_GetDetailInvoiceSelling
 (
 	@MaHD varchar(10) = null,
 	@MaSP varchar(20) = null,
@@ -399,17 +758,23 @@ as
 begin
 	IF @MaKM IS NULL
 		BEGIN
-			SELECT MaHD, MaSP, MaKM, SoLuong, DonGia, ThanhTien
-			FROM ChiTietHoaDonBanHang
+			SELECT MaHD, TenSP, MaKM, DonGia, CT.SoLuong as SL, ThanhTien
+			FROM 
+				ChiTietHoaDonBanHang CT
+			LEFT JOIN
+				SanPham SP ON SP.MaSP = CT.MaSP
 			WHERE (MaHD LIKE '%' + ISNULL(@MaHD, '') + '%')
-				AND (MaSP LIKE '%' + ISNULL(@MaSP, '') + '%')
+				AND (CT.MaSP LIKE '%' + ISNULL(@MaSP, '') + '%')
 		END
-    ELSE
+	ELSE
 		BEGIN
-			SELECT MaHD, MaSP, MaKM, SoLuong, DonGia, ThanhTien
-			FROM ChiTietHoaDonBanHang
+			SELECT MaHD, TenSp, MaKM, DonGia, CT.SoLuong as SL, ThanhTien
+			FROM 
+				ChiTietHoaDonBanHang CT
+			LEFT JOIN
+				SanPham SP ON SP.MaSP = CT.MaSP
 			WHERE (MaHD LIKE '%' + ISNULL(@MaHD, '') + '%')
-				AND (MaSP LIKE '%' + ISNULL(@MaSP, '') + '%')
+				AND (CT.MaSP LIKE '%' + ISNULL(@MaSP, '') + '%')
 				AND (MaKM LIKE '%' + @MaKM + '%')
 		END
 end
@@ -607,6 +972,7 @@ begin
 	SELECT TOP 1 MaHD
 	FROM HoaDonBanHang
 	ORDER BY MaHD DESC
+
 end
 GO
 
@@ -635,7 +1001,7 @@ GO
 
 
 --Invoice Import Warehouse
-CREATE PROC sp_InsertInvoiceImportWareHouse
+ALTER PROC sp_InsertInvoiceImportWareHouse
 (
 	@MaNV varchar(10),
 	@MaNCC varchar(20),
@@ -689,6 +1055,10 @@ begin
 	INSERT INTO ChiTietHoaDonNhapKho(MaNK, MaSP, NgayHetHan, SoLuong, DonGiaNhap, ThanhTien)
 	VALUES (@MaNK, @MaSP, @NgayHetHan, @SoLuong, @DonGiaNhap, @SoLuong * @DonGiaNhap)
 
+	UPDATE SanPham
+	SET SoLuong = SoLuong + @SoLuong
+	WHERE MaSP = @MaSP
+
 	SELECT 1
 end
 GO
@@ -732,7 +1102,7 @@ begin
 end
 GO
 --Employee
-CREATE PROC sp_UpdateEmployee
+ALTER PROC sp_UpdateEmployee
 (
 	@MaNV varchar(10), @CCCD varchar(12), @HoTen nvarchar(100),
 	@GioiTinh nvarchar(3), @DiaChi nvarchar(255), @SDT varchar(12), @NgayTao date,

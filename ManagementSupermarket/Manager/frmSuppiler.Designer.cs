@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.dgv_Supplier = new System.Windows.Forms.DataGridView();
+            this.MaNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrangThai = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.chk_Status = new System.Windows.Forms.CheckBox();
             this.txt_Phone = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,11 +55,6 @@
             this.btn_Search = new FontAwesome.Sharp.IconButton();
             this.chk_StatusDGV = new System.Windows.Forms.CheckBox();
             this.cbb_Search = new System.Windows.Forms.ComboBox();
-            this.MaNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TrangThai = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Supplier)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -64,6 +64,9 @@
             this.dgv_Supplier.AllowUserToAddRows = false;
             this.dgv_Supplier.AllowUserToDeleteRows = false;
             this.dgv_Supplier.AllowUserToOrderColumns = true;
+            this.dgv_Supplier.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_Supplier.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_Supplier.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgv_Supplier.BackgroundColor = System.Drawing.Color.Azure;
@@ -84,6 +87,46 @@
             this.dgv_Supplier.Size = new System.Drawing.Size(864, 629);
             this.dgv_Supplier.TabIndex = 13;
             this.dgv_Supplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Supplier_CellClick);
+            // 
+            // MaNCC
+            // 
+            this.MaNCC.DataPropertyName = "MaNCC";
+            this.MaNCC.HeaderText = "Mã NCC";
+            this.MaNCC.MinimumWidth = 6;
+            this.MaNCC.Name = "MaNCC";
+            this.MaNCC.ReadOnly = true;
+            // 
+            // TenNCC
+            // 
+            this.TenNCC.DataPropertyName = "TenNCC";
+            this.TenNCC.HeaderText = "Tên NCC";
+            this.TenNCC.MinimumWidth = 6;
+            this.TenNCC.Name = "TenNCC";
+            this.TenNCC.ReadOnly = true;
+            // 
+            // SDT
+            // 
+            this.SDT.DataPropertyName = "SDT";
+            this.SDT.HeaderText = "SĐT";
+            this.SDT.MinimumWidth = 6;
+            this.SDT.Name = "SDT";
+            this.SDT.ReadOnly = true;
+            // 
+            // DiaChi
+            // 
+            this.DiaChi.DataPropertyName = "DiaChi";
+            this.DiaChi.HeaderText = "Địa Chi";
+            this.DiaChi.MinimumWidth = 6;
+            this.DiaChi.Name = "DiaChi";
+            this.DiaChi.ReadOnly = true;
+            // 
+            // TrangThai
+            // 
+            this.TrangThai.DataPropertyName = "TrangThai";
+            this.TrangThai.HeaderText = "Trạng Thái";
+            this.TrangThai.MinimumWidth = 6;
+            this.TrangThai.Name = "TrangThai";
+            this.TrangThai.ReadOnly = true;
             // 
             // chk_Status
             // 
@@ -210,7 +253,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(478, 731);
+            this.panel1.Size = new System.Drawing.Size(410, 731);
             this.panel1.TabIndex = 12;
             // 
             // lbl_Address
@@ -345,46 +388,6 @@
             this.cbb_Search.Name = "cbb_Search";
             this.cbb_Search.Size = new System.Drawing.Size(131, 46);
             this.cbb_Search.TabIndex = 23;
-            // 
-            // MaNCC
-            // 
-            this.MaNCC.DataPropertyName = "MaNCC";
-            this.MaNCC.HeaderText = "Mã NCC";
-            this.MaNCC.MinimumWidth = 6;
-            this.MaNCC.Name = "MaNCC";
-            this.MaNCC.ReadOnly = true;
-            // 
-            // TenNCC
-            // 
-            this.TenNCC.DataPropertyName = "TenNCC";
-            this.TenNCC.HeaderText = "Tên NCC";
-            this.TenNCC.MinimumWidth = 6;
-            this.TenNCC.Name = "TenNCC";
-            this.TenNCC.ReadOnly = true;
-            // 
-            // SDT
-            // 
-            this.SDT.DataPropertyName = "SDT";
-            this.SDT.HeaderText = "SĐT";
-            this.SDT.MinimumWidth = 6;
-            this.SDT.Name = "SDT";
-            this.SDT.ReadOnly = true;
-            // 
-            // DiaChi
-            // 
-            this.DiaChi.DataPropertyName = "DiaChi";
-            this.DiaChi.HeaderText = "Địa Chi";
-            this.DiaChi.MinimumWidth = 6;
-            this.DiaChi.Name = "DiaChi";
-            this.DiaChi.ReadOnly = true;
-            // 
-            // TrangThai
-            // 
-            this.TrangThai.DataPropertyName = "TrangThai";
-            this.TrangThai.HeaderText = "Trạng Thái";
-            this.TrangThai.MinimumWidth = 6;
-            this.TrangThai.Name = "TrangThai";
-            this.TrangThai.ReadOnly = true;
             // 
             // frmSuppiler
             // 
