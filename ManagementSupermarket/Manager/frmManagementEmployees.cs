@@ -157,8 +157,8 @@ namespace ManagementSupermarket
                     txt_Address.Text = rowSelected["DiaChi"].Value.ToString();
 
                     dtp_CreatedTime.Value = (DateTime)rowSelected["NgayTao"].Value;
-
-                    cbb_Role.Text = rowSelected["MaChucVu"].Value.ToString();
+                    //ERROR
+                    cbb_Role.SelectedItem = cbb_Role.Items.IndexOf(rowSelected["MaChucVu"].Value.ToString());
                     rad_Male.Checked = rowSelected["GioiTinh"].Value.ToString() == "Nam" ? true : false;
                     rad_Female.Checked = !rad_Male.Checked;
                     chk_Status.Checked = (bool)rowSelected["TrangThai"].Value;

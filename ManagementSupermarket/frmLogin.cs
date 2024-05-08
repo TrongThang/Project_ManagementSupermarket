@@ -77,5 +77,14 @@ namespace ManagementSupermarket
                 frmHomeOfManager.Show();
             }
         }
+
+        private void btn_Exit_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Thoát chương trình?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if(result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }   

@@ -67,8 +67,13 @@ namespace ManagementSupermarket
         }
         private bool ErrorMoneyCashCustomer()
         {
-            bool cashEmpty = string.IsNullOrEmpty(txt_CashCustomerCreate.Text);
-            bool errMoney = double.Parse(txt_CashCustomerCreate.Text) < double.Parse(moneyToNumber(txt_TotalCashCreate.Text));
+            bool cashEmpty = string.IsNullOrEmpty(txt_CashCustomerCreate.Text.Trim());
+            double cash = 0;
+            if(cashEmpty == false)
+            {
+                cash = double.Parse(txt_CashCustomerCreate.Text);
+            }
+            bool errMoney = cash  < double.Parse(moneyToNumber(txt_TotalCashCreate.Text));
             if (cashEmpty)
             {
                 lbl_ErrorCashCustomer.Text = "*Vui lòng nhập tiền của khách hàng!";
@@ -464,7 +469,7 @@ namespace ManagementSupermarket
         {
             eventConfig.PressNumber(sender, e);
         }
-
+        
         private void btn_FinishOrder_Click(object sender, EventArgs e)
         {
             try
@@ -480,7 +485,7 @@ namespace ManagementSupermarket
                 {
                     return;
                 }
-
+               
 
                 string idInvoice, idProduct, idDiscount, idEmployee, idCustomer = null, phone;
                 float price, totalMoney, cashCustomer;
@@ -493,10 +498,11 @@ namespace ManagementSupermarket
                 //@TongTien decimal,
                 //@TienKhachDua decimal = 0
                 idEmployee = this.s_idEmployee;
+                
                 if (chk_PhoneCustomer.Checked)
                 {
                     phone = txt_PhoneCustomerCreate.Text.Trim();
-                    DataTable tblCustomer = (new BLL_Customer()).GetCustomerTo("SDT", phone);
+                    DataTable tblCustomer = (new BLL_Customer()).GetCustomerToPhone(phone);
                     if (tblCustomer.Rows.Count > 0)
                     {
                         idCustomer = tblCustomer.Rows[0]["MaKH"].ToString();

@@ -39,8 +39,18 @@ namespace DAL
             db.addParam(keySearch,value);
             tblCustomer = db.queryExecuteAdapter(sql);
             return tblCustomer;
+        }
+        public DataTable GetCustomerToPhone(string value)
+        {
+            DP db = new DP();
+            string sql = "sp_GetCustomerToPhone";
+            DataTable tblCustomer = new DataTable();
+            //keySearch: is Text in ComboBox Search user choice
+            //Value: Text in TextBox user input
+            db.addParam("SDT", value);
+            tblCustomer = db.queryExecuteAdapter(sql);
             
-
+            return tblCustomer;
         }
         public int  InsertCustomer(DTO_Customer customer)
         {
@@ -49,7 +59,7 @@ namespace DAL
             dict = createDict(customer);
             //HoTen, CCCD, SDT, GioiTinh, DiaChi, NgayDangKy, TrangThai
 
-            DataTable result =db.queryExecuteAdapter(sql,dict);
+            DataTable result = db.queryExecuteAdapter(sql,dict);
             int numOfRows = result.Rows.Count;
             return numOfRows;
 

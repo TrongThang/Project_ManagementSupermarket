@@ -53,8 +53,8 @@
             this.btn_Revenue = new FontAwesome.Sharp.IconButton();
             this.btn_LogOut = new FontAwesome.Sharp.IconButton();
             this.btn_Exit = new FontAwesome.Sharp.IconButton();
-            this.panel_body = new System.Windows.Forms.Panel();
             this.btnContact = new FontAwesome.Sharp.IconButton();
+            this.panel_body = new System.Windows.Forms.Panel();
             this.panel_Top.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel_Avatar.SuspendLayout();
@@ -237,7 +237,7 @@
             this.btn_Sell.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btn_Sell.Size = new System.Drawing.Size(227, 89);
             this.btn_Sell.TabIndex = 15;
-            this.btn_Sell.Tag = "1";
+            this.btn_Sell.Tag = "Invoice";
             this.btn_Sell.Text = "Bán Hàng";
             this.btn_Sell.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Sell.UseVisualStyleBackColor = true;
@@ -256,7 +256,7 @@
             this.btn_Employee.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btn_Employee.Size = new System.Drawing.Size(227, 89);
             this.btn_Employee.TabIndex = 8;
-            this.btn_Employee.Tag = "2";
+            this.btn_Employee.Tag = "Employee";
             this.btn_Employee.Text = "Nhân Viên";
             this.btn_Employee.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Employee.UseVisualStyleBackColor = true;
@@ -275,7 +275,7 @@
             this.btn_Product.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btn_Product.Size = new System.Drawing.Size(227, 89);
             this.btn_Product.TabIndex = 10;
-            this.btn_Product.Tag = "3";
+            this.btn_Product.Tag = "Product";
             this.btn_Product.Text = "Sản Phẩm";
             this.btn_Product.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Product.UseVisualStyleBackColor = true;
@@ -294,7 +294,7 @@
             this.btn_TypeProduct.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btn_TypeProduct.Size = new System.Drawing.Size(227, 89);
             this.btn_TypeProduct.TabIndex = 17;
-            this.btn_TypeProduct.Tag = "7";
+            this.btn_TypeProduct.Tag = "TypeProduct";
             this.btn_TypeProduct.Text = "Loại Sản Phẩm";
             this.btn_TypeProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_TypeProduct.UseVisualStyleBackColor = true;
@@ -313,7 +313,7 @@
             this.btn_Customer.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btn_Customer.Size = new System.Drawing.Size(227, 89);
             this.btn_Customer.TabIndex = 18;
-            this.btn_Customer.Tag = "customer";
+            this.btn_Customer.Tag = "Customer";
             this.btn_Customer.Text = "Khách Hàng";
             this.btn_Customer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Customer.UseVisualStyleBackColor = true;
@@ -332,7 +332,7 @@
             this.btn_Supplier.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btn_Supplier.Size = new System.Drawing.Size(227, 89);
             this.btn_Supplier.TabIndex = 12;
-            this.btn_Supplier.Tag = "5";
+            this.btn_Supplier.Tag = "Supplier";
             this.btn_Supplier.Text = "Nhà Cung Cấp";
             this.btn_Supplier.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Supplier.UseVisualStyleBackColor = true;
@@ -351,7 +351,7 @@
             this.btn_Discount.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btn_Discount.Size = new System.Drawing.Size(227, 89);
             this.btn_Discount.TabIndex = 11;
-            this.btn_Discount.Tag = "4";
+            this.btn_Discount.Tag = "Discount";
             this.btn_Discount.Text = "Khuyến Mãi";
             this.btn_Discount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Discount.UseVisualStyleBackColor = true;
@@ -370,7 +370,7 @@
             this.btn_WareHouse.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btn_WareHouse.Size = new System.Drawing.Size(227, 89);
             this.btn_WareHouse.TabIndex = 13;
-            this.btn_WareHouse.Tag = "6";
+            this.btn_WareHouse.Tag = "Warehouse";
             this.btn_WareHouse.Text = "Kho Hàng";
             this.btn_WareHouse.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_WareHouse.UseVisualStyleBackColor = true;
@@ -431,16 +431,6 @@
             this.btn_Exit.UseVisualStyleBackColor = true;
             this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
-            // panel_body
-            // 
-            this.panel_body.AutoScroll = true;
-            this.panel_body.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_body.Location = new System.Drawing.Point(250, 146);
-            this.panel_body.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.panel_body.Name = "panel_body";
-            this.panel_body.Size = new System.Drawing.Size(1292, 731);
-            this.panel_body.TabIndex = 9;
-            // 
             // btnContact
             // 
             this.btnContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -454,11 +444,21 @@
             this.btnContact.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnContact.Size = new System.Drawing.Size(227, 89);
             this.btnContact.TabIndex = 20;
-            this.btnContact.Tag = "revenue";
+            this.btnContact.Tag = "Contact";
             this.btnContact.Text = "TTLiên Hệ";
             this.btnContact.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnContact.UseVisualStyleBackColor = true;
             this.btnContact.Click += new System.EventHandler(this.btnContact_Click);
+            // 
+            // panel_body
+            // 
+            this.panel_body.AutoScroll = true;
+            this.panel_body.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_body.Location = new System.Drawing.Point(250, 146);
+            this.panel_body.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.panel_body.Name = "panel_body";
+            this.panel_body.Size = new System.Drawing.Size(1292, 731);
+            this.panel_body.TabIndex = 9;
             // 
             // frmHomeOfManager
             // 

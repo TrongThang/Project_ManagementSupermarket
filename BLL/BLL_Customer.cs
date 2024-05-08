@@ -15,6 +15,10 @@ namespace BLL
         {
             return dataCustomer.GetCustomerTo(keySearch, value);
         }
+        public DataTable GetCustomerToPhone(string value)
+        {
+            return dataCustomer.GetCustomerToPhone(value);
+        }
         public int InsertCustomer(DTO_Customer customer)
         {
             return dataCustomer.InsertCustomer(customer);

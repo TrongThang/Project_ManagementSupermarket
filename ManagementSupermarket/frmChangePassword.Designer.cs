@@ -44,22 +44,22 @@
             // txt_NewPassword
             // 
             this.txt_NewPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_NewPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.txt_NewPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 23F);
             this.txt_NewPassword.Location = new System.Drawing.Point(550, 289);
             this.txt_NewPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_NewPassword.Name = "txt_NewPassword";
-            this.txt_NewPassword.Size = new System.Drawing.Size(393, 45);
+            this.txt_NewPassword.Size = new System.Drawing.Size(393, 51);
             this.txt_NewPassword.TabIndex = 12;
             this.txt_NewPassword.UseSystemPasswordChar = true;
             // 
             // txt_OldPassword
             // 
             this.txt_OldPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_OldPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.txt_OldPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 23F);
             this.txt_OldPassword.Location = new System.Drawing.Point(550, 207);
             this.txt_OldPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_OldPassword.Name = "txt_OldPassword";
-            this.txt_OldPassword.Size = new System.Drawing.Size(393, 45);
+            this.txt_OldPassword.Size = new System.Drawing.Size(393, 51);
             this.txt_OldPassword.TabIndex = 13;
             this.txt_OldPassword.UseSystemPasswordChar = true;
             // 
@@ -99,11 +99,11 @@
             // txt_ConfirmPassword
             // 
             this.txt_ConfirmPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_ConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.txt_ConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 23F);
             this.txt_ConfirmPassword.Location = new System.Drawing.Point(550, 373);
             this.txt_ConfirmPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_ConfirmPassword.Name = "txt_ConfirmPassword";
-            this.txt_ConfirmPassword.Size = new System.Drawing.Size(393, 45);
+            this.txt_ConfirmPassword.Size = new System.Drawing.Size(393, 51);
             this.txt_ConfirmPassword.TabIndex = 12;
             this.txt_ConfirmPassword.UseSystemPasswordChar = true;
             // 
@@ -143,7 +143,7 @@
             this.btnShowHideNewPassword.Location = new System.Drawing.Point(891, 289);
             this.btnShowHideNewPassword.Margin = new System.Windows.Forms.Padding(0);
             this.btnShowHideNewPassword.Name = "btnShowHideNewPassword";
-            this.btnShowHideNewPassword.Size = new System.Drawing.Size(52, 48);
+            this.btnShowHideNewPassword.Size = new System.Drawing.Size(52, 41);
             this.btnShowHideNewPassword.TabIndex = 16;
             this.btnShowHideNewPassword.UseVisualStyleBackColor = false;
             this.btnShowHideNewPassword.Click += new System.EventHandler(this.btnShowHideNewPassword_Click);
@@ -158,7 +158,7 @@
             this.btnShowHideConfirmPassword.Location = new System.Drawing.Point(891, 373);
             this.btnShowHideConfirmPassword.Margin = new System.Windows.Forms.Padding(0);
             this.btnShowHideConfirmPassword.Name = "btnShowHideConfirmPassword";
-            this.btnShowHideConfirmPassword.Size = new System.Drawing.Size(52, 48);
+            this.btnShowHideConfirmPassword.Size = new System.Drawing.Size(52, 41);
             this.btnShowHideConfirmPassword.TabIndex = 17;
             this.btnShowHideConfirmPassword.UseVisualStyleBackColor = false;
             this.btnShowHideConfirmPassword.Click += new System.EventHandler(this.btnShowHideConfirmPassword_Click);
@@ -173,7 +173,7 @@
             this.btnShowHideOldPassword.Location = new System.Drawing.Point(891, 207);
             this.btnShowHideOldPassword.Margin = new System.Windows.Forms.Padding(0);
             this.btnShowHideOldPassword.Name = "btnShowHideOldPassword";
-            this.btnShowHideOldPassword.Size = new System.Drawing.Size(52, 48);
+            this.btnShowHideOldPassword.Size = new System.Drawing.Size(52, 42);
             this.btnShowHideOldPassword.TabIndex = 18;
             this.btnShowHideOldPassword.UseVisualStyleBackColor = false;
             this.btnShowHideOldPassword.Click += new System.EventHandler(this.btnShowHideOldPassword_Click);
