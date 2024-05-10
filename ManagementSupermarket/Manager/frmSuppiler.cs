@@ -90,6 +90,23 @@ namespace ManagementSupermarket
         {
             LoadData();
         }
+        private bool ExistNameOrPhone(string fullName,string phone)
+        {
+            bool existName = (new BLL_Supplier()).GetSupplier("TenNCC", fullName).Rows.Count > 0;
+            bool existPhone = (new BLL_Customer()).GetCustomerTo("SDT", phone).Rows.Count > 0;
+            if (existName)
+            {
+                MessageBox.Show($"Nhà cung cấp có tên: {fullName} đã tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+               
+            }
+            else if (existPhone)
+            {
+                MessageBox.Show($"Nhà cung cấp có SDT: {phone} đã tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            return existPhone;
+            return existName;
+        }
         private void btn_Add_Click(object sender, EventArgs e)
         {
             try
@@ -105,12 +122,16 @@ namespace ManagementSupermarket
                 {
                     return;
                 }
-
+                 if (ExistNameOrPhone(nameSupplier,phone))
+                    {
+                        return;
+                    }
                 DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thêm thông tin nhà cung cấp?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
                     DTO_Supplier supplier = new DTO_Supplier(nameSupplier, phone, address, status);
+                   
 
                     int numOfRows = datasupplier.InsertSupplier(supplier);
                     if (numOfRows > 0)
@@ -230,6 +251,8 @@ namespace ManagementSupermarket
             txt_Address.Clear();
             chk_Status.Checked = false;
             chk_StatusDGV.Checked = true;
+
+            txt_Search.Clear();
             LoadData();
         }
 

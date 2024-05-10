@@ -145,6 +145,7 @@ namespace ManagementSupermarket.Manager
                 LoadDataGridView_InvoiceWarehouse();
 
                 LoadDataComboBox_NameSuppiler();
+                cbb_SearchRole.SelectedIndex = 0;
             }
             catch (Exception err)
             {
@@ -549,6 +550,10 @@ namespace ManagementSupermarket.Manager
                 txt_TotalCash.Clear();
                 cbb_NameSuplier.SelectedIndex = 1;
                 dtp_CreatedTime_List.Value = DateTime.Now;
+
+                txt_SearchOrderToReceive.Clear();
+                LoadDataGridView_InvoiceWarehouse();
+                
             }
             catch (Exception err)
             {

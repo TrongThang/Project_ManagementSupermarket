@@ -82,7 +82,7 @@ namespace ManagementSupermarket
             }
             else if (errMoney)
             {
-                lbl_ErrorCashCustomer.Text = "*Tiền của khách hàng phải hiện nhỏ hơn tổng đơn hàng!";
+                lbl_ErrorCashCustomer.Text = "*Tiền của khách hàng phải \n lớn hơn hoặc bằng tổng đơn hàng!";
                 lbl_ErrorCashCustomer.Visible = true;
                 return true;
             }
@@ -263,6 +263,11 @@ namespace ManagementSupermarket
             txt_ChangeCreate.Text = "0";
             txt_TotalCashCreate.Text = "0";
             lst_OrderCurrency.Items.Clear();
+
+            txtSearch.Clear();
+            txt_CashCustomerCreate.Clear();
+            txt_ProductInWarehouse.Clear();
+            txt_PhoneCustomerCreate.Clear();
         }
 
         private void cbb_NameProductCreate_SelectionChangeCommitted(object sender, EventArgs e)
@@ -700,5 +705,7 @@ namespace ManagementSupermarket
                 return;
             }
         }
+
+     
     }
 }

@@ -331,6 +331,7 @@ namespace ManagementSupermarket.Manager
             dtpTimeStart.Value = DateTime.Now;
             num_CountTime.Value = 0;
             cbb_UnitTime.SelectedIndex = 0;
+            txt_Search.Clear();
             On_OffLabelError(0);
         }
 
