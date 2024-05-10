@@ -55,6 +55,7 @@
             this.btn_Exit = new FontAwesome.Sharp.IconButton();
             this.btnContact = new FontAwesome.Sharp.IconButton();
             this.panel_body = new System.Windows.Forms.Panel();
+            this.btn_Accounts = new FontAwesome.Sharp.IconButton();
             this.panel_Top.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel_Avatar.SuspendLayout();
@@ -204,6 +205,7 @@
             // 
             this.FlowPanel_Button.AutoScroll = true;
             this.FlowPanel_Button.Controls.Add(this.btn_Sell);
+            this.FlowPanel_Button.Controls.Add(this.btn_Accounts);
             this.FlowPanel_Button.Controls.Add(this.btn_Employee);
             this.FlowPanel_Button.Controls.Add(this.btn_Product);
             this.FlowPanel_Button.Controls.Add(this.btn_TypeProduct);
@@ -250,7 +252,7 @@
             this.btn_Employee.IconColor = System.Drawing.Color.Black;
             this.btn_Employee.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Employee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Employee.Location = new System.Drawing.Point(0, 89);
+            this.btn_Employee.Location = new System.Drawing.Point(0, 178);
             this.btn_Employee.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Employee.Name = "btn_Employee";
             this.btn_Employee.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
@@ -269,7 +271,7 @@
             this.btn_Product.IconColor = System.Drawing.Color.Black;
             this.btn_Product.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Product.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Product.Location = new System.Drawing.Point(0, 178);
+            this.btn_Product.Location = new System.Drawing.Point(0, 267);
             this.btn_Product.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Product.Name = "btn_Product";
             this.btn_Product.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
@@ -288,7 +290,7 @@
             this.btn_TypeProduct.IconColor = System.Drawing.Color.Black;
             this.btn_TypeProduct.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_TypeProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_TypeProduct.Location = new System.Drawing.Point(0, 267);
+            this.btn_TypeProduct.Location = new System.Drawing.Point(0, 356);
             this.btn_TypeProduct.Margin = new System.Windows.Forms.Padding(0);
             this.btn_TypeProduct.Name = "btn_TypeProduct";
             this.btn_TypeProduct.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
@@ -307,7 +309,7 @@
             this.btn_Customer.IconColor = System.Drawing.Color.Black;
             this.btn_Customer.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Customer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Customer.Location = new System.Drawing.Point(0, 356);
+            this.btn_Customer.Location = new System.Drawing.Point(0, 445);
             this.btn_Customer.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Customer.Name = "btn_Customer";
             this.btn_Customer.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
@@ -326,7 +328,7 @@
             this.btn_Supplier.IconColor = System.Drawing.Color.Black;
             this.btn_Supplier.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Supplier.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Supplier.Location = new System.Drawing.Point(0, 445);
+            this.btn_Supplier.Location = new System.Drawing.Point(0, 534);
             this.btn_Supplier.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Supplier.Name = "btn_Supplier";
             this.btn_Supplier.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
@@ -345,7 +347,7 @@
             this.btn_Discount.IconColor = System.Drawing.Color.Black;
             this.btn_Discount.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Discount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Discount.Location = new System.Drawing.Point(0, 534);
+            this.btn_Discount.Location = new System.Drawing.Point(0, 623);
             this.btn_Discount.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Discount.Name = "btn_Discount";
             this.btn_Discount.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
@@ -364,7 +366,7 @@
             this.btn_WareHouse.IconColor = System.Drawing.Color.Black;
             this.btn_WareHouse.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_WareHouse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_WareHouse.Location = new System.Drawing.Point(0, 623);
+            this.btn_WareHouse.Location = new System.Drawing.Point(0, 712);
             this.btn_WareHouse.Margin = new System.Windows.Forms.Padding(0);
             this.btn_WareHouse.Name = "btn_WareHouse";
             this.btn_WareHouse.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
@@ -383,7 +385,7 @@
             this.btn_Revenue.IconColor = System.Drawing.Color.Black;
             this.btn_Revenue.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Revenue.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Revenue.Location = new System.Drawing.Point(0, 712);
+            this.btn_Revenue.Location = new System.Drawing.Point(0, 801);
             this.btn_Revenue.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Revenue.Name = "btn_Revenue";
             this.btn_Revenue.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
@@ -402,7 +404,7 @@
             this.btn_LogOut.IconColor = System.Drawing.Color.Black;
             this.btn_LogOut.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_LogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_LogOut.Location = new System.Drawing.Point(0, 801);
+            this.btn_LogOut.Location = new System.Drawing.Point(0, 890);
             this.btn_LogOut.Margin = new System.Windows.Forms.Padding(0);
             this.btn_LogOut.Name = "btn_LogOut";
             this.btn_LogOut.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
@@ -420,7 +422,7 @@
             this.btn_Exit.IconColor = System.Drawing.Color.Black;
             this.btn_Exit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Exit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Exit.Location = new System.Drawing.Point(0, 890);
+            this.btn_Exit.Location = new System.Drawing.Point(0, 979);
             this.btn_Exit.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
@@ -438,7 +440,7 @@
             this.btnContact.IconColor = System.Drawing.Color.Black;
             this.btnContact.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnContact.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnContact.Location = new System.Drawing.Point(0, 979);
+            this.btnContact.Location = new System.Drawing.Point(0, 1068);
             this.btnContact.Margin = new System.Windows.Forms.Padding(0);
             this.btnContact.Name = "btnContact";
             this.btnContact.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
@@ -460,6 +462,25 @@
             this.panel_body.Size = new System.Drawing.Size(1292, 731);
             this.panel_body.TabIndex = 9;
             // 
+            // btn_Accounts
+            // 
+            this.btn_Accounts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Accounts.IconChar = FontAwesome.Sharp.IconChar.AddressCard;
+            this.btn_Accounts.IconColor = System.Drawing.Color.Black;
+            this.btn_Accounts.IconFont = FontAwesome.Sharp.IconFont.Regular;
+            this.btn_Accounts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Accounts.Location = new System.Drawing.Point(0, 89);
+            this.btn_Accounts.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Accounts.Name = "btn_Accounts";
+            this.btn_Accounts.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btn_Accounts.Size = new System.Drawing.Size(227, 89);
+            this.btn_Accounts.TabIndex = 21;
+            this.btn_Accounts.Tag = "Accounts";
+            this.btn_Accounts.Text = "Tài Khoản";
+            this.btn_Accounts.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_Accounts.UseVisualStyleBackColor = true;
+            this.btn_Accounts.Click += new System.EventHandler(this.btn_Accounts_Click);
+            // 
             // frmHomeOfManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
@@ -473,7 +494,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.Name = "frmHomeOfManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmHome";
+            this.Text = "Phần mềm quản lý siêu thị mini TQ";
             this.Load += new System.EventHandler(this.frmHomeOfManager_Load);
             this.panel_Top.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -515,5 +536,6 @@
         private System.Windows.Forms.Label lbl_Home;
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconButton btnContact;
+        private FontAwesome.Sharp.IconButton btn_Accounts;
     }
 }

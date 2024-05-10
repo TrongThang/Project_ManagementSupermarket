@@ -28,3 +28,9 @@ D:\C#\Project_ManagementSupermarket_ver3\DTO\obj\Debug\DTO.csproj.AssemblyRefere
 D:\C#\Project_ManagementSupermarket_ver3\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 D:\C#\Project_ManagementSupermarket_ver3\DTO\obj\Debug\DTO.dll
 D:\C#\Project_ManagementSupermarket_ver3\DTO\obj\Debug\DTO.pdb
+D:\C#\Fix merge\DTO\bin\Debug\DTO.dll
+D:\C#\Fix merge\DTO\bin\Debug\DTO.pdb
+D:\C#\Fix merge\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
+D:\C#\Fix merge\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+D:\C#\Fix merge\DTO\obj\Debug\DTO.dll
+D:\C#\Fix merge\DTO\obj\Debug\DTO.pdb

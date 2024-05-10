@@ -36,8 +36,8 @@ namespace ManagementSupermarket
         {
             if(txt_Username.Text == "" && txt_Password.Text == "")
             {
-                string role = "QL";
-                string idEmployee = "NV001";
+                string role = "QLCC";
+                string idEmployee = "NV002";
                 frmHomeOfManager frmHomeOfManager = new frmHomeOfManager(idEmployee, role);
                 this.Hide();
                 frmHomeOfManager.Show();

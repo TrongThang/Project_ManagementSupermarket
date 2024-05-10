@@ -42,6 +42,9 @@ namespace ManagementSupermarket
                 btn_WareHouse.Visible = false;
                 btn_TypeProduct.Visible = false;
                 btn_Revenue.Visible = false;    
+            }else if(s_role == "QL")
+            {
+                btn_Accounts.Visible = false;
             }
         }
         private void frmHomeOfManager_Load(object sender, EventArgs e)
@@ -190,6 +193,12 @@ namespace ManagementSupermarket
         {
             IconButton btn = sender as IconButton;
             OpenfrmChild(new frmContact(), btn);
+        }
+
+        private void btn_Accounts_Click(object sender, EventArgs e)
+        {
+            IconButton btn = sender as IconButton;
+            OpenfrmChild(new frmAccounts(), btn);
         }
     }
 }

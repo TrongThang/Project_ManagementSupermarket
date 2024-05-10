@@ -69,6 +69,12 @@
     <Compile Include="frmInfomation.Designer.cs">
       <DependentUpon>frmInfomation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manager\frmAccounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\frmAccounts.Designer.cs">
+      <DependentUpon>frmAccounts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manager\frmContact.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +167,9 @@
     <EmbeddedResource Include="frmInfomation.resx">
       <DependentUpon>frmInfomation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Manager\frmAccounts.resx">
+      <DependentUpon>frmAccounts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Manager\frmContact.resx">
       <DependentUpon>frmContact.cs</DependentUpon>
     </EmbeddedResource>
@@ -234,6 +243,7 @@
     <Content Include="Image\Background\bgMain2.png" />
     <Content Include="Image\Icon\avatarDefaultFemale.png" />
     <Content Include="Image\Icon\avatarDefaultMale.png" />
+    <Content Include="Image\Icon\changePassword-icon.png" />
     <Content Include="Image\Icon\excel-icon.png" />
     <Content Include="Image\Icon\iconPencil.png" />
     <Content Include="Image\Icon\iconPlus.png" />

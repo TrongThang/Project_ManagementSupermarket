@@ -573,6 +573,7 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmManagementProducts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Tag = "Product";
             this.Text = " ";
             this.Load += new System.EventHandler(this.frmManagementProducts_Load);
             this.panel1.ResumeLayout(false);

@@ -28,14 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbl_TotalCash = new System.Windows.Forms.Label();
             this.lbl_NameCustomer = new System.Windows.Forms.Label();
             this.lbl_CreateTime = new System.Windows.Forms.Label();
             this.lbl_idEmployee = new System.Windows.Forms.Label();
             this.lbl_idInvoice = new System.Windows.Forms.Label();
             this.dgv_Detail_InvoiceSelling = new System.Windows.Forms.DataGridView();
+            this.MaHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -43,12 +49,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.MaHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaKM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Detail_InvoiceSelling)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,14 +110,14 @@
             this.dgv_Detail_InvoiceSelling.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_Detail_InvoiceSelling.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgv_Detail_InvoiceSelling.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Detail_InvoiceSelling.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Detail_InvoiceSelling.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_Detail_InvoiceSelling.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Detail_InvoiceSelling.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaHD,
@@ -129,18 +129,66 @@
             this.dgv_Detail_InvoiceSelling.Location = new System.Drawing.Point(35, 274);
             this.dgv_Detail_InvoiceSelling.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgv_Detail_InvoiceSelling.Name = "dgv_Detail_InvoiceSelling";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Detail_InvoiceSelling.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Detail_InvoiceSelling.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_Detail_InvoiceSelling.RowHeadersWidth = 51;
             this.dgv_Detail_InvoiceSelling.RowTemplate.Height = 24;
             this.dgv_Detail_InvoiceSelling.Size = new System.Drawing.Size(1116, 302);
             this.dgv_Detail_InvoiceSelling.TabIndex = 20;
+            // 
+            // MaHD
+            // 
+            this.MaHD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.MaHD.DataPropertyName = "MaHD";
+            this.MaHD.HeaderText = "Mã Hoá Đơn";
+            this.MaHD.MinimumWidth = 6;
+            this.MaHD.Name = "MaHD";
+            this.MaHD.Width = 165;
+            // 
+            // TenSP
+            // 
+            this.TenSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TenSP.DataPropertyName = "TenSP";
+            this.TenSP.HeaderText = "Tên Sản Phẩm";
+            this.TenSP.MinimumWidth = 6;
+            this.TenSP.Name = "TenSP";
+            this.TenSP.Width = 177;
+            // 
+            // MaKM
+            // 
+            this.MaKM.DataPropertyName = "MaKM";
+            this.MaKM.HeaderText = "Mã KM";
+            this.MaKM.MinimumWidth = 6;
+            this.MaKM.Name = "MaKM";
+            // 
+            // DonGia
+            // 
+            this.DonGia.DataPropertyName = "DonGia";
+            this.DonGia.HeaderText = "Đơn Giá";
+            this.DonGia.MinimumWidth = 6;
+            this.DonGia.Name = "DonGia";
+            // 
+            // SL
+            // 
+            this.SL.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.SL.DataPropertyName = "SL";
+            this.SL.HeaderText = "SL";
+            this.SL.MinimumWidth = 6;
+            this.SL.Name = "SL";
+            this.SL.Width = 64;
+            // 
+            // ThanhTien
+            // 
+            this.ThanhTien.DataPropertyName = "ThanhTien";
+            this.ThanhTien.HeaderText = "Thành Tiền";
+            this.ThanhTien.MinimumWidth = 6;
+            this.ThanhTien.Name = "ThanhTien";
             // 
             // label7
             // 
@@ -212,54 +260,6 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "SIÊU THỊ MINI TQ";
             // 
-            // MaHD
-            // 
-            this.MaHD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.MaHD.DataPropertyName = "MaHD";
-            this.MaHD.HeaderText = "Mã Hoá Đơn";
-            this.MaHD.MinimumWidth = 6;
-            this.MaHD.Name = "MaHD";
-            this.MaHD.Width = 172;
-            // 
-            // TenSP
-            // 
-            this.TenSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.TenSP.DataPropertyName = "TenSP";
-            this.TenSP.HeaderText = "Tên Sản Phẩm";
-            this.TenSP.MinimumWidth = 6;
-            this.TenSP.Name = "TenSP";
-            this.TenSP.Width = 185;
-            // 
-            // MaKM
-            // 
-            this.MaKM.DataPropertyName = "MaKM";
-            this.MaKM.HeaderText = "Mã KM";
-            this.MaKM.MinimumWidth = 6;
-            this.MaKM.Name = "MaKM";
-            // 
-            // DonGia
-            // 
-            this.DonGia.DataPropertyName = "DonGia";
-            this.DonGia.HeaderText = "Đơn Giá";
-            this.DonGia.MinimumWidth = 6;
-            this.DonGia.Name = "DonGia";
-            // 
-            // SL
-            // 
-            this.SL.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.SL.DataPropertyName = "SL";
-            this.SL.HeaderText = "SL";
-            this.SL.MinimumWidth = 6;
-            this.SL.Name = "SL";
-            this.SL.Width = 66;
-            // 
-            // ThanhTien
-            // 
-            this.ThanhTien.DataPropertyName = "ThanhTien";
-            this.ThanhTien.HeaderText = "Thành Tiền";
-            this.ThanhTien.MinimumWidth = 6;
-            this.ThanhTien.Name = "ThanhTien";
-            // 
             // frmDetailInvoiceSelling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
@@ -282,7 +282,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "frmDetailInvoiceSelling";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmDetailInvoiceSelling";
+            this.Text = "Chi tiết hoá đơn bán hàng";
             this.Load += new System.EventHandler(this.frmDetailInvoiceSelling_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Detail_InvoiceSelling)).EndInit();
             this.ResumeLayout(false);

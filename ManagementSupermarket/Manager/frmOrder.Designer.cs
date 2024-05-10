@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrder));
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btn_ExportPDF = new System.Windows.Forms.Button();
             this.btn_ExportExcel = new System.Windows.Forms.Button();
             this.cbb_Search = new System.Windows.Forms.ComboBox();
             this.btn_ShowDetailInvoice = new FontAwesome.Sharp.IconButton();
@@ -81,7 +82,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tab_HomeInvoiceSelling = new System.Windows.Forms.TabControl();
-            this.btn_ExportPDF = new System.Windows.Forms.Button();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_InvoiceSelling)).BeginInit();
             this.tab_FormCreateInvoice.SuspendLayout();
@@ -108,6 +108,17 @@
             this.tabPage2.Size = new System.Drawing.Size(1284, 692);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Danh Sách Hoá Đơn";
+            // 
+            // btn_ExportPDF
+            // 
+            this.btn_ExportPDF.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_ExportPDF.BackgroundImage")));
+            this.btn_ExportPDF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_ExportPDF.Location = new System.Drawing.Point(111, 9);
+            this.btn_ExportPDF.Name = "btn_ExportPDF";
+            this.btn_ExportPDF.Size = new System.Drawing.Size(98, 70);
+            this.btn_ExportPDF.TabIndex = 31;
+            this.btn_ExportPDF.UseVisualStyleBackColor = true;
+            this.btn_ExportPDF.Click += new System.EventHandler(this.btn_ExportPDF_Click);
             // 
             // btn_ExportExcel
             // 
@@ -692,22 +703,10 @@
             this.tab_HomeInvoiceSelling.Size = new System.Drawing.Size(1292, 731);
             this.tab_HomeInvoiceSelling.TabIndex = 0;
             // 
-            // btn_ExportPDF
-            // 
-            this.btn_ExportPDF.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_ExportPDF.BackgroundImage")));
-            this.btn_ExportPDF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_ExportPDF.Location = new System.Drawing.Point(111, 9);
-            this.btn_ExportPDF.Name = "btn_ExportPDF";
-            this.btn_ExportPDF.Size = new System.Drawing.Size(98, 70);
-            this.btn_ExportPDF.TabIndex = 31;
-            this.btn_ExportPDF.UseVisualStyleBackColor = true;
-            this.btn_ExportPDF.Click += new System.EventHandler(this.btn_ExportPDF_Click);
-            // 
             // frmOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1292, 731);
             this.Controls.Add(this.tab_HomeInvoiceSelling);
             this.DoubleBuffered = true;
