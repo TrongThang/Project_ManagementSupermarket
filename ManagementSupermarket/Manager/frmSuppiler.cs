@@ -97,15 +97,14 @@ namespace ManagementSupermarket
             if (existName)
             {
                 MessageBox.Show($"Nhà cung cấp có tên: {fullName} đã tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-               
+                return true;
             }
             else if (existPhone)
             {
                 MessageBox.Show($"Nhà cung cấp có SDT: {phone} đã tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return true;
             }
-
-            return existPhone;
-            return existName;
+            return false;
         }
         private void btn_Add_Click(object sender, EventArgs e)
         {
