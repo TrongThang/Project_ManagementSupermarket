@@ -65,7 +65,15 @@ namespace ManagementSupermarket.Manager
             lbl_ErrorDescribe.Visible = true;
 
         }
-
+        private bool ExistName(string NameType)
+        {
+            bool existName = (new BLL_TypeProduct()).GetTypeProduct("TenLoai", NameType).Rows.Count > 0;
+            if (existName)
+            {
+                MessageBox.Show($"Loại sản phẩm có tên: {NameType} đã tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            return existName;
+        }
         private void btn_Add_Click(object sender, EventArgs e)
         {
             try
@@ -78,12 +86,17 @@ namespace ManagementSupermarket.Manager
                 {
                     return;
                 }
+                else if (ExistName(nameType))
+                {
+                    return;
+                }
                 DTO_TypeProduct typeProduct = new DTO_TypeProduct(nameType, desc);
                 int numOfRows = dataTypeProduct.InsertTypeProduct(typeProduct);
                 if (numOfRows > 0)
                 {
                     string mess = "Thêm loại sản phẩm thành công";
                     MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
                 }
                 else
                 {
@@ -195,6 +208,7 @@ namespace ManagementSupermarket.Manager
             txt_ID.Clear();
             txt_NameType.Clear();
             txt_Desc.Clear();
+            txt_Search.Clear();
             On_OffLabelError(0);
         }
 

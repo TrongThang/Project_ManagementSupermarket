@@ -435,6 +435,9 @@ namespace ManagementSupermarket
 
             txt_Cost.Clear();
             txt_Price.Clear();
+            LoadDataGridView();
+
+            txt_Search.Clear();
             
 
             num_Count.Value = 0;

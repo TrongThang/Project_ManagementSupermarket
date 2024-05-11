@@ -111,6 +111,15 @@ namespace ManagementSupermarket
         {
             LoadData();
         }
+        private bool ExistCCCD(string CCCD)
+        {
+            bool existCCCD = (new BLL_Customer()).GetCustomerTo("CCCD", CCCD).Rows.Count > 0;
+            if (existCCCD)
+            {
+                MessageBox.Show($"Khách hàng có CCCD: {CCCD} đã tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            return existCCCD;
+        }
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
@@ -127,6 +136,10 @@ namespace ManagementSupermarket
             {
                 return;
             }
+            else if (ExistCCCD(CCCD))
+            {
+                return;
+            }
             try
             {
                 DTO_Customer customer = new DTO_Customer(fullName, CCCD, phone, gender, address, createdTime, status);
@@ -135,6 +148,7 @@ namespace ManagementSupermarket
                 {
                     string mess = "Thêm khách hàng thành công";
                     MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
                 }
                 else
                 {
@@ -254,6 +268,7 @@ namespace ManagementSupermarket
             rad_Male.Checked = true;
             dtp_CreatedTime.Value = DateTime.Now;
             chk_Status.Checked = false;
+            txt_Search.Clear();
             On_OffLabelError(0);
             chk_CustomerStatus.Checked = true;
            

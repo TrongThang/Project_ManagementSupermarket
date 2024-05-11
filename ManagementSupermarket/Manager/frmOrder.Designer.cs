@@ -358,7 +358,7 @@
             this.txt_ChangeCreate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_ChangeCreate.Enabled = false;
             this.txt_ChangeCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.txt_ChangeCreate.Location = new System.Drawing.Point(727, 476);
+            this.txt_ChangeCreate.Location = new System.Drawing.Point(727, 499);
             this.txt_ChangeCreate.Name = "txt_ChangeCreate";
             this.txt_ChangeCreate.ReadOnly = true;
             this.txt_ChangeCreate.Size = new System.Drawing.Size(273, 45);
@@ -403,7 +403,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(722, 448);
+            this.label4.Location = new System.Drawing.Point(722, 471);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(95, 25);
             this.label4.TabIndex = 27;

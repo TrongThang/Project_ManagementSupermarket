@@ -90,7 +90,7 @@
             this.dgv_ListCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgv_ListCustomer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgv_ListCustomer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_ListCustomer.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.dgv_ListCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_ListCustomer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -121,7 +121,6 @@
             this.MaKH.MinimumWidth = 6;
             this.MaKH.Name = "MaKH";
             this.MaKH.ReadOnly = true;
-            this.MaKH.Width = 108;
             // 
             // HoTen
             // 
@@ -130,7 +129,6 @@
             this.HoTen.MinimumWidth = 6;
             this.HoTen.Name = "HoTen";
             this.HoTen.ReadOnly = true;
-            this.HoTen.Width = 111;
             // 
             // CCCD
             // 
@@ -139,7 +137,6 @@
             this.CCCD.MinimumWidth = 6;
             this.CCCD.Name = "CCCD";
             this.CCCD.ReadOnly = true;
-            this.CCCD.Width = 105;
             // 
             // SDT
             // 
@@ -148,7 +145,6 @@
             this.SDT.MinimumWidth = 6;
             this.SDT.Name = "SDT";
             this.SDT.ReadOnly = true;
-            this.SDT.Width = 84;
             // 
             // GioiTinh
             // 
@@ -157,7 +153,6 @@
             this.GioiTinh.MinimumWidth = 6;
             this.GioiTinh.Name = "GioiTinh";
             this.GioiTinh.ReadOnly = true;
-            this.GioiTinh.Width = 127;
             // 
             // DiaChi
             // 
@@ -166,7 +161,6 @@
             this.DiaChi.MinimumWidth = 6;
             this.DiaChi.Name = "DiaChi";
             this.DiaChi.ReadOnly = true;
-            this.DiaChi.Width = 113;
             // 
             // NgayDangKy
             // 
@@ -175,7 +169,6 @@
             this.NgayDangKy.MinimumWidth = 6;
             this.NgayDangKy.Name = "NgayDangKy";
             this.NgayDangKy.ReadOnly = true;
-            this.NgayDangKy.Width = 153;
             // 
             // TrangThai
             // 
@@ -186,7 +179,6 @@
             this.TrangThai.ReadOnly = true;
             this.TrangThai.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.TrangThai.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.TrangThai.Width = 143;
             // 
             // label8
             // 

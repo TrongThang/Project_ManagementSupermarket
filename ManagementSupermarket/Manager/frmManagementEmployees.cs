@@ -328,6 +328,9 @@ namespace ManagementSupermarket
             txt_CCCD.Clear();
             txt_Id.Clear();
             txt_Phone.Clear();
+
+            txt_Address.Clear();
+
             txt_Search.Clear();
             cbb_Role.SelectedItem = 0;
             rad_Male.Checked = true;
