@@ -19,6 +19,7 @@ namespace DAL
                 dict.Add("MaSP", product.S_IDProduct);
             }
             dict.Add("HinhAnh", product.S_FileNameImage);
+
             dict.Add("TenSP", product.S_FullNameProduct);
             dict.Add("MaNCC", product.S_IdSupplier);
             dict.Add("MaLoaiSP", product.S_IdTypeProduct);
@@ -30,7 +31,7 @@ namespace DAL
             dict.Add("TrangThai", product.S_Status);
             return dict;
         }
-        public DataTable GetProduct(string keySearch, string value = null)
+        public DataTable GetProduct(string keySearch, string value = null, bool? status = null)
         {
             string sql = "sp_getProduct";
             DataTable tblProduct = null;
@@ -38,7 +39,10 @@ namespace DAL
             //keySearch: is Text in ComboBox Search user choice
             //Value: Text in TextBox user input
             db.addParam(keySearch, value);
-
+            if(status != null)
+            {
+                db.addParam("TrangThai", status);
+            }
             tblProduct = db.queryExecuteAdapter(sql);
 
             return tblProduct;

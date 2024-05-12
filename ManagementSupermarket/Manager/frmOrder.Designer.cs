@@ -82,12 +82,38 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tab_HomeInvoiceSelling = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.iconButton4 = new FontAwesome.Sharp.IconButton();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cbb_Discount = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.Panel_Product = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_InvoiceSelling)).BeginInit();
             this.tab_FormCreateInvoice.SuspendLayout();
             this.grpInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_CountProductCreate)).BeginInit();
             this.tab_HomeInvoiceSelling.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage2
@@ -697,11 +723,279 @@
             // 
             this.tab_HomeInvoiceSelling.Controls.Add(this.tab_FormCreateInvoice);
             this.tab_HomeInvoiceSelling.Controls.Add(this.tabPage2);
+            this.tab_HomeInvoiceSelling.Controls.Add(this.tabPage1);
             this.tab_HomeInvoiceSelling.Location = new System.Drawing.Point(-1, -2);
             this.tab_HomeInvoiceSelling.Name = "tab_HomeInvoiceSelling";
             this.tab_HomeInvoiceSelling.SelectedIndex = 0;
             this.tab_HomeInvoiceSelling.Size = new System.Drawing.Size(1292, 731);
             this.tab_HomeInvoiceSelling.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
+            this.tabPage1.Controls.Add(this.Panel_Product);
+            this.tabPage1.Controls.Add(this.label13);
+            this.tabPage1.Controls.Add(this.cbb_Discount);
+            this.tabPage1.Controls.Add(this.checkBox1);
+            this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.label9);
+            this.tabPage1.Controls.Add(this.iconButton1);
+            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.textBox2);
+            this.tabPage1.Controls.Add(this.textBox3);
+            this.tabPage1.Controls.Add(this.textBox4);
+            this.tabPage1.Controls.Add(this.label10);
+            this.tabPage1.Controls.Add(this.label11);
+            this.tabPage1.Controls.Add(this.iconButton2);
+            this.tabPage1.Controls.Add(this.iconButton3);
+            this.tabPage1.Controls.Add(this.iconButton4);
+            this.tabPage1.Controls.Add(this.listView1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 35);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1284, 692);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "LHD_New";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.checkBox1.ForeColor = System.Drawing.Color.White;
+            this.checkBox1.Location = new System.Drawing.Point(256, 15);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(273, 29);
+            this.checkBox1.TabIndex = 48;
+            this.checkBox1.Text = "Số Điện Thoại Khách Hàng";
+            this.checkBox1.UseVisualStyleBackColor = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.Location = new System.Drawing.Point(251, 98);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(82, 26);
+            this.label8.TabIndex = 46;
+            this.label8.Text = "label18";
+            this.label8.Visible = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Red;
+            this.label9.Location = new System.Drawing.Point(703, 553);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(82, 26);
+            this.label9.TabIndex = 47;
+            this.label9.Text = "label18";
+            this.label9.Visible = false;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconReload;
+            this.iconButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.Location = new System.Drawing.Point(271, 142);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(79, 64);
+            this.iconButton1.TabIndex = 40;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.textBox1.Location = new System.Drawing.Point(995, 505);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(273, 45);
+            this.textBox1.TabIndex = 43;
+            this.textBox1.Text = "0";
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.Gray;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.textBox2.Location = new System.Drawing.Point(256, 50);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(273, 45);
+            this.textBox2.TabIndex = 44;
+            // 
+            // textBox3
+            // 
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.textBox3.Location = new System.Drawing.Point(708, 505);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(273, 45);
+            this.textBox3.TabIndex = 45;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F);
+            this.textBox4.Location = new System.Drawing.Point(708, 608);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(366, 68);
+            this.textBox4.TabIndex = 39;
+            this.textBox4.Text = "0";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(990, 477);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(95, 25);
+            this.label10.TabIndex = 41;
+            this.label10.Text = "Tiền Thối";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(703, 477);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(154, 25);
+            this.label11.TabIndex = 42;
+            this.label11.Text = "Tiền Khách Đưa";
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.SackDollar;
+            this.iconButton2.IconColor = System.Drawing.Color.Black;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton2.Location = new System.Drawing.Point(1080, 608);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(188, 67);
+            this.iconButton2.TabIndex = 38;
+            this.iconButton2.Text = "Tổng Tiền";
+            this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.iconButton2.UseVisualStyleBackColor = false;
+            // 
+            // iconButton3
+            // 
+            this.iconButton3.BackgroundImage = global::ManagementSupermarket.Properties.Resources.iconPencil;
+            this.iconButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton3.IconColor = System.Drawing.Color.Black;
+            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton3.Location = new System.Drawing.Point(9, 145);
+            this.iconButton3.Name = "iconButton3";
+            this.iconButton3.Size = new System.Drawing.Size(85, 59);
+            this.iconButton3.TabIndex = 36;
+            this.iconButton3.UseVisualStyleBackColor = true;
+            // 
+            // iconButton4
+            // 
+            this.iconButton4.BackgroundImage = global::ManagementSupermarket.Properties.Resources.pngtree_vector_trash_icon_png_image_865284;
+            this.iconButton4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton4.IconColor = System.Drawing.Color.Black;
+            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton4.Location = new System.Drawing.Point(138, 145);
+            this.iconButton4.Name = "iconButton4";
+            this.iconButton4.Size = new System.Drawing.Size(81, 59);
+            this.iconButton4.TabIndex = 37;
+            this.iconButton4.UseVisualStyleBackColor = true;
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7});
+            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.listView1.FullRowSelect = true;
+            this.listView1.GridLines = true;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(9, 208);
+            this.listView1.MultiSelect = false;
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(688, 469);
+            this.listView1.TabIndex = 35;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Mã Sản Phẩm";
+            this.columnHeader1.Width = 130;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Tên Sản Phẩm";
+            this.columnHeader2.Width = 135;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "SL";
+            this.columnHeader3.Width = 57;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Giá";
+            this.columnHeader4.Width = 95;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Mã KM";
+            this.columnHeader5.Width = 83;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Giá KM";
+            this.columnHeader6.Width = 93;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Th.Tiền";
+            this.columnHeader7.Width = 132;
+            // 
+            // cbb_Discount
+            // 
+            this.cbb_Discount.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.cbb_Discount.FormattingEnabled = true;
+            this.cbb_Discount.Location = new System.Drawing.Point(9, 50);
+            this.cbb_Discount.Name = "cbb_Discount";
+            this.cbb_Discount.Size = new System.Drawing.Size(222, 46);
+            this.cbb_Discount.TabIndex = 49;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label13.Location = new System.Drawing.Point(9, 15);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(127, 26);
+            this.label13.TabIndex = 50;
+            this.label13.Text = "Khuyến Mãi";
+            // 
+            // Panel_Product
+            // 
+            this.Panel_Product.AutoScroll = true;
+            this.Panel_Product.BackColor = System.Drawing.Color.White;
+            this.Panel_Product.Location = new System.Drawing.Point(708, 15);
+            this.Panel_Product.Name = "Panel_Product";
+            this.Panel_Product.Size = new System.Drawing.Size(569, 459);
+            this.Panel_Product.TabIndex = 51;
             // 
             // frmOrder
             // 
@@ -726,6 +1020,8 @@
             this.grpInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_CountProductCreate)).EndInit();
             this.tab_HomeInvoiceSelling.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -785,5 +1081,30 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lbl_ErrorPhone;
         private System.Windows.Forms.Button btn_ExportPDF;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.ComboBox cbb_Discount;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton iconButton3;
+        private FontAwesome.Sharp.IconButton iconButton4;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.FlowLayoutPanel Panel_Product;
     }
 }

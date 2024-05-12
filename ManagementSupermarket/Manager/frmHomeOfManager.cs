@@ -21,6 +21,7 @@ namespace ManagementSupermarket
         private Form frmChild;
         private object buttonCurrency = "-1";
         private IconButton lastClickedButton;
+        bool sidebarExpand;
         public frmHomeOfManager(string idEmployee, string role)
         {
             s_idEmployee = idEmployee;
@@ -199,6 +200,33 @@ namespace ManagementSupermarket
         {
             IconButton btn = sender as IconButton;
             OpenfrmChild(new frmAccounts(), btn);
+        }
+
+        private void TimeForSidebar_Tick(object sender, EventArgs e)
+        {
+            if (sidebarExpand)
+            {
+                Sidebar_Panel.Width -= 10;
+                if(Sidebar_Panel.Width == Sidebar_Panel.MinimumSize.Width)
+                {
+                    sidebarExpand = false;
+                    TimeForSidebar.Stop();
+                }
+            }
+            else
+            {
+                Sidebar_Panel.Width += 10;
+                if (Sidebar_Panel.Width == Sidebar_Panel.MaximumSize.Width)
+                {
+                    sidebarExpand = true;
+                    TimeForSidebar.Stop();
+                }
+            }
+        }
+
+        private void pic_Logo_Click(object sender, EventArgs e)
+        {
+            TimeForSidebar.Start();
         }
     }
 }

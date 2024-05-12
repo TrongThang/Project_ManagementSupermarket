@@ -73,8 +73,12 @@ namespace ManagementSupermarket
             LoadDataComboBoxUnitTime();
             //UNIT ITEM
             LoadDataComboBoxUnitItem();
-
         }
+        private void chk_ProductStatus_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadDataGridView(status: chk_ProductStatus.Checked);
+        }
+
         //private void AddColumnImageDGV()
         //{
         //    //Create Column to show image
@@ -83,9 +87,9 @@ namespace ManagementSupermarket
         //    imageColumn.Name = "ImageColumn";
         //    dgv_ListProduct.Columns.Add(imageColumn);
         //}
-        private void LoadDataGridView(string nameProdut = null)
+        private void LoadDataGridView(string nameProdut = null, bool? status = null)
         {
-            dgv_ListProduct.DataSource = (new BLL_Product()).GetProduct("TenSP", nameProdut);
+            dgv_ListProduct.DataSource = (new BLL_Product()).GetProduct("TenSP", nameProdut,  status);
             //foreach (DataGridViewRow row in dgv_ListProduct.Rows)
             //{
             //    string path = row.Cells["HinhAnh"].Value.ToString();
@@ -107,7 +111,7 @@ namespace ManagementSupermarket
         private void frmManagementProducts_Load(object sender, EventArgs e)
         {
             //AddColumnImageDGV();
-            LoadDataGridView();
+            LoadDataGridView(status: chk_ProductStatus.Checked);
             LoadDataComboBox();
             cbb_Supplier.SelectedIndex = 0;
             cbb_TypeProduct.SelectedIndex = 0;
@@ -191,6 +195,10 @@ namespace ManagementSupermarket
         }
         private void CopyImageToFolderProject(string pathImage)
         {
+            if (string.IsNullOrEmpty(pathImage))
+            {
+                return;
+            }
             string destFolder = Path.Combine(Application.StartupPath, "..", "..", "Image", "Products");
             string destFileName = Path.Combine(destFolder, Path.GetFileName(pathImage));
 
@@ -201,13 +209,23 @@ namespace ManagementSupermarket
         }
         
         //CHECK ERROR INPUT
+        private double emtyToZero_Money(string money)
+        {
+            if (string.IsNullOrEmpty(money))
+            {
+                return 0;
+            }
+            return double.Parse(money);
+        }
         private bool IsErrorInput()
         {
             bool errorName = string.IsNullOrEmpty(txt_NameProduct.Text.Trim());
             bool errSupplier = string.IsNullOrEmpty(cbb_Supplier.Text.Trim());
             bool errTypeProduct = string.IsNullOrEmpty(cbb_TypeProduct.Text.Trim());
-            bool errorEmptyMoney = string.IsNullOrEmpty(txt_Cost.Text.Trim()) || string.IsNullOrEmpty(txt_Price.Text.Trim());
-            bool errorCost_Larger_Price = int.Parse(txt_Cost.Text) > int.Parse(txt_Price.Text);
+            string cost = txt_Cost.Text.Trim();
+            string price = txt_Price.Text.Trim();
+            bool errorEmptyMoney = string.IsNullOrEmpty(cost) || string.IsNullOrEmpty(price);
+            bool errorCost_Larger_Price = emtyToZero_Money(cost) > emtyToZero_Money(price);
             bool flag = true;
 
             string mess = "";
@@ -268,7 +286,7 @@ namespace ManagementSupermarket
                 int count;
                 byte status;
 
-                pathImage = Path.GetFileName(pic_Product.ImageLocation);
+                pathImage = Path.GetFileName(pic_Product.ImageLocation)??"";
                 idSupplier = cbb_Supplier.SelectedValue.ToString();
                 nameProduct = txt_NameProduct.Text.Trim();
                 idType = cbb_TypeProduct.SelectedValue.ToString();
@@ -291,7 +309,7 @@ namespace ManagementSupermarket
                 {
                     mess = $"Thêm sản phẩm {nameProduct} thành công!!";
                     MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadDataGridView();
+                    LoadDataGridView(status: chk_ProductStatus.Checked);
 
                     CopyImageToFolderProject(pathImage);
                     return;
@@ -359,7 +377,7 @@ namespace ManagementSupermarket
                 {
                     mess = $"Chỉnh sủa thông tin sản phẩm {nameProduct} thành công!!";
                     MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadDataGridView();
+                    LoadDataGridView(status: chk_ProductStatus.Checked);
                     CopyImageToFolderProject(pathImage);
                     return;
                 }
@@ -399,7 +417,7 @@ namespace ManagementSupermarket
                         {
                             mess = $"Xoá sản phẩm {nameProduct} thành công!!";
                             MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            LoadDataGridView();
+                            LoadDataGridView(status: chk_ProductStatus.Checked);
                             return;
                         }
                         else
@@ -436,7 +454,7 @@ namespace ManagementSupermarket
             txt_Cost.Clear();
             txt_Price.Clear();
 
-            LoadDataGridView();
+            LoadDataGridView(status: chk_ProductStatus.Checked);
 
             txt_Search.Clear();
             
@@ -447,7 +465,7 @@ namespace ManagementSupermarket
         private void btn_Search_Click(object sender, EventArgs e)
         {
             string nameProduct = txt_Search.Text.Trim();
-            LoadDataGridView(nameProduct);
+            LoadDataGridView(nameProduct, chk_ProductStatus.Checked);
         }
 
         private void btn_ExportExcel_Click(object sender, EventArgs e)
@@ -464,5 +482,6 @@ namespace ManagementSupermarket
             }
           
         }
+
     }
 }

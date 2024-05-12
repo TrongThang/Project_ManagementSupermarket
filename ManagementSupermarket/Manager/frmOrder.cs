@@ -24,6 +24,7 @@ using System.IO;
 using System.Windows.Media.Media3D;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using Panel = System.Windows.Forms.Panel;
 
 namespace ManagementSupermarket
 {
@@ -139,6 +140,54 @@ namespace ManagementSupermarket
             }
         }
         //LOAD DATA COMBO BOX
+        private void LoadButtonProduct(FlowLayoutPanel listPanel)
+        {
+            DataRowCollection listProduct = (new BLL_Product()).GetProduct("MaSP").Rows;
+            //foreach (DataGridViewRow item in listProduct)
+            //{
+            //    Button btn = new Button();
+            //    btn.Width = 250;
+            //    btn.Height = 50;
+            //    btn.Text = item.Cells["TenSP"].Value.ToString();
+            //    btn.BackgroundImageLayout = ImageLayout.Stretch;
+            //    btn.Tag = item.Cells["DonGia"].Value;
+
+            //    listPanel.Controls.Add(btn);
+            //}
+
+            for (int i = 0; i < listProduct.Count; i++)
+            {
+                Panel panel = new Panel();
+                panel.Width = 500;
+                panel.Height = 150;
+
+                string path = listProduct[i]["HinhAnh"].ToString();
+                string imagePath = Path.Combine(Application.StartupPath, "..", "..", "Image", "Products", path);
+                //PictureBox pic = new PictureBox();
+                //pic.BackgroundImageLayout = ImageLayout.Stretch;
+                //pic.ImageLocation = imagePath;
+                //pic.Width = 150;
+                //pic.Height = 150; 
+
+                Button btn = new Button();
+                //btn.Location = new Point(pic.Location.X + 150, pic.Location.Y);
+                
+                btn.Image = Image.FromFile(imagePath);
+                btn.BackgroundImageLayout = ImageLayout.Stretch;
+                btn.Width = 350;
+                btn.Height = 150;
+                btn.ImageAlign = ContentAlignment.MiddleLeft;
+                btn.TextAlign = ContentAlignment.MiddleCenter;
+                btn.AutoSize = true;
+                btn.BringToFront();
+                btn.Text = listProduct[i]["TenSP"].ToString();
+                btn.Tag = listProduct[i]["GiaBan"].ToString();
+
+                //panel.Controls.Add(pic);
+                panel.Controls.Add(btn);
+                listPanel.Controls.Add(panel);
+            }
+        }
         private void LoadComboBoxSearch()
         {
             object[] nameSearch = { "Mã NV", "Mã HD"};
@@ -169,7 +218,6 @@ namespace ManagementSupermarket
             if (cbbProduct.Items.Count > 0)
             {
                 cbbProduct.SelectedIndex = -1;
-                cbbProduct.SelectedIndex = 0;
             }
         }
 
@@ -196,7 +244,7 @@ namespace ManagementSupermarket
         }
         private void frmOrder_Load(object sender, EventArgs e)
         {
-            tab_HomeInvoiceSelling.SelectedIndex = 1;
+            tab_HomeInvoiceSelling.SelectedIndex = 0;
             try
             {
                 //LOAD DATA TAB 1
@@ -213,6 +261,7 @@ namespace ManagementSupermarket
                 //    int index = cbb_Search.FindString("Mã NV");
                 //    cbb_Search.Items.RemoveAt(index);
                 //}
+                LoadButtonProduct(Panel_Product);
             }
             catch (Exception err)
             {

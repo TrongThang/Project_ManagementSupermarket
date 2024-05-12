@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHomeOfManager));
             this.panel_Top = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -40,9 +41,9 @@
             this.pic_Avatar = new System.Windows.Forms.PictureBox();
             this.lbl_Name = new System.Windows.Forms.Label();
             this.pic_Logo = new System.Windows.Forms.PictureBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.FlowPanel_Button = new System.Windows.Forms.FlowLayoutPanel();
+            this.Sidebar_Panel = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_Sell = new FontAwesome.Sharp.IconButton();
+            this.btn_Accounts = new FontAwesome.Sharp.IconButton();
             this.btn_Employee = new FontAwesome.Sharp.IconButton();
             this.btn_Product = new FontAwesome.Sharp.IconButton();
             this.btn_TypeProduct = new FontAwesome.Sharp.IconButton();
@@ -55,14 +56,14 @@
             this.btn_Exit = new FontAwesome.Sharp.IconButton();
             this.btnContact = new FontAwesome.Sharp.IconButton();
             this.panel_body = new System.Windows.Forms.Panel();
-            this.btn_Accounts = new FontAwesome.Sharp.IconButton();
+            this.TimeForSidebar = new System.Windows.Forms.Timer(this.components);
             this.panel_Top.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel_Avatar.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Avatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Logo)).BeginInit();
-            this.FlowPanel_Button.SuspendLayout();
+            this.Sidebar_Panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_Top
@@ -200,31 +201,34 @@
             this.pic_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_Logo.TabIndex = 2;
             this.pic_Logo.TabStop = false;
+            this.pic_Logo.Click += new System.EventHandler(this.pic_Logo_Click);
             // 
-            // FlowPanel_Button
+            // Sidebar_Panel
             // 
-            this.FlowPanel_Button.AutoScroll = true;
-            this.FlowPanel_Button.Controls.Add(this.btn_Sell);
-            this.FlowPanel_Button.Controls.Add(this.btn_Accounts);
-            this.FlowPanel_Button.Controls.Add(this.btn_Employee);
-            this.FlowPanel_Button.Controls.Add(this.btn_Product);
-            this.FlowPanel_Button.Controls.Add(this.btn_TypeProduct);
-            this.FlowPanel_Button.Controls.Add(this.btn_Customer);
-            this.FlowPanel_Button.Controls.Add(this.btn_Supplier);
-            this.FlowPanel_Button.Controls.Add(this.btn_Discount);
-            this.FlowPanel_Button.Controls.Add(this.btn_WareHouse);
-            this.FlowPanel_Button.Controls.Add(this.btn_Revenue);
-            this.FlowPanel_Button.Controls.Add(this.btn_LogOut);
-            this.FlowPanel_Button.Controls.Add(this.btn_Exit);
-            this.FlowPanel_Button.Controls.Add(this.btnContact);
-            this.FlowPanel_Button.Dock = System.Windows.Forms.DockStyle.Left;
-            this.FlowPanel_Button.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.FlowPanel_Button.Location = new System.Drawing.Point(0, 146);
-            this.FlowPanel_Button.Margin = new System.Windows.Forms.Padding(0);
-            this.FlowPanel_Button.Name = "FlowPanel_Button";
-            this.FlowPanel_Button.Size = new System.Drawing.Size(250, 731);
-            this.FlowPanel_Button.TabIndex = 7;
-            this.FlowPanel_Button.WrapContents = false;
+            this.Sidebar_Panel.AutoScroll = true;
+            this.Sidebar_Panel.Controls.Add(this.btn_Sell);
+            this.Sidebar_Panel.Controls.Add(this.btn_Accounts);
+            this.Sidebar_Panel.Controls.Add(this.btn_Employee);
+            this.Sidebar_Panel.Controls.Add(this.btn_Product);
+            this.Sidebar_Panel.Controls.Add(this.btn_TypeProduct);
+            this.Sidebar_Panel.Controls.Add(this.btn_Customer);
+            this.Sidebar_Panel.Controls.Add(this.btn_Supplier);
+            this.Sidebar_Panel.Controls.Add(this.btn_Discount);
+            this.Sidebar_Panel.Controls.Add(this.btn_WareHouse);
+            this.Sidebar_Panel.Controls.Add(this.btn_Revenue);
+            this.Sidebar_Panel.Controls.Add(this.btn_LogOut);
+            this.Sidebar_Panel.Controls.Add(this.btn_Exit);
+            this.Sidebar_Panel.Controls.Add(this.btnContact);
+            this.Sidebar_Panel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Sidebar_Panel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.Sidebar_Panel.Location = new System.Drawing.Point(0, 146);
+            this.Sidebar_Panel.Margin = new System.Windows.Forms.Padding(0);
+            this.Sidebar_Panel.MaximumSize = new System.Drawing.Size(250, 731);
+            this.Sidebar_Panel.MinimumSize = new System.Drawing.Size(87, 731);
+            this.Sidebar_Panel.Name = "Sidebar_Panel";
+            this.Sidebar_Panel.Size = new System.Drawing.Size(250, 731);
+            this.Sidebar_Panel.TabIndex = 7;
+            this.Sidebar_Panel.WrapContents = false;
             // 
             // btn_Sell
             // 
@@ -244,6 +248,25 @@
             this.btn_Sell.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Sell.UseVisualStyleBackColor = true;
             this.btn_Sell.Click += new System.EventHandler(this.btn_Sell_Click);
+            // 
+            // btn_Accounts
+            // 
+            this.btn_Accounts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Accounts.IconChar = FontAwesome.Sharp.IconChar.AddressCard;
+            this.btn_Accounts.IconColor = System.Drawing.Color.Black;
+            this.btn_Accounts.IconFont = FontAwesome.Sharp.IconFont.Regular;
+            this.btn_Accounts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Accounts.Location = new System.Drawing.Point(0, 89);
+            this.btn_Accounts.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Accounts.Name = "btn_Accounts";
+            this.btn_Accounts.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btn_Accounts.Size = new System.Drawing.Size(227, 89);
+            this.btn_Accounts.TabIndex = 21;
+            this.btn_Accounts.Tag = "Accounts";
+            this.btn_Accounts.Text = "Tài Khoản";
+            this.btn_Accounts.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_Accounts.UseVisualStyleBackColor = true;
+            this.btn_Accounts.Click += new System.EventHandler(this.btn_Accounts_Click);
             // 
             // btn_Employee
             // 
@@ -455,6 +478,7 @@
             // panel_body
             // 
             this.panel_body.AutoScroll = true;
+            this.panel_body.AutoSize = true;
             this.panel_body.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_body.Location = new System.Drawing.Point(250, 146);
             this.panel_body.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
@@ -462,24 +486,9 @@
             this.panel_body.Size = new System.Drawing.Size(1292, 731);
             this.panel_body.TabIndex = 9;
             // 
-            // btn_Accounts
+            // TimeForSidebar
             // 
-            this.btn_Accounts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Accounts.IconChar = FontAwesome.Sharp.IconChar.AddressCard;
-            this.btn_Accounts.IconColor = System.Drawing.Color.Black;
-            this.btn_Accounts.IconFont = FontAwesome.Sharp.IconFont.Regular;
-            this.btn_Accounts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Accounts.Location = new System.Drawing.Point(0, 89);
-            this.btn_Accounts.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_Accounts.Name = "btn_Accounts";
-            this.btn_Accounts.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.btn_Accounts.Size = new System.Drawing.Size(227, 89);
-            this.btn_Accounts.TabIndex = 21;
-            this.btn_Accounts.Tag = "Accounts";
-            this.btn_Accounts.Text = "Tài Khoản";
-            this.btn_Accounts.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_Accounts.UseVisualStyleBackColor = true;
-            this.btn_Accounts.Click += new System.EventHandler(this.btn_Accounts_Click);
+            this.TimeForSidebar.Tick += new System.EventHandler(this.TimeForSidebar_Tick);
             // 
             // frmHomeOfManager
             // 
@@ -487,7 +496,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1542, 877);
             this.Controls.Add(this.panel_body);
-            this.Controls.Add(this.FlowPanel_Button);
+            this.Controls.Add(this.Sidebar_Panel);
             this.Controls.Add(this.panel_Top);
             this.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IsMdiContainer = true;
@@ -504,16 +513,16 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Avatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Logo)).EndInit();
-            this.FlowPanel_Button.ResumeLayout(false);
+            this.Sidebar_Panel.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.Panel panel_Top;
         private System.Windows.Forms.PictureBox pic_Logo;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.FlowLayoutPanel FlowPanel_Button;
+        private System.Windows.Forms.FlowLayoutPanel Sidebar_Panel;
         private System.Windows.Forms.Label lbl_Name;
         private System.Windows.Forms.PictureBox pic_Avatar;
         private System.Windows.Forms.Panel panel1;
@@ -537,5 +546,6 @@
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconButton btnContact;
         private FontAwesome.Sharp.IconButton btn_Accounts;
+        private System.Windows.Forms.Timer TimeForSidebar;
     }
 }

@@ -12,9 +12,9 @@ namespace BLL
     public class BLL_Product
     {
         private DAL_Product dataProduct = new DAL_Product();
-        public DataTable GetProduct(string keySearch, string value = null)
+        public DataTable GetProduct(string keySearch, string value = null, bool? status = null)
         {
-            return dataProduct.GetProduct(keySearch, value);
+            return dataProduct.GetProduct(keySearch, value, status);
         }
 
         public int InsertProduct(DTO_Product product)
