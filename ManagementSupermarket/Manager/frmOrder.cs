@@ -37,9 +37,10 @@ namespace ManagementSupermarket
         {
             InitializeComponent();
         }
-        public frmOrder(string idEmployee)
+        public frmOrder(string idEmployee, string role)
         {
             this.s_idEmployee = idEmployee;
+            this.s_role = role;
             InitializeComponent();
         }
 
@@ -190,8 +191,20 @@ namespace ManagementSupermarket
         }
         private void LoadComboBoxSearch()
         {
-            object[] nameSearch = { "Mã NV", "Mã HD"};
-            object[] idSearch = { "MaNV", "MaHD" };
+
+            object[] nameSearch;
+            object[] idSearch;
+
+            if (s_role == "NV")
+            {
+                nameSearch = new object[] { "Mã HD" };
+                idSearch = new object[] { "MaHD" };
+            }
+            else
+            {
+                nameSearch = new object[] { "Mã NV", "Mã HD" };
+                idSearch = new object[] { "MaNV", "MaHD" };
+            }
             DataTable tblSearch = new DataTable();
             tblSearch.Columns.Add("NoiDungTimKiem");
             tblSearch.Columns.Add("MaTimKiem");
@@ -256,11 +269,6 @@ namespace ManagementSupermarket
                 LoadComboBoxSearch();
                 cbb_Search.SelectedIndex = 0;
 
-                //if (s_role == "NV")
-                //{
-                //    int index = cbb_Search.FindString("Mã NV");
-                //    cbb_Search.Items.RemoveAt(index);
-                //}
                 LoadButtonProduct(Panel_Product);
             }
             catch (Exception err)
@@ -689,7 +697,14 @@ namespace ManagementSupermarket
 
         private void btn_Search_Click(object sender, EventArgs e)
         {
-            dgv_InvoiceSelling.DataSource = (new BLL_InvoiceSelling()).GetInvoiceSelling(cbb_Search.SelectedValue.ToString(), txtSearch.Text);
+            if(s_role == "NV")
+            {
+                dgv_InvoiceSelling.DataSource = (new BLL_InvoiceSelling()).GetInvoiceSellingToEmployee(s_idEmployee, cbb_Search.SelectedValue.ToString(), txtSearch.Text);
+            }
+            else
+            {
+                dgv_InvoiceSelling.DataSource = (new BLL_InvoiceSelling()).GetInvoiceSelling(cbb_Search.SelectedValue.ToString(), txtSearch.Text);
+            }
         }
 
         private void btn_Refresh_Click(object sender, EventArgs e)

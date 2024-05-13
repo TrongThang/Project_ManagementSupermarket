@@ -17,6 +17,10 @@ namespace BLL
         {
             return dataInvoice.GetInvoiceSelling(keySearch, value);
         }
+        public DataTable GetInvoiceSellingToEmployee(string idEmployee, string keySearch, string value = null)
+        {
+            return dataInvoice.GetInvoiceSellingToEmployee(idEmployee, keySearch, value);
+        }
 
         public DataTable GetRevenue(string criteria, int value = 0)
         {

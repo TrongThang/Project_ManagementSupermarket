@@ -83,6 +83,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tab_HomeInvoiceSelling = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.Panel_Product = new System.Windows.Forms.FlowLayoutPanel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cbb_Discount = new System.Windows.Forms.ComboBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -104,9 +107,6 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cbb_Discount = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.Panel_Product = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_InvoiceSelling)).BeginInit();
             this.tab_FormCreateInvoice.SuspendLayout();
@@ -162,10 +162,6 @@
             this.cbb_Search.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.cbb_Search.FormattingEnabled = true;
-            this.cbb_Search.Items.AddRange(new object[] {
-            "MaHD",
-            "MaNV",
-            "MaKH"});
             this.cbb_Search.Location = new System.Drawing.Point(880, 41);
             this.cbb_Search.Name = "cbb_Search";
             this.cbb_Search.Size = new System.Drawing.Size(131, 37);
@@ -757,6 +753,34 @@
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "LHD_New";
             // 
+            // Panel_Product
+            // 
+            this.Panel_Product.AutoScroll = true;
+            this.Panel_Product.BackColor = System.Drawing.Color.White;
+            this.Panel_Product.Location = new System.Drawing.Point(708, 15);
+            this.Panel_Product.Name = "Panel_Product";
+            this.Panel_Product.Size = new System.Drawing.Size(569, 459);
+            this.Panel_Product.TabIndex = 51;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label13.Location = new System.Drawing.Point(9, 15);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(127, 26);
+            this.label13.TabIndex = 50;
+            this.label13.Text = "Khuyến Mãi";
+            // 
+            // cbb_Discount
+            // 
+            this.cbb_Discount.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.cbb_Discount.FormattingEnabled = true;
+            this.cbb_Discount.Location = new System.Drawing.Point(9, 50);
+            this.cbb_Discount.Name = "cbb_Discount";
+            this.cbb_Discount.Size = new System.Drawing.Size(222, 46);
+            this.cbb_Discount.TabIndex = 49;
+            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
@@ -968,34 +992,6 @@
             // 
             this.columnHeader7.Text = "Th.Tiền";
             this.columnHeader7.Width = 132;
-            // 
-            // cbb_Discount
-            // 
-            this.cbb_Discount.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.cbb_Discount.FormattingEnabled = true;
-            this.cbb_Discount.Location = new System.Drawing.Point(9, 50);
-            this.cbb_Discount.Name = "cbb_Discount";
-            this.cbb_Discount.Size = new System.Drawing.Size(222, 46);
-            this.cbb_Discount.TabIndex = 49;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label13.Location = new System.Drawing.Point(9, 15);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(127, 26);
-            this.label13.TabIndex = 50;
-            this.label13.Text = "Khuyến Mãi";
-            // 
-            // Panel_Product
-            // 
-            this.Panel_Product.AutoScroll = true;
-            this.Panel_Product.BackColor = System.Drawing.Color.White;
-            this.Panel_Product.Location = new System.Drawing.Point(708, 15);
-            this.Panel_Product.Name = "Panel_Product";
-            this.Panel_Product.Size = new System.Drawing.Size(569, 459);
-            this.Panel_Product.TabIndex = 51;
             // 
             // frmOrder
             // 

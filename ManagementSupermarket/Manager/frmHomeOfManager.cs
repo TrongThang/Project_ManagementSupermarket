@@ -95,7 +95,7 @@ namespace ManagementSupermarket
         private void btn_Sell_Click(object sender, EventArgs e)
         {
             IconButton btn = sender as IconButton;
-            OpenfrmChild(new frmOrder(), btn);
+            OpenfrmChild(new frmOrder(s_idEmployee, s_role), btn);
         }
 
         private void btn_Employee_Click(object sender, EventArgs e)

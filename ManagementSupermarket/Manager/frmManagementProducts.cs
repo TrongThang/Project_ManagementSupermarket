@@ -199,9 +199,12 @@ namespace ManagementSupermarket
             {
                 return;
             }
+            // Chuỗi bắt đầu để chứa ảnh
             string destFolder = Path.Combine(Application.StartupPath, "..", "..", "Image", "Products");
+            // Tạo đường dẫn đến nơi chưa ảnh
             string destFileName = Path.Combine(destFolder, Path.GetFileName(pathImage));
 
+            //Nếu chưua có ảnh thì tiến hành copy
             if (!File.Exists(destFileName))
             {
                 File.Copy(pathImage, destFileName);
@@ -286,7 +289,8 @@ namespace ManagementSupermarket
                 int count;
                 byte status;
 
-                pathImage = Path.GetFileName(pic_Product.ImageLocation)??"";
+                string fullPathImage = pic_Product.ImageLocation??"";
+                pathImage = Path.GetFileName(pic_Product.ImageLocation) ?? "";
                 idSupplier = cbb_Supplier.SelectedValue.ToString();
                 nameProduct = txt_NameProduct.Text.Trim();
                 idType = cbb_TypeProduct.SelectedValue.ToString();
@@ -311,7 +315,7 @@ namespace ManagementSupermarket
                     MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadDataGridView(status: chk_ProductStatus.Checked);
 
-                    CopyImageToFolderProject(pathImage);
+                    CopyImageToFolderProject(fullPathImage);
                     return;
                 }
                 else
@@ -353,6 +357,7 @@ namespace ManagementSupermarket
                 int count;
                 byte status;
 
+                string fullPathImage = pic_Product.ImageLocation;
                 pathImage = Path.GetFileName(pic_Product.ImageLocation);
                 idProduct = txt_ID.Text;
                 nameProduct = txt_NameProduct.Text.Trim();
@@ -378,7 +383,7 @@ namespace ManagementSupermarket
                     mess = $"Chỉnh sủa thông tin sản phẩm {nameProduct} thành công!!";
                     MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadDataGridView(status: chk_ProductStatus.Checked);
-                    CopyImageToFolderProject(pathImage);
+                    CopyImageToFolderProject(fullPathImage);
                     return;
                 }
                 else
