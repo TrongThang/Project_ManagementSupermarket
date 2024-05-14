@@ -46,10 +46,51 @@ namespace ManagementSupermarket
                 btn_Accounts.Visible = false;
             }
         }
+        private void CheckProductExpire()
+        {
+            DataTable tblProduct = (new BLL_Product()).GetProductExpire();
+
+            if(tblProduct.Rows.Count > 0 )
+            {
+                string mess = "Sản phẩm: ";
+                DataRowCollection rows = tblProduct.Rows;
+                foreach (DataRow item in rows)
+                {
+                    mess += $"\n- {item["TenSP"].ToString()} với số lượng {item["SoLuong"].ToString()} đã hết hạn.";
+                }
+                
+                DialogResult result =  MessageBox.Show($"{mess}\nXác nhận xoá sản phẩm đã hết hạn?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (result == DialogResult.Yes)
+                {
+                    int count = 0;
+                    foreach (DataRow item in rows)
+                    {
+                        string idImport, idProduct;
+                        idImport = item["MaNK"].ToString();
+                        idProduct = item["MaSP"].ToString();
+
+                        count += (new BLL_Detail_InvoiceWarehouse()).DeleteProductExpire(idImport, idProduct);
+                    }
+
+                    if(count > 0)
+                    {
+                        MessageBox.Show($"Đã xoá {count} sản phẩm hết hạn!");
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Xoá sản phẩm hết hạn thất bại !");
+                    }
+
+                }
+            } 
+        }
         private void frmHomeOfManager_Load(object sender, EventArgs e)
         {
             RoleAccess();
             lbl_Name.Text = (new BLL_Employee()).GetEmployeeTo("MaNV", s_idEmployee).Rows[0]["HoTen"].ToString();
+            CheckProductExpire();
+
         }
         private void OpenfrmChild(Form Child, IconButton btn)
         {

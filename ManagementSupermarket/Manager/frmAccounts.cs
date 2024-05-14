@@ -105,6 +105,7 @@ namespace ManagementSupermarket.Manager
                 {
                     mess += " Cập nhật trạng thái thành công! ";
                     MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadDataGridView(status: chk_Status.Checked);
                     return;
                 }
                 else
@@ -113,7 +114,6 @@ namespace ManagementSupermarket.Manager
                     MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                LoadDataGridView(status: chk_Status.Checked);
             }
         }
 

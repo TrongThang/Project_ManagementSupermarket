@@ -6,12 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace DAL
 {
     public class DP
     {
-        private SqlConnection _conn = new SqlConnection("Data Source=.;Database = QLST;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True");
+        //"Data Source=.;Database = QLST;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True"
+        private SqlConnection _conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Conn"].ConnectionString);
         private Dictionary<string, dynamic> data = new Dictionary<string, dynamic>();
 
         public void addParam(string para, dynamic value)

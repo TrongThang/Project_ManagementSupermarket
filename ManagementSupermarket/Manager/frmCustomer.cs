@@ -68,21 +68,35 @@ namespace ManagementSupermarket
         {
             bool flag = false;
             string notEmpty = " không bỏ trống";
+            string notEnoughLengthPhone = " phải đủ 10 số";
+            string notEnoughLengthCCCD = " phải đủ 12 số";
+
             if (eventConfig.IsNullOrEmpty(fullName))
             {
                 eventConfig.SetErrorLabel(lbl_ErrorName, "Tên", notEmpty);
                 flag = true;
             }
+
             if (eventConfig.IsNullOrEmpty(CCCD))
             {
                 eventConfig.SetErrorLabel(lbl_ErrorCCCD, "CCCD", notEmpty);
                 flag = true;
+            }else if (CCCD.Length < 12)
+            {
+                eventConfig.SetErrorLabel(lbl_ErrorPhone, "CCCD", notEnoughLengthCCCD);
+                flag = true;
             }
+
             if (eventConfig.IsNullOrEmpty(phone))
             {
                 eventConfig.SetErrorLabel(lbl_ErrorPhone, "Số điện thoại", notEmpty);
                 flag = true;
+            }else if (phone.Length < 10)
+            {
+                eventConfig.SetErrorLabel(lbl_ErrorPhone, "Số điện thoại", notEnoughLengthPhone);
+                flag = true;
             }
+
             if (eventConfig.IsNullOrEmpty(address))
             {
                 eventConfig.SetErrorLabel(lbl_ErrorAddress, "Địa chỉ", notEmpty);

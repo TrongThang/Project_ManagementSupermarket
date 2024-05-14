@@ -17,6 +17,10 @@ namespace BLL
         {
             return dataDetailInvoice.GetDetailInvoiceImportWareHouse(keySearch, value);
         }
+        public int DeleteProductExpire(string idImport, string idProduct)
+        {
+            return dataDetailInvoice.DeleteProductExpire(idImport, idProduct);
+        }
         public int InsertDetailInvoiceImportWareHouse(DTO_Detail_InvoiceWarehouse invoice)
         {
             return dataDetailInvoice.InsertDetailInvoiceImportWareHouse(invoice);

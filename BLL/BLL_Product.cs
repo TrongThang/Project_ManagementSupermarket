@@ -16,7 +16,10 @@ namespace BLL
         {
             return dataProduct.GetProduct(keySearch, value, status);
         }
-
+        public DataTable GetProductExpire()
+        {
+            return dataProduct.GetProductExpire();
+        }
         public int InsertProduct(DTO_Product product)
         {
             return dataProduct.InsertProduct(product);

@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DAL
 {
@@ -47,7 +48,15 @@ namespace DAL
 
             return tblProduct;
         }
+        public DataTable GetProductExpire()
+        {
+            string sql = "sp_GetProductExpire";
+            DataTable tblProduct = null;
 
+            tblProduct = db.queryExecuteAdapter(sql);
+
+            return tblProduct;
+        }
         public int InsertProduct(DTO_Product product)
         {
             string sql = "sp_InsertProduct";

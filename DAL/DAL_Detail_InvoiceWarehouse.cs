@@ -33,7 +33,17 @@ namespace DAL
             tblInvoice = db.queryExecuteAdapter(sql);
 
             return tblInvoice;
+        }
+        public int DeleteProductExpire(string idImport, string idProduct)
+        {
+            string sql = "sp_DeleteProductExpire";
+            DataTable tblInvoice = null;
 
+            db.addParam("MaNK", idImport);
+            db.addParam("MaSP", idProduct);
+            tblInvoice = db.queryExecuteAdapter(sql);
+
+            return tblInvoice.Rows.Count;
         }
         public int InsertDetailInvoiceImportWareHouse(DTO_Detail_InvoiceWarehouse invoice)
         {
