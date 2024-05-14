@@ -38,13 +38,13 @@
             this.cbb_Search = new System.Windows.Forms.ComboBox();
             this.txt_Password = new System.Windows.Forms.TextBox();
             this.chk_Status = new System.Windows.Forms.CheckBox();
+            this.chk_Active = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MatKhau = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chk_Active = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.TrangThai = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Accounts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -176,6 +176,30 @@
             this.chk_Status.UseVisualStyleBackColor = true;
             this.chk_Status.CheckedChanged += new System.EventHandler(this.chk_Status_CheckedChanged);
             // 
+            // chk_Active
+            // 
+            this.chk_Active.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chk_Active.AutoSize = true;
+            this.chk_Active.ForeColor = System.Drawing.SystemColors.Control;
+            this.chk_Active.Location = new System.Drawing.Point(287, 66);
+            this.chk_Active.Name = "chk_Active";
+            this.chk_Active.Size = new System.Drawing.Size(156, 33);
+            this.chk_Active.TabIndex = 41;
+            this.chk_Active.Text = "Trạng Thái";
+            this.chk_Active.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(12, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(121, 29);
+            this.label1.TabIndex = 42;
+            this.label1.Text = "Mật Khẩu";
+            // 
             // MaNV
             // 
             this.MaNV.DataPropertyName = "MaNV";
@@ -215,30 +239,8 @@
             this.TrangThai.MinimumWidth = 6;
             this.TrangThai.Name = "TrangThai";
             this.TrangThai.ReadOnly = true;
-            // 
-            // chk_Active
-            // 
-            this.chk_Active.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.chk_Active.AutoSize = true;
-            this.chk_Active.ForeColor = System.Drawing.SystemColors.Control;
-            this.chk_Active.Location = new System.Drawing.Point(287, 66);
-            this.chk_Active.Name = "chk_Active";
-            this.chk_Active.Size = new System.Drawing.Size(156, 33);
-            this.chk_Active.TabIndex = 41;
-            this.chk_Active.Text = "Trạng Thái";
-            this.chk_Active.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(12, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 29);
-            this.label1.TabIndex = 42;
-            this.label1.Text = "Mật Khẩu";
+            this.TrangThai.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.TrangThai.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // frmAccounts
             // 
@@ -280,12 +282,12 @@
         private System.Windows.Forms.ComboBox cbb_Search;
         private System.Windows.Forms.TextBox txt_Password;
         private System.Windows.Forms.CheckBox chk_Status;
+        private System.Windows.Forms.CheckBox chk_Active;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
         private System.Windows.Forms.DataGridViewTextBoxColumn MatKhau;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenChucVu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
-        private System.Windows.Forms.CheckBox chk_Active;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn TrangThai;
     }
 }

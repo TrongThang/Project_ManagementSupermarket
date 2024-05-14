@@ -15,7 +15,7 @@ namespace ManagementSupermarket
 {
     public partial class frmInfomation : Form
     {
-        private string idEmployee = "NV001";
+        private string idEmployee;
         private Event eventConfig = new Event();
         BLL_Employee dataEmployee = new BLL_Employee();
 

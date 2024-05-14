@@ -243,13 +243,13 @@
             this.rad_Female.Name = "rad_Female";
             this.rad_Female.Size = new System.Drawing.Size(61, 30);
             this.rad_Female.TabIndex = 1;
-            this.rad_Female.TabStop = true;
             this.rad_Female.Text = "Nữ";
             this.rad_Female.UseVisualStyleBackColor = true;
             // 
             // rad_Male
             // 
             this.rad_Male.AutoSize = true;
+            this.rad_Male.Checked = true;
             this.rad_Male.ForeColor = System.Drawing.Color.White;
             this.rad_Male.Location = new System.Drawing.Point(10, 32);
             this.rad_Male.Name = "rad_Male";
@@ -301,6 +301,8 @@
             // chk_Status
             // 
             this.chk_Status.AutoSize = true;
+            this.chk_Status.Checked = true;
+            this.chk_Status.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_Status.ForeColor = System.Drawing.Color.White;
             this.chk_Status.Location = new System.Drawing.Point(928, 162);
             this.chk_Status.Name = "chk_Status";

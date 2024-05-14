@@ -99,7 +99,7 @@
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lst_BillNew = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -745,7 +745,7 @@
             this.tabPage1.Controls.Add(this.iconButton2);
             this.tabPage1.Controls.Add(this.iconButton3);
             this.tabPage1.Controls.Add(this.iconButton4);
-            this.tabPage1.Controls.Add(this.listView1);
+            this.tabPage1.Controls.Add(this.lst_BillNew);
             this.tabPage1.Location = new System.Drawing.Point(4, 35);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -756,10 +756,11 @@
             // Panel_Product
             // 
             this.Panel_Product.AutoScroll = true;
+            this.Panel_Product.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Panel_Product.BackColor = System.Drawing.Color.White;
-            this.Panel_Product.Location = new System.Drawing.Point(708, 15);
+            this.Panel_Product.Location = new System.Drawing.Point(664, 15);
             this.Panel_Product.Name = "Panel_Product";
-            this.Panel_Product.Size = new System.Drawing.Size(569, 459);
+            this.Panel_Product.Size = new System.Drawing.Size(613, 459);
             this.Panel_Product.TabIndex = 51;
             // 
             // label13
@@ -936,9 +937,9 @@
             this.iconButton4.TabIndex = 37;
             this.iconButton4.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // lst_BillNew
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lst_BillNew.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
@@ -946,22 +947,22 @@
             this.columnHeader5,
             this.columnHeader6,
             this.columnHeader7});
-            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.listView1.FullRowSelect = true;
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(9, 208);
-            this.listView1.MultiSelect = false;
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(688, 469);
-            this.listView1.TabIndex = 35;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.lst_BillNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lst_BillNew.FullRowSelect = true;
+            this.lst_BillNew.GridLines = true;
+            this.lst_BillNew.HideSelection = false;
+            this.lst_BillNew.Location = new System.Drawing.Point(9, 208);
+            this.lst_BillNew.MultiSelect = false;
+            this.lst_BillNew.Name = "lst_BillNew";
+            this.lst_BillNew.Size = new System.Drawing.Size(649, 469);
+            this.lst_BillNew.TabIndex = 35;
+            this.lst_BillNew.UseCompatibleStateImageBehavior = false;
+            this.lst_BillNew.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Mã Sản Phẩm";
-            this.columnHeader1.Width = 130;
+            this.columnHeader1.Width = 63;
             // 
             // columnHeader2
             // 
@@ -1092,7 +1093,7 @@
         private FontAwesome.Sharp.IconButton iconButton2;
         private FontAwesome.Sharp.IconButton iconButton3;
         private FontAwesome.Sharp.IconButton iconButton4;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lst_BillNew;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;

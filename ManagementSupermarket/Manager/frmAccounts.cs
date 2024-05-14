@@ -14,8 +14,15 @@ namespace ManagementSupermarket.Manager
 {
     public partial class frmAccounts : Form
     {
+        private string s_role;
+
         public frmAccounts()
         {
+            InitializeComponent();
+        }
+        public frmAccounts(string role)
+        {
+            this.s_role = role;
             InitializeComponent();
         }
         private void LoadDataSearch()
@@ -52,6 +59,7 @@ namespace ManagementSupermarket.Manager
         private void btn_ChangePassword_Click(object sender, EventArgs e)
         {
             string mess = "";
+            
             if (dgv_Accounts.SelectedRows.Count <= 0)
             {
                 mess = "Vui lòng chọn một nhân viên muốn thay đổi mật khẩu trong bảng dữ liệu!";
@@ -70,6 +78,13 @@ namespace ManagementSupermarket.Manager
             string name, id;
             id = rowSelected.Cells["MaNV"].Value.ToString();
             name = rowSelected.Cells["HoTen"].Value.ToString();
+            string roleSelect = rowSelected.Cells["ChucVu"].ToString();
+            if (s_role != "QLCC" && roleSelect == "QLCC")
+            {
+                mess = "Bạn không có quyền thay đổi quản lý cấp cao!";
+                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             int rowsAffected = (new BLL_Account()).UpdateStatusAccount(id, chk_Active.Checked);
             

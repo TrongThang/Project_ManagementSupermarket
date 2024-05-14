@@ -18,7 +18,7 @@ namespace ManagementSupermarket
 {
     public partial class frmManagementEmployees : Form
     {
-        private string s_role = "QL";
+        private string s_role;
         Event eventConfig = new Event();
         BLL_Employee dataEmployee = new BLL_Employee();
         public frmManagementEmployees()

@@ -22,7 +22,7 @@ namespace ManagementSupermarket.Manager
 {
     public partial class frmWarehouse : Form
     {
-        private string idEmployee = "NV002";
+        private string idEmployee;
         private double TotalMoney = 0;
         public frmWarehouse()
         {

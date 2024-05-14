@@ -43,8 +43,6 @@ namespace ManagementSupermarket
                 btn_WareHouse.Visible = false;
                 btn_TypeProduct.Visible = false;
                 btn_Revenue.Visible = false;    
-            }else if(s_role == "QL")
-            {
                 btn_Accounts.Visible = false;
             }
         }
@@ -199,7 +197,7 @@ namespace ManagementSupermarket
         private void btn_Accounts_Click(object sender, EventArgs e)
         {
             IconButton btn = sender as IconButton;
-            OpenfrmChild(new frmAccounts(), btn);
+            OpenfrmChild(new frmAccounts(s_role), btn);
         }
 
         private void TimeForSidebar_Tick(object sender, EventArgs e)

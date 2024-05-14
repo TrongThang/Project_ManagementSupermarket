@@ -25,13 +25,14 @@ using System.Windows.Media.Media3D;
 using System.Text.RegularExpressions;
 using System.Globalization;
 using Panel = System.Windows.Forms.Panel;
+using Label = System.Windows.Forms.Label;
 
 namespace ManagementSupermarket
 {
     public partial class frmOrder : Form
     {
-        private string s_idEmployee = "NV002";
-        private string s_role = "NV";
+        private string s_idEmployee;
+        private string s_role;
         private decimal TotalMoney = 0;
         public frmOrder()
         {
@@ -144,48 +145,56 @@ namespace ManagementSupermarket
         private void LoadButtonProduct(FlowLayoutPanel listPanel)
         {
             DataRowCollection listProduct = (new BLL_Product()).GetProduct("MaSP").Rows;
-            //foreach (DataGridViewRow item in listProduct)
-            //{
-            //    Button btn = new Button();
-            //    btn.Width = 250;
-            //    btn.Height = 50;
-            //    btn.Text = item.Cells["TenSP"].Value.ToString();
-            //    btn.BackgroundImageLayout = ImageLayout.Stretch;
-            //    btn.Tag = item.Cells["DonGia"].Value;
-
-            //    listPanel.Controls.Add(btn);
-            //}
-
             for (int i = 0; i < listProduct.Count; i++)
             {
                 Panel panel = new Panel();
-                panel.Width = 500;
+                panel.BorderStyle = BorderStyle.FixedSingle;
+                panel.Padding = new Padding(5);
+                panel.Width = 300;
                 panel.Height = 150;
+
+                panel.MouseEnter += (sender, e) =>
+                {
+                    panel.BackColor = Color.LightGray; // Simulate button press effect
+                    panel.BorderStyle = BorderStyle.Fixed3D;
+                };
+
+                panel.MouseLeave += (sender, e) =>
+                {
+                    panel.BackColor = Color.White; // Reset background color
+                    panel.BorderStyle = BorderStyle.FixedSingle;
+                };
 
                 string path = listProduct[i]["HinhAnh"].ToString();
                 string imagePath = Path.Combine(Application.StartupPath, "..", "..", "Image", "Products", path);
-                //PictureBox pic = new PictureBox();
-                //pic.BackgroundImageLayout = ImageLayout.Stretch;
-                //pic.ImageLocation = imagePath;
-                //pic.Width = 150;
-                //pic.Height = 150; 
 
-                Button btn = new Button();
-                //btn.Location = new Point(pic.Location.X + 150, pic.Location.Y);
+                Bitmap originalImage = new Bitmap(imagePath);
+                int newWidth = 150;
+                int newHeight = 120;
+                Bitmap resizedImage = new Bitmap(originalImage, new Size(newWidth, newHeight));
+                //Giải phóng tài nguyên ảnh gốc
+                originalImage.Dispose();
+
+                PictureBox pictureBox = new PictureBox();
+                pictureBox.Dock = DockStyle.Top;
+                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                pictureBox.Image = resizedImage;
+
+                Label lbl_Name = new Label();
+                lbl_Name.Dock = DockStyle.Bottom;
+                lbl_Name.TextAlign = ContentAlignment.MiddleCenter;
+                lbl_Name.Text = listProduct[i]["TenSP"].ToString();
+
+                Label lbl_Price = new Label();
+                lbl_Price.Dock = DockStyle.Bottom;
+                lbl_Price.TextAlign = ContentAlignment.MiddleCenter;
+                decimal price = decimal.Parse(listProduct[i]["GiaBan"].ToString());
+                lbl_Price.Text = formatPrice(price);
+
+                panel.Controls.Add(pictureBox);
+                panel.Controls.Add(lbl_Name);
+                panel.Controls.Add(lbl_Price);
                 
-                btn.Image = Image.FromFile(imagePath);
-                btn.BackgroundImageLayout = ImageLayout.Stretch;
-                btn.Width = 350;
-                btn.Height = 150;
-                btn.ImageAlign = ContentAlignment.MiddleLeft;
-                btn.TextAlign = ContentAlignment.MiddleCenter;
-                btn.AutoSize = true;
-                btn.BringToFront();
-                btn.Text = listProduct[i]["TenSP"].ToString();
-                btn.Tag = listProduct[i]["GiaBan"].ToString();
-
-                //panel.Controls.Add(pic);
-                panel.Controls.Add(btn);
                 listPanel.Controls.Add(panel);
             }
         }
@@ -269,7 +278,7 @@ namespace ManagementSupermarket
                 LoadComboBoxSearch();
                 cbb_Search.SelectedIndex = 0;
 
-                LoadButtonProduct(Panel_Product);
+                //LoadButtonProduct(Panel_Product);
             }
             catch (Exception err)
             {
@@ -374,7 +383,7 @@ namespace ManagementSupermarket
                 price = float.Parse(txt_PriceCreate.Text);
 
 
-                idDiscount = cbb_DiscountCreate.SelectedValue.ToString();
+                idDiscount = cbb_DiscountCreate.SelectedValue?.ToString();
                 DataTable tblDiscount = (new BLL_Discount()).GetDiscount("MaKM", idDiscount);
 
                 //Discount price use to show user. Don't Insert Database. Insert Database is Id Discount
@@ -443,7 +452,7 @@ namespace ManagementSupermarket
                 price = float.Parse(txt_PriceCreate.Text);
 
 
-                idDiscount = cbb_DiscountCreate.SelectedValue.ToString();
+                idDiscount = cbb_DiscountCreate.SelectedValue?.ToString();
                 DataTable tblDiscount = (new BLL_Discount()).GetDiscount("MaKM", idDiscount);
 
                 //Discount price use to show user. Don't Insert Database. Insert Database is Id Discount
@@ -770,6 +779,6 @@ namespace ManagementSupermarket
             }
         }
 
-     
+       
     }
 }
