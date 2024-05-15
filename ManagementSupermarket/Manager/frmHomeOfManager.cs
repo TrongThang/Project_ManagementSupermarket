@@ -89,6 +89,10 @@ namespace ManagementSupermarket
         private void frmHomeOfManager_Load(object sender, EventArgs e)
         {
             RoleAccess();
+            if(s_role == "NV")
+            {
+                Sidebar_Panel.MinimumSize = new Size(67, 731);
+            }
             lbl_Name.Text = (new BLL_Employee()).GetEmployeeTo("MaNV", s_idEmployee).Rows[0]["HoTen"].ToString();
             CheckProductExpire();
 
@@ -166,7 +170,7 @@ namespace ManagementSupermarket
         private void btn_WareHouse_Click(object sender, EventArgs e)
         {
             IconButton btn = sender as IconButton;
-            OpenfrmChild(new frmWarehouse(), btn);
+            OpenfrmChild(new frmWarehouse(s_idEmployee), btn);
         }
 
         private void btn_TypeProduct_Click(object sender, EventArgs e)
@@ -215,7 +219,7 @@ namespace ManagementSupermarket
         private void btn_Info_Click(object sender, EventArgs e)
         {
             IconButton btn = sender as IconButton;
-            OpenfrmChild(new frmInfomation(), btn);
+            OpenfrmChild(new frmInfomation(s_idEmployee), btn);
         }
 
         private void btn_ChangePassword_Click(object sender, EventArgs e)

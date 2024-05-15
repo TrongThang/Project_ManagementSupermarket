@@ -59,6 +59,7 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txt_TotalCashCreate = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btn_ExportExcel = new System.Windows.Forms.Button();
             this.cbb_SearchRole = new System.Windows.Forms.ComboBox();
             this.btn_SeeDetailWarehouse = new FontAwesome.Sharp.IconButton();
             this.btn_Refresh = new FontAwesome.Sharp.IconButton();
@@ -82,7 +83,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.btn_ExportExcel = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.grpInfo.SuspendLayout();
@@ -260,9 +260,11 @@
             // 
             // txt_IntoMoney
             // 
+            this.txt_IntoMoney.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.txt_IntoMoney.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_IntoMoney.Location = new System.Drawing.Point(17, 520);
             this.txt_IntoMoney.Name = "txt_IntoMoney";
+            this.txt_IntoMoney.ReadOnly = true;
             this.txt_IntoMoney.Size = new System.Drawing.Size(203, 32);
             this.txt_IntoMoney.TabIndex = 15;
             // 
@@ -440,6 +442,17 @@
             this.tabPage2.Size = new System.Drawing.Size(1284, 692);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Danh Sách Nhập Kho";
+            // 
+            // btn_ExportExcel
+            // 
+            this.btn_ExportExcel.BackgroundImage = global::ManagementSupermarket.Properties.Resources.png_clipart_microsoft_excel_logo_microsoft_excel_computer_icons_xls_microsoft_angle_text;
+            this.btn_ExportExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_ExportExcel.Location = new System.Drawing.Point(144, 245);
+            this.btn_ExportExcel.Name = "btn_ExportExcel";
+            this.btn_ExportExcel.Size = new System.Drawing.Size(60, 55);
+            this.btn_ExportExcel.TabIndex = 39;
+            this.btn_ExportExcel.UseVisualStyleBackColor = true;
+            this.btn_ExportExcel.Click += new System.EventHandler(this.btn_ExportExcel_Click);
             // 
             // cbb_SearchRole
             // 
@@ -708,17 +721,6 @@
             this.label11.Size = new System.Drawing.Size(183, 25);
             this.label11.TabIndex = 1;
             this.label11.Text = "Tên Nhà Cung Cấp";
-            // 
-            // btn_ExportExcel
-            // 
-            this.btn_ExportExcel.BackgroundImage = global::ManagementSupermarket.Properties.Resources.png_clipart_microsoft_excel_logo_microsoft_excel_computer_icons_xls_microsoft_angle_text;
-            this.btn_ExportExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_ExportExcel.Location = new System.Drawing.Point(144, 245);
-            this.btn_ExportExcel.Name = "btn_ExportExcel";
-            this.btn_ExportExcel.Size = new System.Drawing.Size(60, 55);
-            this.btn_ExportExcel.TabIndex = 39;
-            this.btn_ExportExcel.UseVisualStyleBackColor = true;
-            this.btn_ExportExcel.Click += new System.EventHandler(this.btn_ExportExcel_Click);
             // 
             // frmWarehouse
             // 

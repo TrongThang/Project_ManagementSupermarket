@@ -226,8 +226,8 @@
             this.Sidebar_Panel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.Sidebar_Panel.Location = new System.Drawing.Point(0, 146);
             this.Sidebar_Panel.Margin = new System.Windows.Forms.Padding(0);
-            this.Sidebar_Panel.MaximumSize = new System.Drawing.Size(250, 731);
-            this.Sidebar_Panel.MinimumSize = new System.Drawing.Size(67, 731);
+            this.Sidebar_Panel.MaximumSize = new System.Drawing.Size(241, 731);
+            this.Sidebar_Panel.MinimumSize = new System.Drawing.Size(86, 731);
             this.Sidebar_Panel.Name = "Sidebar_Panel";
             this.Sidebar_Panel.Size = new System.Drawing.Size(241, 731);
             this.Sidebar_Panel.TabIndex = 7;

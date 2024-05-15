@@ -55,6 +55,7 @@ namespace ManagementSupermarket
             BLL_Account account = new BLL_Account();
             DataTable tblAccount = account.IsAccount(username, password);
             bool isNotAccount = true;
+
             if(tblAccount.Rows.Count > 0) { 
                 isNotAccount = false;
             }

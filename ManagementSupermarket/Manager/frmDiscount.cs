@@ -245,6 +245,8 @@ namespace ManagementSupermarket.Manager
                 {
                     return;
                 }
+                //Cập nhật lại giá KM cho đúng trước khi thêm
+                priceDiscount = priceDiscount / 100;
 
                 DateTime starDay = dtpTimeStart.Value;
 
@@ -323,6 +325,10 @@ namespace ManagementSupermarket.Manager
                 {
                     return;
                 }
+
+                //Cập nhật lại giá KM cho đúng trước khi thêm
+                priceDiscount = priceDiscount / 100;
+
                 DTO_Discount discount = new DTO_Discount(id, nameDiscount, priceDiscount, starDay, endDay);
                 int numOfRows = dataDiscount.UpdateDiscount(discount);
                 if (numOfRows > 0)

@@ -1,11 +1,11 @@
 ﻿USE [master]
 GO
 
-/****** Object:  Database [QLST]    Script Date: 14/05/2024 22:43:53 ******/
+/****** Object:  Database [QLST]    Script Date: 15/05/2024 18:03:49 ******/
 DROP DATABASE [QLST]
 GO
 
-/****** Object:  Database [QLST]    Script Date: 14/05/2024 22:43:53 ******/
+/****** Object:  Database [QLST]    Script Date: 15/05/2024 18:03:49 ******/
 CREATE DATABASE [QLST]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -119,4 +119,3 @@ GO
 
 ALTER DATABASE [QLST] SET  READ_WRITE 
 GO
-

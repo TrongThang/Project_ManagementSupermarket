@@ -2,19 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-
 using System.Configuration.Install;
-
 using System.Linq;
-
 using System.IO;
-
 using System.Reflection;
-
 using System.Data.SqlClient;
-
 using System.Xml;
-
 using System.Collections.Specialized;
 
 namespace SetupEngine
@@ -143,7 +136,7 @@ namespace SetupEngine
 
                 System.Threading.Thread.Sleep(60 * 1000);
 
-                string connStr = "server =" +serverName + "; database = QLST; uid =" +userid + "; pwd =" +password;
+                string connStr = "server =" +serverName + "; database = dbqlsv; uid =" +userid + "; pwd =" +password;
 
                 Log("AppPath =" +pathApp);
 
@@ -153,7 +146,7 @@ namespace SetupEngine
 
                 // Get XML node
 
-                XmlNode xmlNode = xmlDom.SelectSingleNode("configuration / appSettings / add[@key =’MYCONN’]");
+                XmlNode xmlNode = xmlDom.SelectSingleNode("configuration / appSettings / add[@key ='MYCONN']");
 
                 xmlNode.Attributes["value"].Value = connStr;
 
@@ -201,7 +194,7 @@ namespace SetupEngine
 
             logFilePath = assemPath.Substring(0, pos + 1) + "\\SetupLog117.txt";
 
-            pathApp = assemPath.Substring(0, pos + 1) + "\\QLSTsApplication.exe.config";
+            pathApp = assemPath.Substring(0, pos + 1) + "\\ManagementSupermarket.exe.config";
 
             Log("—-Setup started—-");
 
