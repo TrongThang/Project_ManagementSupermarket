@@ -520,5 +520,14 @@ namespace ManagementSupermarket
           
         }
 
+        private void txt_Cost_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool IsNotNumber = !char.IsDigit(e.KeyChar)
+                               && !char.IsControl(e.KeyChar);
+            if (IsNotNumber)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

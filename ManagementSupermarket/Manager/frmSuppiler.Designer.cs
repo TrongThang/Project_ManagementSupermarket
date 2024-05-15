@@ -149,6 +149,7 @@
             this.txt_Phone.Name = "txt_Phone";
             this.txt_Phone.Size = new System.Drawing.Size(248, 36);
             this.txt_Phone.TabIndex = 19;
+            this.txt_Phone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Phone_KeyPress);
             // 
             // label2
             // 

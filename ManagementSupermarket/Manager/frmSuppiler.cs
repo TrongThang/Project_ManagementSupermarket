@@ -287,5 +287,15 @@ namespace ManagementSupermarket
                 BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút xuất file excel");
             }
         }
+
+        private void txt_Phone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool IsNotNumber = !char.IsDigit(e.KeyChar)
+                               && !char.IsControl(e.KeyChar);
+            if (IsNotNumber)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

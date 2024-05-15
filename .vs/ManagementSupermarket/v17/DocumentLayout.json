@@ -3,32 +3,16 @@
   "WorkspaceRootPath": "D:\\C#\\Fix merge\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|d:\\c#\\fix merge\\managementsupermarket\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|d:\\c#\\fix merge\\managementsupermarket\\manager\\frmmanagementemployees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\manager\\frmmanagementemployees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|d:\\c#\\fix merge\\managementsupermarket\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|d:\\c#\\fix merge\\managementsupermarket\\manager\\frmmanagementemployees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\manager\\frmmanagementemployees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6F5DC8D2-C22F-414B-97D1-F5CA3B71B3E1}|DAL\\DAL.csproj|d:\\c#\\fix merge\\dal\\dp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6F5DC8D2-C22F-414B-97D1-F5CA3B71B3E1}|DAL\\DAL.csproj|solutionrelative:dal\\dp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|d:\\c#\\fix merge\\managementsupermarket\\manager\\frmdiscount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\manager\\frmdiscount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|d:\\c#\\fix merge\\managementsupermarket\\manager\\frmdiscount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\manager\\frmdiscount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A795A82D-FC05-415F-90C4-60E5BCAE26E3}|SetupEngine\\SetupEngine.csproj|d:\\c#\\fix merge\\setupengine\\installerengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A795A82D-FC05-415F-90C4-60E5BCAE26E3}|SetupEngine\\SetupEngine.csproj|solutionrelative:setupengine\\installerengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A795A82D-FC05-415F-90C4-60E5BCAE26E3}|SetupEngine\\SetupEngine.csproj|d:\\c#\\fix merge\\setupengine\\installerengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A795A82D-FC05-415F-90C4-60E5BCAE26E3}|SetupEngine\\SetupEngine.csproj|solutionrelative:setupengine\\installerengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|d:\\c#\\fix merge\\managementsupermarket\\manager\\frmhomeofmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FA33D500-FBAB-4768-866C-45F29BB18CD0}|ManagementSupermarket\\GUI.csproj|solutionrelative:managementsupermarket\\manager\\frmhomeofmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -78,90 +62,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmLogin.cs",
-              "DocumentMoniker": "D:\\C#\\Fix merge\\ManagementSupermarket\\frmLogin.cs",
-              "RelativeDocumentMoniker": "ManagementSupermarket\\frmLogin.cs",
-              "ToolTip": "D:\\C#\\Fix merge\\ManagementSupermarket\\frmLogin.cs",
-              "RelativeToolTip": "ManagementSupermarket\\frmLogin.cs",
-              "ViewState": "AQIAACkAAAAAAAAAAAAwwDcAAAA0AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T14:24:25.536Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "frmLogin.cs [Design]",
-              "DocumentMoniker": "D:\\C#\\Fix merge\\ManagementSupermarket\\frmLogin.cs",
-              "RelativeDocumentMoniker": "ManagementSupermarket\\frmLogin.cs",
-              "ToolTip": "D:\\C#\\Fix merge\\ManagementSupermarket\\frmLogin.cs [Design]",
-              "RelativeToolTip": "ManagementSupermarket\\frmLogin.cs [Design]",
+              "Title": "frmManagementEmployees.cs",
+              "DocumentMoniker": "D:\\C#\\Fix merge\\ManagementSupermarket\\Manager\\frmManagementEmployees.cs",
+              "RelativeDocumentMoniker": "ManagementSupermarket\\Manager\\frmManagementEmployees.cs",
+              "ToolTip": "D:\\C#\\Fix merge\\ManagementSupermarket\\Manager\\frmManagementEmployees.cs",
+              "RelativeToolTip": "ManagementSupermarket\\Manager\\frmManagementEmployees.cs",
+              "ViewState": "AQIAAGIAAAAAAAAAAAApwHgAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T14:24:24.164Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "frmDiscount.cs",
-              "DocumentMoniker": "D:\\C#\\Fix merge\\ManagementSupermarket\\Manager\\frmDiscount.cs",
-              "RelativeDocumentMoniker": "ManagementSupermarket\\Manager\\frmDiscount.cs",
-              "ToolTip": "D:\\C#\\Fix merge\\ManagementSupermarket\\Manager\\frmDiscount.cs",
-              "RelativeToolTip": "ManagementSupermarket\\Manager\\frmDiscount.cs",
-              "ViewState": "AQIAADIBAAAAAAAAAAAAAEYBAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T13:38:27.922Z",
+              "WhenOpened": "2024-05-15T14:59:07.791Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "frmDiscount.cs [Design]",
-              "DocumentMoniker": "D:\\C#\\Fix merge\\ManagementSupermarket\\Manager\\frmDiscount.cs",
-              "RelativeDocumentMoniker": "ManagementSupermarket\\Manager\\frmDiscount.cs",
-              "ToolTip": "D:\\C#\\Fix merge\\ManagementSupermarket\\Manager\\frmDiscount.cs [Design]",
-              "RelativeToolTip": "ManagementSupermarket\\Manager\\frmDiscount.cs [Design]",
+              "DocumentIndex": 0,
+              "Title": "frmManagementEmployees.cs [Design]",
+              "DocumentMoniker": "D:\\C#\\Fix merge\\ManagementSupermarket\\Manager\\frmManagementEmployees.cs",
+              "RelativeDocumentMoniker": "ManagementSupermarket\\Manager\\frmManagementEmployees.cs",
+              "ToolTip": "D:\\C#\\Fix merge\\ManagementSupermarket\\Manager\\frmManagementEmployees.cs [Design]",
+              "RelativeToolTip": "ManagementSupermarket\\Manager\\frmManagementEmployees.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T13:38:26.535Z",
+              "WhenOpened": "2024-05-15T14:59:05.882Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "DP.cs",
-              "DocumentMoniker": "D:\\C#\\Fix merge\\DAL\\DP.cs",
-              "RelativeDocumentMoniker": "DAL\\DP.cs",
-              "ToolTip": "D:\\C#\\Fix merge\\DAL\\DP.cs",
-              "RelativeToolTip": "DAL\\DP.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAABWAAAA",
+              "Title": "frmHomeOfManager.cs [Design]",
+              "DocumentMoniker": "D:\\C#\\Fix merge\\ManagementSupermarket\\Manager\\frmHomeOfManager.cs",
+              "RelativeDocumentMoniker": "ManagementSupermarket\\Manager\\frmHomeOfManager.cs",
+              "ToolTip": "D:\\C#\\Fix merge\\ManagementSupermarket\\Manager\\frmHomeOfManager.cs [Design]",
+              "RelativeToolTip": "ManagementSupermarket\\Manager\\frmHomeOfManager.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T13:37:20.903Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "InstallerEngine.cs",
-              "DocumentMoniker": "D:\\C#\\Fix merge\\SetupEngine\\InstallerEngine.cs",
-              "RelativeDocumentMoniker": "SetupEngine\\InstallerEngine.cs",
-              "ToolTip": "D:\\C#\\Fix merge\\SetupEngine\\InstallerEngine.cs",
-              "RelativeToolTip": "SetupEngine\\InstallerEngine.cs",
-              "ViewState": "AQIAAH4AAAAAAAAAAADwv48AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T12:50:26.392Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "InstallerEngine.cs [Design]",
-              "DocumentMoniker": "D:\\C#\\Fix merge\\SetupEngine\\InstallerEngine.cs",
-              "RelativeDocumentMoniker": "SetupEngine\\InstallerEngine.cs",
-              "ToolTip": "D:\\C#\\Fix merge\\SetupEngine\\InstallerEngine.cs [Design]",
-              "RelativeToolTip": "SetupEngine\\InstallerEngine.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T12:49:25.567Z",
+              "WhenOpened": "2024-05-15T14:57:27.342Z",
               "EditorCaption": " [Design]"
             }
           ]

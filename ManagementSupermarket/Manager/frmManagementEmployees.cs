@@ -117,7 +117,7 @@ namespace ManagementSupermarket
             }
             else if (CCCD.Length < 12)
             {
-                eventConfig.SetErrorLabel(lbl_ErrorPhone, "CCCD", notEnoughLengthCCCD);
+                eventConfig.SetErrorLabel(lbl_ErrorCCCD, "CCCD", notEnoughLengthCCCD);
                 flag = true;
             }
 

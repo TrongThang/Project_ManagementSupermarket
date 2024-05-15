@@ -255,7 +255,7 @@
             this.groupBox1.Controls.Add(this.rad_Female);
             this.groupBox1.Controls.Add(this.rad_Male);
             this.groupBox1.ForeColor = System.Drawing.Color.Yellow;
-            this.groupBox1.Location = new System.Drawing.Point(415, 140);
+            this.groupBox1.Location = new System.Drawing.Point(417, 140);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(180, 76);
             this.groupBox1.TabIndex = 10;
@@ -405,7 +405,7 @@
             this.lbl_ErrorPhone.AutoSize = true;
             this.lbl_ErrorPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorPhone.ForeColor = System.Drawing.Color.Red;
-            this.lbl_ErrorPhone.Location = new System.Drawing.Point(208, 193);
+            this.lbl_ErrorPhone.Location = new System.Drawing.Point(204, 193);
             this.lbl_ErrorPhone.Name = "lbl_ErrorPhone";
             this.lbl_ErrorPhone.Size = new System.Drawing.Size(53, 20);
             this.lbl_ErrorPhone.TabIndex = 26;

@@ -54,10 +54,11 @@
             // lbl_ErrorDescribe
             // 
             this.lbl_ErrorDescribe.AutoSize = true;
+            this.lbl_ErrorDescribe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorDescribe.ForeColor = System.Drawing.Color.Red;
-            this.lbl_ErrorDescribe.Location = new System.Drawing.Point(646, 84);
+            this.lbl_ErrorDescribe.Location = new System.Drawing.Point(717, 84);
             this.lbl_ErrorDescribe.Name = "lbl_ErrorDescribe";
-            this.lbl_ErrorDescribe.Size = new System.Drawing.Size(81, 29);
+            this.lbl_ErrorDescribe.Size = new System.Drawing.Size(64, 25);
             this.lbl_ErrorDescribe.TabIndex = 26;
             this.lbl_ErrorDescribe.Text = "label4";
             this.lbl_ErrorDescribe.Visible = false;
@@ -65,10 +66,11 @@
             // lbl_ErrorName
             // 
             this.lbl_ErrorName.AutoSize = true;
+            this.lbl_ErrorName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ErrorName.ForeColor = System.Drawing.Color.Red;
             this.lbl_ErrorName.Location = new System.Drawing.Point(314, 84);
             this.lbl_ErrorName.Name = "lbl_ErrorName";
-            this.lbl_ErrorName.Size = new System.Drawing.Size(81, 29);
+            this.lbl_ErrorName.Size = new System.Drawing.Size(80, 31);
             this.lbl_ErrorName.TabIndex = 27;
             this.lbl_ErrorName.Text = "label4";
             this.lbl_ErrorName.Visible = false;
@@ -77,9 +79,9 @@
             // 
             this.txt_Desc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_Desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Desc.Location = new System.Drawing.Point(646, 45);
+            this.txt_Desc.Location = new System.Drawing.Point(717, 45);
             this.txt_Desc.Name = "txt_Desc";
-            this.txt_Desc.Size = new System.Drawing.Size(248, 36);
+            this.txt_Desc.Size = new System.Drawing.Size(529, 36);
             this.txt_Desc.TabIndex = 25;
             // 
             // label2
@@ -87,7 +89,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Yellow;
-            this.label2.Location = new System.Drawing.Point(641, 13);
+            this.label2.Location = new System.Drawing.Point(712, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(265, 29);
             this.label2.TabIndex = 24;
@@ -99,7 +101,7 @@
             this.txt_NameType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_NameType.Location = new System.Drawing.Point(314, 45);
             this.txt_NameType.Name = "txt_NameType";
-            this.txt_NameType.Size = new System.Drawing.Size(282, 36);
+            this.txt_NameType.Size = new System.Drawing.Size(265, 36);
             this.txt_NameType.TabIndex = 23;
             // 
             // label1

@@ -91,7 +91,7 @@
             this.panel2.Location = new System.Drawing.Point(244, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1122, 146);
+            this.panel2.Size = new System.Drawing.Size(1095, 146);
             this.panel2.TabIndex = 9;
             // 
             // label1
@@ -121,10 +121,10 @@
             this.panel_Avatar.Controls.Add(this.btn_Info);
             this.panel_Avatar.Controls.Add(this.btn_ChangePassword);
             this.panel_Avatar.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.panel_Avatar.Location = new System.Drawing.Point(918, 15);
+            this.panel_Avatar.Location = new System.Drawing.Point(903, 11);
             this.panel_Avatar.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.panel_Avatar.Name = "panel_Avatar";
-            this.panel_Avatar.Size = new System.Drawing.Size(204, 121);
+            this.panel_Avatar.Size = new System.Drawing.Size(193, 121);
             this.panel_Avatar.TabIndex = 5;
             this.panel_Avatar.Visible = false;
             // 
@@ -133,7 +133,7 @@
             this.btn_Info.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_Info.IconColor = System.Drawing.Color.Black;
             this.btn_Info.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_Info.Location = new System.Drawing.Point(19, 1);
+            this.btn_Info.Location = new System.Drawing.Point(8, 1);
             this.btn_Info.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.btn_Info.Name = "btn_Info";
             this.btn_Info.Size = new System.Drawing.Size(182, 53);
@@ -148,7 +148,7 @@
             this.btn_ChangePassword.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_ChangePassword.IconColor = System.Drawing.Color.Black;
             this.btn_ChangePassword.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_ChangePassword.Location = new System.Drawing.Point(19, 56);
+            this.btn_ChangePassword.Location = new System.Drawing.Point(8, 56);
             this.btn_ChangePassword.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.btn_ChangePassword.Name = "btn_ChangePassword";
             this.btn_ChangePassword.Size = new System.Drawing.Size(182, 53);
@@ -163,10 +163,10 @@
             this.panel1.Controls.Add(this.pic_Avatar);
             this.panel1.Controls.Add(this.lbl_Name);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(1366, 0);
+            this.panel1.Location = new System.Drawing.Point(1339, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(176, 146);
+            this.panel1.Size = new System.Drawing.Size(203, 146);
             this.panel1.TabIndex = 5;
             // 
             // pic_Avatar
@@ -185,7 +185,7 @@
             // 
             this.lbl_Name.AutoSize = true;
             this.lbl_Name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(246)))), ((int)(((byte)(227)))));
-            this.lbl_Name.Location = new System.Drawing.Point(3, 106);
+            this.lbl_Name.Location = new System.Drawing.Point(3, 107);
             this.lbl_Name.Name = "lbl_Name";
             this.lbl_Name.Size = new System.Drawing.Size(82, 30);
             this.lbl_Name.TabIndex = 4;

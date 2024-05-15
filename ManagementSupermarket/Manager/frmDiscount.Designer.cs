@@ -88,9 +88,9 @@
             this.label2.ForeColor = System.Drawing.Color.Yellow;
             this.label2.Location = new System.Drawing.Point(12, 290);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(193, 29);
+            this.label2.Size = new System.Drawing.Size(298, 36);
             this.label2.TabIndex = 26;
-            this.label2.Text = "Giá Khuyến Mãi";
+            this.label2.Text = "Giá Khuyến Mãi (%)";
             // 
             // txt_NameDiscount
             // 
@@ -118,6 +118,7 @@
             this.txt_ID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ID.Location = new System.Drawing.Point(11, 103);
+            this.txt_ID.MaxLength = 10;
             this.txt_ID.Name = "txt_ID";
             this.txt_ID.Size = new System.Drawing.Size(249, 36);
             this.txt_ID.TabIndex = 23;
@@ -129,9 +130,9 @@
             this.lbl_.ForeColor = System.Drawing.Color.Yellow;
             this.lbl_.Location = new System.Drawing.Point(6, 71);
             this.lbl_.Name = "lbl_";
-            this.lbl_.Size = new System.Drawing.Size(189, 29);
+            this.lbl_.Size = new System.Drawing.Size(464, 36);
             this.lbl_.TabIndex = 22;
-            this.lbl_.Text = "Mã Khuyến Mãi";
+            this.lbl_.Text = "Mã Khuyến Mãi (Tối đa10 ký tự)";
             // 
             // label3
             // 
@@ -383,7 +384,7 @@
             this.cbb_SearchRole.Items.AddRange(new object[] {
             "MaKM",
             "TenKM"});
-            this.cbb_SearchRole.Location = new System.Drawing.Point(834, 38);
+            this.cbb_SearchRole.Location = new System.Drawing.Point(834, 34);
             this.cbb_SearchRole.Name = "cbb_SearchRole";
             this.cbb_SearchRole.Size = new System.Drawing.Size(131, 37);
             this.cbb_SearchRole.TabIndex = 42;

@@ -87,6 +87,7 @@ namespace DAL
             catch (Exception e)
             {
                 MessageBox.Show($"Lỗi Data: {e.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
                 return null;
             }
         }
