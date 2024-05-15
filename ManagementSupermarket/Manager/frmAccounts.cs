@@ -15,14 +15,16 @@ namespace ManagementSupermarket.Manager
     public partial class frmAccounts : Form
     {
         private string s_role;
+        private string s_idEmployee;
         string nameForm = "Form Account";
 
         public frmAccounts()
         {
             InitializeComponent();
         }
-        public frmAccounts(string role)
+        public frmAccounts(string idEmployee, string role)
         {
+            this.s_idEmployee = idEmployee;
             this.s_role = role;
             InitializeComponent();
         }
@@ -81,10 +83,16 @@ namespace ManagementSupermarket.Manager
                 string name, id;
                 id = rowSelected.Cells["MaNV"].Value.ToString();
                 name = rowSelected.Cells["HoTen"].Value.ToString();
-                string roleSelect = rowSelected.Cells["TenChucVu"].ToString();
-                if (s_role != "QLCC" && roleSelect != "Quản lý cấp cao")
+                string roleSelect = rowSelected.Cells["TenChucVu"].Value.ToString();
+                if (s_role != "QLCC" && roleSelect.Equals("Quản Lý Cấp Cao"))
                 {
                     mess = "Bạn không có quyền thay đổi mật khẩu của quản lý cấp cao!";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if(id == this.s_idEmployee && chk_Active.Checked) {
+                    mess = "Bạn không thể tắt trạng thái tài khoản của bản thân!";
                     MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }

@@ -228,7 +228,9 @@
             this.num_CountProductCreate.Name = "num_CountProductCreate";
             this.num_CountProductCreate.Size = new System.Drawing.Size(148, 32);
             this.num_CountProductCreate.TabIndex = 16;
+            this.num_CountProductCreate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.num_CountProductCreate.ValueChanged += new System.EventHandler(this.num_CountProductCreate_ValueChanged);
+            this.num_CountProductCreate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.num_CountProductCreate_KeyPress);
             // 
             // btn_DeleteCreate
             // 

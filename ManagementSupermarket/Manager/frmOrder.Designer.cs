@@ -586,6 +586,7 @@
             0,
             0});
             this.num_CountProductCreate.ValueChanged += new System.EventHandler(this.num_CountProductCreate_ValueChanged);
+            this.num_CountProductCreate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.num_CountProductCreate_KeyPress);
             // 
             // btn_Add
             // 
@@ -622,6 +623,7 @@
             this.txt_PriceCreate.Size = new System.Drawing.Size(139, 32);
             this.txt_PriceCreate.TabIndex = 14;
             this.txt_PriceCreate.Text = " 0";
+            this.txt_PriceCreate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CashCustomerCreate_KeyPress);
             // 
             // label6
             // 

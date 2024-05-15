@@ -243,7 +243,7 @@ namespace ManagementSupermarket
         private void btn_Accounts_Click(object sender, EventArgs e)
         {
             IconButton btn = sender as IconButton;
-            OpenfrmChild(new frmAccounts(s_role), btn);
+            OpenfrmChild(new frmAccounts(s_idEmployee, s_role), btn);
         }
 
         private void btn_Errors_Click(object sender, EventArgs e)

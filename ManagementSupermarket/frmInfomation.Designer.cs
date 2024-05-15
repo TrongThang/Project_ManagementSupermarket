@@ -138,7 +138,7 @@
             this.rad_Female.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.rad_Female.ForeColor = System.Drawing.Color.White;
             this.rad_Female.Location = new System.Drawing.Point(927, 346);
-            this.rad_Female.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rad_Female.Margin = new System.Windows.Forms.Padding(4);
             this.rad_Female.Name = "rad_Female";
             this.rad_Female.Size = new System.Drawing.Size(66, 33);
             this.rad_Female.TabIndex = 3;
@@ -152,7 +152,7 @@
             this.rad_Male.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.rad_Male.ForeColor = System.Drawing.Color.White;
             this.rad_Male.Location = new System.Drawing.Point(785, 346);
-            this.rad_Male.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rad_Male.Margin = new System.Windows.Forms.Padding(4);
             this.rad_Male.Name = "rad_Male";
             this.rad_Male.Size = new System.Drawing.Size(88, 33);
             this.rad_Male.TabIndex = 2;
@@ -165,7 +165,7 @@
             this.txt_FullName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_FullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.txt_FullName.Location = new System.Drawing.Point(785, 153);
-            this.txt_FullName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_FullName.Margin = new System.Windows.Forms.Padding(4);
             this.txt_FullName.Name = "txt_FullName";
             this.txt_FullName.Size = new System.Drawing.Size(313, 36);
             this.txt_FullName.TabIndex = 7;
@@ -175,17 +175,19 @@
             this.txt_CCCD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_CCCD.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.txt_CCCD.Location = new System.Drawing.Point(785, 278);
-            this.txt_CCCD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_CCCD.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_CCCD.MaxLength = 12;
             this.txt_CCCD.Name = "txt_CCCD";
             this.txt_CCCD.Size = new System.Drawing.Size(313, 36);
             this.txt_CCCD.TabIndex = 7;
+            this.txt_CCCD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CCCD_KeyPress);
             // 
             // txt_Address
             // 
             this.txt_Address.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_Address.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.txt_Address.Location = new System.Drawing.Point(785, 408);
-            this.txt_Address.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_Address.Margin = new System.Windows.Forms.Padding(4);
             this.txt_Address.Name = "txt_Address";
             this.txt_Address.Size = new System.Drawing.Size(417, 36);
             this.txt_Address.TabIndex = 7;
@@ -195,10 +197,12 @@
             this.txt_Phone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_Phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.txt_Phone.Location = new System.Drawing.Point(785, 473);
-            this.txt_Phone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_Phone.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_Phone.MaxLength = 10;
             this.txt_Phone.Name = "txt_Phone";
             this.txt_Phone.Size = new System.Drawing.Size(257, 36);
             this.txt_Phone.TabIndex = 7;
+            this.txt_Phone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CCCD_KeyPress);
             // 
             // lbl_RoleName
             // 
@@ -219,7 +223,7 @@
             this.btn_Alter.IconColor = System.Drawing.Color.Black;
             this.btn_Alter.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Alter.Location = new System.Drawing.Point(785, 535);
-            this.btn_Alter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Alter.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Alter.Name = "btn_Alter";
             this.btn_Alter.Size = new System.Drawing.Size(95, 65);
             this.btn_Alter.TabIndex = 17;
@@ -236,7 +240,7 @@
             this.pic_Avatar.IconSize = 395;
             this.pic_Avatar.InitialImage = global::ManagementSupermarket.Properties.Resources.avartaNam;
             this.pic_Avatar.Location = new System.Drawing.Point(94, 82);
-            this.pic_Avatar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pic_Avatar.Margin = new System.Windows.Forms.Padding(4);
             this.pic_Avatar.Name = "pic_Avatar";
             this.pic_Avatar.Size = new System.Drawing.Size(395, 533);
             this.pic_Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -279,7 +283,7 @@
             this.Controls.Add(this.label6);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.Margin = new System.Windows.Forms.Padding(7);
             this.Name = "frmInfomation";
             this.Text = "frmInfomation";
             this.Load += new System.EventHandler(this.frmInfomation_Load);

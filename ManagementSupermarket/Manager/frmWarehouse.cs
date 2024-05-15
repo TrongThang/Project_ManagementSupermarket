@@ -427,8 +427,9 @@ namespace ManagementSupermarket.Manager
 
                     }
                     MessageBox.Show("Thêm dữ liệu hóa đơn thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.TotalMoney = 0;
 
-                }
+    }
                 else
                 {
                     MessageBox.Show("Có lỗi xảy ra khi cập nhật dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -598,6 +599,16 @@ namespace ManagementSupermarket.Manager
             {
                 MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút xuất file excel");
+            }
+        }
+
+        private void num_CountProductCreate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool IsNotNumber = !char.IsDigit(e.KeyChar)
+                              && !char.IsControl(e.KeyChar);
+            if (IsNotNumber)
+            {
+                e.Handled = true;
             }
         }
     }

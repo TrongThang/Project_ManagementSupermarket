@@ -92,7 +92,18 @@ namespace ManagementSupermarket
             }
             return flag;
         }
-
+        private void CheckPhoneAndCCD()
+        {
+            if(txt_Phone.TextLength < 10)
+            {
+                string mess = "Số điện thoại phải đủ 10 số";
+                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }else if(txt_CCCD.TextLength < 12)
+            {
+                string mess = "Căn cước công dân phải đủ 12 số";
+                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
         private void btn_Alter_Click(object sender, EventArgs e)
         {
             try
@@ -136,6 +147,16 @@ namespace ManagementSupermarket
             {
                 MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút cập nhật thông tin");
+            }
+        }
+
+        private void txt_CCCD_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool IsNotNumber = !char.IsDigit(e.KeyChar)
+                              && !char.IsControl(e.KeyChar);
+            if (IsNotNumber)
+            {
+                e.Handled = true;
             }
         }
     }

@@ -81,7 +81,7 @@ namespace BLL
             // Mở hộp thoại để chọn nơi lưu file PDF
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "PDF file (*.pdf)|*.pdf";
-            saveFileDialog.FileName = $"HoaDon-{bill.S_IdInvoice}.pdf";
+            saveFileDialog.FileName = $"HoaDon_{bill.S_IdInvoice}.pdf";
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 check = true;
             else

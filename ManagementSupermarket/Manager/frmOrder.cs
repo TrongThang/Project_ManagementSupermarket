@@ -266,10 +266,14 @@ namespace ManagementSupermarket
         }
         private void ClearControl()
         {
+           
             cbb_NameProductCreate.SelectedIndex = 0;
             num_CountProductCreate.Value = 0;
             txt_PriceCreate.Text = "0";
-            cbb_DiscountCreate.SelectedIndex = 0;
+            if (cbb_DiscountCreate.Items.Count > 0)
+            {
+                cbb_DiscountCreate.SelectedIndex = 0;
+            }
             txt_AmountCreate.Clear();
             chk_PhoneCustomer.Checked = false;
             txt_ChangeCreate.Text = "0";
@@ -329,20 +333,20 @@ namespace ManagementSupermarket
                 nameProduct = cbb_NameProductCreate.Text;
                 price = float.Parse(txt_PriceCreate.Text);
 
-
+                
                 idDiscount = cbb_DiscountCreate.SelectedValue?.ToString();
-                DataTable tblDiscount = (new BLL_Discount()).GetDiscount("MaKM", idDiscount);
 
                 //Discount price use to show user. Don't Insert Database. Insert Database is Id Discount
-                if (tblDiscount.Rows.Count > 0)
+                if (string.IsNullOrEmpty(idDiscount) == false)
                 {
+                    DataTable tblDiscount = (new BLL_Discount()).GetDiscount("MaKM", idDiscount);
                     string value = tblDiscount.Rows[0]["GiaKhuyenMai"].ToString();
                     discount = float.Parse(value);
                     amount = price * count * (1 - discount);
                 }
                 else
                 {
-                    discount = 1;
+                    discount = 0;
                     amount = price * count;
                 }
 
@@ -689,6 +693,7 @@ namespace ManagementSupermarket
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
             cbb_Search.SelectedIndex = 0;
+            txt_TotalCashCreate.Text = "0";
             txtSearch.Clear();
             LoadDataGridView_InvoiceSelling();
         }
@@ -750,6 +755,14 @@ namespace ManagementSupermarket
             }
         }
 
-       
+        private void num_CountProductCreate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool IsNotNumber = !char.IsDigit(e.KeyChar)
+                              && !char.IsControl(e.KeyChar);
+            if (IsNotNumber)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

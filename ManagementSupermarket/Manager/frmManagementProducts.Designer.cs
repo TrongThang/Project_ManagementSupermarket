@@ -401,6 +401,7 @@
             this.num_Count.Size = new System.Drawing.Size(131, 32);
             this.num_Count.TabIndex = 21;
             this.num_Count.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.num_Count.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Cost_KeyPress);
             // 
             // cbb_Supplier
             // 
@@ -511,6 +512,7 @@
             0,
             0,
             0});
+            this.num_ShelfLife.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Cost_KeyPress);
             // 
             // btn_ExportExcel
             // 
