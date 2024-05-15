@@ -18,6 +18,7 @@ namespace ManagementSupermarket
 {
     public partial class frmCustomer : Form
     {
+        string nameForm = "Form Customer";
         Event eventConfig = new Event();
         BLL_Customer dataCustomer = new BLL_Customer();
         public frmCustomer()
@@ -138,24 +139,24 @@ namespace ManagementSupermarket
         private void btn_Add_Click(object sender, EventArgs e)
         {
             On_OffLabelError(0);
-            string fullName = txt_FullName.Text.Trim();
-            string CCCD = txt_CCCD.Text.Trim();
-            string phone=txt_Phone.Text.Trim();
-            string address = txt_Address.Text.Trim();
-            DateTime createdTime = dtp_CreatedTime.Value;
-            string gender = rad_Male.Checked ? "Nam" : "Nữ";
-            byte status = (byte)(chk_Status.Checked ? 1 : 0);
-            bool isEmpty = IsEmptytTextBox(fullName, CCCD, phone, address);
-            if (isEmpty)
-            {
-                return;
-            }
-            else if (ExistCCCD(CCCD))
-            {
-                return;
-            }
             try
             {
+                string fullName = txt_FullName.Text.Trim();
+                string CCCD = txt_CCCD.Text.Trim();
+                string phone=txt_Phone.Text.Trim();
+                string address = txt_Address.Text.Trim();
+                DateTime createdTime = dtp_CreatedTime.Value;
+                string gender = rad_Male.Checked ? "Nam" : "Nữ";
+                byte status = (byte)(chk_Status.Checked ? 1 : 0);
+                bool isEmpty = IsEmptytTextBox(fullName, CCCD, phone, address);
+                if (isEmpty)
+                {
+                    return;
+                }
+                else if (ExistCCCD(CCCD))
+                {
+                    return;
+                }
                 DTO_Customer customer = new DTO_Customer(fullName, CCCD, phone, gender, address, createdTime, status);
                 int numOfRows = dataCustomer.InsertCustomer(customer);
                 if (numOfRows > 0)
@@ -172,23 +173,32 @@ namespace ManagementSupermarket
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút Thêm");
             }
         }
         private void dgv_ListCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewCellCollection rowSelected = dgv_ListCustomer.SelectedRows[0].Cells;
-            if (rowSelected.Count > 0)
+            try
             {
-                txt_ID.Text = rowSelected["MaKH"].Value.ToString();
-                txt_FullName.Text = rowSelected["HoTen"].Value.ToString();
-                txt_CCCD.Text = rowSelected["CCCD"].Value.ToString();
-                txt_Phone.Text = rowSelected["SDT"].Value.ToString();
-                txt_Address.Text = rowSelected["DiaChi"].Value.ToString();
-                rad_Male.Checked = rowSelected["GioiTinh"].Value.ToString() == "Nam" ? true : false;
-                rad_Female.Checked = !rad_Male.Checked;
-                dtp_CreatedTime.Value = (DateTime)rowSelected["NgayDangKy"].Value;
-                chk_Status.Checked = (bool)rowSelected["TrangThai"].Value;
+                DataGridViewCellCollection rowSelected = dgv_ListCustomer.SelectedRows[0].Cells;
+                if (rowSelected.Count > 0)
+                {
+                    txt_ID.Text = rowSelected["MaKH"].Value.ToString();
+                    txt_FullName.Text = rowSelected["HoTen"].Value.ToString();
+                    txt_CCCD.Text = rowSelected["CCCD"].Value.ToString();
+                    txt_Phone.Text = rowSelected["SDT"].Value.ToString();
+                    txt_Address.Text = rowSelected["DiaChi"].Value.ToString();
+                    rad_Male.Checked = rowSelected["GioiTinh"].Value.ToString() == "Nam" ? true : false;
+                    rad_Female.Checked = !rad_Male.Checked;
+                    dtp_CreatedTime.Value = (DateTime)rowSelected["NgayDangKy"].Value;
+                    chk_Status.Checked = (bool)rowSelected["TrangThai"].Value;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Cell CLick Data Grid View");
             }
         }
 
@@ -233,7 +243,8 @@ namespace ManagementSupermarket
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút cập nhật");
             }
            
            
@@ -266,7 +277,8 @@ namespace ManagementSupermarket
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút xoá");
             }
           
         }
@@ -305,9 +317,9 @@ namespace ManagementSupermarket
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút xuất file excel");
             }
-
         }
     }
 }

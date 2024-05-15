@@ -25,6 +25,7 @@ namespace ManagementSupermarket
 {
     public partial class frmManagementProducts : Form
     {
+        private string nameForm = "Form Product";
         public frmManagementProducts()
         {
             InitializeComponent();
@@ -173,42 +174,61 @@ namespace ManagementSupermarket
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Cell click");
             }
             
         }
         //FINISH
         private void btn_Upload_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image files (*.png; *.jpg; *.jpeg) | *.png; *.jpg; *.jpeg";
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyComputer);
-            DialogResult result = openFileDialog.ShowDialog();
-            string fileName = openFileDialog.FileName;
-
-            if (result == DialogResult.OK && !string.IsNullOrEmpty(fileName))
+            try
             {
-                string tmp = fileName;
-                pic_Product.ImageLocation = tmp;
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Image files (*.png; *.jpg; *.jpeg) | *.png; *.jpg; *.jpeg";
+                openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyComputer);
+                DialogResult result = openFileDialog.ShowDialog();
+                string fileName = openFileDialog.FileName;
+
+                if (result == DialogResult.OK && !string.IsNullOrEmpty(fileName))
+                {
+                    string tmp = fileName;
+                    pic_Product.ImageLocation = tmp;
+                }
             }
+            catch (Exception err)
+            {
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút upload ảnh");
+            }
+           
 
         }
         private void CopyImageToFolderProject(string pathImage)
         {
-            if (string.IsNullOrEmpty(pathImage))
+            try
             {
-                return;
-            }
-            // Chuỗi bắt đầu để chứa ảnh
-            string destFolder = Path.Combine(Application.StartupPath, "..", "..", "Image", "Products");
-            // Tạo đường dẫn đến nơi chưa ảnh
-            string destFileName = Path.Combine(destFolder, Path.GetFileName(pathImage));
+                if (string.IsNullOrEmpty(pathImage))
+                {
+                    return;
+                }
+                // Chuỗi bắt đầu để chứa ảnh
+                string destFolder = Path.Combine(Application.StartupPath, "..", "..", "Image", "Products");
+                // Tạo đường dẫn đến nơi chưa ảnh
+                string destFileName = Path.Combine(destFolder, Path.GetFileName(pathImage));
 
-            //Nếu chưua có ảnh thì tiến hành copy
-            if (!File.Exists(destFileName))
-            {
-                File.Copy(pathImage, destFileName);
+                //Nếu chưua có ảnh thì tiến hành copy
+                if (!File.Exists(destFileName))
+                {
+                    File.Copy(pathImage, destFileName);
+                }
             }
+            catch (Exception err)
+            {
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Copy Ảnh vào thư mục phẩn mềm");
+            }
+            
         }
         
         //CHECK ERROR INPUT
@@ -327,7 +347,8 @@ namespace ManagementSupermarket
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút Thêm");
             }
             
         }
@@ -395,7 +416,8 @@ namespace ManagementSupermarket
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút Chỉnh sửa");
             }
         }
 
@@ -442,7 +464,8 @@ namespace ManagementSupermarket
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút xoá");
             }
             
         }
@@ -469,8 +492,16 @@ namespace ManagementSupermarket
         }
         private void btn_Search_Click(object sender, EventArgs e)
         {
-            string nameProduct = txt_Search.Text.Trim();
-            LoadDataGridView(nameProduct, chk_ProductStatus.Checked);
+            try
+            {
+                string nameProduct = txt_Search.Text.Trim();
+                LoadDataGridView(nameProduct, chk_ProductStatus.Checked);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút tìm kiếm");
+            }
         }
 
         private void btn_ExportExcel_Click(object sender, EventArgs e)
@@ -483,7 +514,8 @@ namespace ManagementSupermarket
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút xuất file Excel");
             }
           
         }

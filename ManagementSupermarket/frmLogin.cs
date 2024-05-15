@@ -36,7 +36,7 @@ namespace ManagementSupermarket
         {
             if(txt_Username.Text == "" && txt_Password.Text == "")
             {
-                string role = "NV";
+                string role = "QLCC";
                 string idEmployee = "NV002";
                 frmHomeOfManager frmHomeOfManager = new frmHomeOfManager(idEmployee, role);
                 this.Hide();
@@ -47,10 +47,6 @@ namespace ManagementSupermarket
         }
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            if (AutoLogin())
-            {
-                return;
-            }
             string username = txt_Username.Text.Trim(), password = txt_Password.Text.Trim();
 
             //Process if username or password empty

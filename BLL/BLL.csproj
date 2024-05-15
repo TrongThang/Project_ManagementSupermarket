@@ -131,6 +131,7 @@
     <Compile Include="BLL_Employee.cs" />
     <Compile Include="BLL_InvoiceSelling.cs" />
     <Compile Include="BLL_InvoiceWarehouse.cs" />
+    <Compile Include="BLL_ManagementError.cs" />
     <Compile Include="BLL_Product.cs" />
     <Compile Include="BLL_Revenue.cs" />
     <Compile Include="BLL_Role.cs" />

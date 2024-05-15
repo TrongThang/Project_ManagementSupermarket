@@ -14,6 +14,7 @@ namespace ManagementSupermarket
     public partial class frmChangePassword : Form
     {
         private string idEmployee;
+        private string nameForm = "Form Change Password";
         BLL_Account account = new BLL_Account();
         Event eventConfig = new Event();
         public frmChangePassword(string id)
@@ -38,49 +39,57 @@ namespace ManagementSupermarket
         }
         private void btn_ChangePassword_Click(object sender, EventArgs e)
         {
-            string oldPassword, newPassword, confirmNewPassword;
-            oldPassword = txt_OldPassword.Text.Trim();
-            newPassword = txt_NewPassword.Text.Trim();
-            confirmNewPassword = txt_ConfirmPassword.Text.Trim();
-
-            bool passwordIsNotSame = string.Compare(newPassword, confirmNewPassword) != 0 ? true : false;
-            
-            if (TextboxIsNullOrEmpty())
+            try
             {
-                lbl_Error.Visible = true;
-                lbl_Error.Text = "*Vui lòng nhập đầy đủ thông tin";
-                return;
-            }
-            
-            if(passwordIsNotSame)
-            {
-                lbl_Error.Visible = true;
-                lbl_Error.Text = "*Mật khẩu mới và mật khẩu xác nhận khác nhau";
-                return;
-            }
-            DataTable tblAccount = account.IsAccount(idEmployee, oldPassword);
+                string oldPassword, newPassword, confirmNewPassword;
+                oldPassword = txt_OldPassword.Text.Trim();
+                newPassword = txt_NewPassword.Text.Trim();
+                confirmNewPassword = txt_ConfirmPassword.Text.Trim();
 
-            if (tblAccount.Rows.Count <= 0) {
-                lbl_Error.Text = "*Mật khẩu cũ không chính xác";
-                lbl_Error.Visible = true;
-                return;
-            }
+                bool passwordIsNotSame = string.Compare(newPassword, confirmNewPassword) != 0 ? true : false;
 
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn đổi mật khẩu?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if(result == DialogResult.Yes)
-            {
-                bool finsihUpdate = account.UpdatePasswordAccount(idEmployee, newPassword);
-                if (finsihUpdate)
+                if (TextboxIsNullOrEmpty())
                 {
-                    MessageBox.Show("Đổi mật khẩu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    lbl_Error.Visible = true;
+                    lbl_Error.Text = "*Vui lòng nhập đầy đủ thông tin";
                     return;
                 }
-                else
+
+                if (passwordIsNotSame)
                 {
-                    MessageBox.Show("Đổi mật khẩu thất bại!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    lbl_Error.Visible = true;
+                    lbl_Error.Text = "*Mật khẩu mới và mật khẩu xác nhận khác nhau";
+                    return;
+                }
+                DataTable tblAccount = account.IsAccount(idEmployee, oldPassword);
+
+                if (tblAccount.Rows.Count <= 0)
+                {
+                    lbl_Error.Text = "*Mật khẩu cũ không chính xác";
+                    lbl_Error.Visible = true;
+                    return;
+                }
+
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn đổi mật khẩu?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    bool finsihUpdate = account.UpdatePasswordAccount(idEmployee, newPassword);
+                    if (finsihUpdate)
+                    {
+                        MessageBox.Show("Đổi mật khẩu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đổi mật khẩu thất bại!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
-
+            catch (Exception err)
+            {
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút đổi mật khẩu");
+            }
         }
         private void ShowHidePassword(FontAwesome.Sharp.IconButton btn, TextBox txt)
         {

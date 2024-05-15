@@ -15,6 +15,7 @@ namespace ManagementSupermarket
 
     public partial class frmSuppiler : Form
     {
+        private string nameForm = "Form Supplier";
         public frmSuppiler()
         {
             InitializeComponent();
@@ -63,6 +64,7 @@ namespace ManagementSupermarket
             {
                 dgv_Supplier.DataSource = datasupplier.GetSupplier("TrangThai", "0");
             }
+           
         }
         private void HideLabel()
         {
@@ -77,14 +79,22 @@ namespace ManagementSupermarket
         }
         private void dgv_Supplier_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string id, nameSupplier, phone, address;
-            DataGridViewRow rowSelected = dgv_Supplier.SelectedRows[0];
+            try
+            {
+                DataGridViewRow rowSelected = dgv_Supplier.SelectedRows[0];
 
-            txt_ID.Text = rowSelected.Cells["MaNCC"].Value.ToString();
-            txt_NameSupplier.Text = rowSelected.Cells["TenNCC"].Value.ToString();
-            txt_Phone.Text = rowSelected.Cells["SDT"].Value.ToString();
-            txt_Address.Text = rowSelected.Cells["DiaChi"].Value.ToString();
-            chk_Status.Checked = (bool)rowSelected.Cells["TrangThai"].Value;
+                txt_ID.Text = rowSelected.Cells["MaNCC"].Value.ToString();
+                txt_NameSupplier.Text = rowSelected.Cells["TenNCC"].Value.ToString();
+                txt_Phone.Text = rowSelected.Cells["SDT"].Value.ToString();
+                txt_Address.Text = rowSelected.Cells["DiaChi"].Value.ToString();
+                chk_Status.Checked = (bool)rowSelected.Cells["TrangThai"].Value;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Cell click");
+            }
+            
         }
         private void chk_StatusDGV_CheckedChanged(object sender, EventArgs e)
         {
@@ -148,7 +158,8 @@ namespace ManagementSupermarket
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút Thêm");
             }
         }
         private void btn_Alter_Click(object sender, EventArgs e)
@@ -196,9 +207,9 @@ namespace ManagementSupermarket
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút chỉnh sửa");
             }
-            
         }
       
         private void btn_Delete_Click(object sender, EventArgs e)
@@ -238,7 +249,8 @@ namespace ManagementSupermarket
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút xoá");
             }
         }
         private void btn_Refresh_Click(object sender, EventArgs e)
@@ -259,6 +271,21 @@ namespace ManagementSupermarket
         private void btn_Search_Click(object sender, EventArgs e)
         {
             dgv_Supplier.DataSource = datasupplier.GetSupplier(cbb_Search.Text, txt_Search.Text);
+        }
+
+        private void btn_ExportExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataTable tblSupllier = (DataTable)dgv_Supplier.DataSource;
+                ConfigExcel_PDF.ExportToExcel(tblSupllier, "Supplier");
+                return;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút xuất file excel");
+            }
         }
     }
 }

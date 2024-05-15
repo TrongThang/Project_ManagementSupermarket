@@ -35,6 +35,9 @@
             this.txt_NameType = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgv_TypeProduct = new System.Windows.Forms.DataGridView();
+            this.MaLoaiSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MoTa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_Search = new FontAwesome.Sharp.IconButton();
             this.txt_Search = new System.Windows.Forms.TextBox();
             this.btn_Delete = new FontAwesome.Sharp.IconButton();
@@ -44,9 +47,7 @@
             this.txt_ID = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cbb_SearchRole = new System.Windows.Forms.ComboBox();
-            this.MaLoaiSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MoTa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_ExportExcel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_TypeProduct)).BeginInit();
             this.SuspendLayout();
             // 
@@ -138,6 +139,30 @@
             this.dgv_TypeProduct.Size = new System.Drawing.Size(1269, 510);
             this.dgv_TypeProduct.TabIndex = 28;
             this.dgv_TypeProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_TypeProduct_CellClick);
+            // 
+            // MaLoaiSP
+            // 
+            this.MaLoaiSP.DataPropertyName = "MaLoaiSP";
+            this.MaLoaiSP.HeaderText = "Mã Loại SP";
+            this.MaLoaiSP.MinimumWidth = 6;
+            this.MaLoaiSP.Name = "MaLoaiSP";
+            this.MaLoaiSP.ReadOnly = true;
+            // 
+            // TenLoai
+            // 
+            this.TenLoai.DataPropertyName = "TenLoai";
+            this.TenLoai.HeaderText = "Tên Loại";
+            this.TenLoai.MinimumWidth = 6;
+            this.TenLoai.Name = "TenLoai";
+            this.TenLoai.ReadOnly = true;
+            // 
+            // MoTa
+            // 
+            this.MoTa.DataPropertyName = "MoTa";
+            this.MoTa.HeaderText = "Mô Tả";
+            this.MoTa.MinimumWidth = 6;
+            this.MoTa.Name = "MoTa";
+            this.MoTa.ReadOnly = true;
             // 
             // btn_Search
             // 
@@ -253,29 +278,16 @@
             this.cbb_SearchRole.Size = new System.Drawing.Size(131, 37);
             this.cbb_SearchRole.TabIndex = 37;
             // 
-            // MaLoaiSP
+            // btn_ExportExcel
             // 
-            this.MaLoaiSP.DataPropertyName = "MaLoaiSP";
-            this.MaLoaiSP.HeaderText = "Mã Loại SP";
-            this.MaLoaiSP.MinimumWidth = 6;
-            this.MaLoaiSP.Name = "MaLoaiSP";
-            this.MaLoaiSP.ReadOnly = true;
-            // 
-            // TenLoai
-            // 
-            this.TenLoai.DataPropertyName = "TenLoai";
-            this.TenLoai.HeaderText = "Tên Loại";
-            this.TenLoai.MinimumWidth = 6;
-            this.TenLoai.Name = "TenLoai";
-            this.TenLoai.ReadOnly = true;
-            // 
-            // MoTa
-            // 
-            this.MoTa.DataPropertyName = "MoTa";
-            this.MoTa.HeaderText = "Mô Tả";
-            this.MoTa.MinimumWidth = 6;
-            this.MoTa.Name = "MoTa";
-            this.MoTa.ReadOnly = true;
+            this.btn_ExportExcel.BackgroundImage = global::ManagementSupermarket.Properties.Resources.png_clipart_microsoft_excel_logo_microsoft_excel_computer_icons_xls_microsoft_angle_text;
+            this.btn_ExportExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_ExportExcel.Location = new System.Drawing.Point(431, 125);
+            this.btn_ExportExcel.Name = "btn_ExportExcel";
+            this.btn_ExportExcel.Size = new System.Drawing.Size(91, 78);
+            this.btn_ExportExcel.TabIndex = 38;
+            this.btn_ExportExcel.UseVisualStyleBackColor = true;
+            this.btn_ExportExcel.Click += new System.EventHandler(this.btn_ExportExcel_Click);
             // 
             // frmTypeProduct
             // 
@@ -283,6 +295,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
             this.ClientSize = new System.Drawing.Size(1292, 731);
+            this.Controls.Add(this.btn_ExportExcel);
             this.Controls.Add(this.cbb_SearchRole);
             this.Controls.Add(this.txt_ID);
             this.Controls.Add(this.label6);
@@ -333,5 +346,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MaLoaiSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenLoai;
         private System.Windows.Forms.DataGridViewTextBoxColumn MoTa;
+        private System.Windows.Forms.Button btn_ExportExcel;
     }
 }

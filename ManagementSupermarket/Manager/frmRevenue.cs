@@ -16,6 +16,7 @@ namespace ManagementSupermarket.Manager
 {
     public partial class frm_Revenue : Form
     {
+        private string nameForm = "Form Revenue";
         public frm_Revenue()
         {
             InitializeComponent();
@@ -84,7 +85,8 @@ namespace ManagementSupermarket.Manager
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút Load dữ liệu thống kê");
             }
         }
         private void dtp_Revenue_ValueChanged(object sender, EventArgs e)

@@ -44,6 +44,7 @@ namespace ManagementSupermarket
                 btn_TypeProduct.Visible = false;
                 btn_Revenue.Visible = false;    
                 btn_Accounts.Visible = false;
+                btn_Errors.Visible = false;
             }
         }
         private void CheckProductExpire()
@@ -241,6 +242,12 @@ namespace ManagementSupermarket
             OpenfrmChild(new frmAccounts(s_role), btn);
         }
 
+        private void btn_Errors_Click(object sender, EventArgs e)
+        {
+            IconButton btn = sender as IconButton;
+            OpenfrmChild(new frmErrorManegement(s_role), btn);
+        }
+
         private void TimeForSidebar_Tick(object sender, EventArgs e)
         {
             if (sidebarExpand)
@@ -263,9 +270,10 @@ namespace ManagementSupermarket
             }
         }
 
-        private void pic_Logo_Click(object sender, EventArgs e)
+        private void btn_Menu_Click(object sender, EventArgs e)
         {
             TimeForSidebar.Start();
         }
+
     }
 }

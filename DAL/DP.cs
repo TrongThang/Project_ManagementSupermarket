@@ -13,7 +13,7 @@ namespace DAL
     public class DP
     {
         //"Data Source=.;Database = QLST;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True"
-        private SqlConnection _conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Conn"].ConnectionString);
+        private SqlConnection _conn = new SqlConnection("Data Source=.;Database = QLST;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True");
         private Dictionary<string, dynamic> data = new Dictionary<string, dynamic>();
 
         public void addParam(string para, dynamic value)

@@ -64,6 +64,12 @@
     <Compile Include="frmChangePassword.Designer.cs">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmErrorManegement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmErrorManegement.Designer.cs">
+      <DependentUpon>frmErrorManegement.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmInfomation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     <EmbeddedResource Include="frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmErrorManegement.resx">
+      <DependentUpon>frmErrorManegement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmInfomation.resx">
       <DependentUpon>frmInfomation.cs</DependentUpon>
     </EmbeddedResource>
@@ -246,6 +255,7 @@
     <Content Include="Image\Icon\avatarDefaultMale.png" />
     <Content Include="Image\Icon\changePassword-icon.png" />
     <Content Include="Image\Icon\excel-icon.png" />
+    <Content Include="Image\Icon\fix-bug.png" />
     <Content Include="Image\Icon\iconPencil.png" />
     <Content Include="Image\Icon\iconPlus.png" />
     <Content Include="Image\Icon\iconReload.png" />

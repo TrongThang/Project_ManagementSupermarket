@@ -199,3 +199,4 @@ D:\STMN\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\GUI.csproj
 D:\STMN\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\GUI.csproj.CopyComplete
 D:\STMN\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.exe
 D:\STMN\Project_ManagementSupermarket\ManagementSupermarket\obj\Debug\ManagementSupermarket.pdb
+D:\C#\Fix merge\ManagementSupermarket\obj\Debug\ManagementSupermarket.frmErrorManegement.resources

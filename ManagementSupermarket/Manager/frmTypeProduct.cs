@@ -21,6 +21,7 @@ namespace ManagementSupermarket.Manager
     {
         Event eventConfig = new Event();
         BLL_TypeProduct dataTypeProduct = new BLL_TypeProduct();
+        private string nameForm = "Type Product";
         public frmTypeProduct()
         {
             InitializeComponent();
@@ -106,7 +107,8 @@ namespace ManagementSupermarket.Manager
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút thêm");
             }
             
         }
@@ -125,7 +127,8 @@ namespace ManagementSupermarket.Manager
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút thêm");
             }
           
         }
@@ -168,7 +171,8 @@ namespace ManagementSupermarket.Manager
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút chỉnh sửa");
             }
         }
 
@@ -198,7 +202,8 @@ namespace ManagementSupermarket.Manager
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút xoá");
             }  
         }
 
@@ -222,9 +227,25 @@ namespace ManagementSupermarket.Manager
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút tìm kiếm");
             }
            
+        }
+
+        private void btn_ExportExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataTable tblTypeProduct = (DataTable)dgv_TypeProduct.DataSource;
+                ConfigExcel_PDF.ExportToExcel(tblTypeProduct, "Supplier");
+                return;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút xuất file excel");
+            }
         }
     }
 }

@@ -82,6 +82,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.btn_ExportExcel = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.grpInfo.SuspendLayout();
@@ -424,6 +425,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
+            this.tabPage2.Controls.Add(this.btn_ExportExcel);
             this.tabPage2.Controls.Add(this.cbb_SearchRole);
             this.tabPage2.Controls.Add(this.btn_SeeDetailWarehouse);
             this.tabPage2.Controls.Add(this.btn_Refresh);
@@ -707,6 +709,17 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "Tên Nhà Cung Cấp";
             // 
+            // btn_ExportExcel
+            // 
+            this.btn_ExportExcel.BackgroundImage = global::ManagementSupermarket.Properties.Resources.png_clipart_microsoft_excel_logo_microsoft_excel_computer_icons_xls_microsoft_angle_text;
+            this.btn_ExportExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_ExportExcel.Location = new System.Drawing.Point(144, 245);
+            this.btn_ExportExcel.Name = "btn_ExportExcel";
+            this.btn_ExportExcel.Size = new System.Drawing.Size(60, 55);
+            this.btn_ExportExcel.TabIndex = 39;
+            this.btn_ExportExcel.UseVisualStyleBackColor = true;
+            this.btn_ExportExcel.Click += new System.EventHandler(this.btn_ExportExcel_Click);
+            // 
             // frmWarehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
@@ -791,5 +804,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNCC;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayNhapKho;
         private System.Windows.Forms.DataGridViewTextBoxColumn TongTien;
+        private System.Windows.Forms.Button btn_ExportExcel;
     }
 }

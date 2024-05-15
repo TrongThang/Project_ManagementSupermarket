@@ -51,6 +51,7 @@
     <Compile Include="DAL_Employee.cs" />
     <Compile Include="DAL_InvoiceSelling.cs" />
     <Compile Include="DAL_InvoiceWarehouse.cs" />
+    <Compile Include="DAL_ManegementError.cs" />
     <Compile Include="DAL_Product.cs" />
     <Compile Include="DAL_Revenue.cs" />
     <Compile Include="DAL_Role.cs" />

@@ -34,6 +34,7 @@ namespace ManagementSupermarket
         private string s_idEmployee;
         private string s_role;
         private decimal TotalMoney = 0;
+        private string nameForm = "Form Order";
         public frmOrder()
         {
             InitializeComponent();
@@ -142,62 +143,6 @@ namespace ManagementSupermarket
             }
         }
         //LOAD DATA COMBO BOX
-        private void LoadButtonProduct(FlowLayoutPanel listPanel)
-        {
-            DataRowCollection listProduct = (new BLL_Product()).GetProduct("MaSP").Rows;
-            for (int i = 0; i < listProduct.Count; i++)
-            {
-                Panel panel = new Panel();
-                panel.BorderStyle = BorderStyle.FixedSingle;
-                panel.Padding = new Padding(5);
-                panel.Width = 300;
-                panel.Height = 150;
-
-                panel.MouseEnter += (sender, e) =>
-                {
-                    panel.BackColor = Color.LightGray; // Simulate button press effect
-                    panel.BorderStyle = BorderStyle.Fixed3D;
-                };
-
-                panel.MouseLeave += (sender, e) =>
-                {
-                    panel.BackColor = Color.White; // Reset background color
-                    panel.BorderStyle = BorderStyle.FixedSingle;
-                };
-
-                string path = listProduct[i]["HinhAnh"].ToString();
-                string imagePath = Path.Combine(Application.StartupPath, "..", "..", "Image", "Products", path);
-
-                Bitmap originalImage = new Bitmap(imagePath);
-                int newWidth = 150;
-                int newHeight = 120;
-                Bitmap resizedImage = new Bitmap(originalImage, new Size(newWidth, newHeight));
-                //Giải phóng tài nguyên ảnh gốc
-                originalImage.Dispose();
-
-                PictureBox pictureBox = new PictureBox();
-                pictureBox.Dock = DockStyle.Top;
-                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-                pictureBox.Image = resizedImage;
-
-                Label lbl_Name = new Label();
-                lbl_Name.Dock = DockStyle.Bottom;
-                lbl_Name.TextAlign = ContentAlignment.MiddleCenter;
-                lbl_Name.Text = listProduct[i]["TenSP"].ToString();
-
-                Label lbl_Price = new Label();
-                lbl_Price.Dock = DockStyle.Bottom;
-                lbl_Price.TextAlign = ContentAlignment.MiddleCenter;
-                decimal price = decimal.Parse(listProduct[i]["GiaBan"].ToString());
-                lbl_Price.Text = formatPrice(price);
-
-                panel.Controls.Add(pictureBox);
-                panel.Controls.Add(lbl_Name);
-                panel.Controls.Add(lbl_Price);
-                
-                listPanel.Controls.Add(panel);
-            }
-        }
         private void LoadComboBoxSearch()
         {
 
@@ -282,8 +227,8 @@ namespace ManagementSupermarket
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lõi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Load Form");
             }
         }
 
@@ -315,7 +260,8 @@ namespace ManagementSupermarket
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Click List View Create Bill");
             }
         }
         private void ClearControl()
@@ -346,7 +292,8 @@ namespace ManagementSupermarket
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Thay đổi combobox - Create Bill");
             }   
         }
         private bool ErrorProductInWarehouse()
@@ -429,7 +376,8 @@ namespace ManagementSupermarket
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút Thêm sản phẩm vào list view Create Bill");
             }
         }
         private void btn_Alter_Click(object sender, EventArgs e)
@@ -440,6 +388,10 @@ namespace ManagementSupermarket
                 if (count < 1)
                 {
                     btn_Delete_Click(sender, e);
+                }
+                else if (ErrorProductInWarehouse())
+                {
+                    return;
                 }
 
                 lbl_ErrorCashCustomer.Visible = false;
@@ -499,41 +451,57 @@ namespace ManagementSupermarket
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút chỉnh sửa sản phẩm trong list view Create Bill");
             }
         }
 
         private void num_CountProductCreate_ValueChanged(object sender, EventArgs e)
         {
-            txt_AmountCreate.Text = (num_CountProductCreate.Value * decimal.Parse(txt_PriceCreate.Text)).ToString();
+            try
+            {
+                txt_AmountCreate.Text = (num_CountProductCreate.Value * decimal.Parse(txt_PriceCreate.Text)).ToString();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - num_CountProductCreate_ValueChanged");
+            }
         }
 
         private void btn_Delete_Click(object sender, EventArgs e)
         {
-            string idProduct = cbb_NameProductCreate.SelectedValue.ToString();
-            string nameProduct = cbb_NameProductCreate.Text;
-
-            DialogResult result = MessageBox.Show($"Bạn có chắc chắn xoá sản phẩm {nameProduct} khỏi giỏ hàng?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (result == DialogResult.Yes)
+            try
             {
-                int indexItemExist = lst_OrderCurrency.Items.IndexOfKey(idProduct);
-                if (indexItemExist >= 0)
-                {
-                    this.TotalMoney = this.TotalMoney - decimal.Parse(lst_OrderCurrency.Items[indexItemExist].SubItems[6].Text);
-                    lst_OrderCurrency.Items.RemoveAt(indexItemExist);
+                string idProduct = cbb_NameProductCreate.SelectedValue.ToString();
+                string nameProduct = cbb_NameProductCreate.Text;
 
-                    MessageBox.Show($"Xoá sản phẩm {nameProduct} khỏi giỏ hàng thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
+                DialogResult result = MessageBox.Show($"Bạn có chắc chắn xoá sản phẩm {nameProduct} khỏi giỏ hàng?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
                 {
-                    MessageBox.Show($"Có lõi trong quá trình xoá {nameProduct}. Vui lòng thử lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                    int indexItemExist = lst_OrderCurrency.Items.IndexOfKey(idProduct);
+                    if (indexItemExist >= 0)
+                    {
+                        this.TotalMoney = this.TotalMoney - decimal.Parse(lst_OrderCurrency.Items[indexItemExist].SubItems[6].Text);
+                        lst_OrderCurrency.Items.RemoveAt(indexItemExist);
 
-                txt_TotalCashCreate.Text = formatPrice(this.TotalMoney);
-                UpdateChangeMoney();
+                        MessageBox.Show($"Xoá sản phẩm {nameProduct} khỏi giỏ hàng thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Có lõi trong quá trình xoá {nameProduct}. Vui lòng thử lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    txt_TotalCashCreate.Text = formatPrice(this.TotalMoney);
+                    UpdateChangeMoney();
+                }
             }
-
+            catch (Exception err)
+            {
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút xoá sản phẩm trong list view Create Bill");
+            }
         }
 
         private void txt_PhoneCustomerCreate_KeyPress(object sender, KeyPressEventArgs e)
@@ -641,7 +609,8 @@ namespace ManagementSupermarket
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút lập hoá đơn");
             }
             
         }
@@ -700,7 +669,8 @@ namespace ManagementSupermarket
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút xem chi tiết hoá đơn");
             }
         }
 
@@ -733,7 +703,8 @@ namespace ManagementSupermarket
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút xuất file Excel");
             }
             
         }
@@ -774,8 +745,8 @@ namespace ManagementSupermarket
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút xuất file PDF hoá đơn");
             }
         }
 

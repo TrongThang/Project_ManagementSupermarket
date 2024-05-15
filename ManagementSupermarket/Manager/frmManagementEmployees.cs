@@ -19,6 +19,7 @@ namespace ManagementSupermarket
     public partial class frmManagementEmployees : Form
     {
         private string s_role;
+        private string nameForm = "Form Employee";
         Event eventConfig = new Event();
         BLL_Employee dataEmployee = new BLL_Employee();
         public frmManagementEmployees()
@@ -183,7 +184,8 @@ namespace ManagementSupermarket
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Cell Click");
             }
         }
         private bool ExistCCCD(string CCCD)
@@ -246,55 +248,65 @@ namespace ManagementSupermarket
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút thêm");
             }
         }
 
         private void btn_Alter_Click(object sender, EventArgs e)
         {
             On_OffLabelError(0);
-            if (CanNotAddRole())
+            try
             {
-                return;
+                if (CanNotAddRole())
+                {
+                    return;
+                }
+                string id = txt_Id.Text.Trim();
+                if (string.IsNullOrEmpty(id))
+                {
+                    string mess = "Vui lòng chọn nhân viên muốn chỉnh sửa";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                string fullName = txt_FullName.Text.Trim();
+                string CCCD = txt_CCCD.Text.Trim();
+                string phone = txt_Phone.Text.Trim();
+                string address = txt_Address.Text.Trim();
+
+                bool isEmpty = IsEmptytTextBox(fullName, CCCD, phone, address);
+
+                if (isEmpty)
+                {
+                    return;
+                }
+
+                DateTime createdTime = dtp_CreatedTime.Value;
+                string gender = rad_Male.Checked ? "Nam" : "Nữ";
+                string RoleName = cbb_Role.Text.Trim();
+                byte status = (byte)(chk_Status.Checked ? 1 : 0);
+
+                DTO_Employee employee = new DTO_Employee(fullName, CCCD, gender, address, phone, createdTime, RoleName, status, id);
+
+                int numOfRows = dataEmployee.UpdateEmployee(employee);
+                if (numOfRows > 0)
+                {
+                    string mess = "Chỉnh sửa thông tin nhân viên thành công";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                }
+                else
+                {
+                    string mess = "Chỉnh sửa thông tin nhân viên thất bại";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            string id = txt_Id.Text.Trim();
-            if (string.IsNullOrEmpty(id))
+            catch (Exception err)
             {
-                string mess = "Vui lòng chọn nhân viên muốn chỉnh sửa";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút chỉnh sửa");
             }
-            string fullName = txt_FullName.Text.Trim();
-            string CCCD = txt_CCCD.Text.Trim();
-            string phone = txt_Phone.Text.Trim();
-            string address = txt_Address.Text.Trim();
-
-            bool isEmpty = IsEmptytTextBox(fullName, CCCD, phone, address);
-
-            if (isEmpty)
-            {
-                return;
-            }
-
-            DateTime createdTime = dtp_CreatedTime.Value;
-            string gender = rad_Male.Checked ? "Nam" : "Nữ";
-            string RoleName = cbb_Role.Text.Trim();
-            byte status = (byte)(chk_Status.Checked ? 1 : 0);
-
-            DTO_Employee employee = new DTO_Employee(fullName, CCCD, gender, address, phone, createdTime, RoleName, status, id);
-
-            int numOfRows = dataEmployee.UpdateEmployee(employee);
-            if (numOfRows > 0)
-            {
-                string mess = "Chỉnh sửa thông tin nhân viên thành công";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
-            }
-            else
-            {
-                string mess = "Chỉnh sửa thông tin nhân viên thất bại";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            
         }
 
         private void btn_Delete_Click(object sender, EventArgs e)
@@ -333,7 +345,8 @@ namespace ManagementSupermarket
                 }
                 catch (Exception err)
                 {
-                    MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút xoá");
                 }
             }
         }
@@ -345,7 +358,6 @@ namespace ManagementSupermarket
             txt_CCCD.Clear();
             txt_Id.Clear();
             txt_Phone.Clear();
-
             txt_Address.Clear();
 
             txt_Search.Clear();
@@ -360,17 +372,27 @@ namespace ManagementSupermarket
         }
         private void btn_Search_Click(object sender, EventArgs e)
         {
+            
             string text = string.IsNullOrEmpty(txt_Search.Text) ? null : txt_Search.Text;
 
             dgv_ListEmployee.DataSource = dataEmployee.GetEmployeeTo(cbb_SearchRole.SelectedValue.ToString(), text);
-            dgv_ListEmployee.Refresh();
+            //dgv_ListEmployee.Refresh();
         }
 
         private void btn_ExportExcel_Click(object sender, EventArgs e)
         {
-            DataTable tblEmployee = (DataTable)dgv_ListEmployee.DataSource;
-            ConfigExcel_PDF.ExportToExcel(tblEmployee, "Employee");
-            return;
+            try
+            {
+                DataTable tblEmployee = (DataTable)dgv_ListEmployee.DataSource;
+                ConfigExcel_PDF.ExportToExcel(tblEmployee, "Employee");
+                return;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút xuất file excel");
+            }
+            
         }
     }
 }

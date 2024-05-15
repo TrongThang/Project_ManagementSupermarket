@@ -55,6 +55,7 @@
             this.btn_Search = new FontAwesome.Sharp.IconButton();
             this.chk_StatusDGV = new System.Windows.Forms.CheckBox();
             this.cbb_Search = new System.Windows.Forms.ComboBox();
+            this.btn_ExportExcel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Supplier)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -367,7 +368,7 @@
             this.chk_StatusDGV.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_StatusDGV.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chk_StatusDGV.ForeColor = System.Drawing.Color.White;
-            this.chk_StatusDGV.Location = new System.Drawing.Point(416, 41);
+            this.chk_StatusDGV.Location = new System.Drawing.Point(504, 43);
             this.chk_StatusDGV.Name = "chk_StatusDGV";
             this.chk_StatusDGV.Size = new System.Drawing.Size(202, 43);
             this.chk_StatusDGV.TabIndex = 22;
@@ -389,12 +390,24 @@
             this.cbb_Search.Size = new System.Drawing.Size(131, 46);
             this.cbb_Search.TabIndex = 23;
             // 
+            // btn_ExportExcel
+            // 
+            this.btn_ExportExcel.BackgroundImage = global::ManagementSupermarket.Properties.Resources.png_clipart_microsoft_excel_logo_microsoft_excel_computer_icons_xls_microsoft_angle_text;
+            this.btn_ExportExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_ExportExcel.Location = new System.Drawing.Point(416, 20);
+            this.btn_ExportExcel.Name = "btn_ExportExcel";
+            this.btn_ExportExcel.Size = new System.Drawing.Size(82, 64);
+            this.btn_ExportExcel.TabIndex = 30;
+            this.btn_ExportExcel.UseVisualStyleBackColor = true;
+            this.btn_ExportExcel.Click += new System.EventHandler(this.btn_ExportExcel_Click);
+            // 
             // frmSuppiler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(65)))), ((int)(((byte)(107)))));
             this.ClientSize = new System.Drawing.Size(1292, 731);
+            this.Controls.Add(this.btn_ExportExcel);
             this.Controls.Add(this.cbb_Search);
             this.Controls.Add(this.chk_StatusDGV);
             this.Controls.Add(this.dgv_Supplier);
@@ -444,5 +457,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
         private System.Windows.Forms.DataGridViewCheckBoxColumn TrangThai;
+        private System.Windows.Forms.Button btn_ExportExcel;
     }
 }

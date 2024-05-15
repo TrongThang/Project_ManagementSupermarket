@@ -15,6 +15,7 @@ namespace ManagementSupermarket.Manager
     public partial class frmAccounts : Form
     {
         private string s_role;
+        string nameForm = "Form Account";
 
         public frmAccounts()
         {
@@ -58,63 +59,72 @@ namespace ManagementSupermarket.Manager
 
         private void btn_ChangePassword_Click(object sender, EventArgs e)
         {
-            string mess = "";
-            
-            if (dgv_Accounts.SelectedRows.Count <= 0)
+            try
             {
-                mess = "Vui lòng chọn một nhân viên muốn thay đổi mật khẩu trong bảng dữ liệu!";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            string newPass = txt_Password.Text.Trim();
-            if (string.IsNullOrEmpty(newPass))
-            {
-                mess = "Vui lòng nhập mật khẩu đầy đủ!";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+                string mess = "";
 
-            DataGridViewRow rowSelected = dgv_Accounts.SelectedRows[0];
-            string name, id;
-            id = rowSelected.Cells["MaNV"].Value.ToString();
-            name = rowSelected.Cells["HoTen"].Value.ToString();
-            string roleSelect = rowSelected.Cells["ChucVu"].ToString();
-            if (s_role != "QLCC" && roleSelect == "QLCC")
-            {
-                mess = "Bạn không có quyền thay đổi quản lý cấp cao!";
-                MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            int rowsAffected = (new BLL_Account()).UpdateStatusAccount(id, chk_Active.Checked);
-            
-            DialogResult result = MessageBox.Show($"Cập nhật tài khoản của nhân viên {name} với mã số {id}?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                bool changePasswordSuccess = (new BLL_Account()).UpdatePasswordAccount(id, newPass);
-                if (changePasswordSuccess)
+                if (dgv_Accounts.SelectedRows.Count <= 0)
                 {
-                    mess = "Đổi mật khẩu thành công! ";
-                }
-                else
-                {
-                    mess = "Đổi mật khẩu thất bại! ";
-                }
-                if (rowsAffected > 0)
-                {
-                    mess += " Cập nhật trạng thái thành công! ";
-                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadDataGridView(status: chk_Status.Checked);
-                    return;
-                }
-                else
-                {
-                    mess += " Cập nhật trạng thái thất bại! ";
+                    mess = "Vui lòng chọn một nhân viên muốn thay đổi mật khẩu trong bảng dữ liệu!";
                     MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+                string newPass = txt_Password.Text.Trim();
+                if (string.IsNullOrEmpty(newPass))
+                {
+                    mess = "Vui lòng nhập mật khẩu đầy đủ!";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                DataGridViewRow rowSelected = dgv_Accounts.SelectedRows[0];
+                string name, id;
+                id = rowSelected.Cells["MaNV"].Value.ToString();
+                name = rowSelected.Cells["HoTen"].Value.ToString();
+                string roleSelect = rowSelected.Cells["TenChucVu"].ToString();
+                if (s_role != "QLCC" && roleSelect != "Quản lý cấp cao")
+                {
+                    mess = "Bạn không có quyền thay đổi mật khẩu của quản lý cấp cao!";
+                    MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                int rowsAffected = (new BLL_Account()).UpdateStatusAccount(id, chk_Active.Checked);
+
+                DialogResult result = MessageBox.Show($"Cập nhật tài khoản của nhân viên {name} với mã số {id}?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    bool changePasswordSuccess = (new BLL_Account()).UpdatePasswordAccount(id, newPass);
+                    if (changePasswordSuccess)
+                    {
+                        mess = "Đổi mật khẩu thành công! ";
+                    }
+                    else
+                    {
+                        mess = "Đổi mật khẩu thất bại! ";
+                    }
+                    if (rowsAffected > 0)
+                    {
+                        mess += " Cập nhật trạng thái thành công! ";
+                        MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadDataGridView(status: chk_Status.Checked);
+                        return;
+                    }
+                    else
+                    {
+                        mess += " Cập nhật trạng thái thất bại! ";
+                        MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
             }
+            catch (Exception err)
+            {
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm);
+            }
+            
         }
 
         private void btn_ExportExcel_Click(object sender, EventArgs e)
@@ -127,7 +137,8 @@ namespace ManagementSupermarket.Manager
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm);
             }
         }
 
@@ -146,12 +157,21 @@ namespace ManagementSupermarket.Manager
 
         private void dgv_Accounts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(dgv_Accounts.SelectedRows.Count > 0)
+            try
             {
-                DataGridViewRow row = dgv_Accounts.SelectedRows[0];
-                txt_Password.Text = row.Cells["MatKhau"].Value.ToString();
-                chk_Active.Checked = (bool)row.Cells["TrangThai"].Value;
+                if (dgv_Accounts.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow row = dgv_Accounts.SelectedRows[0];
+                    txt_Password.Text = row.Cells["MatKhau"].Value.ToString();
+                    chk_Active.Checked = (bool)row.Cells["TrangThai"].Value;
+                }
             }
+            catch (Exception err)
+            {
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                BLL_ManagementError.InsertError(err.Message, nameForm);
+            }
+            
         }
 
         private void btn_Refresh_Click(object sender, EventArgs e)

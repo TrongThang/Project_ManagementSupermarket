@@ -19,6 +19,7 @@ namespace ManagementSupermarket.Manager
     {
         Event eventConfig = new Event();
         BLL_Discount dataDiscount =new BLL_Discount();
+        string nameForm = "Form Discount";
         public frmDiscount()
         {
             InitializeComponent();
@@ -30,6 +31,12 @@ namespace ManagementSupermarket.Manager
                 (e.KeyChar != '.') && (e.KeyChar != ','))
             {
                 e.Handled = true;
+            }
+
+            // Nếu người dùng nhập dấu phân tách thập phân là dấu chấm, chuyển thành dấu phẩy
+            if (e.KeyChar == ',')
+            {
+                e.KeyChar = '.';
             }
 
             // Chỉ cho phép một dấu thập phân
@@ -44,12 +51,10 @@ namespace ManagementSupermarket.Manager
                 e.Handled = true;
             }
 
-            // Nếu người dùng nhập dấu phân tách thập phân là dấu chấm, chuyển thành dấu phẩy
-            if (e.KeyChar == '.')
+            if ((e.KeyChar == ',' || e.KeyChar == '.') && (sender as TextBox).TextLength == 0)
             {
-                e.KeyChar = ',';
+                e.KeyChar = '0';
             }
-
         }
         private void LoadData()
         {
@@ -153,15 +158,25 @@ namespace ManagementSupermarket.Manager
 
         private void frmDiscount_Load(object sender, EventArgs e)
         {
-            LoadData();
-            LoadComboBoxSearch();
-            cbb_SearchRole.SelectedIndex = 0;
-            cbb_UnitTime.SelectedIndex = 0;
+            try
+            {
+                LoadData();
+                LoadComboBoxSearch();
+                cbb_SearchRole.SelectedIndex = 0;
+                cbb_UnitTime.SelectedIndex = 0;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Load Form");
+            }
+           
         }
         private bool IsEmptytTextBox(string id, string nameDiscount,double  priceDiscount)
         {
             bool flag = false;
             string notEmpty = " không bỏ trống";
+            string discountNot_0To100 = " từ 1 đến 100% ";
             if (eventConfig.IsNullOrEmpty(id))
             {
                 eventConfig.SetErrorLabel(lbl_Id, "Mã khuyến mãi", notEmpty);
@@ -172,11 +187,17 @@ namespace ManagementSupermarket.Manager
                 eventConfig.SetErrorLabel(lbl_Name, "Tên khuyến mãi", notEmpty);
                 flag = true;
             }
+
             if (priceDiscount==0)
             {
-                eventConfig.SetErrorLabel(lbl_PriceDiscount, "Giá  khuyến mãi", notEmpty);
+                eventConfig.SetErrorLabel(lbl_PriceDiscount, "Giá khuyến mãi", notEmpty);
+                flag = true;
+            }else if(priceDiscount > 100 || priceDiscount <= 0)
+            {
+                eventConfig.SetErrorLabel(lbl_PriceDiscount, "Giá khuyến mãi", discountNot_0To100);
                 flag = true;
             }
+
             if(num_CountTime.Value==0)
             {
                 eventConfig.SetErrorLabel(lbl_ErrorTimeEnd, "Thời hạn", notEmpty);
@@ -218,18 +239,19 @@ namespace ManagementSupermarket.Manager
                         priceDiscount = double.Parse(txt_PriceDiscount.Text.Trim());
                     }
                 }
-                DateTime starDay = dtpTimeStart.Value;
-
-                int thoiHan = (int)num_CountTime.Value;
-                string donViThoiHan = cbb_UnitTime.SelectedItem.ToString();
-                DateTime endDay = CalculateEndDate(starDay, thoiHan, donViThoiHan);
-
                 bool isEmpty = IsEmptytTextBox(id, nameDiscount, priceDiscount);
 
                 if (isEmpty)
                 {
                     return;
                 }
+
+                DateTime starDay = dtpTimeStart.Value;
+
+                int thoiHan = (int)num_CountTime.Value;
+                string donViThoiHan = cbb_UnitTime.SelectedItem.ToString();
+                DateTime endDay = CalculateEndDate(starDay, thoiHan, donViThoiHan);
+
                 // Gọi phương thức GetDiscount từ đối tượng BLL_Discount để kiểm tra tồn tại mã khuyến mãi
                 DataTable dt = dataDiscount.GetDiscount("MaKM", id);
 
@@ -261,7 +283,8 @@ namespace ManagementSupermarket.Manager
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút Thêm");
             }
         }
 
@@ -316,10 +339,9 @@ namespace ManagementSupermarket.Manager
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút chỉnh sửa");
             }
-
-
         }
 
         private void btn_Refresh_Click(object sender, EventArgs e)
@@ -337,9 +359,18 @@ namespace ManagementSupermarket.Manager
 
         private void btn_Search_Click(object sender, EventArgs e)
         {
-            string text =string.IsNullOrEmpty(txt_Search.Text)?null:txt_Search.Text;
-            dgv_ListDiscount.DataSource = dataDiscount.GetDiscount(cbb_SearchRole.SelectedValue.ToString(), text);
-            dgv_ListDiscount.Refresh();
+            try
+            {
+                string text =string.IsNullOrEmpty(txt_Search.Text)?null:txt_Search.Text;
+                dgv_ListDiscount.DataSource = dataDiscount.GetDiscount(cbb_SearchRole.SelectedValue.ToString(), text);
+                dgv_ListDiscount.Refresh();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Nút tìm kiếm");
+            }
+           
         }
 
         private void dgv_ListDiscount_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -377,7 +408,8 @@ namespace ManagementSupermarket.Manager
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi trong quá trình thực hiện. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                BLL_ManagementError.InsertError(err.Message, nameForm + " - Cell Click DGV");
             }
            
 
