@@ -284,6 +284,8 @@ namespace ManagementSupermarket
             txt_CashCustomerCreate.Clear();
             txt_ProductInWarehouse.Clear();
             txt_PhoneCustomerCreate.Clear();
+
+            this.TotalMoney = 0;
         }
 
         private void cbb_NameProductCreate_SelectionChangeCommitted(object sender, EventArgs e)
@@ -693,7 +695,7 @@ namespace ManagementSupermarket
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
             cbb_Search.SelectedIndex = 0;
-            txt_TotalCashCreate.Text = "0";
+            //txt_TotalCashCreate.Text = "0";
             txtSearch.Clear();
             LoadDataGridView_InvoiceSelling();
         }

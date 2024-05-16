@@ -121,7 +121,7 @@
             this.panel_Avatar.Controls.Add(this.btn_Info);
             this.panel_Avatar.Controls.Add(this.btn_ChangePassword);
             this.panel_Avatar.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.panel_Avatar.Location = new System.Drawing.Point(903, 11);
+            this.panel_Avatar.Location = new System.Drawing.Point(902, 16);
             this.panel_Avatar.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.panel_Avatar.Name = "panel_Avatar";
             this.panel_Avatar.Size = new System.Drawing.Size(193, 121);

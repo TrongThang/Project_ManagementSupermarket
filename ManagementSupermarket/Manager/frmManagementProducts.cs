@@ -129,7 +129,9 @@ namespace ManagementSupermarket
                 {
                     DataGridViewCellCollection rowSelected = dgv_ListProduct.SelectedRows[0].Cells;
 
-                    pic_Product.ImageLocation = Path.Combine(Application.StartupPath, "..", "..", "Image", "Products", rowSelected["HinhAnh"].Value.ToString());
+                    //pic_Product.ImageLocation = Path.Combine(Application.StartupPath, "..", "..", "Image", "Products", rowSelected["HinhAnh"].Value.ToString());
+                    
+                    pic_Product.ImageLocation = Path.Combine(Application.StartupPath, "Resources", "Image", "Products", rowSelected["HinhAnh"].Value.ToString());
 
                     txt_ID.Text = rowSelected["MaSP"].Value.ToString();
 
@@ -213,7 +215,8 @@ namespace ManagementSupermarket
                     return;
                 }
                 // Chuỗi bắt đầu để chứa ảnh
-                string destFolder = Path.Combine(Application.StartupPath, "..", "..", "Image", "Products");
+                //string destFolder = Path.Combine(Application.StartupPath, "..", "..", "Image", "Products");
+                string destFolder = Path.Combine(Application.StartupPath, "Resources", "Image", "Products");
                 // Tạo đường dẫn đến nơi chưa ảnh
                 string destFileName = Path.Combine(destFolder, Path.GetFileName(pathImage));
 

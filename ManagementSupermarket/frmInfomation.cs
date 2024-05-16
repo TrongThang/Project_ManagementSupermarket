@@ -48,12 +48,12 @@ namespace ManagementSupermarket
                 if (isMale)
                 {
                     rad_Male.Checked = true;
-                    pic_Avatar.ImageLocation = Path.Combine(Application.StartupPath, "..", "..", "Image", "Icon", "avatarDefaultMale.png");
+                    pic_Avatar.ImageLocation = Path.Combine(Application.StartupPath, "Resources", "Image", "Icon", "avatarDefaultMale.png");
                 }
                 else
                 {
                     rad_Female.Checked = true;
-                    pic_Avatar.ImageLocation = Path.Combine(Application.StartupPath, "..", "..", "Image", "Icon", "avatarDefaultFemale.png");
+                    pic_Avatar.ImageLocation = Path.Combine(Application.StartupPath, "Resources", "Image", "Icon", "avatarDefaultFemale.png");
                 }
 
                 txt_Address.Text = employee["DiaChi"].ToString();

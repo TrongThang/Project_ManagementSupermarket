@@ -58,7 +58,8 @@ namespace BLL
 
         private static bool GenerateTableExportBill(string idInvoice, PdfPTable tbl)
         {
-            string fontPath = Path.Combine(Application.StartupPath, "..", "..", "Resources", "fonts", "SEGOEUI.TTF");
+            //string fontPath = Path.Combine(Application.StartupPath, "..", "..", "Resources", "fonts", "SEGOEUI.TTF");
+            string fontPath = Path.Combine(Application.StartupPath, "Resources", "fonts", "SEGOEUI.TTF");
             BaseFont bf = BaseFont.CreateFont(fontPath, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
             iTextSharp.text.Font font = new iTextSharp.text.Font(bf, 10);
             iTextSharp.text.Font fontTitle = new iTextSharp.text.Font(bf, 18, iTextSharp.text.Font.BOLD);
@@ -97,7 +98,10 @@ namespace BLL
                 document.Open();
 
                 // Tạo font cho nội dung
-                string fontPath = Path.Combine(Application.StartupPath, "..", "..", "Resources", "fonts", "SEGOEUI.TTF");
+                //string fontPath = Path.Combine(Application.StartupPath, "..", "..", "Resources", "fonts", "SEGOEUI.TTF");
+                
+                string fontPath = Path.Combine(Application.StartupPath, "Resources", "fonts", "SEGOEUI.TTF");
+
                 BaseFont bf = BaseFont.CreateFont(fontPath, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
                 iTextSharp.text.Font font = new iTextSharp.text.Font(bf, 10);
                 iTextSharp.text.Font fontTitle = new iTextSharp.text.Font(bf, 18, iTextSharp.text.Font.BOLD);

@@ -91,7 +91,7 @@ namespace ManagementSupermarket.Manager
                     return;
                 }
 
-                if(id == this.s_idEmployee && chk_Active.Checked) {
+                if(id == this.s_idEmployee && chk_Active.Checked == false) {
                     mess = "Bạn không thể tắt trạng thái tài khoản của bản thân!";
                     MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
