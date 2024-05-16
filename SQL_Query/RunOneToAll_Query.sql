@@ -1,6 +1,477 @@
-﻿GO
+﻿create database QLST
+go
 use QLST
+SET ANSI_NULLS ON
 GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE FUNCTION [dbo].[GenerateMaHD]()
+RETURNS VARCHAR(10)
+AS
+BEGIN
+    DECLARE @NextID INT;
+    DECLARE @NewMaHD VARCHAR(10);
+
+    -- Tìm số thứ tự tiếp theo
+    SELECT @NextID = COALESCE(MAX(CAST(RIGHT(MaHD, 3) AS INT)), 1) + 1 FROM HoaDonBanHang;
+
+    -- Tạo mã mới
+    SET @NewMaHD = 'HD' + RIGHT('000' + CAST(@NextID AS VARCHAR(3)), 3);
+
+    RETURN @NewMaHD;
+END;
+GO
+/****** Object:  UserDefinedFunction [dbo].[GenerateMaKH]    Script Date: 15/05/2024 17:59:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE FUNCTION [dbo].[GenerateMaKH]()
+RETURNS VARCHAR(10)
+AS
+BEGIN
+    DECLARE @NextID INT;
+    DECLARE @NewMaKH VARCHAR(10);
+
+    -- Tìm số thứ tự tiếp theo
+    SELECT @NextID = COALESCE(MAX(CAST(RIGHT(MaKH, 5) AS INT)), 1) + 1 FROM KhachHang;
+
+    -- Tạo mã mới
+    SET @NewMaKH = RIGHT('00000' + CAST(@NextID AS VARCHAR(5)), 5);
+
+    RETURN @NewMaKH;
+END;
+GO
+/****** Object:  UserDefinedFunction [dbo].[GenerateMaLSP]    Script Date: 15/05/2024 17:59:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE FUNCTION [dbo].[GenerateMaLSP]()
+RETURNS VARCHAR(10)
+AS
+BEGIN
+    DECLARE @NextID INT;
+    DECLARE @NewMaLSP VARCHAR(10);
+
+    -- Tìm số thứ tự tiếp theo
+    SELECT @NextID = COALESCE(MAX(CAST(RIGHT(MaLoaiSP, 3) AS INT)), 1) + 1 FROM LoaiSanPham;
+
+    -- Tạo mã mới
+    SET @NewMaLSP = 'LSP' + RIGHT('000' + CAST(@NextID AS VARCHAR(3)), 3);
+
+    RETURN @NewMaLSP;
+END;
+GO
+/****** Object:  UserDefinedFunction [dbo].[GenerateMaNCC]    Script Date: 15/05/2024 17:59:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE FUNCTION [dbo].[GenerateMaNCC]()
+RETURNS VARCHAR(10)
+AS
+BEGIN
+    DECLARE @NextID INT;
+    DECLARE @NewMaNCC VARCHAR(10);
+
+    -- Tìm số thứ tự tiếp theo
+    SELECT @NextID = COALESCE(MAX(CAST(RIGHT(MaNCC, 3) AS INT)), 1) + 1 FROM NhaCungCap;
+
+    -- Tạo mã mới
+    SET @NewMaNCC = 'NCC' + RIGHT('000' + CAST(@NextID AS VARCHAR(3)), 3);
+
+    RETURN @NewMaNCC;
+END;
+GO
+/****** Object:  UserDefinedFunction [dbo].[GenerateMaNK]    Script Date: 15/05/2024 17:59:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE FUNCTION [dbo].[GenerateMaNK]()
+RETURNS VARCHAR(10)
+AS
+BEGIN
+    DECLARE @NextID INT;
+    DECLARE @NewMaNK VARCHAR(10);
+
+    -- Tìm số thứ tự tiếp theo
+    SELECT @NextID = COALESCE(MAX(CAST(RIGHT(MaNK, 3) AS INT)), 1) + 1 FROM HoaDonNhapKho;
+
+    -- Tạo mã mới
+    SET @NewMaNK = 'NK' + RIGHT('000' + CAST(@NextID AS VARCHAR(3)), 3);
+
+    RETURN @NewMaNK;
+END;
+
+GO
+/****** Object:  UserDefinedFunction [dbo].[GenerateMaNV]    Script Date: 15/05/2024 17:59:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE FUNCTION [dbo].[GenerateMaNV]()
+RETURNS VARCHAR(10)
+AS
+BEGIN
+    DECLARE @NextID INT;
+    DECLARE @NewMaNV VARCHAR(10);
+
+    -- Tìm số thứ tự tiếp theo
+    SELECT @NextID = COALESCE(MAX(CAST(RIGHT(MaNV, 3) AS INT)), 1) + 1 FROM NhanVien;
+
+    -- Tạo mã mới
+    SET @NewMaNV = 'NV' + RIGHT('000' + CAST(@NextID AS VARCHAR(3)), 3);
+
+    RETURN @NewMaNV;
+END;
+GO
+/****** Object:  UserDefinedFunction [dbo].[GenerateMaSP]    Script Date: 15/05/2024 17:59:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE FUNCTION [dbo].[GenerateMaSP]()
+RETURNS VARCHAR(10)
+AS
+BEGIN
+    DECLARE @NextID INT;
+    DECLARE @NewMaSP VARCHAR(10);
+
+    -- Tìm số thứ tự tiếp theo
+    SELECT @NextID = COALESCE(MAX(CAST(RIGHT(MaSP, 3) AS INT)), 1) + 1 FROM SanPham;
+
+    -- Tạo mã mới
+    SET @NewMaSP = 'SP' + RIGHT('000' + CAST(@NextID AS VARCHAR(3)), 3);
+
+    RETURN @NewMaSP;
+END;
+GO
+/****** Object:  Table [dbo].[ChiTietHoaDonBanHang]    Script Date: 15/05/2024 17:59:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ChiTietHoaDonBanHang](
+	[MaHD] [varchar](10) NOT NULL,
+	[MaSP] [varchar](20) NOT NULL,
+	[MaKM] [varchar](10) NULL,
+	[SoLuong] [int] NULL,
+	[DonGia] [decimal](18, 0) NULL,
+	[ThanhTien] [decimal](18, 0) NULL,
+ CONSTRAINT [PK_CTHDBH] PRIMARY KEY CLUSTERED 
+(
+	[MaHD] ASC,
+	[MaSP] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ChiTietHoaDonNhapKho]    Script Date: 15/05/2024 17:59:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ChiTietHoaDonNhapKho](
+	[MaNK] [varchar](20) NOT NULL,
+	[MaSP] [varchar](20) NOT NULL,
+	[NgayHetHan] [date] NULL,
+	[SoLuong] [int] NULL,
+	[DonGiaNhap] [decimal](18, 0) NULL,
+	[ThanhTien] [decimal](18, 0) NULL,
+	[TrangThai] [bit] NULL,
+	[SoLuongDaBan] [int] NULL,
+ CONSTRAINT [PK_CTHDNK] PRIMARY KEY CLUSTERED 
+(
+	[MaNK] ASC,
+	[MaSP] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ChucVu]    Script Date: 15/05/2024 17:59:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ChucVu](
+	[MaChucVu] [varchar](5) NOT NULL,
+	[TenChucVu] [nvarchar](255) NULL,
+	[TrangThai] [bit] NULL,
+ CONSTRAINT [PK_ChucVu] PRIMARY KEY CLUSTERED 
+(
+	[MaChucVu] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[HoaDonBanHang]    Script Date: 15/05/2024 17:59:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[HoaDonBanHang](
+	[MaHD] [varchar](10) NOT NULL,
+	[MaNV] [varchar](10) NOT NULL,
+	[MaKH] [varchar](10) NULL,
+	[NgayLapHD] [datetime] NULL,
+	[TongTien] [decimal](18, 0) NULL,
+	[TienKhachDua] [decimal](18, 0) NULL,
+	[TienTraKhach] [decimal](18, 0) NULL,
+ CONSTRAINT [PK_HDBH] PRIMARY KEY CLUSTERED 
+(
+	[MaHD] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[HoaDonNhapKho]    Script Date: 15/05/2024 17:59:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[HoaDonNhapKho](
+	[MaNK] [varchar](20) NOT NULL,
+	[MaNV] [varchar](10) NOT NULL,
+	[MaNCC] [varchar](20) NOT NULL,
+	[NgayNhapKho] [datetime] NULL,
+	[TongTien] [decimal](18, 0) NULL,
+ CONSTRAINT [PK_HDNK] PRIMARY KEY CLUSTERED 
+(
+	[MaNK] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[KhachHang]    Script Date: 15/05/2024 17:59:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[KhachHang](
+	[MaKH] [varchar](10) NOT NULL,
+	[HoTen] [nvarchar](255) NULL,
+	[CCCD] [varchar](12) NULL,
+	[SDT] [varchar](12) NULL,
+	[GioiTinh] [nvarchar](3) NULL,
+	[DiaChi] [nvarchar](255) NULL,
+	[NgayDangKy] [date] NULL,
+	[TrangThai] [bit] NULL,
+ CONSTRAINT [PK_KH] PRIMARY KEY CLUSTERED 
+(
+	[MaKH] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[KhuyenMai]    Script Date: 15/05/2024 17:59:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[KhuyenMai](
+	[MaKM] [varchar](10) NOT NULL,
+	[TenKM] [nvarchar](255) NULL,
+	[GiaKhuyenMai] [float] NULL,
+	[NgayBatDau] [date] NULL,
+	[NgayKetThuc] [date] NULL,
+ CONSTRAINT [PK_KM] PRIMARY KEY CLUSTERED 
+(
+	[MaKM] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[LoaiSanPham]    Script Date: 15/05/2024 17:59:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[LoaiSanPham](
+	[MaLoaiSP] [varchar](10) NOT NULL,
+	[TenLoai] [nvarchar](100) NULL,
+	[MoTa] [nvarchar](255) NULL,
+ CONSTRAINT [PK_LoaiSP] PRIMARY KEY CLUSTERED 
+(
+	[MaLoaiSP] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[NhaCungCap]    Script Date: 15/05/2024 17:59:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[NhaCungCap](
+	[MaNCC] [varchar](20) NOT NULL,
+	[TenNCC] [nvarchar](255) NULL,
+	[SDT] [varchar](12) NULL,
+	[DiaChi] [nvarchar](255) NULL,
+	[TrangThai] [bit] NULL,
+ CONSTRAINT [PK_NCC] PRIMARY KEY CLUSTERED 
+(
+	[MaNCC] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[NhanVien]    Script Date: 15/05/2024 17:59:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[NhanVien](
+	[MaNV] [varchar](10) NOT NULL,
+	[CCCD] [varchar](12) NULL,
+	[HoTen] [nvarchar](255) NULL,
+	[GioiTinh] [nvarchar](3) NULL,
+	[DiaChi] [nvarchar](255) NULL,
+	[SDT] [varchar](12) NULL,
+	[NgayTao] [date] NULL,
+	[MaChucVu] [varchar](5) NULL,
+	[TrangThai] [bit] NULL,
+ CONSTRAINT [PK_NV] PRIMARY KEY CLUSTERED 
+(
+	[MaNV] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[QuanLyLoi]    Script Date: 15/05/2024 17:59:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[QuanLyLoi](
+	[STT] [int] IDENTITY(1,1) NOT NULL,
+	[TenLoi] [varchar](255) NULL,
+	[ViTriLoi] [varchar](255) NULL,
+	[ThoiGian] [datetime] NULL,
+	[TrangThai] [bit] NULL,
+ CONSTRAINT [PK_STT] PRIMARY KEY CLUSTERED 
+(
+	[STT] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SanPham]    Script Date: 15/05/2024 17:59:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SanPham](
+	[MaSP] [varchar](20) NOT NULL,
+	[TenSP] [nvarchar](50) NULL,
+	[MaNCC] [varchar](20) NOT NULL,
+	[MaLoaiSP] [varchar](10) NULL,
+	[GiaNhap] [decimal](18, 0) NULL,
+	[GiaBan] [decimal](18, 0) NULL,
+	[SoLuong] [int] NULL,
+	[HanSuDung] [varchar](5) NULL,
+	[DonViTinh] [nvarchar](20) NULL,
+	[HinhAnh] [varchar](255) NULL,
+	[TrangThai] [bit] NULL,
+ CONSTRAINT [PK_SP] PRIMARY KEY CLUSTERED 
+(
+	[MaSP] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TaiKhoan]    Script Date: 15/05/2024 17:59:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TaiKhoan](
+	[MaNV] [varchar](10) NOT NULL,
+	[MatKhau] [varchar](255) NULL,
+	[MaChucVu] [varchar](5) NULL,
+	[TrangThai] [bit] NULL,
+ CONSTRAINT [PK_TK] PRIMARY KEY CLUSTERED 
+(
+	[MaNV] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[HoaDonBanHang] ADD  CONSTRAINT [DF_HDBanHang_MaHD]  DEFAULT ([dbo].[GenerateMaHD]()) FOR [MaHD]
+GO
+ALTER TABLE [dbo].[HoaDonNhapKho] ADD  CONSTRAINT [DF_HDNhapKho_MaNK]  DEFAULT ([dbo].[GenerateMaNK]()) FOR [MaNK]
+GO
+ALTER TABLE [dbo].[KhachHang] ADD  CONSTRAINT [DF_KH_MAKH]  DEFAULT ([dbo].[GenerateMaKH]()) FOR [MaKH]
+GO
+ALTER TABLE [dbo].[LoaiSanPham] ADD  CONSTRAINT [DF_LSP_MaLoaiSP]  DEFAULT ([dbo].[GenerateMaLSP]()) FOR [MaLoaiSP]
+GO
+ALTER TABLE [dbo].[NhaCungCap] ADD  CONSTRAINT [DF_NCC_MANCC]  DEFAULT ([dbo].[GenerateMaNCC]()) FOR [MaNCC]
+GO
+ALTER TABLE [dbo].[NhanVien] ADD  CONSTRAINT [DF_TK_MANV]  DEFAULT ([dbo].[GenerateMaNV]()) FOR [MaNV]
+GO
+ALTER TABLE [dbo].[SanPham] ADD  CONSTRAINT [DF_SP_MaSP]  DEFAULT ([dbo].[GenerateMaSP]()) FOR [MaSP]
+GO
+ALTER TABLE [dbo].[TaiKhoan] ADD  DEFAULT ('NV') FOR [MaChucVu]
+GO
+ALTER TABLE [dbo].[ChiTietHoaDonBanHang]  WITH CHECK ADD  CONSTRAINT [FK_CTHDBH_HD] FOREIGN KEY([MaHD])
+REFERENCES [dbo].[HoaDonBanHang] ([MaHD])
+GO
+ALTER TABLE [dbo].[ChiTietHoaDonBanHang] CHECK CONSTRAINT [FK_CTHDBH_HD]
+GO
+ALTER TABLE [dbo].[ChiTietHoaDonBanHang]  WITH CHECK ADD  CONSTRAINT [FK_CTHDBH_KM] FOREIGN KEY([MaKM])
+REFERENCES [dbo].[KhuyenMai] ([MaKM])
+GO
+ALTER TABLE [dbo].[ChiTietHoaDonBanHang] CHECK CONSTRAINT [FK_CTHDBH_KM]
+GO
+ALTER TABLE [dbo].[ChiTietHoaDonBanHang]  WITH CHECK ADD  CONSTRAINT [FK_CTHDBH_SP] FOREIGN KEY([MaSP])
+REFERENCES [dbo].[SanPham] ([MaSP])
+GO
+ALTER TABLE [dbo].[ChiTietHoaDonBanHang] CHECK CONSTRAINT [FK_CTHDBH_SP]
+GO
+ALTER TABLE [dbo].[ChiTietHoaDonNhapKho]  WITH CHECK ADD  CONSTRAINT [FK_CTHDNK_SP] FOREIGN KEY([MaSP])
+REFERENCES [dbo].[SanPham] ([MaSP])
+GO
+ALTER TABLE [dbo].[ChiTietHoaDonNhapKho] CHECK CONSTRAINT [FK_CTHDNK_SP]
+GO
+ALTER TABLE [dbo].[HoaDonBanHang]  WITH CHECK ADD  CONSTRAINT [FK_HDBH_KH] FOREIGN KEY([MaKH])
+REFERENCES [dbo].[KhachHang] ([MaKH])
+GO
+ALTER TABLE [dbo].[HoaDonBanHang] CHECK CONSTRAINT [FK_HDBH_KH]
+GO
+ALTER TABLE [dbo].[HoaDonBanHang]  WITH CHECK ADD  CONSTRAINT [FK_HDBH_NV] FOREIGN KEY([MaNV])
+REFERENCES [dbo].[NhanVien] ([MaNV])
+GO
+ALTER TABLE [dbo].[HoaDonBanHang] CHECK CONSTRAINT [FK_HDBH_NV]
+GO
+ALTER TABLE [dbo].[HoaDonNhapKho]  WITH CHECK ADD  CONSTRAINT [FK_HDNK_NCC] FOREIGN KEY([MaNCC])
+REFERENCES [dbo].[NhaCungCap] ([MaNCC])
+GO
+ALTER TABLE [dbo].[HoaDonNhapKho] CHECK CONSTRAINT [FK_HDNK_NCC]
+GO
+ALTER TABLE [dbo].[HoaDonNhapKho]  WITH CHECK ADD  CONSTRAINT [FK_HDNK_NV] FOREIGN KEY([MaNV])
+REFERENCES [dbo].[NhanVien] ([MaNV])
+GO
+ALTER TABLE [dbo].[HoaDonNhapKho] CHECK CONSTRAINT [FK_HDNK_NV]
+GO
+ALTER TABLE [dbo].[NhanVien]  WITH CHECK ADD  CONSTRAINT [FK_NV_CV] FOREIGN KEY([MaChucVu])
+REFERENCES [dbo].[ChucVu] ([MaChucVu])
+GO
+ALTER TABLE [dbo].[NhanVien] CHECK CONSTRAINT [FK_NV_CV]
+GO
+ALTER TABLE [dbo].[SanPham]  WITH CHECK ADD  CONSTRAINT [FK_SP_LoaiSP] FOREIGN KEY([MaLoaiSP])
+REFERENCES [dbo].[LoaiSanPham] ([MaLoaiSP])
+GO
+ALTER TABLE [dbo].[SanPham] CHECK CONSTRAINT [FK_SP_LoaiSP]
+GO
+ALTER TABLE [dbo].[SanPham]  WITH CHECK ADD  CONSTRAINT [FK_SP_NCC] FOREIGN KEY([MaNCC])
+REFERENCES [dbo].[NhaCungCap] ([MaNCC])
+GO
+ALTER TABLE [dbo].[SanPham] CHECK CONSTRAINT [FK_SP_NCC]
+GO
+ALTER TABLE [dbo].[TaiKhoan]  WITH CHECK ADD  CONSTRAINT [FK_TK_CV] FOREIGN KEY([MaChucVu])
+REFERENCES [dbo].[ChucVu] ([MaChucVu])
+GO
+ALTER TABLE [dbo].[TaiKhoan] CHECK CONSTRAINT [FK_TK_CV]
+GO
+ALTER TABLE [dbo].[TaiKhoan]  WITH CHECK ADD  CONSTRAINT [FK_TK_NV] FOREIGN KEY([MaNV])
+REFERENCES [dbo].[NhanVien] ([MaNV])
+GO
+ALTER TABLE [dbo].[TaiKhoan] CHECK CONSTRAINT [FK_TK_NV]
+GO
+--=================================================
 create function func_TienBanSP
 (
 	@Ngay datetime,
@@ -329,7 +800,7 @@ END
 ------------------------------------------- GET AND SEARCH  -------------------------------------------
 GO
 --Account
-ALTER PROC sp_GetAccount
+CREATE PROC sp_GetAccount
 (
 	@MaNV varchar(255) = null,
 	@HoTen nvarchar(255) = null,
@@ -688,7 +1159,7 @@ CREATE PROC sp_GetDetailInvoiceImportWareHouse
 )
 as
 begin
-	SELECT MaNK, MaSP, SoLuong, DonGiaNhap, ThanhTien
+	SELECT MaNK, MaSP, SoLuong, DonGiaNhap, ThanhTien, SoLuongDaBan
 	FROM ChiTietHoaDonNhapKho
 	WHERE (MaNK LIKE '%' + ISNULL(@MaNK, '') + '%')
 		AND (MaSP LIKE '%' + ISNULL(@MaSp, '') + '%')
@@ -834,7 +1305,7 @@ begin
 	SELECT 1
 end
 GO
---Invoice Selling
+---===========================
 CREATE PROC sp_InsertInvoiceSelling
 (
 	@MaNV varchar(10),
@@ -854,7 +1325,6 @@ begin
 
 end
 GO
-
 --Detail Invoice Selling
 CREATE PROC sp_InsertDetailInvoiceSelling
 (
@@ -867,9 +1337,9 @@ CREATE PROC sp_InsertDetailInvoiceSelling
 as
 begin
 	INSERT INTO ChiTietHoaDonBanHang(MaHD, MaSP, MaKM, SoLuong, DonGia, ThanhTien)
-	VALUES (@MaHD, @MaSP, @MaKM, @SoLuong, @DonGia, @SoLuong* @DonGia* (1 - (SELECT GiaKhuyenMai
-																		FROM KhuyenMai
-																		WHERE MaKM = @MaKM))
+	VALUES (@MaHD, @MaSP, @MaKM, @SoLuong, @DonGia, @SoLuong* @DonGia* (1 - ISNULL( (SELECT GiaKhuyenMai
+																					FROM KhuyenMai
+																					WHERE MaKM = @MaKM), 0) )
 			)
 
 	UPDATE SanPham
@@ -882,7 +1352,7 @@ begin
 	WHERE MaSP = @MaSP AND MaNK = (SELECT TOP 1 MaNK
 									FROM ChiTietHoaDonNhapKho
 									WHERE MaSP = @MaSP AND SoLuongDaBan != 0 AND TrangThai = 1
-									ORDER BY NgayHetHan )
+									ORDER BY NgayHetHan ASC)
 end
 GO
 
@@ -939,8 +1409,8 @@ begin
 			SET @NgayHetHan = DATEADD(YEAR, CAST(LEFT(@HSD, LEN(@HSD) - 1 ) AS INT) , @NgayNhap)
 		END
 
-	INSERT INTO ChiTietHoaDonNhapKho(MaNK, MaSP, NgayHetHan, SoLuong, DonGiaNhap, ThanhTien)
-	VALUES (@MaNK, @MaSP, @NgayHetHan, @SoLuong, @DonGiaNhap, @SoLuong * @DonGiaNhap)
+	INSERT INTO ChiTietHoaDonNhapKho(MaNK, MaSP, NgayHetHan, SoLuong, DonGiaNhap, ThanhTien, SoLuongDaBan, TrangThai)
+	VALUES (@MaNK, @MaSP, @NgayHetHan, @SoLuong, @DonGiaNhap, @SoLuong * @DonGiaNhap, 0, 1)
 
 	UPDATE SanPham
 	SET SoLuong = SoLuong + @SoLuong
@@ -1059,10 +1529,9 @@ CREATE PROC sp_UpdateTypeProduct
 as
 begin
 	UPDATE LoaiSanPham
-	SET TenLoai = @TenLoai, @MoTa = MoTa
-	WHERE @MaLoaiSP = MaLoaiSP
+	SET TenLoai = @TenLoai, MoTa = @MoTa
+	WHERE MaLoaiSP = @MaLoaiSP
 
-	
 	SELECT 1
 end
 GO
@@ -1088,8 +1557,8 @@ GO
 --Discount
 CREATE PROC sp_UpdateDiscount
 (
-	@MaKM varchar(10),
-	@TenKM varchar(10),
+	@MaKM varchar(20),
+	@TenKM nvarchar(255),
 	@GiaKhuyenMai float = 0,
 	@NgayBatDau date = GETDATE,
 	@NgayKetThuc date = GETDATE
@@ -1137,9 +1606,9 @@ CREATE PROC sp_UpdateDetailInvoiceSelling
 as
 begin
 	UPDATE ChiTietHoaDonBanHang
-	SET MaSP =  @MaSP, MaKM = @MaKM, SoLuong = @SoLuong, DonGia = @DonGia, ThanhTien = @SoLuong * @DonGia * (SELECT GiaKhuyenMai
-																											FROM KhuyenMai
-																											WHERE MaKM = @MaKM)
+	SET MaSP =  @MaSP, MaKM = @MaKM, SoLuong = @SoLuong, DonGia = @DonGia, ThanhTien = @SoLuong * @DonGia * ISNULL((SELECT GiaKhuyenMai
+																													FROM KhuyenMai
+																													WHERE MaKM = @MaKM), 1)
 	WHERE MaHD = @MaHD
 
 	IF @SoLuong > (SELECT SoLuong FROM SanPham WHERE MaSP = @MaSP)
@@ -1425,7 +1894,7 @@ BEGIN
 	FROM QuanLyLoi
 	WHERE TrangThai = @TrangThai
 END
-
+GO
 CREATE PROC sp_InsertError
 (
 	@TenLoi varchar(255),
@@ -1440,7 +1909,7 @@ BEGIN
 END
 GO
 
-CREATE PROC UpdateStatusError
+CREATE PROC sp_UpdateStatusError
 (
 	@STT int,
 	@TrangThai bit
@@ -1454,3 +1923,240 @@ BEGIN
 	SELECT 1
 END
 GO
+
+--ADD DATA CHUCVU
+INSERT INTO CHUCVU (MaChucVu, TenChucVu, TrangThai) VALUES
+('QLCC',N'Quản Lý Cấp Cao',1)
+,('QL',N'Quản Lý',1)
+,('NV',N'Nhân Viên',1)
+
+--ADD DATA NHANVIEN
+INSERT INTO NHANVIEN (MaNV, CCCD, HoTen, GioiTinh, DiaChi, SDT, NgayTao,MaChucVu, TrangThai) VALUES
+('NV001',N'1234567890',N'Nguyễn Văn An',N'Nam',N'123 Lê Lợi, Quận 1, TP.HCM','0123456789','2023-08-09','NV',1)
+,('NV002',N'987654321',N'Trần Thị Bình',N'Nữ',N'456 Nguyễn Văn Linh, Quận 7, TP.HCM','0987654321','2023-09-12','NV',1)
+,('NV003',N'1357924680',N'Lê Văn Cường',N'Nam',N'789 Trần Hưng Đạo, Đà Nẵng','0909888777','2023-06-21','NV',0)
+,('NV004',N'2468013579',N'Phạm Thị Dung',N'Nữ',N'101 Lê Lai, Hải Phòng','0275928289','2023-10-03','NV',1)
+,('NV005',N'9876543210',N'Nguyễn Văn Bắc',N'Nam',N'456 Lý Thường Kiệt, Hà Nội','0798261174','2023-09-12','NV',1)
+,('NV006',N'1234567777',N'Phan Trọng Thắng',N'Nam',N'272 Đt743B, Dĩ An, Bình Dương','0387976595','2024-03-28','QLCC',1)
+,('NV007',N'5678901234',N'Lê Văn Hoàng',N'Nam',N'101 Hùng Vương, Đà Nẵng','0286571997','2022-11-15','NV',1)
+,('NV008',N'4321098765',N'Phạm Thị Hương',N'Nữ',N'123 Bạch Đằng, Hải Phòng','0152397704','2023-03-11','NV',1)
+,('NV009',N'987123456',N'Nguyễn Văn Thành',N'Nam',N'456 Nguyễn Huệ, TP.HCM','03503979231','2023-03-12','NV',1)
+,('NV010',N'6543210987',N'Nguyễn Anh Quân',N'Nam',N'Quận 2, Tp.Hcm','09786451744','2023-09-14','QL',1)
+
+
+--ADD DATA TAIKHOAN
+INSERT INTO TAIKHOAN (MaNV, MatKhau, MaChucVu, TrangThai) VALUES
+('NV001','password123','NV',1)
+,('NV002','123456','NV',1)
+,('NV003','abcdef','NV',0)
+,('NV004','pass1234','NV',1)
+,('NV005','987654','NV',1)
+,('NV006','qwerty','QLCC',0)
+,('NV007','654321','NV',1)
+,('NV008','passpass','NV',1)
+,('NV009','111111','NV',1)
+,('NV010','222222','QL',1)
+
+--ADD DATA KHACHHANG
+INSERT INTO KHACHHANG (MaKH,HoTen, CCCD, SDT, GioiTinh, DiaChi, NgayDangKy, TrangThai) VALUES
+('00001',N'Nguyễn Thị Hồng','1234567890','0123456789',N'Nữ',N'10 Nguyễn Du, Quận 1, TP.HCM','2023-12-23',1)
+,('00002',N'Trần Văn Long','987654321','0987654321',N'Nam',N'20 Lê Lợi, Quận 3, TP.HCM','2023-11-30',1)
+,('00003',N'Lê Thị Thanh','1357924680','0909888777',N'Nữ',N'30 Đống Đa, Quận 5, TP.HCM','2023-10-14',0)
+,('00004',N'Phạm Văn Đức','2468013579','0888999000',N'Nam',N'40 Nguyễn Huệ, Quận 10, TP.HCM','2024-02-26',1)
+,('00005',N'Hoàng Thị Mai','9876543210','0752482910',N'Nữ',N'50 Hai Bà Trưng, Quận 11, TP.HCM','2024-02-23',1)
+,('00006',N'Nguyễn Văn Đức','123456789','0532763863',N'Nam',N'60 Cộng Hòa, Quận Tân Bình, TP.HCM','2024-01-08',0)
+,('00007',N'Trần Thị Hương','5678901234','0786489709',N'Nữ',N'70 Nguyễn Thị Minh Khai, Quận 3, TP.HCM','2023-12-31',1)
+,('00008',N'Lê Văn Nam','4321098765','0546217599',N'Nam',N'80 Trần Hưng Đạo, Quận 5, TP.HCM','2023-12-17',1)
+,('00009',N'Phạm Thị Hằng','987123456','0928223819',N'Nữ',N'90 Bến Thành, Quận 1, TP.HCM','2023-12-02',1)
+,('00010',N'Hoàng Văn Tuấn','6543210987','0928335309',N'Nam',N'100 Phạm Ngọc Thạch, Quận 3, TP.HCM','2024-01-13',0)
+
+
+
+--ADD DATA NHACUNGCAP
+INSERT INTO NHACUNGCAP (MaNCC,TenNCC, SDT, DiaChi, TrangThai) VALUES
+('NCC001',N'Cửa hàng Thực Phẩm A','0123 456 789',N'12 Nguyễn Văn Linh, Quận 7, HCM',1)
+,('NCC002',N'Cửa hàng Tiện Lợi B','0987 654 321',N'34 Lê Lai, Quận 1, HCM',1)
+,('NCC003',N'Cửa hàng Vật Liệu C','0909 888 777',N'56 Nguyễn Thị Minh Khai, Q.3, HCM',0)
+,('NCC004',N'Siêu Thị Mini XYZ','0888 999 000',N'78 Lý Thường Kiệt, Quận 10, HCM',1)
+,('NCC005',N'Cửa hàng Đồ Điện D','0123 456 123',N'90 Trần Hưng Đạo, Quận 5, HCM',1)
+,('NCC006',N'Siêu Thị Nhỏ ABC','0987 654 987',N'123 Bến Thành, Quận 1, HCM',1)
+,('NCC007',N'Cửa hàng Thực Phẩm E','0909 888 555',N'456 Cống Quỳnh, Quận 1, HCM',0)
+,('NCC008',N'Cửa hàng Tiện Lợi F','0888 999 111',N'678 Nguyễn Văn Cừ, Quận 5, HCM',1)
+,('NCC009',N'Cửa hàng Vật Liệu G','0123 456 333',N'890 Nguyễn Đình Chiểu, Q.3, HCM',1)
+,('NCC010',N'Siêu Thị Mini KLM','0987 654 444',N'101 Lê Lợi, Quận 1, HCM',0)
+
+
+--ADD DATA LOAISANPHAM
+INSERT INTO LOAISANPHAM (MaLoaiSP, TenLoai, MoTa) VALUES
+('LSP001',N'Bánh Kẹo',N'Loại sản phẩm gồm các loại bánh và kẹo')
+,('LSP002',N'Nước Giải Khát',N'Loại sản phẩm chứa các loại nước giải khát')
+,('LSP003',N'Thực Phẩm',N'Loại sản phẩm bao gồm các sản phẩm thực phẩm')
+,('LSP004',N'Gia Vị',N'Loại sản phẩm chứa các loại gia vị khác nhau')
+,('LSP005',N'Đồ Điện Tử',N'Loại sản phẩm bao gồm các sản phẩm điện tử')
+,('LSP006',N'Quần Áo',N'Loại sản phẩm chứa các sản phẩm quần áo và phụ kiện')
+,('LSP007',N'Đồ Chơi',N'Loại sản phẩm gồm các loại đồ chơi cho trẻ em')
+,('LSP008',N'Mỹ Phẩm',N'Loại sản phẩm chứa các sản phẩm mỹ phẩm và làm đẹp')
+,('LSP009',N'Đồ Gia Dụng',N'Loại sản phẩm chứa các sản phẩm gia dụng và đồ nội thất')
+,('LSP010',N'Thực Phẩm Tươi',N'Loại sản phẩm chứa các sản phẩm thực phẩm tươi sống')
+
+
+--ADD DATA SANPHAM
+INSERT INTO SANPHAM (MaSP,TenSP, MaNCC, MaLoaiSP, GiaNhap, GiaBan, SoLuong, HanSuDung, DonViTinh,HinhAnh, TrangThai) VALUES
+('SP001',N'Bánh Quy Hương Vị Socola','NCC001','LSP001','10000','15000','50','1Y',N'Hộp','banhquysocola.jpg',1)
+,('SP002',N'Nước Ngọt Pepsi','NCC002','LSP002','8000','12000','30','1Y',N'Lon','nuocngotpepsi.jpg',1)
+,('SP003',N'Gạo Tám Sáng','NCC003','LSP003','20000','25000','20','5M',N'Kg','gaotamsang.jpg',1)
+,('SP004',N'Bột Ngọt Ajinomoto','NCC004','LSP004','5000','7000','40','1.5Y',N'Gói','botngotajinomoto.jpg',1)
+,('SP005',N'Điện Thoại Smartphone Samsung','NCC005','LSP005','5000000','5500000','5','',N'Cái','dthsamsung.jpg',1)
+,('SP006',N'Áo Thun Nam','NCC006','LSP006','120000','150000','10','99Y',N'Cái','aothunnam.jpg',1)
+,('SP007',N'Búp Bê Barbie','NCC007','LSP007','150000','200000','20','99Y',N'Cái','bbbarbie.jpg',1)
+,('SP008',N'Kem Chống Nắng SPF 50','NCC008','LSP008','200000','250000','12','2Y',N'Chai','kemchongnangspf_50.jpg',1)
+,('SP009',N'Nồi Cơm Điện Tự Động','NCC009','LSP009','300000','350000','8','99Y',N'Cái','noicomdien.jpg',1)
+,('SP010',N'Rau Cải Xanh Tươi','NCC010','LSP010','20000','25000','30','2D',N'Kg','raucaixanh.jpg',1)
+,('SP011',N'Bánh Bông Lan','NCC001','LSP001','30000','40000','40','7D',N'Hộp','banhbonglan.jpg',1)
+,('SP012',N'Nước Suối Lavie','NCC002','LSP002','5000','7000','70','99Y',N'Chai','nuoclavie.jpg',1)
+,('SP013',N'Sữa Tươi Vinamilk','NCC003','LSP003','25000','30000','60','6M',N'Hủ','suavinamilk.jpg',1)
+,('SP014',N'Tiêu Xanh','NCC004','LSP004','7000','10000','80','3M',N'Gói','tieuxanh.jpg',1)
+,('SP015',N'Tai Nghe Bluetooth','NCC005','LSP005','300000','350000','10','99Y',N'Cái','tainghebluetooth.jpg',1)
+,('SP016',N'Áo Khoác Dù','NCC006','LSP006','250000','300000','20','99Y',N'Cái','aokhoacdu.jpg',1)
+,('SP017',N'Puzzle','NCC007','LSP007','100000','150000','15','99Y',N'Hộp','puzzle.jpg',1)
+,('SP018',N'Kem Dưỡng Da Neutrogena','NCC008','LSP008','150000','200000','8','3Y',N'Hũ','kemduongdaneutrogena.jpg',1)
+,('SP019',N'Bình Đun Siêu Tốc','NCC009','LSP009','500000','600000','5','99Y',N'Cái','binhdunsieutoc.jpg',1)
+,('SP020',N'Dưa Hấu','NCC010','LSP010','15000','20000','40','4D',N'Kg','duahau.jpg',1)
+
+--ADD DATA KHUYENMAI
+INSERT INTO KHUYENMAI (MaKM, TenKM, GiaKhuyenMai, NgayBatDau, NgayKetThuc)  VALUES
+('KM080324',N'Khuyến Mãi 8/3/2024','0.1','2024-03-06','2024-03-08')
+,('KMGP24',N'Khuyến Mãi Ngày Giải Phóng 30/4/2024','0.2','2024-04-27','2024-05-02')
+,('KMQK23',N'Khuyến Mãi Ngày Quốc Khánh 2/9/2023','0.2','2023-08-28','2023-09-04')
+,('KMSN24',N'Khuyến Mãi Sinh Nhật Năm 24','0.15','2024-02-22','2024-02-22')
+,('KMTEST',N'Khuýen Mãi Test','0.3','2024-04-19','2024-05-15')
+,('TETST2',N'Test 2','0.2','2024-04-19','2024-05-15')
+
+
+
+--ADD DATA HOADONBANHANG
+INSERT INTO HOADONBANHANG (MaHD, MaNV, MaKH, NgayLapHD, TongTien, TienKhachDua, TienTraKhach) VALUES
+('HD001','NV001','00001','2023-12-25 22:28:48','200000','300000','100000')
+,('HD002','NV002','00002','2024-02-28 00:11:58','24000','50000','26000')
+,('HD003','NV003','00003','2023-09-27 18:48:03','28000','30000','2000')
+,('HD004','NV004','00004','2024-01-26 14:52:43','450000','500000','50000')
+,('HD005','NV005','00005','2023-04-07 14:26:19','500000','500000','0')
+,('HD006','NV006','00006','1900-01-01 00:00:00','75000','75000','0')
+,('HD007','NV007','00007','2023-03-24 13:26:11','70000','70000','0')
+,('HD008','NV008','00008','2023-09-02 12:55:13','32000','50000','18000')
+,('HD009','NV009','00009','2023-07-22 00:24:46','300000','500000','200000')
+,('HD010','NV010',NULL,'1900-01-01 00:00:00','0','0','0')
+,('HD012','NV002',NULL,'1900-01-01 00:00:00','0','0','0')
+,('HD013','NV002',NULL,'2024-04-21 17:59:33','0','0','0')
+,('HD014','NV002',NULL,'2024-04-21 18:00:57','8400','10000','1600')
+,('HD015','NV002',NULL,'2024-05-04 20:37:34','243600','300000','56400')
+,('HD016','NV002',NULL,'2024-05-04 20:38:06','572600','300000','-272600')
+,('HD017','NV002',NULL,'2024-05-04 20:38:19','572600','800000','227400')
+,('HD018','NV002',NULL,'2024-05-04 21:14:08','112700','120000','7300')
+,('HD019','NV002',NULL,'2024-05-04 21:16:50','7940800','8000000','59200')
+,('HD020','NV002',NULL,'2024-05-04 21:25:57','1190000','2000000','810000')
+,('HD021','NV002','00007','2024-05-04 21:45:05','98700','100000','1300')
+,('HD022','NV002',NULL,'2024-05-04 21:56:52','129500','130000','500')
+,('HD023','NV002',NULL,'2024-05-04 21:59:52','25900','30000','4100')
+,('HD024','NV002',NULL,'2024-05-04 23:36:01','18900','20000','1100')
+,('HD025','NV002',NULL,'2024-05-05 11:35:00','35700','40000','4300')
+,('HD026','NV002','00001','2024-05-05 11:36:19','35700','40000','4300')
+,('HD027','NV002',NULL,'2024-05-05 12:00:48','48300','60000','11700')
+,('HD028','NV002',NULL,'2024-05-06 14:15:50','227500','250000','22500')
+,('HD029','NV002',NULL,'2024-05-08 11:36:40','39900','40000','100')
+,('HD030','NV002',NULL,'2024-05-08 19:40:48','10500','11000','500')
+
+
+
+
+--ADD DATA CHITIETHOADONBANHANG
+INSERT INTO CHITIETHOADONBANHANG (MaHD, MaSP, MaKM,SoLuong, DonGia, ThanhTien) VALUES
+('HD001','SP003',null,4,25000,100000)
+,('HD001','SP020',null,5,20000,100000)
+,('HD002','SP002',null,2,12000,24000)
+,('HD003','SP002', 'KMTEST',4,7000,19600)
+,('HD003','SP004',null,4,7000,28000)
+,('HD004','SP006',null,3,150000,450000)
+,('HD004','SP008', 'KMTEST',1,2345,1642)
+,('HD005','SP008',null,2,250000,500000)
+,('HD006','SP010',null,3,25000,75000)
+,('HD007','SP012',null,10,7000,70000)
+,('HD008','SP014', 'KMQK23',4,10000,32000)
+,('HD009','SP016',null,1,300000,300000)
+,('HD015','SP002', 'KMTEST',4,12000,33600)
+,('HD015','SP006', 'KMTEST',2,150000,210000)
+,('HD016','SP002', 'KMTEST',4,12000,33600)
+,('HD016','SP006', 'KMTEST',5,150000,525000)
+,('HD016','SP014', 'KMTEST',2,10000,14000)
+,('HD017','SP002', 'KMTEST',4,12000,33600)
+,('HD017','SP006', 'KMTEST',5,150000,525000)
+,('HD017','SP014', 'KMTEST',2,10000,14000)
+,('HD018','SP004', 'KMTEST',8,7000,39200)
+,('HD018','SP010', 'KMTEST',3,25000,52500)
+,('HD018','SP014', 'KMTEST',3,10000,21000)
+,('HD019','SP001', 'KMTEST',2,15000,21000)
+,('HD019','SP005', 'KMTEST',2,5500000,7700000)
+,('HD019','SP012', 'KMTEST',2,7000,9800)
+,('HD019','SP016', 'KMTEST',1,300000,210000)
+,('HD020','SP003', 'KMTEST',2,25000,35000)
+,('HD020','SP007', 'KMTEST',3,200000,420000)
+,('HD020','SP009', 'KMTEST',3,350000,735000)
+,('HD021','SP002', 'KMTEST',2,12000,16800)
+,('HD021','SP004', 'KMTEST',1,7000,4900)
+,('HD021','SP011', 'KMTEST',2,40000,56000)
+,('HD021','SP014', 'KMTEST',3,10000,21000)
+,('HD022','SP001', 'KMTEST',5,15000,52500)
+,('HD022','SP003', 'KMTEST',2,25000,35000)
+,('HD022','SP020', 'KMTEST',3,20000,42000)
+,('HD023','SP002', 'KMTEST',1,12000,8400)
+,('HD023','SP003', 'KMTEST',1,25000,17500)
+,('HD024','SP001', 'KMTEST',1,15000,10500)
+,('HD024','SP002', 'KMTEST',1,12000,8400)
+,('HD025','SP001', 'KMTEST',1,15000,10500)
+,('HD025','SP002', 'KMTEST',3,12000,25200)
+,('HD026','SP001', 'KMTEST',1,15000,10500)
+,('HD026','SP002', 'KMTEST',3,12000,25200)
+,('HD027','SP001', 'KMTEST',3,15000,31500)
+,('HD027','SP002', 'KMTEST',2,12000,16800)
+,('HD028','SP003', 'KMTEST',1,25000,17500)
+,('HD028','SP006', 'KMTEST',2,150000,210000)
+,('HD029','SP003','KMTEST',2,25000,35000)
+,('HD029','SP004','KMTEST',1,7000,4900)
+,('HD030','SP001', 'KMTEST',1,15000,10500)
+
+
+--ADD DATA HOADONNHAPKHO
+INSERT INTO HOADONNHAPKHO (MaNK, NgayNhapKho, MaNV, MaNCC, TongTien) VALUES
+('NK001','2023-05-04 04:50:10','NV001','NCC002',3300000)
+,('NK002','2022-10-13 05:21:55','NV002','NCC003',2840000)
+,('NK003','2024-01-17 06:00:42','NV003','NCC001',285500000)
+,('NK004','2023-05-28 09:59:04','NV004','NCC004',17520000)
+,('NK005','2022-11-23 22:14:42','NV005','NCC002',25000000)
+,('NK006','2022-11-26 02:25:39','NV006','NCC003',1500000)
+,('NK007','2023-11-22 15:35:09','NV007','NCC001',1100000)
+,('NK008','2023-08-13 12:16:43','NV008','NCC004',1700000)
+,('NK009','2023-12-26 05:29:38','NV009','NCC002',1400000)
+,('NK010','2023-12-05 16:35:18','NV010','NCC003',1600000)
+,('NK011','2024-05-06 13:54:02','NV002','NCC006',1500000)
+,('NK012','2024-05-06 13:54:02','NV002','NCC006',16500000)
+,('NK013','2024-05-06 14:08:39','NV002','NCC006',13800000)
+,('NK014','2024-05-12 21:55:53','NV002','NCC002',7000)
+
+
+
+--ADD DATA CHITIETHOADONNHAPKHO
+INSERT INTO CHITIETHOADONNHAPKHO(MaNK, MaSP, NgayHetHan, SoLuong, DonGiaNhap, ThanhTien, TrangThai, SoLuongDaBan) VALUES
+('NK001','SP001',NULL,100,10000,1000000,'TRUE',0)
+,('NK001','SP002',NULL,150,8000,1200000,'TRUE',0)
+,('NK002','SP003',NULL,80,20000,1600000,'TRUE',0)
+,('NK002','SP004',NULL,120,5000,600000,'TRUE',0)
+,('NK003','SP005',NULL,50,5000000,250000000,'TRUE',0)
+,('NK003','SP006',NULL,70,120000,8400000,'TRUE',0)
+,('NK004','SP007',NULL,30,150000,4500000,'TRUE',0)
+,('NK004','SP008',NULL,45,200000,9000000,'TRUE',0)
+,('NK005','SP009',NULL,65,300000,19500000,'TRUE',0)
+,('NK005','SP010',NULL,90,20000,1800000,'TRUE',0)
+,('NK011','SP006','2024-05-13',10,150000,1500000,'FALSE',0)
+,('NK013','SP006',NULL,92,150000,13800000,'TRUE',0)
+,('NK014','SP012','2024-05-13',1,7000,7000,'FALSE',0)
+

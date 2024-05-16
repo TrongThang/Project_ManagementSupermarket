@@ -1,0 +1,2 @@
+- File Create proc có một vài lệnh chưa cập nhật giống với RunOneToAll_Query.
+- File RunOneToAll_Query gộp đầy đủ các 3 File SQL.

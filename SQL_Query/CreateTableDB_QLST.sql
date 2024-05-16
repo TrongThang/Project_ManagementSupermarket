@@ -121,6 +121,18 @@ END;
 
 GO
 
+CREATE TABLE QuanLyLoi
+(
+	STT int identity(1,1),
+	TenLoi varchar(255),
+	ViTriLoi varchar(255),
+	ThoiGian datetime,
+	TrangThai bit
+
+	constraint PK_STT primary key(STT)
+)
+
+
 create table ChucVu
 (
 	MaChucVu varchar(5),
@@ -131,8 +143,6 @@ create table ChucVu
 )
 
 ---======EMPLOYEE
-
-
 create table NhanVien
 (
 	MaNV varchar(10) not null constraint DF_TK_MANV default dbo.GenerateMaNV(),
@@ -279,8 +289,9 @@ create table ChiTietHoaDonNhapKho
 (
 	MaNK varchar(20) not null,
 	MaSP  varchar(20) not null,
-	HánuDung date,
+	HanSuDung date,
 	SoLuong int,
+	SoLuongDaBan int DEFAULT 0,
 	DonGiaNhap decimal(18,0),
 	ThanhTien decimal(18,0)
 
@@ -288,4 +299,7 @@ create table ChiTietHoaDonNhapKho
 	constraint FK_CTHDNK_SP foreign key(MaSP) references SanPham(MaSP)
 )
 
-
+CREATE TABLE QuanLyLoi
+(
+	
+)
